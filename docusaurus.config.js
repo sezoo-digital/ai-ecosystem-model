@@ -7,7 +7,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const config = {
   title: 'AI Ecosystem Architecture & Governance',
   tagline: 'Conceptual models of the AI ecosystem, governance boundaries, and value flows.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/Sezoo-favicon.ico',
 
   // Production URL settings for Sezoo GitHub Pages
   url: 'https://sezoo.github.io',
@@ -59,7 +59,7 @@ const config = {
         title: 'Sezoo',
         logo: {
           alt: 'Sezoo Logo',
-          src: 'img/logo.svg',
+          src: 'img/Sezoo_Logo.svg',
         },
         items: [
           {
