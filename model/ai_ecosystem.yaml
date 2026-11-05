@@ -1,123 +1,213 @@
 metadata:
-  title: "AI Ecosystem Governance & Economic Model"
-  version: "1.0"
-  description: "Canonical property graph mapping the modern AI ecosystem."
+  title: "AI Ecosystem Governance, Economic & Technical Architecture Model"
+  version: "2.0"
+  description: "Canonical property graph mapping economic power, authority delegation, technical protocols, and liability boundaries across the AI value chain."
+
+# Global visual vocabulary applied deterministically by diagram generators
+styles:
+  domains:
+    economic:
+      color: "#f6ffed"
+      stroke: "#52c41a"
+      shape: "rect"
+    technical:
+      color: "#e6f7ff"
+      stroke: "#1890ff"
+      shape: "rounded"
+    governance:
+      color: "#fff1f0"
+      stroke: "#f5222d"
+      shape: "hexagon"
+  edge_types:
+    money:
+      stroke: "#52c41a"
+      style: "thick"
+      arrow: "-->"
+    authority:
+      stroke: "#722ed1"
+      style: "bold"
+      arrow: "==>"
+    governance_control:
+      stroke: "#f5222d"
+      style: "dashed"
+      arrow: "-.->"
+    disclaim:
+      stroke: "#fa8c16"
+      style: "dotted"
+      arrow: "-.->|disclaims|"
+    tension:
+      stroke: "#fa541c"
+      style: "dotted"
+      arrow: "x--x"
+    protocol:
+      stroke: "#1890ff"
+      style: "solid"
+      arrow: "-->"
+    flow:
+      stroke: "#595959"
+      style: "solid"
+      arrow: "-->"
 
 clusters:
+  - id: cluster_regulatory
+    label: "0. Jurisdictional & Regulatory Sphere"
   - id: cluster_supply
     label: "1. Upstream Foundation & Model Lab"
   - id: cluster_product
-    label: "2. Specialized Product & Harness Domain (ISV)"
+    label: "2. Specialized Product & Harness Domain (ISV / Custom Eng)"
   - id: cluster_client
     label: "3. Enterprise & Principal Domain"
   - id: cluster_environment
-    label: "4. Target Execution Environment"
+    label: "4. Target Execution Environment & Blast Radius"
 
 nodes:
+  # Sphere 0: Regulatory
+  - id: N_REGULATOR
+    label: "Statutory Authorities & Courts"
+    sublabel: "EU AI Act, FTC, Tort & Consumer Protection"
+    cluster: cluster_regulatory
+    domains: [governance]
+    shape: hexagon
+    properties:
+      enforcement_mechanism: "Fines, Injunctions, Tort Liability"
+
+  # Sphere 1: Upstream Supply Chain
   - id: N_TRAIN
     label: "Training Supply Chain"
-    sublabel: "Data Curators, Annotators, Compute"
+    sublabel: "Data Curators, Annotators, Compute Clusters"
     cluster: cluster_supply
     domains: [economic, technical]
+    shape: rect
     properties:
-      cost_type: "Fixed / R&D CapEx"
+      cost_type: "Fixed / Heavy R&D CapEx"
+      ip_risk: "Copyright Infringement / Scraping Scrutiny"
 
   - id: N_FRONTIER
-    label: "Frontier Model Instance"
-    sublabel: "Weights & Wholesale Inference API"
+    label: "Frontier Model Lab (Cloud API)"
+    sublabel: "Closed Weights & Commercial Inference APIs"
     cluster: cluster_supply
     domains: [economic, technical, governance]
+    shape: rounded
     properties:
       pricing_model: "Per-Token Usage"
-      liability_posture: "Disclaimed via ToS"
+      liability_posture: "Disclaimed via ToS / As-Is"
 
   - id: N_ABSORBED
     label: "Platform Absorption Zone"
-    sublabel: "Native Tools, Prompt Cache, Hosted State"
+    sublabel: "Native Context Windows, Code Exec, Hosted State"
     cluster: cluster_supply
     domains: [economic, technical]
+    shape: rect
     properties:
-      market_effect: "Encroachment on ISVs"
+      market_effect: "Feature commoditization of wrapper ISVs"
 
+  # Sphere 2: ISV / Agentic Harness
   - id: N_ISV_PRODUCT
-    label: "Specialized AI Product"
-    sublabel: "Vertical Solutions (Legal, Medical, Finance)"
+    label: "Specialized AI Application"
+    sublabel: "Vertical Solutions (Legal, Medical, Code, Ops)"
     cluster: cluster_product
     domains: [economic, technical]
+    shape: rounded
     properties:
-      pricing_model: "SaaS Seat / Outcome Pricing"
-      margin_profile: "High Gross Margin (Vulnerable)"
+      pricing_model: "Per-Seat SaaS / Value-Added Outcome"
+      margin_exposure: "Squeezed by token costs & commoditization"
 
   - id: N_HARNESS
     label: "Agent Governance Harness"
-    sublabel: "Rights, Duties & Deterministic Sandbox"
+    sublabel: "Deterministic Policy Engine & Guardrails"
     cluster: cluster_product
     domains: [technical, governance]
+    shape: subproc
     properties:
-      enforcement: "Deterministic Policies & Budgets"
-      audit_role: "Sovereign Audit Ledger"
+      enforcement: "Deterministic Policies, Rate/Budget Quotas"
+      duty_of_care: "Prevents hallucinations & out-of-bounds execution"
 
   - id: N_MEMORY
     label: "State & Persistence Layer"
-    sublabel: "Episodic Vector DBs & Audit History"
+    sublabel: "Episodic Vector DBs & Sovereign Audit Store"
     cluster: cluster_product
     domains: [technical, governance]
+    shape: cylinder
     properties:
       sovereignty: "Client / Enterprise Owned"
-      compliance: "GDPR / Audit Logging"
+      evidentiary_role: "Audit Log for Forensic Reconstruction"
 
+  - id: N_OBSERVE
+    label: "Observability & Evals Engine"
+    sublabel: "Continuous Evaluation, Tracing & Cost Metrics"
+    cluster: cluster_product
+    domains: [technical, governance, economic]
+    shape: rounded
+    properties:
+      capabilities: "LLM-as-a-judge, Latency Tracing, Token Telemetry"
+
+  # Sphere 3: Enterprise Principal
   - id: N_ENTERPRISE
     label: "Enterprise Principal"
-    sublabel: "Budget Holder & Legal Entity"
+    sublabel: "Legal Entity & Ultimate Budget Sponsor"
     cluster: cluster_client
     domains: [economic, governance]
+    shape: rect
     properties:
-      liability_posture: "Holds Vicarious Legal Liability"
-      commercial_role: "Economic Sponsor"
+      legal_standing: "Holds Vicarious Legal Liability"
+      risk_appetite: "Governed by Board & Risk Committees"
+
+  - id: N_IDP
+    label: "Enterprise Identity & Auth (IdP)"
+    sublabel: "OAuth, OIDC, Workload IAM & Ephemeral Tokens"
+    cluster: cluster_client
+    domains: [technical, governance]
+    shape: stadium
+    properties:
+      security_role: "Issues scoped actor delegations"
 
   - id: N_HUMAN_USER
     label: "Human Task Delegator"
-    sublabel: "End User / Operator"
+    sublabel: "End User, Operator or Reviewer"
     cluster: cluster_client
     domains: [technical, governance]
+    shape: circle
     properties:
-      control_mode: "Prompting & HITL Approvals"
+      control_mode: "Prompting, Review, Human-in-the-Loop (HITL)"
 
+  # Sphere 4: Environment & Blast Radius
   - id: N_MCP_HOST
-    label: "Protocol Gateway (MCP)"
-    sublabel: "Standardized Tool Discovery & Context"
+    label: "Protocol Gateway (MCP Host)"
+    sublabel: "Model Context Protocol Client & Tool Broker"
     cluster: cluster_environment
     domains: [technical, governance]
+    shape: subproc
     properties:
-      protocol_standard: "Model Context Protocol"
-      security: "Scope Negotiation"
+      protocol_standard: "Model Context Protocol (MCP)"
+      isolation: "Enforces dynamic capability boundaries"
 
   - id: N_TARGET_SYS
-    label: "Target Systems & APIs"
-    sublabel: "Databases, ERPs, Cloud Infrastructure"
+    label: "Target Systems & Critical APIs"
+    sublabel: "Core Databases, Production ERP, Cloud Infrastructure"
     cluster: cluster_environment
     domains: [technical, governance]
+    shape: cylinder
     properties:
-      risk_zone: "Blast Radius"
-      access_control: "RBAC / Least Privilege"
+      risk_zone: "Unrecoverable Blast Radius"
+      access_control: "Least Privilege Service Principal"
 
 edges:
-  # Economic Edges
+  # --- 1. Economic Edges ---
   - from: N_ENTERPRISE
     to: N_ISV_PRODUCT
-    label: "$$$ High-Margin SaaS / Outcome Contract"
+    label: "$$$ High-Margin SaaS / Outcome Contracts"
     domains: [economic]
     type: money
 
   - from: N_ISV_PRODUCT
     to: N_FRONTIER
-    label: "$$ Wholesale Token Consumption"
+    label: "$$ Token Consumption Cost"
     domains: [economic]
     type: money
 
   - from: N_FRONTIER
     to: N_TRAIN
-    label: "$ Compute & Annotation CapEx"
+    label: "$ R&D CapEx & GPU Compute"
     domains: [economic]
     type: money
 
@@ -127,49 +217,67 @@ edges:
     domains: [economic]
     type: tension
 
-  # Governance & Authority Edges
+  - from: N_OBSERVE
+    to: N_ENTERPRISE
+    label: "Cost & Token Attribution Data"
+    domains: [economic]
+    type: flow
+
+  # --- 2. Governance, Rights & Liability Edges ---
+  - from: N_REGULATOR
+    to: N_ENTERPRISE
+    label: "Statutory Compliance & Fines"
+    domains: [governance]
+    type: authority
+
   - from: N_ENTERPRISE
     to: N_HARNESS
-    label: "Delegates Authority & Statutory Duties"
+    label: "Delegates Authority & Safety Boundaries"
     domains: [governance]
     type: authority
 
   - from: N_HUMAN_USER
     to: N_HARNESS
-    label: "Human-in-the-Loop Oversight & Overrides"
+    label: "HITL Approvals & Explicit Escalation"
     domains: [governance]
     type: authority
 
   - from: N_FRONTIER
     to: N_ENTERPRISE
-    label: "Disclaims Liability (ToS Boundary)"
+    label: "Disclaims Liability (As-Is ToS)"
     domains: [governance]
     type: disclaim
 
   - from: N_HARNESS
     to: N_MEMORY
-    label: "Mandatory Audit Trail & State Proof"
+    label: "Tamper-Evident Forensic Audit Record"
     domains: [governance]
     type: governance_control
 
   - from: N_HARNESS
     to: N_MCP_HOST
-    label: "Enforces Least Privilege & Limits"
+    label: "Enforces Permission Scopes & Caps"
     domains: [governance]
     type: governance_control
 
-  - from: N_MCP_HOST
-    to: N_TARGET_SYS
-    label: "Constrains Blast Radius"
+  - from: N_TARGET_SYS
+    to: N_REGULATOR
+    label: "Potential Harm / Incident Blast Radius"
     domains: [governance]
-    type: governance_control
+    type: tension
 
-  # Technical & Protocol Edges
+  # --- 3. Technical & Protocol Edges ---
   - from: N_HUMAN_USER
     to: N_ISV_PRODUCT
-    label: "Task Intent & Context"
+    label: "Prompt Intent & Working Context"
     domains: [technical]
     type: flow
+
+  - from: N_IDP
+    to: N_HARNESS
+    label: "Issues Scoped Delegation Token"
+    domains: [technical, governance]
+    type: protocol
 
   - from: N_ISV_PRODUCT
     to: N_HARNESS
@@ -179,35 +287,55 @@ edges:
 
   - from: N_HARNESS
     to: N_FRONTIER
-    label: "Inference API (Tokens / System Prompts)"
+    label: "Inference API (Prompt / System Directives)"
     domains: [technical]
     type: protocol
 
   - from: N_HARNESS
     to: N_MEMORY
-    label: "Context Retrieval & State Checkpointing"
+    label: "Vector Store RAG & Checkpoint Commits"
+    domains: [technical]
+    type: flow
+
+  - from: N_HARNESS
+    to: N_OBSERVE
+    label: "Real-time Telemetry & Evaluation Traces"
     domains: [technical]
     type: flow
 
   - from: N_HARNESS
     to: N_MCP_HOST
-    label: "MCP Tool Calling Protocol"
+    label: "JSON-RPC / MCP Tool Invocations"
     domains: [technical]
     type: protocol
 
   - from: N_MCP_HOST
     to: N_TARGET_SYS
-    label: "Execute Actions / Read Data"
+    label: "Authenticated Read/Write API Calls"
     domains: [technical]
     type: flow
 
 views:
   - id: view_economic
-    title: "Executive & Economic View (Value Flows & Commoditization)"
+    title: "Executive & Economic View: Value Flows & Commoditization"
+    description: "Depicts capital allocation, cost vulnerabilities, and platform absorption pressure."
     domains: [economic]
     direction: "TB"
 
   - id: view_governance
-    title: "Governance, Rights & Liability View"
+    title: "Governance, Rights & Liability View: The Accountability Chain"
+    description: "Highlights statutory oversight, authority delegation, ToS liability gaps, and blast radius risk."
     domains: [governance]
+    direction: "TB"
+
+  - id: view_technical
+    title: "Engineering & Technical Architecture: Execution Protocols"
+    description: "Illustrates the agentic loop, IdP delegation, MCP tool calling, and persistence mechanisms."
+    domains: [technical]
+    direction: "LR"
+
+  - id: view_executive_summary
+    title: "Executive Summary: Strategy, Risk & Capital View"
+    description: "Cross-cutting summary combining economic flow with governance controls."
+    domains: [economic, governance]
     direction: "TB"
