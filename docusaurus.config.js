@@ -1,19 +1,19 @@
 // @ts-check
-// `@type {import('@docusaurus/types').Config}`
+// Note: type annotations allow type checking and IDE autocompletion
 
+import { themes as prismThemes } from 'prism-react-renderer';
+
+/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'AI Ecosystem Architecture & Governance',
   tagline: 'Conceptual models of the AI ecosystem, governance boundaries, and value flows.',
   favicon: 'img/favicon.ico',
 
-  // 1. URL Configuration
-  // If using default GitHub Pages:
+  // Production URL settings for Sezoo GitHub Pages
   url: 'https://sezoo.github.io',
   baseUrl: '/ai-ecosystem-model/',
 
-  // (Optional: If you want a custom subdomain like https://ai-model.sezoo.digital,
-  // set url: 'https://ai-model.sezoo.digital' and baseUrl: '/')
-
+  // GitHub pages deployment configuration
   organizationName: 'Sezoo',
   projectName: 'ai-ecosystem-model',
   trailingSlash: false,
@@ -21,11 +21,16 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // 2. Enable Native Mermaid
+  // 1. Native Mermaid Diagram Configuration
   markdown: {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
 
   presets: [
     [
@@ -34,9 +39,9 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/', // Makes docs the root of the site (optional)
+          routeBasePath: '/', // "Docs-only" mode: Serves ecosystem docs at root URL
         },
-        blog: false, // Turn off blog unless needed
+        blog: false, // Disabled template blog
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -47,18 +52,23 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Configure Mermaid theme appearance
-      mermaid: {
-        theme: { light: 'neutral', dark: 'forest' },
-      },
       navbar: {
-        title: 'Sezoo AI Model',
+        title: 'Sezoo',
+        logo: {
+          alt: 'Sezoo Logo',
+          src: 'img/logo.svg',
+        },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Ecosystem Models',
+            label: 'AI Ecosystem Models',
+          },
+          {
+            href: 'https://sezoo.digital',
+            label: 'sezoo.digital',
+            position: 'right',
           },
           {
             href: 'https://github.com/Sezoo/ai-ecosystem-model',
@@ -67,7 +77,47 @@ const config = {
           },
         ],
       },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Models',
+            items: [
+              {
+                label: 'Ecosystem Architecture',
+                to: '/',
+              },
+            ],
+          },
+          {
+            title: 'Organization',
+            items: [
+              {
+                label: 'Sezoo Digital',
+                href: 'https://sezoo.digital',
+              },
+            ],
+          },
+          {
+            title: 'Source Code',
+            items: [
+              {
+                label: 'GitHub Repository',
+                href: 'https://github.com/Sezoo/ai-ecosystem-model',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Sezoo. Built with Docusaurus & Mermaid.`,
+      },
+      prism: {
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
+      },
+      mermaid: {
+        theme: { light: 'neutral', dark: 'forest' },
+      },
     }),
 };
 
-module.exports = config;
+export default config;

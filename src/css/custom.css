@@ -1,30 +1,156 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* src/css/custom.css */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* --- 1. BRAND VARIABLES (New) --- */
+  /* Define these once so you can use them in React/JS components */
+  --sezoo-brand-blue: #00B2E3;
+  --sezoo-brand-green: #80bc00;
+  --sezoo-dark-navy: #1c1f2a;
+
+  /* --- 2. PRIMARY COLOR PALETTE (Light Mode) --- */
+  /* Currently set to Dark Navy. 
+     Note: This means "button--primary" will be Navy in light mode. */
+  --ifm-color-primary: #1c1f2a;
+  --ifm-color-primary-dark: #191c26;
+  --ifm-color-primary-darker: #181a24;
+  --ifm-color-primary-darkest: #14161d;
+  --ifm-color-primary-light: #1f222e;
+  --ifm-color-primary-lighter: #202430;
+  --ifm-color-primary-lightest: #242837;
+
+  /* --- 3. FONTS --- */
+  --ifm-font-family-base: 'Roboto', sans-serif;
+  --ifm-heading-font-family: 'Roboto', sans-serif;
+  --ifm-heading-font-weight: 500;
+
+  /* --- 4. GLOBAL SETTINGS --- */
+  --ifm-navbar-height: 80px;
+
+  /* --- 5. CUSTOM THEME VARS --- */
+  --sezoo-particle-color: #49516d; 
+  --sezoo-accent-color: #d50057;   
+  --sezoo-heading-color: var(--sezoo-brand-green); /* Fixed syntax error */
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* --- DARK MODE OVERRIDES --- */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  /* Background */
+  --ifm-background-color: #1c1f2a; 
+
+  /* Animation Colors */
+  --sezoo-particle-color: #a7aec5; 
+  --sezoo-accent-color: #eddb00;   
+
+  /* Primary Palette (Bright Blue for dark mode) */
+  --ifm-color-primary: #00b2e3;
+  --ifm-color-primary-dark: #00a6d3;
+  --ifm-color-primary-darker: #009dc8;
+  --ifm-color-primary-darkest: #008eb6;
+  --ifm-color-primary-light: #00c4fa;
+  --ifm-color-primary-lighter: #06c9ff;
+  --ifm-color-primary-lightest: #28d1ff;
+  
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Heading Color */
+  --sezoo-heading-color: var(--sezoo-brand-green); /* Fixed syntax error */
+}
+
+/* --- TYPOGRAPHY --- */
+
+/* Force Body text to use Light (300) weight */
+body {
+  font-weight: 300;
+}
+
+/* Ensure bold text looks bold */
+strong, b {
+  font-weight: 700;
+}
+
+/* Apply the variable to all headings globally */
+/* Note: This forces ALL headings to Green. 
+   If you want Blue headings on the home page, you will need to override this there. */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--sezoo-heading-color);
+}
+
+/* Increase H1 size for standard pages */
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+/* H2 Hierarchy */
+h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+/* --- NAVBAR & LOGO --- */
+
+.navbar {
+  height: var(--ifm-navbar-height);
+  position: relative; 
+  z-index: 100; /* Lift above animation */
+}
+
+.navbar__inner {
+  align-items: flex-end;
+  padding-bottom: 10px; 
+}
+
+/* Logo Sizing */
+.navbar__brand .navbar__logo {
+  height: 60px !important;
+  width: auto !important;
+  max-height: unset !important;
+}
+
+/* Force Icons Visible */
+.navbar__items--right {
+  display: flex;
+  align-items: center; 
+}
+
+.clean-btn {
+  color: var(--ifm-color-primary);
+}
+
+/* --- FOOTER --- */
+.footer {
+  position: relative; 
+  z-index: 100; 
+}
+
+/* --- LAYOUT FIXES --- */
+
+/* Lift main content above animation */
+#__docusaurus > div[id^="skip-to-content"] {
+  position: relative;
+  z-index: 50;
+}
+
+/* --- UTILITY CLASSES (New) --- */
+/* Use this in your React components instead of inline styles! */
+.text--brand-blue {
+    color: var(--sezoo-brand-blue) !important;
+}
+.border--brand-blue {
+    border-color: var(--sezoo-brand-blue) !important;
+}
+
+@media screen and (max-width: 996px) {
+  .desktop-only {
+    display: none !important;
+  }
+  
+  /* Optional: Make the download button look more like a primary action on mobile */
+  .pdf-viewer .button {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
 }
