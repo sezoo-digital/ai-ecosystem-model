@@ -52,7 +52,11 @@ def main():
         "",
         "# AI Ecosystem: Multi-Lens Architecture & Governance",
         "",
-        "Select a lens below to explore the ecosystem. You can also download the raw models for visual editing in **yEd** or **draw.io**.",
+        "> 📥 **Download Canonical Models for Visual Tools:**  ",
+        "> <a href=\"pathname:///ai-ecosystem-model/exports/ai_ecosystem.graphml\" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; ",
+        "> <a href=\"pathname:///ai-ecosystem-model/exports/ai_ecosystem.drawio\" download>Download for draw.io (.drawio)</a>",
+        "",
+        "Select a lens below to explore the ecosystem interactively:",
         "",
         "import Tabs from '@theme/Tabs';",
         "import TabItem from '@theme/TabItem';",
@@ -64,12 +68,6 @@ def main():
         vid = v["id"]
         chart = build_view_mermaid(model, v)
         md.append(f'<TabItem value="{vid}" label="{v["title"]}">\n')
-        
-        # FIX: Using 'pathname:///' bypasses Docusaurus page router and links directly to static assets
-        md.append(f"> 📥 **Export to Graphical Tools:** ")
-        md.append(f"> <a href=\"pathname:///ai-ecosystem-model/exports/{vid}.graphml\" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; ")
-        md.append(f"> <a href=\"pathname:///ai-ecosystem-model/exports/{vid}.drawio\" download>Download for draw.io (.drawio)</a>\n")
-        
         md.append("```mermaid")
         md.append(chart)
         md.append("```\n")
@@ -77,6 +75,7 @@ def main():
 
     md.append("</Tabs>\n")
 
+    # Canonical dictionary
     md.append("## Canonical Element Dictionary\n")
     md.append("| Element | Domains | Properties |")
     md.append("| :--- | :--- | :--- |")

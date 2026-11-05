@@ -6,17 +6,17 @@ slug: /
 
 # AI Ecosystem: Multi-Lens Architecture & Governance
 
-Select a lens below to explore the ecosystem. You can also download the raw models for visual editing in **yEd** or **draw.io**.
+> 📥 **Download Canonical Models for Visual Tools:**  
+> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
+> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.drawio" download>Download for draw.io (.drawio)</a>
+
+Select a lens below to explore the ecosystem interactively:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="view_economic" label="Executive & Economic View (Value Flows & Commoditization)">
-
-> 📥 **Export to Graphical Tools:** 
-> <a href="pathname:///ai-ecosystem-model/exports/view_economic.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
-> <a href="pathname:///ai-ecosystem-model/exports/view_economic.drawio" download>Download for draw.io (.drawio)</a>
 
 ```mermaid
 flowchart TB
@@ -40,10 +40,6 @@ flowchart TB
 
 </TabItem>
 <TabItem value="view_governance" label="Governance, Rights & Liability View">
-
-> 📥 **Export to Graphical Tools:** 
-> <a href="pathname:///ai-ecosystem-model/exports/view_governance.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
-> <a href="pathname:///ai-ecosystem-model/exports/view_governance.drawio" download>Download for draw.io (.drawio)</a>
 
 ```mermaid
 flowchart TB
