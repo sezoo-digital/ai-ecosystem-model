@@ -1,81 +1,81 @@
 import yaml
 from pathlib import Path
+from generate_docs import build_view_mermaid
 
-def edge_to_mermaid(e):
-    etype, label = e.get("type", "flow"), e.get("label", "")
-    if etype == "money": return f'== "{label}" ==>'
-    if etype in ["tension", "disclaim"]: return f'-. "{label}" .->'
-    if etype == "authority": return f'== "{label}" ==>'
-    return f'-->|"{label}"|'
+def generate_view_pages():
+    model_file = Path("model/ai_ecosystem.yaml")
+    if not model_file.exists():
+        print(f"Error: {model_file} not found.")
+        return
 
-def build_view_mermaid(model, view_def):
-    view_domains = set(view_def["domains"])
-    active_nodes = {n["id"]: n for n in model["nodes"] if any(d in view_domains for d in n["domains"])}
-    active_edges = [
-        e for e in model["edges"] 
-        if any(d in view_domains for d in e["domains"]) and e["from"] in active_nodes and e["to"] in active_nodes
-    ]
-    
-    lines = [f"flowchart {view_def.get('direction', 'TB')}"]
-    clusters = {c["id"]: c for c in model.get("clusters", [])}
-    nodes_by_cluster = {}
-    for n in active_nodes.values():
-        nodes_by_cluster.setdefault(n.get("cluster", "root"), []).append(n)
+    with open(model_file, "r", encoding="utf-8") as f:
+        model = yaml.safe_load(f)
+
+    docs_path = Path("docs/ecosystem")
+    docs_path.mkdir(parents=True, exist_ok=True)
+
+    clusters_map = {c["id"]: c["label"] for c in model.get("clusters", [])}
+    nodes_map = {n["id"]: n for n in model["nodes"]}
+
+    for idx, v in enumerate(model.get("views", []), start=2):
+        vid = v["id"]
+        vtitle = v["title"]
+        vdomains = set(v["domains"])
+        vdesc = v.get("description", "Architectural projection of the ecosystem.")
         
-    for cid, nodes in nodes_by_cluster.items():
-        if cid in clusters:
-            lines.append(f'    subgraph {cid} ["{clusters[cid]["label"]}"]')
-            for n in nodes:
-                sub = f"<br/><small><i>{n['sublabel']}</i></small>" if n.get("sublabel") else ""
-                lines.append(f'        {n["id"]}["<b>{n["label"]}</b>{sub}"]')
-            lines.append("    end")
-            
-    lines.append("")
-    for e in active_edges:
-        lines.append(f'    {e["from"]} {edge_to_mermaid(e)} {e["to"]}')
-        
-    return "\n".join(lines)
+        # Filter nodes & edges for this specific view
+        active_nodes = [n for n in model["nodes"] if any(d in vdomains for d in n.get("domains", []))]
+        active_node_ids = {n["id"] for n in active_nodes}
+        active_edges = [
+            e for e in model["edges"]
+            if any(d in vdomains for d in e.get("domains", [])) 
+            and e["from"] in active_node_ids 
+            and e["to"] in active_node_ids
+        ]
 
-def generate_interactive_page(model, output_path):
-    md = [
-        "---",
-        "title: Interactive Ecosystem Views",
-        "sidebar_position: 1",
-        "slug: /", # <-- THIS TELLS DOCUSAURUS THIS PAGE IS THE ROOT HOMEPAGE
-        "---",
-        "",
-        "# AI Ecosystem: Multi-Lens Model",
-        "",
-        "Select a lens below to view the ecosystem filtered by interest domain.",
-        "",
-        "import Tabs from '@theme/Tabs';",
-        "import TabItem from '@theme/TabItem';",
-        "",
-        "<Tabs>",
-    ]
-    
-    for v in model.get("views", []):
         chart = build_view_mermaid(model, v)
-        md.append(f'<TabItem value="{v["id"]}" label="{v["title"]}">\n')
-        md.append("```mermaid")
-        md.append(chart)
-        md.append("```\n")
-        md.append("</TabItem>")
-        
-    md.append("</Tabs>\n")
-    
-    md.append("## Canonical Node Dictionary\n")
-    md.append("| Node | Domains | Core Properties |")
-    md.append("| :--- | :--- | :--- |")
-    for n in model["nodes"]:
-        props = "<br/>".join([f"**{k}**: {v}" for k, v in n.get("properties", {}).items()])
-        domains = ", ".join(n.get("domains", []))
-        md.append(f"| **{n['label']}**<br/>`{n['id']}` | {domains} | {props} |")
-        
-    Path(output_path).write_text("\n".join(md))
+
+        md = [
+            "---",
+            f"title: \"{vtitle}\"",
+            f"sidebar_position: {idx}",
+            "---",
+            "",
+            f"# {vtitle}",
+            "",
+            f"> {vdesc}",
+            "",
+            "## Architecture Diagram",
+            "",
+            "```mermaid",
+            chart,
+            "```",
+            "",
+            "## Active Elements in this Lens",
+            "",
+            "| Element | Cluster | Operational Role & Properties |",
+            "| :--- | :--- | :--- |"
+        ]
+
+        for n in active_nodes:
+            props = "<br/>".join([f"**{k}**: {val}" for k, val in n.get("properties", {}).items()])
+            cname = clusters_map.get(n.get("cluster", ""), "")
+            sub = f"<br/><small>{n['sublabel']}</small>" if n.get("sublabel") else ""
+            md.append(f"| **{n['label']}**{sub}<br/>`{n['id']}` | {cname} | {props} |")
+
+        md.append("")
+        md.append("## Active Relationships & Protocols")
+        md.append("")
+        md.append("| Source | Relationship / Protocol | Target | Type |")
+        md.append("| :--- | :---: | :--- | :--- |")
+        for e in active_edges:
+            src = nodes_map.get(e["from"], {}).get("label", e["from"])
+            dst = nodes_map.get(e["to"], {}).get("label", e["to"])
+            md.append(f"| **{src}** | {e.get('label', '')} | **{dst}** | `{e.get('type', 'flow')}` |")
+
+        page_file = docs_path / f"{vid}.md"
+        page_file.write_text("\n".join(md), encoding="utf-8")
+        print(f"✔ Individual lens page created: {page_file}")
 
 if __name__ == "__main__":
-    with open("model/ai_ecosystem.yaml", "r") as f:
-        model = yaml.safe_load(f)
-    Path("docs/ecosystem").mkdir(parents=True, exist_ok=True)
-    generate_interactive_page(model, "docs/ecosystem/index.md")
+    generate_view_pages()

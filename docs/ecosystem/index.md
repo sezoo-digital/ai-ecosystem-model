@@ -6,7 +6,7 @@ slug: /
 
 # AI Ecosystem: Multi-Lens Architecture & Governance
 
-> 📥 **Download Canonical Models for Visual Tools:**  
+> 📥 **Download Canonical Models for Visual Modeling Tools:**  
 > <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
 > <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.drawio" download>Download for draw.io (.drawio)</a>
 
@@ -16,55 +16,215 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="view_economic" label="Executive & Economic View (Value Flows & Commoditization)">
+<TabItem value="view_economic" label="Executive & Economic Perspective">
+
+*Capital allocation, SaaS margins, token cost exposure, and platform absorption.*
 
 ```mermaid
 flowchart TB
-    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
-        N_TRAIN["<b>Training Supply Chain</b><br/><small><i>Data Curators, Annotators, Compute</i></small>"]
-        N_FRONTIER["<b>Frontier Model Instance</b><br/><small><i>Weights & Wholesale Inference API</i></small>"]
-        N_ABSORBED["<b>Platform Absorption Zone</b><br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]
-    end
-    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV)"]
-        N_ISV_PRODUCT["<b>Specialized AI Product</b><br/><small><i>Vertical Solutions (Legal, Medical, Finance)</i></small>"]
-    end
-    subgraph cluster_client ["3. Enterprise & Principal Domain"]
-        N_ENTERPRISE["<b>Enterprise Principal</b><br/><small><i>Budget Holder & Legal Entity</i></small>"]
+    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
+    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
+    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
+    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
+
+    subgraph cluster_regulatory ["0. Jurisdictional & Regulatory Sphere"]
+        N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Cyber &amp; Algorithmic Liability Carrier</i></small>"]:::gov
     end
 
-    N_ENTERPRISE == "$$$ High-Margin SaaS / Outcome Contract" ==> N_ISV_PRODUCT
-    N_ISV_PRODUCT == "$$ Wholesale Token Consumption" ==> N_FRONTIER
-    N_FRONTIER == "$ Compute & Annotation CapEx" ==> N_TRAIN
+    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
+        N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Compute Clusters</i></small>"]:::econ
+        N_FRONTIER("Frontier GPAI Lab<br/><small><i>Weights &amp; Wholesale Inference APIs</i></small>"):::gov
+        N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted Agent State</i></small>"]:::econ
+    end
+
+    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
+        N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical Solutions (Legal, Medical, Finance, Ops)</i></small>"):::econ
+        N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
+    end
+
+    subgraph cluster_client ["3. Enterprise Deployer & Principal Domain"]
+        N_ENTERPRISE["Enterprise Deployer<br/><small><i>Legal Principal &amp; Economic Sponsor</i></small>"]:::gov
+    end
+
+    N_ENTERPRISE == "$$$ SaaS Subscription / Outcome Fee" ==> N_ISV_PRODUCT
+    N_ISV_PRODUCT == "$$ Token Consumption Cost" ==> N_FRONTIER
+    N_FRONTIER == "$ Compute & Data CapEx" ==> N_TRAIN
     N_ABSORBED -. "Platform Commoditization Pressure" .-> N_ISV_PRODUCT
+    N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
+    N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
 ```
 
 </TabItem>
-<TabItem value="view_governance" label="Governance, Rights & Liability View">
+<TabItem value="view_governance_liability" label="Legal, Regulatory & Liability Perspective">
+
+*The liability disconnect: upstream ToS disclaimers vs deployer vicarious liability and regulatory enforcement.*
 
 ```mermaid
 flowchart TB
-    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
-        N_FRONTIER["<b>Frontier Model Instance</b><br/><small><i>Weights & Wholesale Inference API</i></small>"]
-    end
-    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV)"]
-        N_HARNESS["<b>Agent Governance Harness</b><br/><small><i>Rights, Duties & Deterministic Sandbox</i></small>"]
-        N_MEMORY["<b>State & Persistence Layer</b><br/><small><i>Episodic Vector DBs & Audit History</i></small>"]
-    end
-    subgraph cluster_client ["3. Enterprise & Principal Domain"]
-        N_ENTERPRISE["<b>Enterprise Principal</b><br/><small><i>Budget Holder & Legal Entity</i></small>"]
-        N_HUMAN_USER["<b>Human Task Delegator</b><br/><small><i>End User / Operator</i></small>"]
-    end
-    subgraph cluster_environment ["4. Target Execution Environment"]
-        N_MCP_HOST["<b>Protocol Gateway (MCP)</b><br/><small><i>Standardized Tool Discovery & Context</i></small>"]
-        N_TARGET_SYS["<b>Target Systems & APIs</b><br/><small><i>Databases, ERPs, Cloud Infrastructure</i></small>"]
+    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
+    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
+    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
+    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
+
+    subgraph cluster_regulatory ["0. Jurisdictional & Regulatory Sphere"]
+        N_REGULATOR{{"Market Surveillance Authorities<br/><small><i>EU AI Office, FTC, DPAs, Courts</i></small>"}}:::gov
+        N_AUDITOR{{"Conformity Body &amp; ISO Auditor<br/><small><i>Notified Bodies, ISO/IEC 42001 Certifiers</i></small>"}}:::gov
+        N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Cyber &amp; Algorithmic Liability Carrier</i></small>"]:::gov
     end
 
-    N_ENTERPRISE == "Delegates Authority & Statutory Duties" ==> N_HARNESS
-    N_HUMAN_USER == "Human-in-the-Loop Oversight & Overrides" ==> N_HARNESS
-    N_FRONTIER -. "Disclaims Liability (ToS Boundary)" .-> N_ENTERPRISE
-    N_HARNESS -->|"Mandatory Audit Trail & State Proof"| N_MEMORY
-    N_HARNESS -->|"Enforces Least Privilege & Limits"| N_MCP_HOST
-    N_MCP_HOST -->|"Constrains Blast Radius"| N_TARGET_SYS
+    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
+        N_FRONTIER("Frontier GPAI Lab<br/><small><i>Weights &amp; Wholesale Inference APIs</i></small>"):::gov
+    end
+
+    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
+        N_HARNESS[["Agent Governance Harness<br/><small><i>Deterministic Policy Engine &amp; Guardrails</i></small>"]]:::gov
+        N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
+        N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
+    end
+
+    subgraph cluster_client ["3. Enterprise Deployer & Principal Domain"]
+        N_ENTERPRISE["Enterprise Deployer<br/><small><i>Legal Principal &amp; Economic Sponsor</i></small>"]:::gov
+        N_IDP(["Enterprise Identity &amp; Auth (IdP)<br/><small><i>OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens</i></small>"]):::gov
+        N_HUMAN_USER(("Human Task Delegator &amp; Overseer<br/><small><i>End User / Mandatory HITL Supervisor</i></small>")):::gov
+    end
+
+    subgraph cluster_environment ["4. Target Execution Environment & Blast Radius"]
+        N_MCP_HOST[["Protocol Gateway (MCP Host)<br/><small><i>Standardized Tool Broker &amp; Context Provider</i></small>"]]:::gov
+        N_TARGET_SYS[("Target Systems &amp; Operational APIs<br/><small><i>Databases, Production ERP, Financial Rails</i></small>")]:::gov
+        N_AFFECTED_PARTY(("Impacted Third Party<br/><small><i>Consumers, Employees, Citizens</i></small>")):::gov
+    end
+
+    N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
+    N_REGULATOR == "Statutory Compliance & Fines (Art. 71)" ==> N_ENTERPRISE
+    N_REGULATOR == "GPAI Codes of Practice & Transparency (Art. 53)" ==> N_FRONTIER
+    N_AUDITOR == "Conformity Audits (ISO 42001 / High Risk)" ==> N_ENTERPRISE
+    N_FRONTIER -. "Disclaims Liability (ToS 'AS-IS')" .-> N_ENTERPRISE
+    N_ENTERPRISE -. "Vicarious Liability for Agent Harm (Respondeat Superior)" .-> N_AFFECTED_PARTY
+    N_AFFECTED_PARTY -->|"Complaints & Redress Demands"| N_REGULATOR
+    N_ENTERPRISE == "Delegates Authority & Safety Boundaries" ==> N_HARNESS
+    N_HUMAN_USER == "Art. 14 Human Oversight & Stop Button" ==> N_HARNESS
+    N_HARNESS -. "Cryptographic Tamper-Proof Audit Trail" .-> N_AUDIT_STORE
+    N_AUDIT_STORE -->|"Forensic Evidence for Compliance Verification"| N_AUDITOR
+    N_HARNESS -. "Enforces Least-Privilege Scopes" .-> N_MCP_HOST
+    N_TARGET_SYS -. "Direct Impact & Real-World Blast Radius" .-> N_AFFECTED_PARTY
+```
+
+</TabItem>
+<TabItem value="view_technical_runtime" label="Engineering & Technical Runtime Perspective">
+
+*The agentic execution loop: IdP delegation, inference protocols, MCP gateways, and state stores.*
+
+```mermaid
+flowchart LR
+    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
+    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
+    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
+    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
+
+    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
+        N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Compute Clusters</i></small>"]:::econ
+        N_FRONTIER("Frontier GPAI Lab<br/><small><i>Weights &amp; Wholesale Inference APIs</i></small>"):::gov
+        N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted Agent State</i></small>"]:::econ
+    end
+
+    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
+        N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical Solutions (Legal, Medical, Finance, Ops)</i></small>"):::econ
+        N_HARNESS[["Agent Governance Harness<br/><small><i>Deterministic Policy Engine &amp; Guardrails</i></small>"]]:::gov
+        N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
+        N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
+    end
+
+    subgraph cluster_client ["3. Enterprise Deployer & Principal Domain"]
+        N_IDP(["Enterprise Identity &amp; Auth (IdP)<br/><small><i>OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens</i></small>"]):::gov
+        N_HUMAN_USER(("Human Task Delegator &amp; Overseer<br/><small><i>End User / Mandatory HITL Supervisor</i></small>")):::gov
+    end
+
+    subgraph cluster_environment ["4. Target Execution Environment & Blast Radius"]
+        N_MCP_HOST[["Protocol Gateway (MCP Host)<br/><small><i>Standardized Tool Broker &amp; Context Provider</i></small>"]]:::gov
+        N_TARGET_SYS[("Target Systems &amp; Operational APIs<br/><small><i>Databases, Production ERP, Financial Rails</i></small>")]:::gov
+    end
+
+    N_HARNESS -. "Cryptographic Tamper-Proof Audit Trail" .-> N_AUDIT_STORE
+    N_HARNESS -. "Enforces Least-Privilege Scopes" .-> N_MCP_HOST
+    N_HUMAN_USER -->|"Prompt Intent & Working Context"| N_ISV_PRODUCT
+    N_IDP -->|"Issues Scoped Delegation Token"| N_HARNESS
+    N_ISV_PRODUCT -->|"Initiates Autonomous Loop"| N_HARNESS
+    N_HARNESS -->|"Inference API (Tokens & Directives)"| N_FRONTIER
+    N_HARNESS -->|"Context Retrieval (RAG) & Checkpointing"| N_AUDIT_STORE
+    N_HARNESS -->|"Traces & LLM Evaluation Metrics"| N_OBSERVE
+    N_HARNESS -->|"JSON-RPC / MCP Tool Discovery & Invocations"| N_MCP_HOST
+    N_MCP_HOST -->|"Authenticated Read/Write Operations"| N_TARGET_SYS
+```
+
+</TabItem>
+<TabItem value="view_full_unified" label="Unified Ecosystem Model">
+
+*The complete property graph combining economic flows, technical loops, and governance gates.*
+
+```mermaid
+flowchart TB
+    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
+    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
+    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
+    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
+
+    subgraph cluster_regulatory ["0. Jurisdictional & Regulatory Sphere"]
+        N_REGULATOR{{"Market Surveillance Authorities<br/><small><i>EU AI Office, FTC, DPAs, Courts</i></small>"}}:::gov
+        N_AUDITOR{{"Conformity Body &amp; ISO Auditor<br/><small><i>Notified Bodies, ISO/IEC 42001 Certifiers</i></small>"}}:::gov
+        N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Cyber &amp; Algorithmic Liability Carrier</i></small>"]:::gov
+    end
+
+    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
+        N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Compute Clusters</i></small>"]:::econ
+        N_FRONTIER("Frontier GPAI Lab<br/><small><i>Weights &amp; Wholesale Inference APIs</i></small>"):::gov
+        N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted Agent State</i></small>"]:::econ
+    end
+
+    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
+        N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical Solutions (Legal, Medical, Finance, Ops)</i></small>"):::econ
+        N_HARNESS[["Agent Governance Harness<br/><small><i>Deterministic Policy Engine &amp; Guardrails</i></small>"]]:::gov
+        N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
+        N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
+    end
+
+    subgraph cluster_client ["3. Enterprise Deployer & Principal Domain"]
+        N_ENTERPRISE["Enterprise Deployer<br/><small><i>Legal Principal &amp; Economic Sponsor</i></small>"]:::gov
+        N_IDP(["Enterprise Identity &amp; Auth (IdP)<br/><small><i>OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens</i></small>"]):::gov
+        N_HUMAN_USER(("Human Task Delegator &amp; Overseer<br/><small><i>End User / Mandatory HITL Supervisor</i></small>")):::gov
+    end
+
+    subgraph cluster_environment ["4. Target Execution Environment & Blast Radius"]
+        N_MCP_HOST[["Protocol Gateway (MCP Host)<br/><small><i>Standardized Tool Broker &amp; Context Provider</i></small>"]]:::gov
+        N_TARGET_SYS[("Target Systems &amp; Operational APIs<br/><small><i>Databases, Production ERP, Financial Rails</i></small>")]:::gov
+        N_AFFECTED_PARTY(("Impacted Third Party<br/><small><i>Consumers, Employees, Citizens</i></small>")):::gov
+    end
+
+    N_ENTERPRISE == "$$$ SaaS Subscription / Outcome Fee" ==> N_ISV_PRODUCT
+    N_ISV_PRODUCT == "$$ Token Consumption Cost" ==> N_FRONTIER
+    N_FRONTIER == "$ Compute & Data CapEx" ==> N_TRAIN
+    N_ABSORBED -. "Platform Commoditization Pressure" .-> N_ISV_PRODUCT
+    N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
+    N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
+    N_REGULATOR == "Statutory Compliance & Fines (Art. 71)" ==> N_ENTERPRISE
+    N_REGULATOR == "GPAI Codes of Practice & Transparency (Art. 53)" ==> N_FRONTIER
+    N_AUDITOR == "Conformity Audits (ISO 42001 / High Risk)" ==> N_ENTERPRISE
+    N_FRONTIER -. "Disclaims Liability (ToS 'AS-IS')" .-> N_ENTERPRISE
+    N_ENTERPRISE -. "Vicarious Liability for Agent Harm (Respondeat Superior)" .-> N_AFFECTED_PARTY
+    N_AFFECTED_PARTY -->|"Complaints & Redress Demands"| N_REGULATOR
+    N_ENTERPRISE == "Delegates Authority & Safety Boundaries" ==> N_HARNESS
+    N_HUMAN_USER == "Art. 14 Human Oversight & Stop Button" ==> N_HARNESS
+    N_HARNESS -. "Cryptographic Tamper-Proof Audit Trail" .-> N_AUDIT_STORE
+    N_AUDIT_STORE -->|"Forensic Evidence for Compliance Verification"| N_AUDITOR
+    N_HARNESS -. "Enforces Least-Privilege Scopes" .-> N_MCP_HOST
+    N_TARGET_SYS -. "Direct Impact & Real-World Blast Radius" .-> N_AFFECTED_PARTY
+    N_HUMAN_USER -->|"Prompt Intent & Working Context"| N_ISV_PRODUCT
+    N_IDP -->|"Issues Scoped Delegation Token"| N_HARNESS
+    N_ISV_PRODUCT -->|"Initiates Autonomous Loop"| N_HARNESS
+    N_HARNESS -->|"Inference API (Tokens & Directives)"| N_FRONTIER
+    N_HARNESS -->|"Context Retrieval (RAG) & Checkpointing"| N_AUDIT_STORE
+    N_HARNESS -->|"Traces & LLM Evaluation Metrics"| N_OBSERVE
+    N_HARNESS -->|"JSON-RPC / MCP Tool Discovery & Invocations"| N_MCP_HOST
+    N_MCP_HOST -->|"Authenticated Read/Write Operations"| N_TARGET_SYS
 ```
 
 </TabItem>
@@ -72,15 +232,21 @@ flowchart TB
 
 ## Canonical Element Dictionary
 
-| Element | Domains | Properties |
-| :--- | :--- | :--- |
-| **Training Supply Chain**<br/>`N_TRAIN` | economic, technical | **cost_type**: Fixed / R&D CapEx |
-| **Frontier Model Instance**<br/>`N_FRONTIER` | economic, technical, governance | **pricing_model**: Per-Token Usage<br/>**liability_posture**: Disclaimed via ToS |
-| **Platform Absorption Zone**<br/>`N_ABSORBED` | economic, technical | **market_effect**: Encroachment on ISVs |
-| **Specialized AI Product**<br/>`N_ISV_PRODUCT` | economic, technical | **pricing_model**: SaaS Seat / Outcome Pricing<br/>**margin_profile**: High Gross Margin (Vulnerable) |
-| **Agent Governance Harness**<br/>`N_HARNESS` | technical, governance | **enforcement**: Deterministic Policies & Budgets<br/>**audit_role**: Sovereign Audit Ledger |
-| **State & Persistence Layer**<br/>`N_MEMORY` | technical, governance | **sovereignty**: Client / Enterprise Owned<br/>**compliance**: GDPR / Audit Logging |
-| **Enterprise Principal**<br/>`N_ENTERPRISE` | economic, governance | **liability_posture**: Holds Vicarious Legal Liability<br/>**commercial_role**: Economic Sponsor |
-| **Human Task Delegator**<br/>`N_HUMAN_USER` | technical, governance | **control_mode**: Prompting & HITL Approvals |
-| **Protocol Gateway (MCP)**<br/>`N_MCP_HOST` | technical, governance | **protocol_standard**: Model Context Protocol<br/>**security**: Scope Negotiation |
-| **Target Systems & APIs**<br/>`N_TARGET_SYS` | technical, governance | **risk_zone**: Blast Radius<br/>**access_control**: RBAC / Least Privilege |
+| Element | Cluster | Domains | Properties |
+| :--- | :--- | :--- | :--- |
+| **Market Surveillance Authorities**<br/><small>EU AI Office, FTC, DPAs, Courts</small><br/>`N_REGULATOR` | 0. Jurisdictional & Regulatory Sphere | governance | **enforcement_powers**: Fines up to 7% turnover, injunctions |
+| **Conformity Body & ISO Auditor**<br/><small>Notified Bodies, ISO/IEC 42001 Certifiers</small><br/>`N_AUDITOR` | 0. Jurisdictional & Regulatory Sphere | governance | **role**: AIMS certification & post-market monitoring |
+| **AI Risk Underwriter & Insurer**<br/><small>Cyber & Algorithmic Liability Carrier</small><br/>`N_INSURER` | 0. Jurisdictional & Regulatory Sphere | economic, governance | **underwriting_gate**: Requires verifiable audit trail & human oversight |
+| **Training Supply Chain**<br/><small>Data Curators, Annotators, Compute Clusters</small><br/>`N_TRAIN` | 1. Upstream Foundation & Model Lab | economic, technical | **cost_type**: Fixed / Heavy R&D CapEx<br/>**ip_risk**: Copyright / Scraping litigation |
+| **Frontier GPAI Lab**<br/><small>Weights & Wholesale Inference APIs</small><br/>`N_FRONTIER` | 1. Upstream Foundation & Model Lab | economic, technical, governance | **eu_ai_act_role**: Provider_GPAI<br/>**pricing_model**: Per-Token Usage<br/>**liability_posture**: Disclaimed via ToS ('AS-IS') |
+| **Platform Absorption Zone**<br/><small>Native Tools, Prompt Cache, Hosted Agent State</small><br/>`N_ABSORBED` | 1. Upstream Foundation & Model Lab | economic, technical | **market_effect**: Feature commoditization of wrapper ISVs |
+| **Specialized AI Application**<br/><small>Vertical Solutions (Legal, Medical, Finance, Ops)</small><br/>`N_ISV_PRODUCT` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | economic, technical | **eu_ai_act_role**: Provider_System<br/>**pricing_model**: SaaS Seat / Value Outcome |
+| **Agent Governance Harness**<br/><small>Deterministic Policy Engine & Guardrails</small><br/>`N_HARNESS` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **iso_42001_role**: AIMS Technical Control Implementation<br/>**duty_of_care**: Caps blast radius, halts unsafe prompts/actions |
+| **Sovereign Audit Ledger**<br/><small>Tamper-Evident WORM State & Forensic Store</small><br/>`N_AUDIT_STORE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **compliance**: Art. 12 Mandatory Logging / Rebuttal of Fault<br/>**sovereignty**: Client / Enterprise Owned |
+| **Observability & Evals Engine**<br/><small>Continuous Evaluation, Traces & Cost Telemetry</small><br/>`N_OBSERVE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance, economic | **capabilities**: LLM-as-a-judge, OTEL tracing, token cost tracking |
+| **Enterprise Deployer**<br/><small>Legal Principal & Economic Sponsor</small><br/>`N_ENTERPRISE` | 3. Enterprise Deployer & Principal Domain | economic, governance | **eu_ai_act_role**: Deployer<br/>**liability_posture**: Holds Vicarious & Strict Liability |
+| **Enterprise Identity & Auth (IdP)**<br/><small>OAuth, OIDC, Workload IAM & Ephemeral Tokens</small><br/>`N_IDP` | 3. Enterprise Deployer & Principal Domain | technical, governance | **security_role**: Issues scoped actor delegations to agents |
+| **Human Task Delegator & Overseer**<br/><small>End User / Mandatory HITL Supervisor</small><br/>`N_HUMAN_USER` | 3. Enterprise Deployer & Principal Domain | technical, governance | **control_mode**: Prompting, Art. 14 Human Oversight, Override |
+| **Protocol Gateway (MCP Host)**<br/><small>Standardized Tool Broker & Context Provider</small><br/>`N_MCP_HOST` | 4. Target Execution Environment & Blast Radius | technical, governance | **protocol_standard**: Model Context Protocol (MCP)<br/>**isolation**: Dynamic capability & permission negotiation |
+| **Target Systems & Operational APIs**<br/><small>Databases, Production ERP, Financial Rails</small><br/>`N_TARGET_SYS` | 4. Target Execution Environment & Blast Radius | technical, governance | **risk_zone**: Direct Causation Blast Radius |
+| **Impacted Third Party**<br/><small>Consumers, Employees, Citizens</small><br/>`N_AFFECTED_PARTY` | 4. Target Execution Environment & Blast Radius | governance | **eu_ai_act_role**: Affected_Subject<br/>**legal_standing**: Private right of action, tort claimant |
