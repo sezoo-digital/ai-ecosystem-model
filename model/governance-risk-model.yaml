@@ -1,0 +1,230 @@
+metadata:
+  title: "AI Ecosystem Governance, Risk, and Liability Metamodel"
+  version: "2.1"
+  description: "Formal property graph capturing legal agency, liability boundaries, statutory duties, and harm pathways."
+
+# Taxonomy for queryable risk & compliance properties
+taxonomies:
+  eu_ai_act_role: [Provider_GPAI, Provider_System, Deployer, Importer, Distributor]
+  legal_liability_type: [Strict, Vicarious, Contractual, Disclaimed, Joint_and_Several]
+  risk_tier: [Unacceptable, High_Risk_Annex_III, Transparency_Art_50, Minimal]
+
+clusters:
+  - id: cluster_regulatory
+    label: "0. Jurisdictional, Legal & Audit Sphere"
+  - id: cluster_supply
+    label: "1. Upstream Model Provider (Lab)"
+  - id: cluster_product
+    label: "2. Agent Harness & ISV Runtime"
+  - id: cluster_client
+    label: "3. Enterprise Deployer & Principal Domain"
+  - id: cluster_environment
+    label: "4. Target Environment & Downstream World"
+
+nodes:
+  # --- Cluster 0: Regulatory & Legal Sphere ---
+  - id: N_REGULATOR
+    label: "Market Surveillance Authorities"
+    sublabel: "EU AI Office, FTC, DPA / GDPR Authorities"
+    cluster: cluster_regulatory
+    domains: [governance]
+    shape: hexagon
+    properties:
+      enforcement: "Fines up to €35M / 7% Global Turnover"
+      statutory_regime: "EU AI Act, GDPR Art. 22"
+
+  - id: N_AUDITOR
+    label: "Conformity Body & ISO Auditor"
+    sublabel: "Notified Bodies, ISO/IEC 42001 Certifiers"
+    cluster: cluster_regulatory
+    domains: [governance]
+    shape: hexagon
+    properties:
+      role: "Pre-market CE conformity & continuous surveillance"
+
+  - id: N_INSURER
+    label: "AI Underwriter & Cyber Insurer"
+    sublabel: "Algorithmic Malpractice & Liability Carrier"
+    cluster: cluster_regulatory
+    domains: [economic, governance]
+    shape: rect
+    properties:
+      underwriting_gate: "Requires verifiable audit logs & human oversight"
+
+  - id: N_AFFECTED_PARTY
+    label: "Impacted Individual / Subject"
+    sublabel: "Citizen, Consumer, Job Applicant, Patient"
+    cluster: cluster_environment
+    domains: [governance]
+    shape: circle
+    properties:
+      legal_standing: "Private Right of Action, Tort Plaintiff, Data Subject"
+
+  # --- Cluster 1: Upstream Supply ---
+  - id: N_FRONTIER
+    label: "Frontier GPAI Lab"
+    sublabel: "Model Weights & API Inference Service"
+    cluster: cluster_supply
+    domains: [economic, technical, governance]
+    shape: rounded
+    properties:
+      eu_ai_act_role: "Provider_GPAI"
+      liability_model: "Disclaimed / Capped at Fees Paid (Last 12 Mo)"
+      systemic_risk_status: "Threshold > 10^25 FLOPs (Art. 51)"
+
+  # --- Cluster 2: Product & Harness ---
+  - id: N_HARNESS
+    label: "Agent Governance & Control Harness"
+    sublabel: "Deterministic Safety Kernel & Guardrails"
+    cluster: cluster_product
+    domains: [technical, governance]
+    shape: subproc
+    properties:
+      iso_42001_role: "AIMS Technical Control Implementation"
+      risk_mitigation: "Hard Token Rate/Cost Caps, Content Filters, Egress Firewalls"
+
+  - id: N_AUDIT_STORE
+    label: "Sovereign Audit Ledger"
+    sublabel: "WORM Storage (Write Once, Read Many) Log"
+    cluster: cluster_product
+    domains: [technical, governance]
+    shape: cylinder
+    properties:
+      legal_purpose: "Rebuttal of Fault / Forensic Causation Reconstruction"
+      retention: "Mandatory 6-Month Logging (EU AI Act Art. 12)"
+
+  # --- Cluster 3: Enterprise Deployer ---
+  - id: N_ENTERPRISE
+    label: "Enterprise Deployer"
+    sublabel: "Legal Principal & Corporate Operating Entity"
+    cluster: cluster_client
+    domains: [economic, governance]
+    shape: rect
+    properties:
+      eu_ai_act_role: "Deployer"
+      liability_posture: "Holds Vicarious & Strict Liability"
+      duties: "Fundamental Rights Impact Assessment (FRIA), Human Oversight"
+
+  - id: N_HUMAN_OVERSIGHT
+    label: "Designated Human Overseer"
+    sublabel: "Qualified Operator (HITL / HOTL)"
+    cluster: cluster_client
+    domains: [governance, technical]
+    shape: circle
+    properties:
+      duty: "Stop-button override, verify outputs, prevent automation bias"
+      statutory_requirement: "EU AI Act Art. 14 Human Oversight"
+
+  # --- Cluster 4: Environment & Operations ---
+  - id: N_TARGET_SYS
+    label: "Target Systems & Real-World Actuation"
+    sublabel: "Core ERP, Payment Gateways, Health Records"
+    cluster: cluster_environment
+    domains: [technical, governance]
+    shape: cylinder
+    properties:
+      risk_zone: "Direct Causation Blast Radius"
+
+edges:
+  # ====================================================================
+  # Statutory Duties & Enforcement
+  # ====================================================================
+  - from: N_REGULATOR
+    to: N_ENTERPRISE
+    label: "Statutory Enforcement & Non-Compliance Fines"
+    domains: [governance]
+    type: authority
+
+  - from: N_REGULATOR
+    to: N_FRONTIER
+    label: "Codes of Practice & Model Disclosures (GPAI)"
+    domains: [governance]
+    type: authority
+
+  - from: N_AUDITOR
+    to: N_ENTERPRISE
+    label: "Conformity Assessment & AIMS Audits (ISO 42001)"
+    domains: [governance]
+    type: authority
+
+  # ====================================================================
+  # The Liability Wall & Asymmetric Risk Shifting
+  # ====================================================================
+  - from: N_FRONTIER
+    to: N_ENTERPRISE
+    label: "Disclaims Consequential Harm (ToS As-Is)"
+    domains: [governance]
+    type: disclaim
+
+  - from: N_ENTERPRISE
+    to: N_AFFECTED_PARTY
+    label: "Vicarious Liability for Autonomous Actions (Tort / Contract)"
+    domains: [governance]
+    type: tension
+
+  - from: N_INSURER
+    to: N_ENTERPRISE
+    label: "Underwrites Policy (Conditioned on Auditability)"
+    domains: [governance, economic]
+    type: money
+
+  # ====================================================================
+  # Operational Governance & Mitigating Controls
+  # ====================================================================
+  - from: N_ENTERPRISE
+    to: N_HARNESS
+    label: "Enforces Acceptable Use Policy & Quotas"
+    domains: [governance]
+    type: governance_control
+
+  - from: N_HUMAN_OVERSIGHT
+    to: N_HARNESS
+    label: "Active Intervention & Emergency Override (Art 14)"
+    domains: [governance]
+    type: authority
+
+  - from: N_HARNESS
+    to: N_AUDIT_STORE
+    label: "Cryptographic Tamper-Proof Event Log"
+    domains: [governance, technical]
+    type: governance_control
+
+  - from: N_AUDIT_STORE
+    to: N_AUDITOR
+    label: "Forensic Evidence for Compliance Verification"
+    domains: [governance]
+    type: flow
+
+  # ====================================================================
+  # Harm Vectors & Blast Radius
+  # ====================================================================
+  - from: N_HARNESS
+    to: N_TARGET_SYS
+    label: "Gated Tool Execution"
+    domains: [technical, governance]
+    type: protocol
+
+  - from: N_TARGET_SYS
+    to: N_AFFECTED_PARTY
+    label: "Direct Impact (Credit denied, data breach, wrongful action)"
+    domains: [governance]
+    type: tension
+
+  - from: N_AFFECTED_PARTY
+    to: N_REGULATOR
+    label: "Complaints & Private Right of Action"
+    domains: [governance]
+    type: flow
+
+views:
+  - id: view_liability_chain
+    title: "The Liability Asymmetry View: Who Pays When Agents Fail?"
+    description: "Visualizes the legal disconnect: upstream labs disclaim liability while enterprise deployers absorb tort and regulatory risk."
+    domains: [governance]
+    direction: "TB"
+
+  - id: view_compliance_audit
+    title: "Statutory Compliance & Audit Architecture"
+    description: "Demonstrates how ISO 42001 and EU AI Act obligations (FRIA, Art 12, Art 14) are satisfied via deterministic harnesses and audit logs."
+    domains: [governance, technical]
+    direction: "LR"
