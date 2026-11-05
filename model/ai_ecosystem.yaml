@@ -1,63 +1,213 @@
-name: Deploy Ecosystem Documentation to GitHub Pages
+metadata:
+  title: "AI Ecosystem Governance & Economic Model"
+  version: "1.0"
+  description: "Canonical property graph mapping the modern AI ecosystem."
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+clusters:
+  - id: cluster_supply
+    label: "1. Upstream Foundation & Model Lab"
+  - id: cluster_product
+    label: "2. Specialized Product & Harness Domain (ISV)"
+  - id: cluster_client
+    label: "3. Enterprise & Principal Domain"
+  - id: cluster_environment
+    label: "4. Target Execution Environment"
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+nodes:
+  - id: N_TRAIN
+    label: "Training Supply Chain"
+    sublabel: "Data Curators, Annotators, Compute"
+    cluster: cluster_supply
+    domains: [economic, technical]
+    properties:
+      cost_type: "Fixed / R&D CapEx"
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  - id: N_FRONTIER
+    label: "Frontier Model Instance"
+    sublabel: "Weights & Wholesale Inference API"
+    cluster: cluster_supply
+    domains: [economic, technical, governance]
+    properties:
+      pricing_model: "Per-Token Usage"
+      liability_posture: "Disclaimed via ToS"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+  - id: N_ABSORBED
+    label: "Platform Absorption Zone"
+    sublabel: "Native Tools, Prompt Cache, Hosted State"
+    cluster: cluster_supply
+    domains: [economic, technical]
+    properties:
+      market_effect: "Encroachment on ISVs"
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+  - id: N_ISV_PRODUCT
+    label: "Specialized AI Product"
+    sublabel: "Vertical Solutions (Legal, Medical, Finance)"
+    cluster: cluster_product
+    domains: [economic, technical]
+    properties:
+      pricing_model: "SaaS Seat / Outcome Pricing"
+      margin_profile: "High Gross Margin (Vulnerable)"
 
-      - name: Install Python Dependencies
-        run: pip install pyyaml
+  - id: N_HARNESS
+    label: "Agent Governance Harness"
+    sublabel: "Rights, Duties & Deterministic Sandbox"
+    cluster: cluster_product
+    domains: [technical, governance]
+    properties:
+      enforcement: "Deterministic Policies & Budgets"
+      audit_role: "Sovereign Audit Ledger"
 
-      # STEP 1: Compile the canonical YAML into Docusaurus Markdown
-      - name: Generate Multi-View Markdown from Model
-        run: python scripts/generate_views.py
+  - id: N_MEMORY
+    label: "State & Persistence Layer"
+    sublabel: "Episodic Vector DBs & Audit History"
+    cluster: cluster_product
+    domains: [technical, governance]
+    properties:
+      sovereignty: "Client / Enterprise Owned"
+      compliance: "GDPR / Audit Logging"
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
+  - id: N_ENTERPRISE
+    label: "Enterprise Principal"
+    sublabel: "Budget Holder & Legal Entity"
+    cluster: cluster_client
+    domains: [economic, governance]
+    properties:
+      liability_posture: "Holds Vicarious Legal Liability"
+      commercial_role: "Economic Sponsor"
 
-      - name: Install Node Dependencies
-        run: npm ci
+  - id: N_HUMAN_USER
+    label: "Human Task Delegator"
+    sublabel: "End User / Operator"
+    cluster: cluster_client
+    domains: [technical, governance]
+    properties:
+      control_mode: "Prompting & HITL Approvals"
 
-      # STEP 2: Build the static Docusaurus site
-      - name: Build Docusaurus
-        run: npm run build
+  - id: N_MCP_HOST
+    label: "Protocol Gateway (MCP)"
+    sublabel: "Standardized Tool Discovery & Context"
+    cluster: cluster_environment
+    domains: [technical, governance]
+    properties:
+      protocol_standard: "Model Context Protocol"
+      security: "Scope Negotiation"
 
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
+  - id: N_TARGET_SYS
+    label: "Target Systems & APIs"
+    sublabel: "Databases, ERPs, Cloud Infrastructure"
+    cluster: cluster_environment
+    domains: [technical, governance]
+    properties:
+      risk_zone: "Blast Radius"
+      access_control: "RBAC / Least Privilege"
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+edges:
+  # Economic Edges
+  - from: N_ENTERPRISE
+    to: N_ISV_PRODUCT
+    label: "$$$ High-Margin SaaS / Outcome Contract"
+    domains: [economic]
+    type: money
+
+  - from: N_ISV_PRODUCT
+    to: N_FRONTIER
+    label: "$$ Wholesale Token Consumption"
+    domains: [economic]
+    type: money
+
+  - from: N_FRONTIER
+    to: N_TRAIN
+    label: "$ Compute & Annotation CapEx"
+    domains: [economic]
+    type: money
+
+  - from: N_ABSORBED
+    to: N_ISV_PRODUCT
+    label: "Platform Commoditization Pressure"
+    domains: [economic]
+    type: tension
+
+  # Governance & Authority Edges
+  - from: N_ENTERPRISE
+    to: N_HARNESS
+    label: "Delegates Authority & Statutory Duties"
+    domains: [governance]
+    type: authority
+
+  - from: N_HUMAN_USER
+    to: N_HARNESS
+    label: "Human-in-the-Loop Oversight & Overrides"
+    domains: [governance]
+    type: authority
+
+  - from: N_FRONTIER
+    to: N_ENTERPRISE
+    label: "Disclaims Liability (ToS Boundary)"
+    domains: [governance]
+    type: disclaim
+
+  - from: N_HARNESS
+    to: N_MEMORY
+    label: "Mandatory Audit Trail & State Proof"
+    domains: [governance]
+    type: governance_control
+
+  - from: N_HARNESS
+    to: N_MCP_HOST
+    label: "Enforces Least Privilege & Limits"
+    domains: [governance]
+    type: governance_control
+
+  - from: N_MCP_HOST
+    to: N_TARGET_SYS
+    label: "Constrains Blast Radius"
+    domains: [governance]
+    type: governance_control
+
+  # Technical & Protocol Edges
+  - from: N_HUMAN_USER
+    to: N_ISV_PRODUCT
+    label: "Task Intent & Context"
+    domains: [technical]
+    type: flow
+
+  - from: N_ISV_PRODUCT
+    to: N_HARNESS
+    label: "Initiates Autonomous Loop"
+    domains: [technical]
+    type: flow
+
+  - from: N_HARNESS
+    to: N_FRONTIER
+    label: "Inference API (Tokens / System Prompts)"
+    domains: [technical]
+    type: protocol
+
+  - from: N_HARNESS
+    to: N_MEMORY
+    label: "Context Retrieval & State Checkpointing"
+    domains: [technical]
+    type: flow
+
+  - from: N_HARNESS
+    to: N_MCP_HOST
+    label: "MCP Tool Calling Protocol"
+    domains: [technical]
+    type: protocol
+
+  - from: N_MCP_HOST
+    to: N_TARGET_SYS
+    label: "Execute Actions / Read Data"
+    domains: [technical]
+    type: flow
+
+views:
+  - id: view_economic
+    title: "Executive & Economic View (Value Flows & Commoditization)"
+    domains: [economic]
+    direction: "TB"
+
+  - id: view_governance
+    title: "Governance, Rights & Liability View"
+    domains: [governance]
+    direction: "TB"
