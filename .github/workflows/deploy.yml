@@ -1,4 +1,4 @@
-name: Deploy Documentation to GitHub Pages
+name: Deploy Ecosystem Documentation to GitHub Pages
 
 on:
   push:
@@ -18,9 +18,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # ------------------------------------------------------------------
+      # PHASE 1: Python Environment Setup
+      # ------------------------------------------------------------------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -29,10 +32,21 @@ jobs:
       - name: Install Python YAML Parser
         run: pip install pyyaml
 
-      # Generate Markdown + Mermaid docs directly from the YAML model
-      - name: Compile Model Views
-        run: python scripts/generate_views.py
+      # ------------------------------------------------------------------
+      # PHASE 2: Run Exporters in Sequence
+      # ------------------------------------------------------------------
+      - name: "Phase 2A: Generate yEd GraphML Exports"
+        run: python scripts/export_yed.py
 
+      - name: "Phase 2B: Generate draw.io XML Exports"
+        run: python scripts/export_drawio.py
+
+      - name: "Phase 2C: Generate Docusaurus Markdown & Mermaid Views"
+        run: python scripts/generate_docs.py
+
+      # ------------------------------------------------------------------
+      # PHASE 3: Node & Docusaurus Compilation
+      # ------------------------------------------------------------------
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -42,7 +56,7 @@ jobs:
       - name: Install Node Dependencies
         run: npm ci
 
-      - name: Build Docusaurus
+      - name: Build Static Docusaurus Site
         run: npm run build
 
       - name: Upload Pages Artifact

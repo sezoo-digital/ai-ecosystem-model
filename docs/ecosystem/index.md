@@ -1,18 +1,22 @@
 ---
-title: Interactive Ecosystem Views
+title: AI Ecosystem Multi-Lens Architecture
 sidebar_position: 1
 slug: /
 ---
 
-# AI Ecosystem: Multi-Lens Model
+# AI Ecosystem: Multi-Lens Architecture & Governance
 
-Select a lens below to view the ecosystem filtered by interest domain.
+Select a lens below to explore the ecosystem. You can also download the raw models for visual editing in **yEd** or **draw.io**.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="view_economic" label="Executive & Economic View (Value Flows & Commoditization)">
+
+> 📥 **Export to Graphical Tools:** 
+> <a href="pathname:///ai-ecosystem-model/exports/view_economic.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
+> <a href="pathname:///ai-ecosystem-model/exports/view_economic.drawio" download>Download for draw.io (.drawio)</a>
 
 ```mermaid
 flowchart TB
@@ -36,6 +40,10 @@ flowchart TB
 
 </TabItem>
 <TabItem value="view_governance" label="Governance, Rights & Liability View">
+
+> 📥 **Export to Graphical Tools:** 
+> <a href="pathname:///ai-ecosystem-model/exports/view_governance.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
+> <a href="pathname:///ai-ecosystem-model/exports/view_governance.drawio" download>Download for draw.io (.drawio)</a>
 
 ```mermaid
 flowchart TB
@@ -66,9 +74,9 @@ flowchart TB
 </TabItem>
 </Tabs>
 
-## Canonical Node Dictionary
+## Canonical Element Dictionary
 
-| Node | Domains | Core Properties |
+| Element | Domains | Properties |
 | :--- | :--- | :--- |
 | **Training Supply Chain**<br/>`N_TRAIN` | economic, technical | **cost_type**: Fixed / R&D CapEx |
 | **Frontier Model Instance**<br/>`N_FRONTIER` | economic, technical, governance | **pricing_model**: Per-Token Usage<br/>**liability_posture**: Disclaimed via ToS |

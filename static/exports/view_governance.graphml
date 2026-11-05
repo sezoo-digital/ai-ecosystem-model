@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:y="http://www.yworks.com/xml/graphml"
+         xmlns:yed="http://www.yworks.com/xml/yed/3">
+  <key for="node" id="d_graphics" yfiles.type="nodegraphics"/>
+  <key for="edge" id="d_edge_graphics" yfiles.type="edgegraphics"/>
+  <key for="node" id="d_sublabel" attr.name="sublabel" attr.type="string"/>
+  <key for="node" id="d_props" attr.name="properties" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <node id="N_FRONTIER">
+      <data key="d_sublabel">Weights &amp; Wholesale Inference API</data>
+      <data key="d_props">pricing_model: Per-Token Usage | liability_posture: Disclaimed via ToS</data>
+      <data key="d_graphics">
+        <y:ShapeNode>
+          <y:Geometry width="220" height="70"/>
+          <y:Fill color="#F8FAFC" transparent="false"/>
+          <y:BorderStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content">Frontier Model Instance
+(Weights &amp; Wholesale Inference API)</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="N_HARNESS">
+      <data key="d_sublabel">Rights, Duties &amp; Deterministic Sandbox</data>
+      <data key="d_props">enforcement: Deterministic Policies &amp; Budgets | audit_role: Sovereign Audit Ledger</data>
+      <data key="d_graphics">
+        <y:ShapeNode>
+          <y:Geometry width="220" height="70"/>
+          <y:Fill color="#F8FAFC" transparent="false"/>
+          <y:BorderStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content">Agent Governance Harness
+(Rights, Duties &amp; Deterministic Sandbox)</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="N_MEMORY">
+      <data key="d_sublabel">Episodic Vector DBs &amp; Audit History</data>
+      <data key="d_props">sovereignty: Client / Enterprise Owned | compliance: GDPR / Audit Logging</data>
+      <data key="d_graphics">
+        <y:ShapeNode>
+          <y:Geometry width="220" height="70"/>
+          <y:Fill color="#F8FAFC" transparent="false"/>
+          <y:BorderStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content">State &amp; Persistence Layer
+(Episodic Vector DBs &amp; Audit History)</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="N_ENTERPRISE">
+      <data key="d_sublabel">Budget Holder &amp; Legal Entity</data>
+      <data key="d_props">liability_posture: Holds Vicarious Legal Liability | commercial_role: Economic Sponsor</data>
+      <data key="d_graphics">
+        <y:ShapeNode>
+          <y:Geometry width="220" height="70"/>
+          <y:Fill color="#F8FAFC" transparent="false"/>
+          <y:BorderStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content">Enterprise Principal
+(Budget Holder &amp; Legal Entity)</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="N_HUMAN_USER">
+      <data key="d_sublabel">End User / Operator</data>
+      <data key="d_props">control_mode: Prompting &amp; HITL Approvals</data>
+      <data key="d_graphics">
+        <y:ShapeNode>
+          <y:Geometry width="220" height="70"/>
+          <y:Fill color="#F8FAFC" transparent="false"/>
+          <y:BorderStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content">Human Task Delegator
+(End User / Operator)</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="N_MCP_HOST">
+      <data key="d_sublabel">Standardized Tool Discovery &amp; Context</data>
+      <data key="d_props">protocol_standard: Model Context Protocol | security: Scope Negotiation</data>
+      <data key="d_graphics">
+        <y:ShapeNode>
+          <y:Geometry width="220" height="70"/>
+          <y:Fill color="#F8FAFC" transparent="false"/>
+          <y:BorderStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content">Protocol Gateway (MCP)
+(Standardized Tool Discovery &amp; Context)</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="N_TARGET_SYS">
+      <data key="d_sublabel">Databases, ERPs, Cloud Infrastructure</data>
+      <data key="d_props">risk_zone: Blast Radius | access_control: RBAC / Least Privilege</data>
+      <data key="d_graphics">
+        <y:ShapeNode>
+          <y:Geometry width="220" height="70"/>
+          <y:Fill color="#F8FAFC" transparent="false"/>
+          <y:BorderStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content">Target Systems &amp; APIs
+(Databases, ERPs, Cloud Infrastructure)</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <edge id="e0" source="N_ENTERPRISE" target="N_HARNESS">
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Delegates Authority &amp; Statutory Duties</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e1" source="N_HUMAN_USER" target="N_HARNESS">
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Human-in-the-Loop Oversight &amp; Overrides</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="N_FRONTIER" target="N_ENTERPRISE">
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Disclaims Liability (ToS Boundary)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="N_HARNESS" target="N_MEMORY">
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Mandatory Audit Trail &amp; State Proof</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="N_HARNESS" target="N_MCP_HOST">
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Enforces Least Privilege &amp; Limits</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="N_MCP_HOST" target="N_TARGET_SYS">
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#1E40AF" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Constrains Blast Radius</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+</graphml>
