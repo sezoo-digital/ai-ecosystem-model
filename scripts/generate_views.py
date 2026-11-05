@@ -41,6 +41,7 @@ def generate_interactive_page(model, output_path):
         "---",
         "title: Interactive Ecosystem Views",
         "sidebar_position: 1",
+        "slug: /", # <-- THIS TELLS DOCUSAURUS THIS PAGE IS THE ROOT HOMEPAGE
         "---",
         "",
         "# AI Ecosystem: Multi-Lens Model",

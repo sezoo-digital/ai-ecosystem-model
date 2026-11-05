@@ -1,6 +1,7 @@
 ---
 title: Interactive Ecosystem Views
 sidebar_position: 1
+slug: /
 ---
 
 # AI Ecosystem: Multi-Lens Model
