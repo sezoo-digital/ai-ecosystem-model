@@ -4,54 +4,54 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <object id="N_TRAIN" label="<b>Training Supply Chain</b><br/><small>Data Curators, Annotators, Compute</small>" domains="economic, technical" cluster="cluster_supply" cost_type="Fixed / R&amp;D CapEx">
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Compute&lt;/small&gt;" domains="economic, technical" cluster="cluster_supply" cost_type="Fixed / R&amp;D CapEx">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="40" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="40" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_FRONTIER" label="<b>Frontier Model Instance</b><br/><small>Weights &amp; Wholesale Inference API</small>" domains="economic, technical, governance" cluster="cluster_supply" pricing_model="Per-Token Usage" liability_posture="Disclaimed via ToS">
+        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Model Instance&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Weights &amp; Wholesale Inference API&lt;/small&gt;" domains="economic, technical, governance" cluster="cluster_supply" pricing_model="Per-Token Usage" liability_posture="Disclaimed via ToS">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="140" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="140" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ABSORBED" label="<b>Platform Absorption Zone</b><br/><small>Native Tools, Prompt Cache, Hosted State</small>" domains="economic, technical" cluster="cluster_supply" market_effect="Encroachment on ISVs">
+        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" domains="economic, technical" cluster="cluster_supply" market_effect="Encroachment on ISVs">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="240" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="240" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ISV_PRODUCT" label="<b>Specialized AI Product</b><br/><small>Vertical Solutions (Legal, Medical, Finance)</small>" domains="economic, technical" cluster="cluster_product" pricing_model="SaaS Seat / Outcome Pricing" margin_profile="High Gross Margin (Vulnerable)">
+        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Product&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance)&lt;/small&gt;" domains="economic, technical" cluster="cluster_product" pricing_model="SaaS Seat / Outcome Pricing" margin_profile="High Gross Margin (Vulnerable)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="340" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="340" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HARNESS" label="<b>Agent Governance Harness</b><br/><small>Rights, Duties &amp; Deterministic Sandbox</small>" domains="technical, governance" cluster="cluster_product" enforcement="Deterministic Policies &amp; Budgets" audit_role="Sovereign Audit Ledger">
+        <object id="N_HARNESS" label="&lt;b&gt;Agent Governance Harness&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Rights, Duties &amp; Deterministic Sandbox&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" enforcement="Deterministic Policies &amp; Budgets" audit_role="Sovereign Audit Ledger">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="440" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="440" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_MEMORY" label="<b>State &amp; Persistence Layer</b><br/><small>Episodic Vector DBs &amp; Audit History</small>" domains="technical, governance" cluster="cluster_product" sovereignty="Client / Enterprise Owned" compliance="GDPR / Audit Logging">
+        <object id="N_MEMORY" label="&lt;b&gt;State &amp; Persistence Layer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Episodic Vector DBs &amp; Audit History&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" sovereignty="Client / Enterprise Owned" compliance="GDPR / Audit Logging">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="300" y="40" width="200" height="70" as="geometry"/>
+            <mxGeometry x="300" y="40" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ENTERPRISE" label="<b>Enterprise Principal</b><br/><small>Budget Holder &amp; Legal Entity</small>" domains="economic, governance" cluster="cluster_client" liability_posture="Holds Vicarious Legal Liability" commercial_role="Economic Sponsor">
+        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Principal&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Budget Holder &amp; Legal Entity&lt;/small&gt;" domains="economic, governance" cluster="cluster_client" liability_posture="Holds Vicarious Legal Liability" commercial_role="Economic Sponsor">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="300" y="140" width="200" height="70" as="geometry"/>
+            <mxGeometry x="300" y="140" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HUMAN_USER" label="<b>Human Task Delegator</b><br/><small>End User / Operator</small>" domains="technical, governance" cluster="cluster_client" control_mode="Prompting &amp; HITL Approvals">
+        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Operator&lt;/small&gt;" domains="technical, governance" cluster="cluster_client" control_mode="Prompting &amp; HITL Approvals">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="300" y="240" width="200" height="70" as="geometry"/>
+            <mxGeometry x="300" y="240" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_MCP_HOST" label="<b>Protocol Gateway (MCP)</b><br/><small>Standardized Tool Discovery &amp; Context</small>" domains="technical, governance" cluster="cluster_environment" protocol_standard="Model Context Protocol" security="Scope Negotiation">
+        <object id="N_MCP_HOST" label="&lt;b&gt;Protocol Gateway (MCP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Standardized Tool Discovery &amp; Context&lt;/small&gt;" domains="technical, governance" cluster="cluster_environment" protocol_standard="Model Context Protocol" security="Scope Negotiation">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="300" y="340" width="200" height="70" as="geometry"/>
+            <mxGeometry x="300" y="340" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TARGET_SYS" label="<b>Target Systems &amp; APIs</b><br/><small>Databases, ERPs, Cloud Infrastructure</small>" domains="technical, governance" cluster="cluster_environment" risk_zone="Blast Radius" access_control="RBAC / Least Privilege">
+        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, ERPs, Cloud Infrastructure&lt;/small&gt;" domains="technical, governance" cluster="cluster_environment" risk_zone="Blast Radius" access_control="RBAC / Least Privilege">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="300" y="440" width="200" height="70" as="geometry"/>
+            <mxGeometry x="300" y="440" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="master_view_edge_0" value="$$$ High-Margin SaaS / Outcome Contract" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=2;html=1;" edge="1" source="N_ENTERPRISE" target="N_ISV_PRODUCT" parent="1">
@@ -110,29 +110,29 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <object id="N_TRAIN" label="<b>Training Supply Chain</b><br/><small>Data Curators, Annotators, Compute</small>" domains="economic, technical" cluster="cluster_supply" cost_type="Fixed / R&amp;D CapEx">
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Compute&lt;/small&gt;" domains="economic, technical" cluster="cluster_supply" cost_type="Fixed / R&amp;D CapEx">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="40" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="40" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_FRONTIER" label="<b>Frontier Model Instance</b><br/><small>Weights &amp; Wholesale Inference API</small>" domains="economic, technical, governance" cluster="cluster_supply" pricing_model="Per-Token Usage" liability_posture="Disclaimed via ToS">
+        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Model Instance&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Weights &amp; Wholesale Inference API&lt;/small&gt;" domains="economic, technical, governance" cluster="cluster_supply" pricing_model="Per-Token Usage" liability_posture="Disclaimed via ToS">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="140" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="140" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ABSORBED" label="<b>Platform Absorption Zone</b><br/><small>Native Tools, Prompt Cache, Hosted State</small>" domains="economic, technical" cluster="cluster_supply" market_effect="Encroachment on ISVs">
+        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" domains="economic, technical" cluster="cluster_supply" market_effect="Encroachment on ISVs">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="240" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="240" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ISV_PRODUCT" label="<b>Specialized AI Product</b><br/><small>Vertical Solutions (Legal, Medical, Finance)</small>" domains="economic, technical" cluster="cluster_product" pricing_model="SaaS Seat / Outcome Pricing" margin_profile="High Gross Margin (Vulnerable)">
+        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Product&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance)&lt;/small&gt;" domains="economic, technical" cluster="cluster_product" pricing_model="SaaS Seat / Outcome Pricing" margin_profile="High Gross Margin (Vulnerable)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="340" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="340" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ENTERPRISE" label="<b>Enterprise Principal</b><br/><small>Budget Holder &amp; Legal Entity</small>" domains="economic, governance" cluster="cluster_client" liability_posture="Holds Vicarious Legal Liability" commercial_role="Economic Sponsor">
+        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Principal&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Budget Holder &amp; Legal Entity&lt;/small&gt;" domains="economic, governance" cluster="cluster_client" liability_posture="Holds Vicarious Legal Liability" commercial_role="Economic Sponsor">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="440" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="440" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="view_economic_edge_0" value="$$$ High-Margin SaaS / Outcome Contract" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=2;html=1;" edge="1" source="N_ENTERPRISE" target="N_ISV_PRODUCT" parent="1">
@@ -155,39 +155,39 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <object id="N_FRONTIER" label="<b>Frontier Model Instance</b><br/><small>Weights &amp; Wholesale Inference API</small>" domains="economic, technical, governance" cluster="cluster_supply" pricing_model="Per-Token Usage" liability_posture="Disclaimed via ToS">
+        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Model Instance&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Weights &amp; Wholesale Inference API&lt;/small&gt;" domains="economic, technical, governance" cluster="cluster_supply" pricing_model="Per-Token Usage" liability_posture="Disclaimed via ToS">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="40" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="40" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HARNESS" label="<b>Agent Governance Harness</b><br/><small>Rights, Duties &amp; Deterministic Sandbox</small>" domains="technical, governance" cluster="cluster_product" enforcement="Deterministic Policies &amp; Budgets" audit_role="Sovereign Audit Ledger">
+        <object id="N_HARNESS" label="&lt;b&gt;Agent Governance Harness&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Rights, Duties &amp; Deterministic Sandbox&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" enforcement="Deterministic Policies &amp; Budgets" audit_role="Sovereign Audit Ledger">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="140" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="140" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_MEMORY" label="<b>State &amp; Persistence Layer</b><br/><small>Episodic Vector DBs &amp; Audit History</small>" domains="technical, governance" cluster="cluster_product" sovereignty="Client / Enterprise Owned" compliance="GDPR / Audit Logging">
+        <object id="N_MEMORY" label="&lt;b&gt;State &amp; Persistence Layer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Episodic Vector DBs &amp; Audit History&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" sovereignty="Client / Enterprise Owned" compliance="GDPR / Audit Logging">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="240" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="240" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ENTERPRISE" label="<b>Enterprise Principal</b><br/><small>Budget Holder &amp; Legal Entity</small>" domains="economic, governance" cluster="cluster_client" liability_posture="Holds Vicarious Legal Liability" commercial_role="Economic Sponsor">
+        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Principal&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Budget Holder &amp; Legal Entity&lt;/small&gt;" domains="economic, governance" cluster="cluster_client" liability_posture="Holds Vicarious Legal Liability" commercial_role="Economic Sponsor">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="340" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="340" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HUMAN_USER" label="<b>Human Task Delegator</b><br/><small>End User / Operator</small>" domains="technical, governance" cluster="cluster_client" control_mode="Prompting &amp; HITL Approvals">
+        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Operator&lt;/small&gt;" domains="technical, governance" cluster="cluster_client" control_mode="Prompting &amp; HITL Approvals">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="40" y="440" width="200" height="70" as="geometry"/>
+            <mxGeometry x="40" y="440" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_MCP_HOST" label="<b>Protocol Gateway (MCP)</b><br/><small>Standardized Tool Discovery &amp; Context</small>" domains="technical, governance" cluster="cluster_environment" protocol_standard="Model Context Protocol" security="Scope Negotiation">
+        <object id="N_MCP_HOST" label="&lt;b&gt;Protocol Gateway (MCP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Standardized Tool Discovery &amp; Context&lt;/small&gt;" domains="technical, governance" cluster="cluster_environment" protocol_standard="Model Context Protocol" security="Scope Negotiation">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="300" y="40" width="200" height="70" as="geometry"/>
+            <mxGeometry x="300" y="40" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TARGET_SYS" label="<b>Target Systems &amp; APIs</b><br/><small>Databases, ERPs, Cloud Infrastructure</small>" domains="technical, governance" cluster="cluster_environment" risk_zone="Blast Radius" access_control="RBAC / Least Privilege">
+        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, ERPs, Cloud Infrastructure&lt;/small&gt;" domains="technical, governance" cluster="cluster_environment" risk_zone="Blast Radius" access_control="RBAC / Least Privilege">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#1E40AF;strokeWidth=2;" vertex="1" parent="1">
-            <mxGeometry x="300" y="140" width="200" height="70" as="geometry"/>
+            <mxGeometry x="300" y="140" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="view_governance_edge_0" value="Delegates Authority &amp; Statutory Duties" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1E40AF;strokeWidth=2;html=1;" edge="1" source="N_ENTERPRISE" target="N_HARNESS" parent="1">
