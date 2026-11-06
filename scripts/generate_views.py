@@ -1,17 +1,30 @@
+import sys
 import yaml
 from pathlib import Path
-from generate_docs import build_view_mermaid
 
-def generate_view_pages():
-    model_file = Path("model/ai_ecosystem.yaml")
+if sys.platform == "win32":
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+try:
+    from generate_docs import build_view_mermaid
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from generate_docs import build_view_mermaid
+
+def main():
+    model_file = PROJECT_ROOT / "model" / "ai_ecosystem.yaml"
     if not model_file.exists():
-        print(f"Error: {model_file} not found.")
-        return
+        sys.exit(f"[ERROR] Model file not found at: {model_file}")
 
     with open(model_file, "r", encoding="utf-8") as f:
         model = yaml.safe_load(f)
 
-    docs_path = Path("docs/ecosystem")
+    docs_path = PROJECT_ROOT / "docs" / "ecosystem"
     docs_path.mkdir(parents=True, exist_ok=True)
 
     clusters_map = {c["id"]: c["label"] for c in model.get("clusters", [])}
@@ -23,7 +36,6 @@ def generate_view_pages():
         vdomains = set(v["domains"])
         vdesc = v.get("description", "Architectural projection of the ecosystem.")
         
-        # Filter nodes & edges for this specific view
         active_nodes = [n for n in model["nodes"] if any(d in vdomains for d in n.get("domains", []))]
         active_node_ids = {n["id"] for n in active_nodes}
         active_edges = [
@@ -63,9 +75,7 @@ def generate_view_pages():
             sub = f"<br/><small>{n['sublabel']}</small>" if n.get("sublabel") else ""
             md.append(f"| **{n['label']}**{sub}<br/>`{n['id']}` | {cname} | {props} |")
 
-        md.append("")
-        md.append("## Active Relationships & Protocols")
-        md.append("")
+        md.append("\n## Active Relationships & Protocols\n")
         md.append("| Source | Relationship / Protocol | Target | Type |")
         md.append("| :--- | :---: | :--- | :--- |")
         for e in active_edges:
@@ -75,7 +85,7 @@ def generate_view_pages():
 
         page_file = docs_path / f"{vid}.md"
         page_file.write_text("\n".join(md), encoding="utf-8")
-        print(f"✔ Individual lens page created: {page_file}")
+        print(f"[OK] Lens page generated: {page_file.name}")
 
 if __name__ == "__main__":
-    generate_view_pages()
+    main()

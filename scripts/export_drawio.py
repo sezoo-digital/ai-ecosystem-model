@@ -1,6 +1,13 @@
+import sys
 import yaml
 import html
 from pathlib import Path
+
+if sys.platform == "win32":
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 def get_drawio_style(shape, domains):
     # Determine base color by domain
@@ -126,7 +133,7 @@ def main():
 
     xml.append('</mxfile>')
     target_file.write_text("\n".join(xml), encoding="utf-8")
-    print(f"✔ Multi-page draw.io file created: {target_file}")
+    print(f"[OK] Multi-page draw.io file created: {target_file}")
 
 if __name__ == "__main__":
     main()

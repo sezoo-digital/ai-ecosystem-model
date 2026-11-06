@@ -1,0 +1,63 @@
+@settings {
+  template: systems;
+  layout: force;
+}
+
+/* Cluster Grouping */
+element {
+  shape: round-rectangle;
+  size: 55;
+}
+
+/* Domain Colors matching the Mermaid diagrams */
+element["Domains" *= "governance"] {
+  color: #FFF1F0;
+  stroke-color: #F5222D;
+  stroke-width: 2;
+}
+
+element["Domains" *= "economic"] {
+  color: #F6FFED;
+  stroke-color: #52C41A;
+  stroke-width: 2;
+}
+
+element["Domains" *= "technical"] {
+  color: #E6F7FF;
+  stroke-color: #1890FF;
+  stroke-width: 2;
+}
+
+/* Connection Semantics */
+connection["Type" = "money"] {
+  color: #16A34A;
+  width: 3;
+}
+
+connection["Type" = "authority"] {
+  color: #722ED1;
+  width: 3;
+}
+
+connection["Type" = "tension"] {
+  color: #DC2626;
+  style: dashed;
+  width: 2;
+}
+
+connection["Type" = "disclaim"] {
+  color: #EA580C;
+  style: dotted;
+  width: 2;
+}
+
+connection["Type" = "governance_control"] {
+  color: #E11D48;
+  style: dashed;
+  width: 2;
+}
+
+connection["Type" = "protocol"] {
+  color: #2563EB;
+  width: 2;
+}

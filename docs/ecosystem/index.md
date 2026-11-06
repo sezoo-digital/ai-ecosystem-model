@@ -6,9 +6,10 @@ slug: /
 
 # AI Ecosystem: Multi-Lens Architecture & Governance
 
-> 📥 **Download Canonical Models for Visual Modeling Tools:**  
+> [DOWNLOADS] Canonical Models for Visual Modeling Tools:  
 > <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
-> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.drawio" download>Download for draw.io (.drawio)</a>
+> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.drawio" download>Download for draw.io (.drawio)</a> &nbsp;|&nbsp; 
+> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem_kumu.csv" download>Download for Kumu (.csv)</a>
 
 Select a lens below to explore the ecosystem interactively:
 

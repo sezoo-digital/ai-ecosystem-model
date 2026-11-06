@@ -2,8 +2,11 @@
   "name": "ai-ecosystem-model",
   "version": "1.0.0",
   "scripts": {
+    "model:build": "python scripts/build_all.py || python3 scripts/build_all.py",
+    "prestart": "npm run model:build",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "prebuild": "npm run model:build",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
