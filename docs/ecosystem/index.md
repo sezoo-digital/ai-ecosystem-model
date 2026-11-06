@@ -4,17 +4,77 @@ sidebar_position: 1
 slug: /
 ---
 
-# AI Ecosystem: Multi-Lens Architecture & Governance
-
-> [DOWNLOADS] Canonical Models for Visual Modeling Tools:  
-> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.graphml" download>Download for yEd (.graphml)</a> &nbsp;|&nbsp; 
-> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem.drawio" download>Download for draw.io (.drawio)</a> &nbsp;|&nbsp; 
-> <a href="pathname:///ai-ecosystem-model/exports/ai_ecosystem_kumu.csv" download>Download for Kumu (.csv)</a>
-
-Select a lens below to explore the ecosystem interactively:
-
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+# AI Ecosystem: Multi-Lens Architecture & Governance
+
+:::tip Download Canonical Models
+Download the raw model to explore and query in external visual modeling tools:
+
+- <a href={useBaseUrl("/exports/ai_ecosystem.graphml")} download="ai_ecosystem.graphml">**Download for yEd** (.graphml)</a>
+- <a href={useBaseUrl("/exports/ai_ecosystem.drawio")} download="ai_ecosystem.drawio">**Download for draw.io** (.drawio)</a>
+- <a href={useBaseUrl("/exports/ai_ecosystem_kumu.csv")} download="ai_ecosystem_kumu.csv">**Download for Kumu** (.csv)</a>
+:::
+
+<details>
+<summary><strong>📖 Visual Language & Architectural Key (Click to expand)</strong></summary>
+
+```mermaid
+flowchart LR
+    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
+    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
+    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
+    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
+
+    subgraph LegendShapes ["Architectural Node Archetypes"]
+        K_HEXAGON{{"Statutory &amp; Regulatory Authority<br/><small><i>shape: hexagon</i></small>"}}:::gov
+        K_CIRCLE(("Human Actor / Natural Person<br/><small><i>shape: circle</i></small>")):::gov
+        K_SUBPROC[["Deterministic Gateway &amp; Policy Kernel<br/><small><i>shape: subproc</i></small>"]]:::tech
+        K_CYLINDER[("Stateful Store &amp; Critical Data Asset<br/><small><i>shape: cylinder</i></small>")]:::tech
+        K_STADIUM(["Identity &amp; Security Issuer<br/><small><i>shape: stadium</i></small>"]):::tech
+        K_ROUNDED("Software Service &amp; Inference API<br/><small><i>shape: rounded</i></small>"):::tech
+        K_RECT["Organizational &amp; Economic Entity<br/><small><i>shape: rect</i></small>"]:::econ
+    end
+```
+
+### Node Archetypes (Shapes)
+
+| Shape | Archetype / Meaning | Description |
+| :---: | :--- | :--- |
+| `hexagon` | **Statutory & Regulatory Authority** | External legal jurisdictions, court systems, conformity auditors (non-negotiable authority). |
+| `circle` | **Human Actor / Natural Person** | Human principals, operators (HITL), or impacted third-party individuals. |
+| `subproc` | **Deterministic Gateway & Policy Kernel** | Sandboxes, policy harnesses, MCP gateways where strict deterministic logic bounds AI. |
+| `cylinder` | **Stateful Store & Critical Data Asset** | Append-only audit stores, vector databases, production databases, target ERPs. |
+| `stadium` | **Identity & Security Issuer** | Enterprise IdP, OAuth token issuers, workload authorization brokers. |
+| `rounded` | **Software Service & Inference API** | Frontier model endpoints, vertical applications, continuous eval engines. |
+| `rect` | **Organizational & Economic Entity** | Commercial deployers, CapEx supply chain entities, market absorption zones. |
+
+### Relationship & Edge Types
+
+| Line Style | Relationship Type | Semantic Meaning |
+| :---: | :--- | :--- |
+| `== 'label' ==>` | **Capital / Commercial Flow** (`money`) | Financial transactions, SaaS subscriptions, compute CapEx, insurance premiums. |
+| `== 'label' ==>` | **Direct Authority & Override** (`authority`) | Statutory mandates, legal agency delegation, mandatory human oversight. |
+| `-. 'label' .->` | **Policy Constraint & Audit Trail** (`governance_control`) | Tamper-evident logging, scope enforcement, sandbox boundaries. |
+| `-. 'label' .->` | **Liability & Market Tension** (`tension`) | Tort liability exposure, blast radius impact, platform commoditization pressure. |
+| `-. 'label' .->` | **Contractual Disclaimer** (`disclaim`) | ToS liability carve-outs and 'AS-IS' warranty limitations. |
+| `-->|'label'|` | **Technical Protocol** (`protocol`) | JSON-RPC tool calling, OAuth bearer flows, inference API calls. |
+| `-->|'label'|` | **Data & Intent Flow** (`flow`) | Prompt context, telemetry metrics, audit evidence submissions. |
+
+### Domain Boundary Colors
+
+| Color | Domain | Scope |
+| :---: | :--- | :--- |
+| 🔴 **Red / Pink** | `governance` | Statutory duties, liability allocation, compliance controls, human oversight. |
+| 🟢 **Green** | `economic` | SaaS contracts, token consumption costs, GPU CapEx, underwriting fees. |
+| 🔵 **Blue** | `technical` | API execution protocols, JSON-RPC (MCP), state persistence, telemetry. |
+
+</details>
+
+### Interactive Lenses
+Select a lens below to explore the ecosystem interactively:
 
 <Tabs>
 <TabItem value="view_economic" label="Executive & Economic Perspective">

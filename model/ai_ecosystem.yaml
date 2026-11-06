@@ -3,6 +3,60 @@ metadata:
   version: "2.2"
   description: "Single-source-of-truth property graph capturing economic flows, technical protocols, legal agency, and liability boundaries across the AI value chain."
 
+styles:
+  shapes:
+    hexagon:
+      label: "Statutory & Regulatory Authority"
+      description: "External legal jurisdictions, court systems, conformity auditors (non-negotiable authority)."
+    circle:
+      label: "Human Actor / Natural Person"
+      description: "Human principals, operators (HITL), or impacted third-party individuals."
+    subproc:
+      label: "Deterministic Gateway & Policy Kernel"
+      description: "Sandboxes, policy harnesses, MCP gateways where strict deterministic logic bounds AI."
+    cylinder:
+      label: "Stateful Store & Critical Data Asset"
+      description: "Append-only audit stores, vector databases, production databases, target ERPs."
+    stadium:
+      label: "Identity & Security Issuer"
+      description: "Enterprise IdP, OAuth token issuers, workload authorization brokers."
+    rounded:
+      label: "Software Service & Inference API"
+      description: "Frontier model endpoints, vertical applications, continuous eval engines."
+    rect:
+      label: "Organizational & Economic Entity"
+      description: "Commercial deployers, CapEx supply chain entities, market absorption zones."
+
+  edge_types:
+    money:
+      syntax: "== 'label' ==>"
+      label: "Capital / Commercial Flow"
+      description: "Financial transactions, SaaS subscriptions, compute CapEx, insurance premiums."
+    authority:
+      syntax: "== 'label' ==>"
+      label: "Direct Authority & Override"
+      description: "Statutory mandates, legal agency delegation, mandatory human oversight."
+    governance_control:
+      syntax: "-. 'label' .->"
+      label: "Policy Constraint & Audit Trail"
+      description: "Tamper-evident logging, scope enforcement, sandbox boundaries."
+    tension:
+      syntax: "-. 'label' .->"
+      label: "Liability & Market Tension"
+      description: "Tort liability exposure, blast radius impact, platform commoditization pressure."
+    disclaim:
+      syntax: "-. 'label' .->"
+      label: "Contractual Disclaimer"
+      description: "ToS liability carve-outs and 'AS-IS' warranty limitations."
+    protocol:
+      syntax: "-->|'label'|"
+      label: "Technical Protocol"
+      description: "JSON-RPC tool calling, OAuth bearer flows, inference API calls."
+    flow:
+      syntax: "-->|'label'|"
+      label: "Data & Intent Flow"
+      description: "Prompt context, telemetry metrics, audit evidence submissions."
+
 taxonomies:
   domains: [economic, technical, governance]
   eu_ai_act_roles: [Provider_GPAI, Provider_System, Deployer, Importer, Distributor, Affected_Subject]
