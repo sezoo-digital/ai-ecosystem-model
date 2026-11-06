@@ -1,130 +1,84 @@
 import sys
+import json
 import yaml
-import csv
 from pathlib import Path
 
+# Force UTF-8 console output on Windows
 if sys.platform == "win32":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-def sanitize_cell(val):
-    """Formats values for Kumu compatibility."""
-    if val is None:
-        return ""
-    if isinstance(val, list):
-        # Kumu uses the pipe character '|' for multi-value tags and filters
-        return " | ".join(str(v).strip() for v in val)
-    return str(val).strip()
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 def to_title_header(snake_str):
     """Converts snake_case property keys to friendly Kumu Field Titles."""
-    return snake_str.replace("_", " ").title()
+    acronyms = {"eu": "EU", "ai": "AI", "id": "ID", "mcp": "MCP", "iam": "IAM", "api": "API", "tos": "ToS"}
+    words = snake_str.split("_")
+    return " ".join(acronyms.get(w.lower(), w.capitalize()) for w in words)
 
 def main():
-    model_file = Path("model/ai_ecosystem.yaml")
+    model_file = PROJECT_ROOT / "model" / "ai_ecosystem.yaml"
     if not model_file.exists():
-        print(f"Error: {model_file} not found.")
-        return
+        sys.exit(f"[ERROR] Model file not found at: {model_file}")
 
     with open(model_file, "r", encoding="utf-8") as f:
         model = yaml.safe_load(f)
 
-    export_path = Path("static/exports")
+    export_path = PROJECT_ROOT / "static" / "exports"
     export_path.mkdir(parents=True, exist_ok=True)
-    target_file = export_path / "ai_ecosystem_kumu.csv"
+    target_file = export_path / "ai_ecosystem_kumu.json"
 
     clusters_map = {c["id"]: c.get("label", c["id"]) for c in model.get("clusters", [])}
 
-    # 1. Discover all unique property keys across all nodes to generate custom columns
-    node_prop_keys = set()
-    for n in model.get("nodes", []):
-        for k in n.get("properties", {}).keys():
-            node_prop_keys.add(k)
-    sorted_prop_keys = sorted(list(node_prop_keys))
+    blueprint = {
+        "elements": [],
+        "connections": []
+    }
 
-    # 2. Define Kumu canonical headers
-    # Core Kumu columns: ID, Label, Type, Description, Tags, From, To, Direction
-    base_headers = [
-        "ID",
-        "Label",
-        "Type",
-        "Description",
-        "Tags",
-        "From",
-        "To",
-        "Direction",
-        "Cluster",
-        "Domains"
-    ]
-    
-    # Custom property headers (converted to Title Case for Kumu UI)
-    prop_headers = [to_title_header(k) for k in sorted_prop_keys]
-    headers = base_headers + prop_headers
-
-    rows = []
-
-    # 3. Export Nodes (Elements)
+    # 1. Build Elements
     for n in model.get("nodes", []):
         domains = n.get("domains", [])
         primary_domain = domains[0].capitalize() if domains else "Entity"
-        cluster_label = clusters_map.get(n.get("cluster", ""), n.get("cluster", ""))
+        cluster_name = clusters_map.get(n.get("cluster", ""), n.get("cluster", ""))
         
-        row = {
-            "ID": n["id"],
-            "Label": n.get("label", n["id"]),
-            "Type": primary_domain,                      # Sets default element type in Kumu
-            "Description": n.get("sublabel", ""),        # Shown in Kumu left drawer
-            "Tags": sanitize_cell(domains),              # Filterable tags
-            "From": "",                                  # Blank for Elements
-            "To": "",                                    # Blank for Elements
-            "Direction": "",
-            "Cluster": cluster_label,
-            "Domains": sanitize_cell(domains)
+        element = {
+            "id": n["id"],
+            "label": n.get("label", n["id"]),
+            "type": primary_domain,
+            "description": n.get("sublabel", ""),
+            "tags": domains,
+            "Cluster": cluster_name
         }
 
-        # Populate custom dynamic properties
-        node_props = n.get("properties", {})
-        for raw_k, title_k in zip(sorted_prop_keys, prop_headers):
-            row[title_k] = sanitize_cell(node_props.get(raw_k, ""))
+        # Add all custom properties as named profile attributes
+        for prop_key, prop_val in n.get("properties", {}).items():
+            field_name = to_title_header(prop_key)
+            element[field_name] = prop_val
 
-        rows.append(row)
+        blueprint["elements"].append(element)
 
-    # 4. Export Edges (Connections)
+    # 2. Build Connections
     for i, e in enumerate(model.get("edges", [])):
-        etype = e.get("type", "flow")
-        edge_domains = e.get("domains", [])
-        
-        row = {
-            "ID": f"conn_{i}",
-            "Label": e.get("label", ""),
-            "Type": etype,                               # Enables @connection["type"="..."] styling
-            "Description": f"Relationship type: {etype}",
-            "Tags": sanitize_cell(edge_domains),
-            "From": e["from"],                           # Bound to Node ID
-            "To": e["to"],                               # Bound to Node ID
-            "Direction": "directed",                     # Standard arrow in Kumu
-            "Cluster": "",
-            "Domains": sanitize_cell(edge_domains)
+        connection = {
+            "id": f"conn_{i}",
+            "from": e["from"],
+            "to": e["to"],
+            "label": e.get("label", ""),
+            "type": e.get("type", "flow"),
+            "direction": "directed",
+            "tags": e.get("domains", []),
+            "description": f"Relationship type: {e.get('type', 'flow')}"
         }
+        blueprint["connections"].append(connection)
 
-        # Pad connection rows for property columns
-        for title_k in prop_headers:
-            row[title_k] = ""
+    # 3. Write formatted JSON
+    with open(target_file, "w", encoding="utf-8") as f:
+        json.dump(blueprint, f, indent=2, ensure_ascii=False)
 
-        rows.append(row)
-
-    # 5. Write RFC 4180 compliant CSV
-    with open(target_file, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=headers)
-        writer.writeheader()
-        writer.writerows(rows)
-
-    print(f"[OK] Kumu CSV exported successfully: {target_file}")
-    print(f"  - Elements:   {len(model.get('nodes', []))}")
-    print(f"  - Connections:{len(model.get('edges', []))}")
-    print(f"  - Metadata Fields: {len(prop_headers)} custom attributes mapped")
+    print(f"[OK] Kumu Blueprint JSON created: {target_file.name}")
+    print(f"     Elements: {len(blueprint['elements'])}, Connections: {len(blueprint['connections'])}")
 
 if __name__ == "__main__":
     main()

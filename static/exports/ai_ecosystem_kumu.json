@@ -1,0 +1,523 @@
+{
+  "elements": [
+    {
+      "id": "N_REGULATOR",
+      "label": "Market Surveillance Authorities",
+      "type": "Governance",
+      "description": "EU AI Office, FTC, DPAs, Courts",
+      "tags": [
+        "governance"
+      ],
+      "Cluster": "0. Jurisdictional & Regulatory Sphere",
+      "Enforcement Powers": "Fines up to 7% turnover, injunctions"
+    },
+    {
+      "id": "N_AUDITOR",
+      "label": "Conformity Body & ISO Auditor",
+      "type": "Governance",
+      "description": "Notified Bodies, ISO/IEC 42001 Certifiers",
+      "tags": [
+        "governance"
+      ],
+      "Cluster": "0. Jurisdictional & Regulatory Sphere",
+      "Role": "AIMS certification & post-market monitoring"
+    },
+    {
+      "id": "N_INSURER",
+      "label": "AI Risk Underwriter & Insurer",
+      "type": "Economic",
+      "description": "Cyber & Algorithmic Liability Carrier",
+      "tags": [
+        "economic",
+        "governance"
+      ],
+      "Cluster": "0. Jurisdictional & Regulatory Sphere",
+      "Underwriting Gate": "Requires verifiable audit trail & human oversight"
+    },
+    {
+      "id": "N_TRAIN",
+      "label": "Training Supply Chain",
+      "type": "Economic",
+      "description": "Data Curators, Annotators, Compute Clusters",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "Cluster": "1. Upstream Foundation & Model Lab",
+      "Cost Type": "Fixed / Heavy R&D CapEx",
+      "Ip Risk": "Copyright / Scraping litigation"
+    },
+    {
+      "id": "N_FRONTIER",
+      "label": "Frontier GPAI Lab",
+      "type": "Economic",
+      "description": "Weights & Wholesale Inference APIs",
+      "tags": [
+        "economic",
+        "technical",
+        "governance"
+      ],
+      "Cluster": "1. Upstream Foundation & Model Lab",
+      "EU AI Act Role": "Provider_GPAI",
+      "Pricing Model": "Per-Token Usage",
+      "Liability Posture": "Disclaimed via ToS ('AS-IS')"
+    },
+    {
+      "id": "N_ABSORBED",
+      "label": "Platform Absorption Zone",
+      "type": "Economic",
+      "description": "Native Tools, Prompt Cache, Hosted Agent State",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "Cluster": "1. Upstream Foundation & Model Lab",
+      "Market Effect": "Feature commoditization of wrapper ISVs"
+    },
+    {
+      "id": "N_ISV_PRODUCT",
+      "label": "Specialized AI Application",
+      "type": "Economic",
+      "description": "Vertical Solutions (Legal, Medical, Finance, Ops)",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
+      "EU AI Act Role": "Provider_System",
+      "Pricing Model": "SaaS Seat / Value Outcome"
+    },
+    {
+      "id": "N_HARNESS",
+      "label": "Agent Governance Harness",
+      "type": "Technical",
+      "description": "Deterministic Policy Engine & Guardrails",
+      "tags": [
+        "technical",
+        "governance"
+      ],
+      "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
+      "Iso 42001 Role": "AIMS Technical Control Implementation",
+      "Duty Of Care": "Caps blast radius, halts unsafe prompts/actions"
+    },
+    {
+      "id": "N_AUDIT_STORE",
+      "label": "Sovereign Audit Ledger",
+      "type": "Technical",
+      "description": "Tamper-Evident WORM State & Forensic Store",
+      "tags": [
+        "technical",
+        "governance"
+      ],
+      "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
+      "Compliance": "Art. 12 Mandatory Logging / Rebuttal of Fault",
+      "Sovereignty": "Client / Enterprise Owned"
+    },
+    {
+      "id": "N_OBSERVE",
+      "label": "Observability & Evals Engine",
+      "type": "Technical",
+      "description": "Continuous Evaluation, Traces & Cost Telemetry",
+      "tags": [
+        "technical",
+        "governance",
+        "economic"
+      ],
+      "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
+      "Capabilities": "LLM-as-a-judge, OTEL tracing, token cost tracking"
+    },
+    {
+      "id": "N_ENTERPRISE",
+      "label": "Enterprise Deployer",
+      "type": "Economic",
+      "description": "Legal Principal & Economic Sponsor",
+      "tags": [
+        "economic",
+        "governance"
+      ],
+      "Cluster": "3. Enterprise Deployer & Principal Domain",
+      "EU AI Act Role": "Deployer",
+      "Liability Posture": "Holds Vicarious & Strict Liability"
+    },
+    {
+      "id": "N_IDP",
+      "label": "Enterprise Identity & Auth (IdP)",
+      "type": "Technical",
+      "description": "OAuth, OIDC, Workload IAM & Ephemeral Tokens",
+      "tags": [
+        "technical",
+        "governance"
+      ],
+      "Cluster": "3. Enterprise Deployer & Principal Domain",
+      "Security Role": "Issues scoped actor delegations to agents"
+    },
+    {
+      "id": "N_HUMAN_USER",
+      "label": "Human Task Delegator & Overseer",
+      "type": "Technical",
+      "description": "End User / Mandatory HITL Supervisor",
+      "tags": [
+        "technical",
+        "governance"
+      ],
+      "Cluster": "3. Enterprise Deployer & Principal Domain",
+      "Control Mode": "Prompting, Art. 14 Human Oversight, Override"
+    },
+    {
+      "id": "N_MCP_HOST",
+      "label": "Protocol Gateway (MCP Host)",
+      "type": "Technical",
+      "description": "Standardized Tool Broker & Context Provider",
+      "tags": [
+        "technical",
+        "governance"
+      ],
+      "Cluster": "4. Target Execution Environment & Blast Radius",
+      "Protocol Standard": "Model Context Protocol (MCP)",
+      "Isolation": "Dynamic capability & permission negotiation"
+    },
+    {
+      "id": "N_TARGET_SYS",
+      "label": "Target Systems & Operational APIs",
+      "type": "Technical",
+      "description": "Databases, Production ERP, Financial Rails",
+      "tags": [
+        "technical",
+        "governance"
+      ],
+      "Cluster": "4. Target Execution Environment & Blast Radius",
+      "Risk Zone": "Direct Causation Blast Radius"
+    },
+    {
+      "id": "N_AFFECTED_PARTY",
+      "label": "Impacted Third Party",
+      "type": "Governance",
+      "description": "Consumers, Employees, Citizens",
+      "tags": [
+        "governance"
+      ],
+      "Cluster": "4. Target Execution Environment & Blast Radius",
+      "EU AI Act Role": "Affected_Subject",
+      "Legal Standing": "Private right of action, tort claimant"
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn_0",
+      "from": "N_ENTERPRISE",
+      "to": "N_ISV_PRODUCT",
+      "label": "$$$ SaaS Subscription / Outcome Fee",
+      "type": "money",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "description": "Relationship type: money"
+    },
+    {
+      "id": "conn_1",
+      "from": "N_ISV_PRODUCT",
+      "to": "N_FRONTIER",
+      "label": "$$ Token Consumption Cost",
+      "type": "money",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "description": "Relationship type: money"
+    },
+    {
+      "id": "conn_2",
+      "from": "N_FRONTIER",
+      "to": "N_TRAIN",
+      "label": "$ Compute & Data CapEx",
+      "type": "money",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "description": "Relationship type: money"
+    },
+    {
+      "id": "conn_3",
+      "from": "N_ABSORBED",
+      "to": "N_ISV_PRODUCT",
+      "label": "Platform Commoditization Pressure",
+      "type": "tension",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "description": "Relationship type: tension"
+    },
+    {
+      "id": "conn_4",
+      "from": "N_INSURER",
+      "to": "N_ENTERPRISE",
+      "label": "$ Policy Premiums & Underwriting",
+      "type": "money",
+      "direction": "directed",
+      "tags": [
+        "economic",
+        "governance"
+      ],
+      "description": "Relationship type: money"
+    },
+    {
+      "id": "conn_5",
+      "from": "N_OBSERVE",
+      "to": "N_ENTERPRISE",
+      "label": "Real-time Cost & Token Telemetry",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_6",
+      "from": "N_REGULATOR",
+      "to": "N_ENTERPRISE",
+      "label": "Statutory Compliance & Fines (Art. 71)",
+      "type": "authority",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: authority"
+    },
+    {
+      "id": "conn_7",
+      "from": "N_REGULATOR",
+      "to": "N_FRONTIER",
+      "label": "GPAI Codes of Practice & Transparency (Art. 53)",
+      "type": "authority",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: authority"
+    },
+    {
+      "id": "conn_8",
+      "from": "N_AUDITOR",
+      "to": "N_ENTERPRISE",
+      "label": "Conformity Audits (ISO 42001 / High Risk)",
+      "type": "authority",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: authority"
+    },
+    {
+      "id": "conn_9",
+      "from": "N_FRONTIER",
+      "to": "N_ENTERPRISE",
+      "label": "Disclaims Liability (ToS 'AS-IS')",
+      "type": "disclaim",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: disclaim"
+    },
+    {
+      "id": "conn_10",
+      "from": "N_ENTERPRISE",
+      "to": "N_AFFECTED_PARTY",
+      "label": "Vicarious Liability for Agent Harm (Respondeat Superior)",
+      "type": "tension",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: tension"
+    },
+    {
+      "id": "conn_11",
+      "from": "N_AFFECTED_PARTY",
+      "to": "N_REGULATOR",
+      "label": "Complaints & Redress Demands",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_12",
+      "from": "N_ENTERPRISE",
+      "to": "N_HARNESS",
+      "label": "Delegates Authority & Safety Boundaries",
+      "type": "authority",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: authority"
+    },
+    {
+      "id": "conn_13",
+      "from": "N_HUMAN_USER",
+      "to": "N_HARNESS",
+      "label": "Art. 14 Human Oversight & Stop Button",
+      "type": "authority",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: authority"
+    },
+    {
+      "id": "conn_14",
+      "from": "N_HARNESS",
+      "to": "N_AUDIT_STORE",
+      "label": "Cryptographic Tamper-Proof Audit Trail",
+      "type": "governance_control",
+      "direction": "directed",
+      "tags": [
+        "governance",
+        "technical"
+      ],
+      "description": "Relationship type: governance_control"
+    },
+    {
+      "id": "conn_15",
+      "from": "N_AUDIT_STORE",
+      "to": "N_AUDITOR",
+      "label": "Forensic Evidence for Compliance Verification",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_16",
+      "from": "N_HARNESS",
+      "to": "N_MCP_HOST",
+      "label": "Enforces Least-Privilege Scopes",
+      "type": "governance_control",
+      "direction": "directed",
+      "tags": [
+        "governance",
+        "technical"
+      ],
+      "description": "Relationship type: governance_control"
+    },
+    {
+      "id": "conn_17",
+      "from": "N_TARGET_SYS",
+      "to": "N_AFFECTED_PARTY",
+      "label": "Direct Impact & Real-World Blast Radius",
+      "type": "tension",
+      "direction": "directed",
+      "tags": [
+        "governance",
+        "technical"
+      ],
+      "description": "Relationship type: tension"
+    },
+    {
+      "id": "conn_18",
+      "from": "N_HUMAN_USER",
+      "to": "N_ISV_PRODUCT",
+      "label": "Prompt Intent & Working Context",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_19",
+      "from": "N_IDP",
+      "to": "N_HARNESS",
+      "label": "Issues Scoped Delegation Token",
+      "type": "protocol",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: protocol"
+    },
+    {
+      "id": "conn_20",
+      "from": "N_ISV_PRODUCT",
+      "to": "N_HARNESS",
+      "label": "Initiates Autonomous Loop",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_21",
+      "from": "N_HARNESS",
+      "to": "N_FRONTIER",
+      "label": "Inference API (Tokens & Directives)",
+      "type": "protocol",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: protocol"
+    },
+    {
+      "id": "conn_22",
+      "from": "N_HARNESS",
+      "to": "N_AUDIT_STORE",
+      "label": "Context Retrieval (RAG) & Checkpointing",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_23",
+      "from": "N_HARNESS",
+      "to": "N_OBSERVE",
+      "label": "Traces & LLM Evaluation Metrics",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_24",
+      "from": "N_HARNESS",
+      "to": "N_MCP_HOST",
+      "label": "JSON-RPC / MCP Tool Discovery & Invocations",
+      "type": "protocol",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: protocol"
+    },
+    {
+      "id": "conn_25",
+      "from": "N_MCP_HOST",
+      "to": "N_TARGET_SYS",
+      "label": "Authenticated Read/Write Operations",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: flow"
+    }
+  ]
+}

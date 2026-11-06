@@ -28,7 +28,7 @@ SCRIPTS = [
     ("Individual Sidebar Views",     "generate_views.py"),
     ("Draw.io Multi-Page Diagram",   "export_drawio.py"),
     ("yEd GraphML Export",           "export_yed.py"),
-    ("Kumu Dynamic CSV Export",      "export_kumu.py"),
+    ("Kumu Dynamic JSON Export",      "export_kumu.py"),
 ]
 
 def print_banner(msg):

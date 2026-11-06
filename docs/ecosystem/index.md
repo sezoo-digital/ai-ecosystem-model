@@ -15,7 +15,7 @@ Download the raw model to explore and query in external visual modeling tools:
 
 - <a href={useBaseUrl("/exports/ai_ecosystem.graphml")} download="ai_ecosystem.graphml">**Download for yEd** (.graphml)</a>
 - <a href={useBaseUrl("/exports/ai_ecosystem.drawio")} download="ai_ecosystem.drawio">**Download for draw.io** (.drawio)</a>
-- <a href={useBaseUrl("/exports/ai_ecosystem_kumu.csv")} download="ai_ecosystem_kumu.csv">**Download for Kumu** (.csv)</a>
+- <a href={useBaseUrl("/exports/ai_ecosystem_kumu.json")} download="ai_ecosystem_kumu.json">**Download for Kumu** (.json)</a>
 :::
 
 <details>
