@@ -9,8 +9,9 @@ if sys.platform == "win32":
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 def get_drawio_style(shape, domains):
-    # Determine base color by domain
     if "governance" in domains:
         fill, stroke = "#FFF1F0", "#F5222D"
     elif "economic" in domains:
@@ -20,7 +21,6 @@ def get_drawio_style(shape, domains):
     else:
         fill, stroke = "#F8FAFC", "#64748B"
 
-    # Shape styling
     if shape == "cylinder":
         base = "shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;"
     elif shape == "hexagon":
@@ -33,7 +33,7 @@ def get_drawio_style(shape, domains):
         base = "shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;"
     elif shape == "rounded":
         base = "rounded=1;whiteSpace=wrap;html=1;arcSize=15;"
-    else:  # rect
+    else:
         base = "rounded=0;whiteSpace=wrap;html=1;"
 
     return f"{base}fillColor={fill};strokeColor={stroke};strokeWidth=2;fontColor=#0F172A;"
@@ -49,45 +49,66 @@ def get_edge_style(etype):
         return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;"
     elif etype == "protocol":
         return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;"
-    else:
-        return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;"
+    return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;"
 
-def render_diagram_page(page_id, page_name, nodes, edges):
+def render_diagram_page(page_id, page_name, clusters, nodes, edges):
     xml = [
         f'  <diagram id="{page_id}" name="{html.escape(page_name, quote=True)}">',
-        '    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827">',
+        '    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169">',
         '      <root>',
         '        <mxCell id="0"/>',
         '        <mxCell id="1" parent="0"/>'
     ]
 
-    x, y = 40, 40
+    # Group nodes by cluster
+    nodes_by_cluster = {}
     for n in nodes.values():
-        raw_label = f"<b>{n['label']}</b>"
-        if n.get("sublabel"):
-            raw_label += f"<br/><small>{n['sublabel']}</small>"
+        cid = n.get("cluster", "cluster_default")
+        nodes_by_cluster.setdefault(cid, []).append(n)
+
+    cluster_map = {c["id"]: c.get("label", c["id"]) for c in clusters}
+
+    # Render Visual Cluster Containers (Swimlanes)
+    cluster_x = 40
+    for cid, cnodes in nodes_by_cluster.items():
+        clabel = html.escape(cluster_map.get(cid, cid), quote=True)
+        container_width = 280
+        container_height = 80 + (len(cnodes) * 110)
+
+        # Container Swimlane cell
+        container_style = "swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;"
+        xml.append(f'        <mxCell id="{page_id}_{cid}" value="{clabel}" style="{container_style}" vertex="1" parent="1">')
+        xml.append(f'          <mxGeometry x="{cluster_x}" y="40" width="{container_width}" height="{container_height}" as="geometry"/>')
+        xml.append('        </mxCell>')
+
+        # Render Nodes as children of this cluster container
+        node_y = 50
+        for n in cnodes:
+            raw_label = f"<b>{n['label']}</b>"
+            if n.get("sublabel"):
+                raw_label += f"<br/><small>{n['sublabel']}</small>"
+
+            lbl_escaped = html.escape(raw_label, quote=True)
+            style = get_drawio_style(n.get("shape", "rect"), n.get("domains", []))
+            domains_str = html.escape(", ".join(n.get("domains", [])), quote=True)
+            cluster_str = html.escape(cid, quote=True)
             
-        lbl_escaped = html.escape(raw_label, quote=True)
-        style = get_drawio_style(n.get("shape", "rect"), n.get("domains", []))
-        domains_str = html.escape(", ".join(n.get("domains", [])), quote=True)
-        cluster_str = html.escape(n.get("cluster", ""), quote=True)
-        
-        props_attrs = " ".join([
-            f'{html.escape(k, quote=True)}="{html.escape(str(v), quote=True)}"' 
-            for k, v in n.get("properties", {}).items()
-        ])
+            # Lossless property extraction
+            props_attrs = " ".join([
+                f'{html.escape(k, quote=True)}="{html.escape(str(v), quote=True)}"' 
+                for k, v in n.get("properties", {}).items()
+            ])
 
-        xml.append(f'        <object id="{n["id"]}" label="{lbl_escaped}" domains="{domains_str}" cluster="{cluster_str}" {props_attrs}>')
-        xml.append(f'          <mxCell style="{style}" vertex="1" parent="1">')
-        xml.append(f'            <mxGeometry x="{x}" y="{y}" width="220" height="70" as="geometry"/>')
-        xml.append('          </mxCell>')
-        xml.append('        </object>')
+            xml.append(f'        <object id="{n["id"]}" label="{lbl_escaped}" domains="{domains_str}" cluster="{cluster_str}" shape="{n.get("shape", "rect")}" {props_attrs}>')
+            xml.append(f'          <mxCell style="{style}" vertex="1" parent="{page_id}_{cid}">')
+            xml.append(f'            <mxGeometry x="30" y="{node_y}" width="220" height="70" as="geometry"/>')
+            xml.append('          </mxCell>')
+            xml.append('        </object>')
+            node_y += 105
 
-        y += 110
-        if y > 600:
-            y = 40
-            x += 270
+        cluster_x += 320
 
+    # Render Edges
     for i, e in enumerate(edges):
         elbl = html.escape(e.get("label", ""), quote=True)
         style = get_edge_style(e.get("type", "flow"))
@@ -101,25 +122,25 @@ def render_diagram_page(page_id, page_name, nodes, edges):
     return "\n".join(xml)
 
 def main():
-    model_file = Path("model/ai_ecosystem.yaml")
+    model_file = PROJECT_ROOT / "model" / "ai_ecosystem.yaml"
     if not model_file.exists():
-        print(f"Error: {model_file} not found.")
-        return
+        sys.exit(f"[ERROR] Model file not found at: {model_file}")
 
     with open(model_file, "r", encoding="utf-8") as f:
         model = yaml.safe_load(f)
 
-    export_path = Path("static/exports")
+    export_path = PROJECT_ROOT / "static" / "exports"
     export_path.mkdir(parents=True, exist_ok=True)
     target_file = export_path / "ai_ecosystem.drawio"
 
+    clusters = model.get("clusters", [])
     xml = ['<mxfile host="app.diagrams.net">']
 
-    # Page 1: Complete Master Model
+    # Page 1: Master Model
     all_nodes = {n["id"]: n for n in model["nodes"]}
-    xml.append(render_diagram_page("master_view", "1. Master Model (All Elements)", all_nodes, model["edges"]))
+    xml.append(render_diagram_page("master_view", "1. Master Model (All Elements)", clusters, all_nodes, model["edges"]))
 
-    # Subsequent Pages: One for each view defined in the YAML
+    # View Pages
     for v in model.get("views", []):
         view_domains = set(v["domains"])
         filtered_nodes = {n["id"]: n for n in model["nodes"] if any(d in view_domains for d in n.get("domains", []))}
@@ -129,11 +150,11 @@ def main():
             and e["from"] in filtered_nodes 
             and e["to"] in filtered_nodes
         ]
-        xml.append(render_diagram_page(v["id"], v["title"], filtered_nodes, filtered_edges))
+        xml.append(render_diagram_page(v["id"], v["title"], clusters, filtered_nodes, filtered_edges))
 
     xml.append('</mxfile>')
     target_file.write_text("\n".join(xml), encoding="utf-8")
-    print(f"[OK] Multi-page draw.io file created: {target_file}")
+    print(f"[OK] Draw.io file created with cluster containers: {target_file.name}")
 
 if __name__ == "__main__":
     main()
