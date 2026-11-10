@@ -74,7 +74,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/Sezoo/ai-ecosystem-model',
+            href: 'https://github.com/sezoo-digital/ai-ecosystem-model',
             label: 'GitHub',
             position: 'right',
           },
