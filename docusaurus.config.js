@@ -10,8 +10,8 @@ const config = {
   favicon: 'img/Sezoo-favicon.ico',
 
   // Production URL settings for Sezoo GitHub Pages
-  url: 'https://sezoo.github.io',
-  baseUrl: '/ai-ecosystem-model/',
+  url: 'https://ai-ecosystem.sezoo.digital',
+  baseUrl: '/',
 
   // GitHub pages deployment configuration
   organizationName: 'Sezoo',
