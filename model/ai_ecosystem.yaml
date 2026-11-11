@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../schema/ai_ecosystem.json
 metadata:
   title: "AI Ecosystem Canonical Governance, Economic & Architecture Model"
   version: "2.4"

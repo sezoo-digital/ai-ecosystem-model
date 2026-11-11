@@ -4,6 +4,11 @@
 # Production
 /build
 
+# Python virtual environments
+.venv/
+venv/
+ENV/
+
 # Generated files
 .docusaurus
 .cache-loader

@@ -1,0 +1,391 @@
+{
+    "$defs": {
+        "AnyObject": {
+            "additionalProperties": true,
+            "description": "Unconstrained dictionary for dynamic node properties, styles, and taxonomies.",
+            "title": "AnyObject",
+            "type": [
+                "null",
+                "boolean",
+                "object",
+                "number",
+                "string"
+            ]
+        },
+        "Cluster": {
+            "additionalProperties": false,
+            "description": "Functional or organizational grouping boundary.",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Cluster",
+            "type": "object"
+        },
+        "DirectionEnum": {
+            "description": "",
+            "enum": [
+                "TB",
+                "LR",
+                "BT",
+                "RL"
+            ],
+            "title": "DirectionEnum",
+            "type": "string"
+        },
+        "DomainEnum": {
+            "description": "",
+            "enum": [
+                "economic",
+                "technical",
+                "governance"
+            ],
+            "title": "DomainEnum",
+            "type": "string"
+        },
+        "EcosystemModel": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "clusters": {
+                    "items": {
+                        "$ref": "#/$defs/Cluster"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "edges": {
+                    "items": {
+                        "$ref": "#/$defs/Edge"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Metadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "nodes": {
+                    "items": {
+                        "$ref": "#/$defs/Node"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "styles": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AnyObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "taxonomies": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AnyObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "views": {
+                    "items": {
+                        "$ref": "#/$defs/View"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "EcosystemModel",
+            "type": "object"
+        },
+        "Edge": {
+            "additionalProperties": false,
+            "description": "Directed relationship, financial flow, protocol call, or liability boundary.",
+            "properties": {
+                "domains": {
+                    "items": {
+                        "$ref": "#/$defs/DomainEnum"
+                    },
+                    "type": "array"
+                },
+                "from": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "to": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/EdgeTypeEnum"
+                }
+            },
+            "required": [
+                "from",
+                "to",
+                "domains",
+                "type"
+            ],
+            "title": "Edge",
+            "type": "object"
+        },
+        "EdgeTypeEnum": {
+            "description": "",
+            "enum": [
+                "money",
+                "authority",
+                "governance_control",
+                "tension",
+                "disclaim",
+                "protocol",
+                "flow"
+            ],
+            "title": "EdgeTypeEnum",
+            "type": "string"
+        },
+        "Metadata": {
+            "additionalProperties": false,
+            "description": "Model-level provenance and descriptive headers.",
+            "properties": {
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "version": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Metadata",
+            "type": "object"
+        },
+        "Node": {
+            "additionalProperties": false,
+            "description": "Architectural archetype (system, authority, actor, or asset).",
+            "properties": {
+                "cluster": {
+                    "type": "string"
+                },
+                "domains": {
+                    "items": {
+                        "$ref": "#/$defs/DomainEnum"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "properties": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AnyObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "shape": {
+                    "$ref": "#/$defs/ShapeEnum"
+                },
+                "sublabel": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "cluster",
+                "domains",
+                "shape"
+            ],
+            "title": "Node",
+            "type": "object"
+        },
+        "ShapeEnum": {
+            "description": "",
+            "enum": [
+                "hexagon",
+                "circle",
+                "subproc",
+                "cylinder",
+                "stadium",
+                "rounded",
+                "rect"
+            ],
+            "title": "ShapeEnum",
+            "type": "string"
+        },
+        "View": {
+            "additionalProperties": false,
+            "description": "Queryable lens projecting a slice of the property graph.",
+            "properties": {
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "direction": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DirectionEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "domains": {
+                    "items": {
+                        "$ref": "#/$defs/DomainEnum"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "domains"
+            ],
+            "title": "View",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/ai-ecosystem/schema",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": false,
+    "description": "",
+    "metamodel_version": "1.12.0",
+    "properties": {
+        "clusters": {
+            "items": {
+                "$ref": "#/$defs/Cluster"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "edges": {
+            "items": {
+                "$ref": "#/$defs/Edge"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "metadata": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/Metadata"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "nodes": {
+            "items": {
+                "$ref": "#/$defs/Node"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "styles": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/AnyObject"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "taxonomies": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/AnyObject"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "views": {
+            "items": {
+                "$ref": "#/$defs/View"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        }
+    },
+    "title": "ai_ecosystem_schema",
+    "type": "object",
+    "version": "1.0.0"
+}
+

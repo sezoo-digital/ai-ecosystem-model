@@ -24,6 +24,7 @@ PROJECT_ROOT = SCRIPT_DIR.parent
 MODEL_FILE = PROJECT_ROOT / "model" / "ai_ecosystem.yaml"
 
 SCRIPTS = [
+    ("LinkML Schema Validation",     "validate_model.py"),
     ("Mermaid Documentation Portal", "generate_docs.py"),
     ("Individual Sidebar Views",     "generate_views.py"),
     ("Draw.io Multi-Page Diagram",   "export_drawio.py"),

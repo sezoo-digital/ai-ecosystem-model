@@ -1,0 +1,212 @@
+id: https://w3id.org/ai-ecosystem/schema
+name: ai_ecosystem_schema
+title: AI Ecosystem Metamodel Specification
+description: Formal schema defining nodes, edges, clusters, regulatory roles, and protocols.
+version: "1.0.0"
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  aieco: https://w3id.org/ai-ecosystem/
+  skos: http://www.w3.org/2004/02/skos/core#
+  prov: http://www.w3.org/ns/prov#
+
+imports:
+  - linkml:types
+
+default_range: string
+default_prefix: aieco
+
+# ===================================================================
+# CLASSES
+# ===================================================================
+classes:
+  EcosystemModel:
+    tree_root: true
+    slots:
+      - metadata
+      - styles
+      - taxonomies
+      - clusters
+      - nodes
+      - edges
+      - views
+
+  Metadata:
+    description: "Model-level provenance and descriptive headers."
+    slots:
+      - title
+      - version
+      - description
+
+  Cluster:
+    description: "Functional or organizational grouping boundary."
+    slots:
+      - id
+      - label
+
+  Node:
+    description: "Architectural archetype (system, authority, actor, or asset)."
+    slots:
+      - id
+      - label
+      - sublabel
+      - cluster
+      - domains
+      - shape
+      - properties
+    slot_usage:
+      cluster:
+        range: Cluster
+        required: true
+      domains:
+        range: DomainEnum
+        multivalued: true
+        required: true
+      shape:
+        range: ShapeEnum
+        required: true
+
+  Edge:
+    description: "Directed relationship, financial flow, protocol call, or liability boundary."
+    slots:
+      - from_node
+      - to_node
+      - label
+      - domains
+      - edge_type
+    slot_usage:
+      from_node:
+        range: Node
+        required: true
+      to_node:
+        range: Node
+        required: true
+      domains:
+        range: DomainEnum
+        multivalued: true
+        required: true
+      edge_type:
+        range: EdgeTypeEnum
+        required: true
+
+  View:
+    description: "Queryable lens projecting a slice of the property graph."
+    slots:
+      - id
+      - title
+      - description
+      - domains
+      - direction
+    slot_usage:
+      domains:
+        range: DomainEnum
+        multivalued: true
+        required: true
+      direction:
+        range: DirectionEnum
+
+  # Official LinkML pattern for extensible key-value maps
+  AnyObject:
+    class_uri: linkml:Any
+    description: "Unconstrained dictionary for dynamic node properties, styles, and taxonomies."
+
+# ===================================================================
+# SLOTS
+# ===================================================================
+slots:
+  id:
+    identifier: true
+    range: string
+  title:
+    range: string
+  label:
+    range: string
+  sublabel:
+    range: string
+  version:
+    range: string
+  description:
+    range: string
+  from_node:
+    alias: from
+    range: Node
+  to_node:
+    alias: to
+    range: Node
+  edge_type:
+    alias: type
+    range: EdgeTypeEnum
+  cluster:
+    range: Cluster
+  direction:
+    range: DirectionEnum
+  shape:
+    range: ShapeEnum
+  metadata:
+    range: Metadata
+    inlined: true
+  styles:
+    range: AnyObject
+    inlined: true
+  taxonomies:
+    range: AnyObject
+    inlined: true
+  properties:
+    range: AnyObject
+    inlined: true
+  domains:
+    range: DomainEnum
+    multivalued: true
+  clusters:
+    range: Cluster
+    multivalued: true
+    inlined_as_list: true
+  nodes:
+    range: Node
+    multivalued: true
+    inlined_as_list: true
+  edges:
+    range: Edge
+    multivalued: true
+    inlined_as_list: true
+  views:
+    range: View
+    multivalued: true
+    inlined_as_list: true
+
+# ===================================================================
+# ENUMS
+# ===================================================================
+enums:
+  DomainEnum:
+    permissible_values:
+      economic: {}
+      technical: {}
+      governance: {}
+
+  ShapeEnum:
+    permissible_values:
+      hexagon: {}
+      circle: {}
+      subproc: {}
+      cylinder: {}
+      stadium: {}
+      rounded: {}
+      rect: {}
+
+  EdgeTypeEnum:
+    permissible_values:
+      money: {}
+      authority: {}
+      governance_control: {}
+      tension: {}
+      disclaim: {}
+      protocol: {}
+      flow: {}
+
+  DirectionEnum:
+    permissible_values:
+      TB: {}
+      LR: {}
+      BT: {}
+      RL: {}
