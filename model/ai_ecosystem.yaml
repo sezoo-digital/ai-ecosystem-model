@@ -186,8 +186,8 @@ nodes:
       nist_function: "MAP"
 
   - id: N_HARNESS
-    label: "Agent Governance Harness"
-    sublabel: "Deterministic Policy Engine & Guardrails"
+    label: "Autonomous Agent Runtime (The Harness)"
+    sublabel: "Execution Loop, Planning, Rights & Guardrails"
     cluster: cluster_product
     domains: [technical, governance]
     shape: subproc
@@ -513,8 +513,8 @@ views:
     direction: "TB"
 
   - id: view_technical_runtime
-    title: "Engineering & Technical Runtime Perspective"
-    description: "The agentic execution loop: A2E IdP delegation, MIP inference, CoALA semantic RAG, A2A delegation, and A2T capability gateways."
+    title: "Engineering Lens: Autonomous Agent Loop & Protocol Architecture"
+    description: "Maps the anatomy of an agent: how the runtime harness coordinates reasoning (MIP), memory (CoALA RAG), multi-agent delegation (A2A), and tool execution (A2T)."
     domains: [technical]
     direction: "LR"
 

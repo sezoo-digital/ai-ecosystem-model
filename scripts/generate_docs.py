@@ -161,7 +161,7 @@ def main():
     docs_path = PROJECT_ROOT / "docs" / "ecosystem"
     docs_path.mkdir(parents=True, exist_ok=True)
 
-    # Robust retrieval of styles (handles top-level styles and metadata fallback)
+    # Robust retrieval of styles
     styles_def = model.get("styles") or model.get("metadata", {}).get("styles") or {}
     if not styles_def and "shapes" in model.get("metadata", {}):
         styles_def = model["metadata"]
@@ -187,7 +187,7 @@ def main():
         "",
         '- <a href={useBaseUrl("/exports/ai_ecosystem.graphml")} download="ai_ecosystem.graphml">**Download for yEd** (.graphml)</a>',
         '- <a href={useBaseUrl("/exports/ai_ecosystem.drawio")} download="ai_ecosystem.drawio">**Download for draw.io** (.drawio)</a>',
-        '- <a href={useBaseUrl("/exports/ai_ecosystem_kumu.json")} download="ai_ecosystem_kumu.json">**Download for Kumu** (.json)</a>',
+        '- <a href={useBaseUrl("/exports/ai_ecosystem_kumu.json")} download="ai_ecosystem_kumu.json">**Download for Kumu Blueprint** (.json)</a>',
         ":::",
         "",
         "<details>",
@@ -207,6 +207,16 @@ def main():
         key_tables,
         "",
         "</details>",
+        "",
+        ":::info Where is the \"AI Agent\" in this model?",
+        "An **AI Agent** is not a single monolithic entity or box. In this architecture, it is an **emergent composite loop** that arises when five distinct elements interact:",
+        "",
+        "- 🧠 **The Brain (Reasoning Core)**: `Frontier Foundation Model` (`N_FRONTIER`) — Stateless next-token prediction and probabilistic planning.",
+        "- ⚙️ **The Controller & Drive Loop (The Ego)**: `Agent Governance Harness` (`N_HARNESS`) — The continuous while-loop, self-reflection, and deterministic policy guardrails.",
+        "- 📚 **The Memory (Semantic Context)**: `Enterprise Semantic Knowledge Base` (`N_KNOWLEDGE_STORE`) — Vector databases and private enterprise documents retrieved via RAG (CoALA architecture).",
+        "- 🛠️ **The Hands (Tool Actuation)**: `Capability & Tool Gateway` (`N_TOOL_GATEWAY`) $\\to$ `Target Systems` (`N_TARGET_SYS`) — Decoupled tool broker (MCP / OpenAPI) executing real-world read/write operations.",
+        "- ⚖️ **The Principal (Legal Agency)**: `Enterprise Deployer` (`N_ENTERPRISE`) & `Human Delegator` (`N_HUMAN_USER`) — The legal entity that confers agency, issues workload credentials (`N_IDP`), and retains vicarious legal liability.",
+        ":::",
         "",
         "### Interactive Lenses",
         "Select a lens below to explore the ecosystem interactively:",

@@ -243,7 +243,7 @@
         <node id="N_HARNESS">
           <data key="d_cluster">cluster_product</data>
           <data key="d_domains">technical, governance</data>
-          <data key="d_sublabel">Deterministic Policy Engine &amp; Guardrails</data>
+          <data key="d_sublabel">Execution Loop, Planning, Rights &amp; Guardrails</data>
           <data key="d_shape">subproc</data>
           <data key="d_prop_anthropic_pattern">Decoupled Orchestrator-Worker &amp; Gate</data>
           <data key="d_prop_cardinality">10^7 - 10^9 Ephemeral Agent Invocations</data>
@@ -258,8 +258,8 @@
               <y:Geometry width="230" height="75"/>
               <y:Fill color="#FFF1F0" transparent="false"/>
               <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content">Agent Governance Harness
-(Deterministic Policy Engine &amp; Guardrails)</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Autonomous Agent Runtime (The Harness)
+(Execution Loop, Planning, Rights &amp; Guardrails)</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
             </y:ShapeNode>
           </data>

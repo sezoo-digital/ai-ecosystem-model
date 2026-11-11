@@ -48,7 +48,7 @@
             <mxGeometry x="30" y="50" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HARNESS" label="&lt;b&gt;Agent Governance Harness&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Deterministic Policy Engine &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
+        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_product">
             <mxGeometry x="30" y="155" width="220" height="70" as="geometry"/>
           </mxCell>
@@ -295,7 +295,7 @@
         <mxCell id="view_governance_liability_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="680" y="40" width="280" height="410" as="geometry"/>
         </mxCell>
-        <object id="N_HARNESS" label="&lt;b&gt;Agent Governance Harness&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Deterministic Policy Engine &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
+        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_liability_cluster_product">
             <mxGeometry x="30" y="50" width="220" height="70" as="geometry"/>
           </mxCell>
@@ -393,7 +393,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="view_technical_runtime" name="Engineering &amp; Technical Runtime Perspective">
+  <diagram id="view_technical_runtime" name="Engineering Lens: Autonomous Agent Loop &amp; Protocol Architecture">
     <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169">
       <root>
         <mxCell id="0"/>
@@ -424,7 +424,7 @@
             <mxGeometry x="30" y="50" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HARNESS" label="&lt;b&gt;Agent Governance Harness&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Deterministic Policy Engine &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
+        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_runtime_cluster_product">
             <mxGeometry x="30" y="155" width="220" height="70" as="geometry"/>
           </mxCell>
@@ -555,7 +555,7 @@
             <mxGeometry x="30" y="50" width="220" height="70" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HARNESS" label="&lt;b&gt;Agent Governance Harness&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Deterministic Policy Engine &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
+        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" domains="technical, governance" cluster="cluster_product" shape="subproc" cardinality="10^7 - 10^9 Ephemeral Agent Invocations" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation" duty_of_care="Caps blast radius, halts unsafe prompts/actions" coala_role="Action Execution Engine &amp; Procedural Memory Guard" anthropic_pattern="Decoupled Orchestrator-Worker &amp; Gate" vsm_tier="System 3 (Internal Operational Control &amp; Stability)" nist_function="MANAGE">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_full_unified_cluster_product">
             <mxGeometry x="30" y="155" width="220" height="70" as="geometry"/>
           </mxCell>

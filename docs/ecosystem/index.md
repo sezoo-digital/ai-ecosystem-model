@@ -15,7 +15,7 @@ Download the raw model to explore and query in external visual modeling tools:
 
 - <a href={useBaseUrl("/exports/ai_ecosystem.graphml")} download="ai_ecosystem.graphml">**Download for yEd** (.graphml)</a>
 - <a href={useBaseUrl("/exports/ai_ecosystem.drawio")} download="ai_ecosystem.drawio">**Download for draw.io** (.drawio)</a>
-- <a href={useBaseUrl("/exports/ai_ecosystem_kumu.json")} download="ai_ecosystem_kumu.json">**Download for Kumu** (.json)</a>
+- <a href={useBaseUrl("/exports/ai_ecosystem_kumu.json")} download="ai_ecosystem_kumu.json">**Download for Kumu Blueprint** (.json)</a>
 :::
 
 <details>
@@ -72,6 +72,16 @@ flowchart LR
 | 🔵 **Blue** | `technical` | API execution protocols, JSON-RPC (MCP), state persistence, telemetry. |
 
 </details>
+
+:::info Where is the "AI Agent" in this model?
+An **AI Agent** is not a single monolithic entity or box. In this architecture, it is an **emergent composite loop** that arises when five distinct elements interact:
+
+- 🧠 **The Brain (Reasoning Core)**: `Frontier Foundation Model` (`N_FRONTIER`) — Stateless next-token prediction and probabilistic planning.
+- ⚙️ **The Controller & Drive Loop (The Ego)**: `Agent Governance Harness` (`N_HARNESS`) — The continuous while-loop, self-reflection, and deterministic policy guardrails.
+- 📚 **The Memory (Semantic Context)**: `Enterprise Semantic Knowledge Base` (`N_KNOWLEDGE_STORE`) — Vector databases and private enterprise documents retrieved via RAG (CoALA architecture).
+- 🛠️ **The Hands (Tool Actuation)**: `Capability & Tool Gateway` (`N_TOOL_GATEWAY`) $\to$ `Target Systems` (`N_TARGET_SYS`) — Decoupled tool broker (MCP / OpenAPI) executing real-world read/write operations.
+- ⚖️ **The Principal (Legal Agency)**: `Enterprise Deployer` (`N_ENTERPRISE`) & `Human Delegator` (`N_HUMAN_USER`) — The legal entity that confers agency, issues workload credentials (`N_IDP`), and retains vicarious legal liability.
+:::
 
 ### Interactive Lenses
 Select a lens below to explore the ecosystem interactively:
@@ -138,7 +148,7 @@ flowchart TB
     end
 
     subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
-        N_HARNESS[["Agent Governance Harness<br/><small><i>Deterministic Policy Engine &amp; Guardrails</i></small>"]]:::gov
+        N_HARNESS[["Autonomous Agent Runtime (The Harness)<br/><small><i>Execution Loop, Planning, Rights &amp; Guardrails</i></small>"]]:::gov
         N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
         N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
     end
@@ -172,9 +182,9 @@ flowchart TB
 ```
 
 </TabItem>
-<TabItem value="view_technical_runtime" label="Engineering & Technical Runtime Perspective">
+<TabItem value="view_technical_runtime" label="Engineering Lens: Autonomous Agent Loop & Protocol Architecture">
 
-*The agentic execution loop: A2E IdP delegation, MIP inference, CoALA semantic RAG, A2A delegation, and A2T capability gateways.*
+*Maps the anatomy of an agent: how the runtime harness coordinates reasoning (MIP), memory (CoALA RAG), multi-agent delegation (A2A), and tool execution (A2T).*
 
 ```mermaid
 flowchart LR
@@ -191,7 +201,7 @@ flowchart LR
 
     subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
         N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical Solutions (Legal, Medical, Finance, Ops)</i></small>"):::econ
-        N_HARNESS[["Agent Governance Harness<br/><small><i>Deterministic Policy Engine &amp; Guardrails</i></small>"]]:::gov
+        N_HARNESS[["Autonomous Agent Runtime (The Harness)<br/><small><i>Execution Loop, Planning, Rights &amp; Guardrails</i></small>"]]:::gov
         N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
         N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
     end
@@ -246,7 +256,7 @@ flowchart TB
 
     subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
         N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical Solutions (Legal, Medical, Finance, Ops)</i></small>"):::econ
-        N_HARNESS[["Agent Governance Harness<br/><small><i>Deterministic Policy Engine &amp; Guardrails</i></small>"]]:::gov
+        N_HARNESS[["Autonomous Agent Runtime (The Harness)<br/><small><i>Execution Loop, Planning, Rights &amp; Guardrails</i></small>"]]:::gov
         N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
         N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
     end
@@ -307,7 +317,7 @@ flowchart TB
 | **Frontier Foundation Model**<br/><small>Globally Replicated Weights & Inference Fleets</small><br/>`N_FRONTIER` | 1. Upstream Foundation & Model Lab | economic, technical, governance | **cardinality**: Top 5-10 Labs; Replicated across 10^3 Regional Clusters<br/>**compute_profile**: High memory-bandwidth inference clusters; low latency<br/>**sovereignty_gap**: Physical data residency does not equal jurisdictional independence<br/>**eu_ai_act_role**: Provider_GPAI<br/>**pricing_model**: Wholesale Per-Token Usage<br/>**liability_posture**: Disclaimed via ToS ('AS-IS')<br/>**vsm_tier**: System 4 (Probabilistic Intelligence Engine)<br/>**nist_function**: MEASURE |
 | **Platform Absorption Zone**<br/><small>Native Tools, Prompt Cache, Hosted State</small><br/>`N_ABSORBED` | 1. Upstream Foundation & Model Lab | economic, technical | **cardinality**: Top 3-5 Cloud Ecosystems<br/>**market_effect**: Feature commoditization of wrapper ISVs (a16z Stack)<br/>**vsm_tier**: System 4 (Environmental Encroachment) |
 | **Specialized AI Application**<br/><small>Vertical Solutions (Legal, Medical, Finance, Ops)</small><br/>`N_ISV_PRODUCT` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | economic, technical | **cardinality**: 10^4 - 10^5 Vertical SaaS Products<br/>**eu_ai_act_role**: Provider_System<br/>**pricing_model**: Per-Seat SaaS / Value-Added Outcome Fee<br/>**margin_exposure**: Squeezed between token costs & platform absorption<br/>**vsm_tier**: System 4 (Operational Domain Intelligence)<br/>**nist_function**: MAP |
-| **Agent Governance Harness**<br/><small>Deterministic Policy Engine & Guardrails</small><br/>`N_HARNESS` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **cardinality**: 10^7 - 10^9 Ephemeral Agent Invocations<br/>**compute_profile**: Lightweight CPU / Orchestration Logic<br/>**iso_42001_role**: AIMS Technical Control Implementation<br/>**duty_of_care**: Caps blast radius, halts unsafe prompts/actions<br/>**coala_role**: Action Execution Engine & Procedural Memory Guard<br/>**anthropic_pattern**: Decoupled Orchestrator-Worker & Gate<br/>**vsm_tier**: System 3 (Internal Operational Control & Stability)<br/>**nist_function**: MANAGE |
+| **Autonomous Agent Runtime (The Harness)**<br/><small>Execution Loop, Planning, Rights & Guardrails</small><br/>`N_HARNESS` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **cardinality**: 10^7 - 10^9 Ephemeral Agent Invocations<br/>**compute_profile**: Lightweight CPU / Orchestration Logic<br/>**iso_42001_role**: AIMS Technical Control Implementation<br/>**duty_of_care**: Caps blast radius, halts unsafe prompts/actions<br/>**coala_role**: Action Execution Engine & Procedural Memory Guard<br/>**anthropic_pattern**: Decoupled Orchestrator-Worker & Gate<br/>**vsm_tier**: System 3 (Internal Operational Control & Stability)<br/>**nist_function**: MANAGE |
 | **Sovereign Audit Ledger**<br/><small>Tamper-Evident WORM State & Forensic Store</small><br/>`N_AUDIT_STORE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **cardinality**: 10^4 Enterprise Sovereign Ledgers<br/>**compliance**: Art. 12 Mandatory Logging / Rebuttal of Fault<br/>**sovereignty**: Client / Enterprise Owned<br/>**evidentiary_role**: Black-Box Flight Recorder for Liability Disputes<br/>**vsm_tier**: System 3* (Internal Audit Channel)<br/>**nist_function**: MEASURE |
 | **Observability & Evals Engine**<br/><small>Continuous Evaluation, Traces & Cost Telemetry</small><br/>`N_OBSERVE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance, economic | **cardinality**: 10^4 Monitoring Pipelines<br/>**capabilities**: LLM-as-a-judge, OTEL tracing, token telemetry<br/>**vsm_tier**: System 3 (Performance Monitoring & Homeostasis)<br/>**nist_function**: MEASURE |
 | **Enterprise Deployer**<br/><small>Legal Principal & Economic Sponsor</small><br/>`N_ENTERPRISE` | 3. Enterprise Deployer & Principal Domain | economic, governance | **cardinality**: 10^5 Commercial Deployers Globally<br/>**eu_ai_act_role**: Deployer<br/>**liability_posture**: Holds Vicarious & Strict Legal Liability<br/>**roi_hurdle**: High CapEx Recovery Pressure (Sequoia Act Two)<br/>**vsm_tier**: System 5 (Corporate Policy & Ultimate Governance)<br/>**nist_function**: GOVERN |

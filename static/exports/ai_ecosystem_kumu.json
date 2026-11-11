@@ -127,9 +127,9 @@
     },
     {
       "id": "N_HARNESS",
-      "label": "Agent Governance Harness",
+      "label": "Autonomous Agent Runtime (The Harness)",
       "type": "Technical",
-      "description": "Deterministic Policy Engine & Guardrails",
+      "description": "Execution Loop, Planning, Rights & Guardrails",
       "tags": [
         "technical",
         "governance"
