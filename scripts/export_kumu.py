@@ -3,7 +3,6 @@ import json
 import yaml
 from pathlib import Path
 
-# Force UTF-8 console output on Windows
 if sys.platform == "win32":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -13,8 +12,7 @@ if sys.platform == "win32":
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 def to_title_header(snake_str):
-    """Converts snake_case property keys to friendly Kumu Field Titles."""
-    acronyms = {"eu": "EU", "ai": "AI", "id": "ID", "mcp": "MCP", "iam": "IAM", "api": "API", "tos": "ToS"}
+    acronyms = {"eu": "EU", "ai": "AI", "id": "ID", "mcp": "MCP", "iam": "IAM", "api": "API", "tos": "ToS", "vsm": "VSM", "nist": "NIST", "coala": "CoALA", "rag": "RAG"}
     words = snake_str.split("_")
     return " ".join(acronyms.get(w.lower(), w.capitalize()) for w in words)
 
@@ -37,11 +35,12 @@ def main():
         "connections": []
     }
 
-    # 1. Build Elements
+    # Build Elements losslessly
     for n in model.get("nodes", []):
         domains = n.get("domains", [])
         primary_domain = domains[0].capitalize() if domains else "Entity"
-        cluster_name = clusters_map.get(n.get("cluster", ""), n.get("cluster", ""))
+        cid = n.get("cluster", "")
+        cluster_name = clusters_map.get(cid, cid)
         
         element = {
             "id": n["id"],
@@ -49,17 +48,18 @@ def main():
             "type": primary_domain,
             "description": n.get("sublabel", ""),
             "tags": domains,
-            "Cluster": cluster_name
+            "shape": n.get("shape", "rect"),
+            "Cluster": cluster_name,
+            "Cluster ID": cid
         }
 
-        # Add all custom properties as named profile attributes
+        # Promote all dynamic properties (VSM, NIST, CoALA, Cardinality, etc.)
         for prop_key, prop_val in n.get("properties", {}).items():
-            field_name = to_title_header(prop_key)
-            element[field_name] = prop_val
+            element[to_title_header(prop_key)] = prop_val
 
         blueprint["elements"].append(element)
 
-    # 2. Build Connections
+    # Build Connections losslessly
     for i, e in enumerate(model.get("edges", [])):
         connection = {
             "id": f"conn_{i}",
@@ -73,7 +73,6 @@ def main():
         }
         blueprint["connections"].append(connection)
 
-    # 3. Write formatted JSON
     with open(target_file, "w", encoding="utf-8") as f:
         json.dump(blueprint, f, indent=2, ensure_ascii=False)
 

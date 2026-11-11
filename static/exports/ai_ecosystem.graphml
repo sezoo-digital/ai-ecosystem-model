@@ -1,916 +1,789 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
-  <!--Created by yEd 3.25.1-->
-  <key for="port" id="d0" yfiles.type="portgraphics"/>
-  <key for="port" id="d1" yfiles.type="portgeometry"/>
-  <key for="port" id="d2" yfiles.type="portuserdata"/>
-  <key attr.name="cluster" attr.type="string" for="node" id="d3"/>
-  <key attr.name="domains" attr.type="string" for="node" id="d4"/>
-  <key attr.name="sublabel" attr.type="string" for="node" id="d5"/>
-  <key attr.name="properties" attr.type="string" for="node" id="d6"/>
-  <key attr.name="url" attr.type="string" for="node" id="d7"/>
-  <key attr.name="description" attr.type="string" for="node" id="d8"/>
-  <key for="node" id="d9" yfiles.type="nodegraphics"/>
-  <key for="graphml" id="d10" yfiles.type="resources"/>
-  <key attr.name="domains" attr.type="string" for="edge" id="d11"/>
-  <key attr.name="type" attr.type="string" for="edge" id="d12"/>
-  <key attr.name="url" attr.type="string" for="edge" id="d13"/>
-  <key attr.name="description" attr.type="string" for="edge" id="d14"/>
-  <key for="edge" id="d15" yfiles.type="edgegraphics"/>
-  <graph edgedefault="directed" id="G">
-    <node id="n0" yfiles.foldertype="folder">
-      <data key="d3" xml:space="preserve"/>
-      <data key="d4" xml:space="preserve"/>
-      <data key="d5" xml:space="preserve"/>
-      <data key="d6" xml:space="preserve"/>
-      <data key="d7" xml:space="preserve"/>
-      <data key="d9">
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:y="http://www.yworks.com/xml/graphml"
+         xmlns:yed="http://www.yworks.com/xml/yed/3">
+  <key for="node" id="d_graphics" yfiles.type="nodegraphics"/>
+  <key for="edge" id="d_edge_graphics" yfiles.type="edgegraphics"/>
+  <key for="node" id="d_cluster" attr.name="cluster" attr.type="string"/>
+  <key for="node" id="d_domains" attr.name="domains" attr.type="string"/>
+  <key for="node" id="d_sublabel" attr.name="sublabel" attr.type="string"/>
+  <key for="node" id="d_shape" attr.name="shape" attr.type="string"/>
+  <key for="node" id="d_prop_anthropic_pattern" attr.name="anthropic_pattern" attr.type="string"/>
+  <key for="node" id="d_prop_capabilities" attr.name="capabilities" attr.type="string"/>
+  <key for="node" id="d_prop_cardinality" attr.name="cardinality" attr.type="string"/>
+  <key for="node" id="d_prop_coala_memory_type" attr.name="coala_memory_type" attr.type="string"/>
+  <key for="node" id="d_prop_coala_role" attr.name="coala_role" attr.type="string"/>
+  <key for="node" id="d_prop_compliance" attr.name="compliance" attr.type="string"/>
+  <key for="node" id="d_prop_compute_profile" attr.name="compute_profile" attr.type="string"/>
+  <key for="node" id="d_prop_control_mode" attr.name="control_mode" attr.type="string"/>
+  <key for="node" id="d_prop_cost_type" attr.name="cost_type" attr.type="string"/>
+  <key for="node" id="d_prop_duty_of_care" attr.name="duty_of_care" attr.type="string"/>
+  <key for="node" id="d_prop_enforcement_powers" attr.name="enforcement_powers" attr.type="string"/>
+  <key for="node" id="d_prop_eu_ai_act_role" attr.name="eu_ai_act_role" attr.type="string"/>
+  <key for="node" id="d_prop_evidentiary_role" attr.name="evidentiary_role" attr.type="string"/>
+  <key for="node" id="d_prop_ip_risk" attr.name="ip_risk" attr.type="string"/>
+  <key for="node" id="d_prop_iso_42001_role" attr.name="iso_42001_role" attr.type="string"/>
+  <key for="node" id="d_prop_legal_standing" attr.name="legal_standing" attr.type="string"/>
+  <key for="node" id="d_prop_liability_posture" attr.name="liability_posture" attr.type="string"/>
+  <key for="node" id="d_prop_margin_exposure" attr.name="margin_exposure" attr.type="string"/>
+  <key for="node" id="d_prop_market_effect" attr.name="market_effect" attr.type="string"/>
+  <key for="node" id="d_prop_nist_function" attr.name="nist_function" attr.type="string"/>
+  <key for="node" id="d_prop_pricing_model" attr.name="pricing_model" attr.type="string"/>
+  <key for="node" id="d_prop_protocol_standards" attr.name="protocol_standards" attr.type="string"/>
+  <key for="node" id="d_prop_risk_zone" attr.name="risk_zone" attr.type="string"/>
+  <key for="node" id="d_prop_roi_hurdle" attr.name="roi_hurdle" attr.type="string"/>
+  <key for="node" id="d_prop_role" attr.name="role" attr.type="string"/>
+  <key for="node" id="d_prop_security_role" attr.name="security_role" attr.type="string"/>
+  <key for="node" id="d_prop_sovereignty" attr.name="sovereignty" attr.type="string"/>
+  <key for="node" id="d_prop_sovereignty_gap" attr.name="sovereignty_gap" attr.type="string"/>
+  <key for="node" id="d_prop_underwriting_gate" attr.name="underwriting_gate" attr.type="string"/>
+  <key for="node" id="d_prop_vsm_tier" attr.name="vsm_tier" attr.type="string"/>
+  <key for="edge" id="d_edge_domains" attr.name="domains" attr.type="string"/>
+  <key for="edge" id="d_edge_type" attr.name="type" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <node id="cluster_regulatory" yfiles.foldertype="group">
+      <data key="d_graphics">
         <y:ProxyAutoBoundsNode>
-          <y:Realizers active="1">
+          <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="436.7529296875" width="2290.0" x="350.0" y="180.0"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="59.12939453125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="2290.0" x="0.0" xml:space="preserve" y="0.0">Specialized Product 
-&amp; Harness Domain 
-(ISV / Custom Runtime)</y:NodeLabel>
+              <y:Geometry width="280" height="350"/>
+              <y:Fill color="#F8FAFC" transparent="false"/>
+              <y:BorderStyle color="#CBD5E1" type="line" width="1.5"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#E2E8F0" fontSize="12" fontStyle="bold" modelName="internal" modelPosition="t">0. Jurisdictional &amp; Regulatory Sphere</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
-              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="13" bottomF="12.5" left="5" leftF="5.0" right="10" rightF="10.0" top="10" topF="10.12353515625"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="132.0" width="193.00000000000006" x="958.5" y="284.0"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="59.12939453125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="193.00000000000006" x="0.0" xml:space="preserve" y="0.0">Specialized Product 
-&amp; Harness Domain 
-(ISV / Custom Runtime</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="true" closedHeight="132.0" closedWidth="193.00000000000006" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:State closed="false"/>
             </y:GroupNode>
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n0:">
-        <node id="n0::n0">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_product]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[technical, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Deterministic Policy Engine & Guardrails]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[iso_42001_role: AIMS Technical Control Implementation | duty_of_care: Caps blast radius, halts unsafe prompts/actions]]></data>
-          <data key="d9">
+      <graph id="cluster_regulatory:" edgedefault="directed">
+        <node id="N_REGULATOR">
+          <data key="d_cluster">cluster_regulatory</data>
+          <data key="d_domains">governance</data>
+          <data key="d_sublabel">EU AI Office, FTC, DPAs, Courts</data>
+          <data key="d_shape">hexagon</data>
+          <data key="d_prop_cardinality">10^1 Jurisdictional Bodies</data>
+          <data key="d_prop_enforcement_powers">Fines up to 7% global turnover, stop orders</data>
+          <data key="d_prop_nist_function">GOVERN</data>
+          <data key="d_prop_vsm_tier">System 5 (External Statutory Meta-System)</data>
+          <data key="d_graphics">
             <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="960.0" y="404.2529296875"/>
+              <y:Geometry width="230" height="75"/>
               <y:Fill color="#FFF1F0" transparent="false"/>
               <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="156.71875" x="36.640625" xml:space="preserve" y="13.4482421875">Agent Governance Harness
-(Deterministic Policy Engine 
-&amp; Guardrails)</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n0::n1">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_product]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[technical, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Tamper-Evident WORM State & Forensic Store]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[compliance: Art. 12 Mandatory Logging / Rebuttal of Fault | sovereignty: Client / Enterprise Owned]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="370.0" y="514.2529296875"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="170.705078125" x="29.6474609375" xml:space="preserve" y="13.4482421875">Sovereign Audit Ledger
-(Tamper-Evident WORM State 
-&amp; Forensic Store)</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n0::n2">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_product]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[technical, governance, economic]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Continuous Evaluation, Traces & Cost Telemetry]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[capabilities: LLM-as-a-judge, OTEL tracing, token cost tracking]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="2265.0" y="404.2529296875"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="158.072265625" x="35.9638671875" xml:space="preserve" y="13.4482421875">Observability &amp; Evals Engine
-(Continuous Evaluation, 
-Traces &amp; Cost Telemetry)</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n0::n3">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_product]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[economic, technical]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Vertical Solutions (Legal, Medical, Finance, Ops)]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[eu_ai_act_role: Provider_System | pricing_model: SaaS Seat / Value Outcome]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="2385.0" y="264.2529296875"/>
-              <y:Fill color="#F6FFED" transparent="false"/>
-              <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="192.0859375" x="18.95703125" xml:space="preserve" y="13.4482421875">Specialized AI Application
-(Vertical Solutions (Legal, Medical, 
-Finance, Ops))</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <edge id="n0::e0" source="n0::n0" target="n0::n1">
-          <data key="d11" xml:space="preserve"><![CDATA[governance, technical]]></data>
-          <data key="d12" xml:space="preserve"><![CDATA[governance_control]]></data>
-          <data key="d15">
-            <y:PolyLineEdge>
-              <y:Path sx="-115.0" sy="10.0" tx="5.0" ty="-37.5">
-                <y:Point x="845.0" y="451.7529296875"/>
-                <y:Point x="845.0" y="501.7529296875"/>
-                <y:Point x="490.0" y="501.7529296875"/>
-              </y:Path>
-              <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
-              <y:Arrows source="none" target="standard"/>
-              <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="159.390625" x="-194.667236328125" xml:space="preserve" y="8.298828125">Cryptographic Tamper-Proof 
-Audit Trail<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
-          </data>
-        </edge>
-        <edge id="n0::e1" source="n0::n0" target="n0::n1">
-          <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-          <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-          <data key="d15">
-            <y:PolyLineEdge>
-              <y:Path sx="-115.0" sy="5.0" tx="0.0" ty="-37.5">
-                <y:Point x="685.0" y="446.7529296875"/>
-                <y:Point x="685.0" y="496.7529296875"/>
-                <y:Point x="485.0" y="496.7529296875"/>
-              </y:Path>
-              <y:LineStyle color="#64748B" type="line" width="1.0"/>
-              <y:Arrows source="none" target="standard"/>
-              <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="148.041015625" x="-348.9869384765625" xml:space="preserve" y="8.298828125">Context Retrieval (RAG) &amp; 
-Checkpointing<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
-          </data>
-        </edge>
-        <edge id="n0::e2" source="n0::n0" target="n0::n2">
-          <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-          <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-          <data key="d15">
-            <y:PolyLineEdge>
-              <y:Path sx="115.0" sy="0.0" tx="-115.0" ty="0.0"/>
-              <y:LineStyle color="#64748B" type="line" width="1.0"/>
-              <y:Arrows source="none" target="standard"/>
-              <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="128.716796875" x="940.6416015625" xml:space="preserve" y="-16.701171875">Traces &amp; 
-LLM Evaluation Metrics<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
-          </data>
-        </edge>
-        <edge id="n0::e3" source="n0::n3" target="n0::n0">
-          <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-          <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-          <data key="d15">
-            <y:PolyLineEdge>
-              <y:Path sx="-115.0" sy="5.0" tx="0.0" ty="-37.5">
-                <y:Point x="1075.0" y="306.7529296875"/>
-              </y:Path>
-              <y:LineStyle color="#64748B" type="line" width="1.0"/>
-              <y:Arrows source="none" target="standard"/>
-              <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="101.40625" x="-1360.6630859375" xml:space="preserve" y="8.298828125000057">Initiates 
-Autonomous Loop<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
-          </data>
-        </edge>
-      </graph>
-    </node>
-    <node id="n1" yfiles.foldertype="folder">
-      <data key="d3" xml:space="preserve"/>
-      <data key="d4" xml:space="preserve"/>
-      <data key="d5" xml:space="preserve"/>
-      <data key="d6" xml:space="preserve"/>
-      <data key="d7" xml:space="preserve"/>
-      <data key="d9">
-        <y:ProxyAutoBoundsNode>
-          <y:Realizers active="1">
-            <y:GroupNode>
-              <y:Geometry height="335.0" width="520.0" x="-98.33333333333326" y="95.0"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="520.0" x="0.0" xml:space="preserve" y="0.0">Jurisdiction and Regulatory Sphere</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="8" bottomF="7.5" left="10" leftF="10.0" right="10" rightF="10.0" top="15" topF="15.12353515625"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="96.0" width="148.33333333333331" x="-4.166666666666657" y="92.0"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="40.7529296875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="148.33333333333331" x="0.0" xml:space="preserve" y="0.0">Jurisdiction and 
-Regulatory Sphere</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="true" closedHeight="96.0" closedWidth="148.33333333333331" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-            </y:GroupNode>
-          </y:Realizers>
-        </y:ProxyAutoBoundsNode>
-      </data>
-      <graph edgedefault="directed" id="n1:">
-        <node id="n1::n0">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_regulatory]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Notified Bodies, ISO/IEC 42001 Certifiers]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[role: AIMS certification & post-market monitoring]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="166.66666666666674" y="147.5"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="169.3984375" x="30.30078125" xml:space="preserve" y="13.4482421875">Conformity Body &amp; ISO Auditor
-(Notified Bodies,
- ISO/IEC 42001 Certifiers)</y:NodeLabel>
-              <y:Shape type="hexagon"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n1::n1">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_regulatory]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[EU AI Office, FTC, DPAs, Courts]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[enforcement_powers: Fines up to 7% turnover, injunctions]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="-73.33333333333326" y="242.5"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="187.357421875" x="21.3212890625" xml:space="preserve" y="20.798828125">Market Surveillance Authorities
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Market Surveillance Authorities
 (EU AI Office, FTC, DPAs, Courts)</y:NodeLabel>
               <y:Shape type="hexagon"/>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n1::n2">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_regulatory]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[economic, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Cyber & Algorithmic Liability Carrier]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[underwriting_gate: Requires verifiable audit trail & human oversight]]></data>
-          <data key="d9">
+        <node id="N_AUDITOR">
+          <data key="d_cluster">cluster_regulatory</data>
+          <data key="d_domains">governance</data>
+          <data key="d_sublabel">Notified Bodies, ISO/IEC 42001 Certifiers</data>
+          <data key="d_shape">hexagon</data>
+          <data key="d_prop_cardinality">10^2 Accredited Audit Entities</data>
+          <data key="d_prop_nist_function">MEASURE</data>
+          <data key="d_prop_role">CE conformity assessments &amp; continuous surveillance</data>
+          <data key="d_prop_vsm_tier">System 3* (Sporadic External Audit)</data>
+          <data key="d_graphics">
             <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="-73.33333333333326" y="332.5"/>
+              <y:Geometry width="230" height="75"/>
               <y:Fill color="#FFF1F0" transparent="false"/>
               <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="201.37890625" x="14.310546875" xml:space="preserve" y="20.798828125">AI Risk Underwriter &amp; Insurer
-(Cyber &amp; Algorithmic Liability Carrier)</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Conformity Body &amp; ISO Auditor
+(Notified Bodies, ISO/IEC 42001 Certifiers)</y:NodeLabel>
+              <y:Shape type="hexagon"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_INSURER">
+          <data key="d_cluster">cluster_regulatory</data>
+          <data key="d_domains">economic, governance</data>
+          <data key="d_sublabel">Algorithmic Liability &amp; Cyber Risk Carrier</data>
+          <data key="d_shape">rect</data>
+          <data key="d_prop_cardinality">10^2 Global Underwriters</data>
+          <data key="d_prop_nist_function">MANAGE</data>
+          <data key="d_prop_underwriting_gate">Requires verifiable audit trail &amp; human oversight</data>
+          <data key="d_prop_vsm_tier">System 3 (Economic Viability Gate)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">AI Risk Underwriter &amp; Insurer
+(Algorithmic Liability &amp; Cyber Risk Carrier)</y:NodeLabel>
               <y:Shape type="rectangle"/>
             </y:ShapeNode>
           </data>
         </node>
       </graph>
     </node>
-    <node id="n2" yfiles.foldertype="folder">
-      <data key="d3" xml:space="preserve"/>
-      <data key="d4" xml:space="preserve"/>
-      <data key="d5" xml:space="preserve"/>
-      <data key="d6" xml:space="preserve"/>
-      <data key="d7" xml:space="preserve"/>
-      <data key="d9">
+    <node id="cluster_supply" yfiles.foldertype="group">
+      <data key="d_graphics">
         <y:ProxyAutoBoundsNode>
-          <y:Realizers active="1">
+          <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="1193.37646484375" width="615.0" x="75.0" y="216.62353515625"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="40.7529296875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="615.0" x="0.0" xml:space="preserve" y="0.0">Upstream Foundation 
-&amp; Model Lab</y:NodeLabel>
+              <y:Geometry width="280" height="350"/>
+              <y:Fill color="#F8FAFC" transparent="false"/>
+              <y:BorderStyle color="#CBD5E1" type="line" width="1.5"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#E2E8F0" fontSize="12" fontStyle="bold" modelName="internal" modelPosition="t">1. Upstream Foundation &amp; Model Lab</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
-              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="8" bottomF="7.5" left="5" leftF="5.0" right="20" rightF="20.0" top="15" topF="15.12353515625"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="114.0" width="193.00000000000006" x="228.49999999999997" y="293.0"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="40.7529296875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="193.00000000000006" x="0.0" xml:space="preserve" y="0.0">Upstream Foundation 
-&amp; Model Lab</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="true" closedHeight="114.0" closedWidth="193.00000000000006" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:State closed="false"/>
             </y:GroupNode>
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n2:">
-        <node id="n2::n0">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_supply]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[economic, technical, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Weights & Wholesale Inference APIs]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[eu_ai_act_role: Provider_GPAI | pricing_model: Per-Token Usage | liability_posture: Disclaimed via ToS ('AS-IS')]]></data>
-          <data key="d9">
+      <graph id="cluster_supply:" edgedefault="directed">
+        <node id="N_TRAIN">
+          <data key="d_cluster">cluster_supply</data>
+          <data key="d_domains">economic, technical</data>
+          <data key="d_sublabel">Data Curators, Annotators, Mega-Compute Hubs</data>
+          <data key="d_shape">rect</data>
+          <data key="d_prop_cardinality">Top 5-10 Global Mega-Campuses</data>
+          <data key="d_prop_compute_profile">Concentrated 50k-100k+ GPU clusters; GW-scale power</data>
+          <data key="d_prop_cost_type">Fixed / Heavy CapEx ($600B Infrastructure Question)</data>
+          <data key="d_prop_ip_risk">Copyright infringement / scraping litigation</data>
+          <data key="d_prop_nist_function">MAP</data>
+          <data key="d_prop_vsm_tier">System 1 (Upstream Production)</data>
+          <data key="d_graphics">
             <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="425.0" y="287.5"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="208.08203125" x="10.958984375" xml:space="preserve" y="20.798828125">Frontier GPAI Lab
-(Weights &amp; Wholesale Inference APIs)</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n2::n1">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_supply]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[economic, technical]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Data Curators, Annotators, 
-Compute Clusters]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[cost_type: Fixed / Heavy R&D CapEx | ip_risk: Copyright / Scraping litigation]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="95.0" y="287.5"/>
+              <y:Geometry width="230" height="75"/>
               <y:Fill color="#F6FFED" transparent="false"/>
               <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="154.064453125" x="37.9677734375" xml:space="preserve" y="13.4482421875">Training Supply Chain
-(Data Curators, Annotators, 
-Compute Clusters)</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Training Supply Chain
+(Data Curators, Annotators, Mega-Compute Hubs)</y:NodeLabel>
               <y:Shape type="rectangle"/>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n2::n2">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_supply]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[economic, technical]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Native Tools, Prompt Cache, Hosted Agent State]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[market_effect: Feature commoditization of wrapper ISVs]]></data>
-          <data key="d9">
+        <node id="N_FRONTIER">
+          <data key="d_cluster">cluster_supply</data>
+          <data key="d_domains">economic, technical, governance</data>
+          <data key="d_sublabel">Globally Replicated Weights &amp; Inference Fleets</data>
+          <data key="d_shape">rounded</data>
+          <data key="d_prop_cardinality">Top 5-10 Labs; Replicated across 10^3 Regional Clusters</data>
+          <data key="d_prop_compute_profile">High memory-bandwidth inference clusters; low latency</data>
+          <data key="d_prop_eu_ai_act_role">Provider_GPAI</data>
+          <data key="d_prop_liability_posture">Disclaimed via ToS (&#x27;AS-IS&#x27;)</data>
+          <data key="d_prop_nist_function">MEASURE</data>
+          <data key="d_prop_pricing_model">Wholesale Per-Token Usage</data>
+          <data key="d_prop_sovereignty_gap">Physical data residency does not equal jurisdictional independence</data>
+          <data key="d_prop_vsm_tier">System 4 (Probabilistic Intelligence Engine)</data>
+          <data key="d_graphics">
             <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="425.0" y="1312.5"/>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Frontier Foundation Model
+(Globally Replicated Weights &amp; Inference Fleets)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_ABSORBED">
+          <data key="d_cluster">cluster_supply</data>
+          <data key="d_domains">economic, technical</data>
+          <data key="d_sublabel">Native Tools, Prompt Cache, Hosted State</data>
+          <data key="d_shape">rect</data>
+          <data key="d_prop_cardinality">Top 3-5 Cloud Ecosystems</data>
+          <data key="d_prop_market_effect">Feature commoditization of wrapper ISVs (a16z Stack)</data>
+          <data key="d_prop_vsm_tier">System 4 (Environmental Encroachment)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
               <y:Fill color="#F6FFED" transparent="false"/>
               <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.72265625" x="32.638671875" xml:space="preserve" y="13.4482421875">Platform Absorption Zone
-(Native Tools, Prompt Cache, 
-Hosted Agent State)</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Platform Absorption Zone
+(Native Tools, Prompt Cache, Hosted State)</y:NodeLabel>
               <y:Shape type="rectangle"/>
             </y:ShapeNode>
           </data>
         </node>
-        <edge id="n2::e0" source="n2::n0" target="n2::n1">
-          <data key="d11" xml:space="preserve"><![CDATA[economic]]></data>
-          <data key="d12" xml:space="preserve"><![CDATA[money]]></data>
-          <data key="d15">
-            <y:PolyLineEdge>
-              <y:Path sx="-115.0" sy="0.0" tx="115.0" ty="0.0"/>
-              <y:LineStyle color="#16A34A" type="line" width="3.0"/>
-              <y:Arrows source="none" target="standard"/>
-              <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="80.037109375" x="-89.9697265625" xml:space="preserve" y="-16.701171875">$ Compute 
-&amp; Data CapEx<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
-          </data>
-        </edge>
       </graph>
     </node>
-    <node id="n3" yfiles.foldertype="folder">
-      <data key="d3" xml:space="preserve"/>
-      <data key="d4" xml:space="preserve"/>
-      <data key="d5" xml:space="preserve"/>
-      <data key="d6" xml:space="preserve"/>
-      <data key="d7" xml:space="preserve"/>
-      <data key="d9">
+    <node id="cluster_product" yfiles.foldertype="group">
+      <data key="d_graphics">
         <y:ProxyAutoBoundsNode>
-          <y:Realizers active="1">
+          <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="430.0" width="310.0" x="1349.5" y="311.0"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="40.7529296875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="310.0" x="0.0" xml:space="preserve" y="0.0">Target Execution Environment
- &amp; Blast Radius</y:NodeLabel>
+              <y:Geometry width="280" height="350"/>
+              <y:Fill color="#F8FAFC" transparent="false"/>
+              <y:BorderStyle color="#CBD5E1" type="line" width="1.5"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#E2E8F0" fontSize="12" fontStyle="bold" modelName="internal" modelPosition="t">2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
-              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="8" bottomF="7.5" left="40" leftF="40.0" right="10" rightF="10.0" top="17" topF="16.7470703125"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="153.0" width="226.0" x="1372.0" y="273.5"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="40.7529296875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="226.0" x="0.0" xml:space="preserve" y="0.0">Target Execution Environment
- &amp; Blast Radius</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="true" closedHeight="153.0" closedWidth="226.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:State closed="false"/>
             </y:GroupNode>
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n3:">
-        <node id="n3::n0">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_environment]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Consumers, Employees, Citizens]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[eu_ai_act_role: Affected_Subject | legal_standing: Private right of action, tort claimant]]></data>
-          <data key="d9">
+      <graph id="cluster_product:" edgedefault="directed">
+        <node id="N_ISV_PRODUCT">
+          <data key="d_cluster">cluster_product</data>
+          <data key="d_domains">economic, technical</data>
+          <data key="d_sublabel">Vertical Solutions (Legal, Medical, Finance, Ops)</data>
+          <data key="d_shape">rounded</data>
+          <data key="d_prop_cardinality">10^4 - 10^5 Vertical SaaS Products</data>
+          <data key="d_prop_eu_ai_act_role">Provider_System</data>
+          <data key="d_prop_margin_exposure">Squeezed between token costs &amp; platform absorption</data>
+          <data key="d_prop_nist_function">MAP</data>
+          <data key="d_prop_pricing_model">Per-Seat SaaS / Value-Added Outcome Fee</data>
+          <data key="d_prop_vsm_tier">System 4 (Operational Domain Intelligence)</data>
+          <data key="d_graphics">
             <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="1404.5" y="643.5"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="188.72265625" x="20.638671875" xml:space="preserve" y="20.798828125">Impacted Third Party
-(Consumers, Employees, Citizens)</y:NodeLabel>
-              <y:Shape type="ellipse"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n3::n1">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_environment]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[technical, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Databases, Production ERP, Financial Rails]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[risk_zone: Direct Causation Blast Radius]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="1404.5" y="513.5"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="193.41015625" x="18.294921875" xml:space="preserve" y="13.4482421875">Target Systems &amp; Operational APIs
-(Databases, Production ERP, 
-Financial Rails)</y:NodeLabel>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#F6FFED" transparent="false"/>
+              <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Specialized AI Application
+(Vertical Solutions (Legal, Medical, Finance, Ops))</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n3::n2">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_environment]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[technical, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Standardized Tool Broker & Context Provider]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[protocol_standard: Model Context Protocol (MCP) | isolation: Dynamic capability & permission negotiation]]></data>
-          <data key="d9">
+        <node id="N_HARNESS">
+          <data key="d_cluster">cluster_product</data>
+          <data key="d_domains">technical, governance</data>
+          <data key="d_sublabel">Deterministic Policy Engine &amp; Guardrails</data>
+          <data key="d_shape">subproc</data>
+          <data key="d_prop_anthropic_pattern">Decoupled Orchestrator-Worker &amp; Gate</data>
+          <data key="d_prop_cardinality">10^7 - 10^9 Ephemeral Agent Invocations</data>
+          <data key="d_prop_coala_role">Action Execution Engine &amp; Procedural Memory Guard</data>
+          <data key="d_prop_compute_profile">Lightweight CPU / Orchestration Logic</data>
+          <data key="d_prop_duty_of_care">Caps blast radius, halts unsafe prompts/actions</data>
+          <data key="d_prop_iso_42001_role">AIMS Technical Control Implementation</data>
+          <data key="d_prop_nist_function">MANAGE</data>
+          <data key="d_prop_vsm_tier">System 3 (Internal Operational Control &amp; Stability)</data>
+          <data key="d_graphics">
             <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="1404.5" y="383.5"/>
+              <y:Geometry width="230" height="75"/>
               <y:Fill color="#FFF1F0" transparent="false"/>
               <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.7109375" x="32.64453125" xml:space="preserve" y="13.4482421875">Protocol Gateway (MCP Host)
-(Standardized Tool Broker 
-&amp; Context Provider)</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Agent Governance Harness
+(Deterministic Policy Engine &amp; Guardrails)</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
             </y:ShapeNode>
           </data>
         </node>
-        <edge id="n3::e0" source="n3::n1" target="n3::n0">
-          <data key="d11" xml:space="preserve"><![CDATA[governance, technical]]></data>
-          <data key="d12" xml:space="preserve"><![CDATA[tension]]></data>
-          <data key="d15">
-            <y:PolyLineEdge>
-              <y:Path sx="0.0" sy="37.5" tx="0.0" ty="-37.5"/>
-              <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
-              <y:Arrows source="none" target="standard"/>
-              <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="134.7109375" x="-67.35546875" xml:space="preserve" y="10.798828125">Direct Impact &amp; 
-Real-World Blast Radius<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
+        <node id="N_AUDIT_STORE">
+          <data key="d_cluster">cluster_product</data>
+          <data key="d_domains">technical, governance</data>
+          <data key="d_sublabel">Tamper-Evident WORM State &amp; Forensic Store</data>
+          <data key="d_shape">cylinder</data>
+          <data key="d_prop_cardinality">10^4 Enterprise Sovereign Ledgers</data>
+          <data key="d_prop_compliance">Art. 12 Mandatory Logging / Rebuttal of Fault</data>
+          <data key="d_prop_evidentiary_role">Black-Box Flight Recorder for Liability Disputes</data>
+          <data key="d_prop_nist_function">MEASURE</data>
+          <data key="d_prop_sovereignty">Client / Enterprise Owned</data>
+          <data key="d_prop_vsm_tier">System 3* (Internal Audit Channel)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Sovereign Audit Ledger
+(Tamper-Evident WORM State &amp; Forensic Store)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
           </data>
-        </edge>
-        <edge id="n3::e1" source="n3::n2" target="n3::n1">
-          <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-          <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-          <data key="d15">
-            <y:PolyLineEdge>
-              <y:Path sx="0.0" sy="37.5" tx="0.0" ty="-37.5"/>
-              <y:LineStyle color="#64748B" type="line" width="1.0"/>
-              <y:Arrows source="none" target="standard"/>
-              <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="107.3828125" x="-53.69140625" xml:space="preserve" y="10.798828125">Authenticated R/W 
-Operations<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
+        </node>
+        <node id="N_OBSERVE">
+          <data key="d_cluster">cluster_product</data>
+          <data key="d_domains">technical, governance, economic</data>
+          <data key="d_sublabel">Continuous Evaluation, Traces &amp; Cost Telemetry</data>
+          <data key="d_shape">rounded</data>
+          <data key="d_prop_capabilities">LLM-as-a-judge, OTEL tracing, token telemetry</data>
+          <data key="d_prop_cardinality">10^4 Monitoring Pipelines</data>
+          <data key="d_prop_nist_function">MEASURE</data>
+          <data key="d_prop_vsm_tier">System 3 (Performance Monitoring &amp; Homeostasis)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Observability &amp; Evals Engine
+(Continuous Evaluation, Traces &amp; Cost Telemetry)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
           </data>
-        </edge>
+        </node>
       </graph>
     </node>
-    <node id="n4" yfiles.foldertype="folder">
-      <data key="d3" xml:space="preserve"/>
-      <data key="d4" xml:space="preserve"/>
-      <data key="d5" xml:space="preserve"/>
-      <data key="d6" xml:space="preserve"/>
-      <data key="d7" xml:space="preserve"/>
-      <data key="d9">
+    <node id="cluster_client" yfiles.foldertype="group">
+      <data key="d_graphics">
         <y:ProxyAutoBoundsNode>
-          <y:Realizers active="1">
+          <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="493.37646484375" width="1050.0" x="875.0" y="76.62353515625"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="40.7529296875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1050.0" x="0.0" xml:space="preserve" y="0.0">Enterprise Deployer 
-&amp; Principal Domain</y:NodeLabel>
+              <y:Geometry width="280" height="350"/>
+              <y:Fill color="#F8FAFC" transparent="false"/>
+              <y:BorderStyle color="#CBD5E1" type="line" width="1.5"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#E2E8F0" fontSize="12" fontStyle="bold" modelName="internal" modelPosition="t">3. Enterprise Deployer &amp; Principal Domain</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
-              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="8" bottomF="7.5" left="30" leftF="30.0" right="275" rightF="275.0" top="15" topF="15.12353515625"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="96.0" width="165.0" x="972.5" y="92.0"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="40.7529296875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="165.0" x="0.0" xml:space="preserve" y="0.0">Enterprise Deployer 
-&amp; Principal Domain</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="true" closedHeight="96.0" closedWidth="165.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:State closed="false"/>
             </y:GroupNode>
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n4:">
-        <node id="n4::n0">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_client]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[technical, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[OAuth, OIDC, Workload IAM & Ephemeral Tokens]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[security_role: Issues scoped actor delegations to agents]]></data>
-          <data key="d9">
+      <graph id="cluster_client:" edgedefault="directed">
+        <node id="N_ENTERPRISE">
+          <data key="d_cluster">cluster_client</data>
+          <data key="d_domains">economic, governance</data>
+          <data key="d_sublabel">Legal Principal &amp; Economic Sponsor</data>
+          <data key="d_shape">rect</data>
+          <data key="d_prop_cardinality">10^5 Commercial Deployers Globally</data>
+          <data key="d_prop_eu_ai_act_role">Deployer</data>
+          <data key="d_prop_liability_posture">Holds Vicarious &amp; Strict Legal Liability</data>
+          <data key="d_prop_nist_function">GOVERN</data>
+          <data key="d_prop_roi_hurdle">High CapEx Recovery Pressure (Sequoia Act Two)</data>
+          <data key="d_prop_vsm_tier">System 5 (Corporate Policy &amp; Ultimate Governance)</data>
+          <data key="d_graphics">
             <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="1165.0" y="147.5"/>
+              <y:Geometry width="230" height="75"/>
               <y:Fill color="#FFF1F0" transparent="false"/>
               <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="169.41015625" x="30.294921875" xml:space="preserve" y="13.4482421875">Enterprise Identity &amp; Auth (IdP)
-(OAuth, OIDC, Workload IAM 
-&amp; Ephemeral Tokens)</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n4::n1">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_client]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[technical, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[End User / Mandatory HITL Supervisor]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[control_mode: Prompting, Art. 14 Human Oversight, Override]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="1405.0" y="147.5"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="191.40625" x="19.296875" xml:space="preserve" y="13.4482421875">Human Task Delegator &amp; Overseer
-(End User / Mandatory 
-HITL Supervisor)</y:NodeLabel>
-              <y:Shape type="ellipse"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n4::n2">
-          <data key="d3" xml:space="preserve"><![CDATA[cluster_client]]></data>
-          <data key="d4" xml:space="preserve"><![CDATA[economic, governance]]></data>
-          <data key="d5" xml:space="preserve"><![CDATA[Legal Principal & Economic Sponsor]]></data>
-          <data key="d6" xml:space="preserve"><![CDATA[eu_ai_act_role: Deployer | liability_posture: Holds Vicarious & Strict Liability]]></data>
-          <data key="d9">
-            <y:ShapeNode>
-              <y:Geometry height="75.0" width="230.0" x="920.0" y="472.5"/>
-              <y:Fill color="#FFF1F0" transparent="false"/>
-              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="206.095703125" x="11.9521484375" xml:space="preserve" y="20.798828125">Enterprise Deployer
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Enterprise Deployer
 (Legal Principal &amp; Economic Sponsor)</y:NodeLabel>
               <y:Shape type="rectangle"/>
             </y:ShapeNode>
           </data>
         </node>
+        <node id="N_IDP">
+          <data key="d_cluster">cluster_client</data>
+          <data key="d_domains">technical, governance</data>
+          <data key="d_sublabel">OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens</data>
+          <data key="d_shape">stadium</data>
+          <data key="d_prop_cardinality">10^5 Enterprise Directories</data>
+          <data key="d_prop_nist_function">MANAGE</data>
+          <data key="d_prop_security_role">Issues scoped actor delegations to agents (A2E)</data>
+          <data key="d_prop_vsm_tier">System 2 (Security Coordination)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Enterprise Identity &amp; Auth (IdP)
+(OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_KNOWLEDGE_STORE">
+          <data key="d_cluster">cluster_client</data>
+          <data key="d_domains">technical, governance</data>
+          <data key="d_sublabel">Proprietary Vector DBs, Documents &amp; Embeddings</data>
+          <data key="d_shape">cylinder</data>
+          <data key="d_prop_cardinality">10^5 Private Knowledge Bases</data>
+          <data key="d_prop_coala_memory_type">Semantic Memory (Factual &amp; Document Knowledge)</data>
+          <data key="d_prop_nist_function">MAP</data>
+          <data key="d_prop_sovereignty">Enterprise Controlled / Private Boundary</data>
+          <data key="d_prop_vsm_tier">System 1 (Knowledge Asset)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Enterprise Semantic Knowledge Base
+(Proprietary Vector DBs, Documents &amp; Embeddings)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_HUMAN_USER">
+          <data key="d_cluster">cluster_client</data>
+          <data key="d_domains">technical, governance</data>
+          <data key="d_sublabel">End User / Mandatory HITL Supervisor</data>
+          <data key="d_shape">circle</data>
+          <data key="d_prop_cardinality">10^8 End Users &amp; Operators</data>
+          <data key="d_prop_control_mode">Prompting, Art. 14 Human Oversight, Override</data>
+          <data key="d_prop_nist_function">GOVERN</data>
+          <data key="d_prop_vsm_tier">System 5 (Human Intent &amp; Final Agency)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Human Task Delegator &amp; Overseer
+(End User / Mandatory HITL Supervisor)</y:NodeLabel>
+              <y:Shape type="ellipse"/>
+            </y:ShapeNode>
+          </data>
+        </node>
       </graph>
     </node>
-    <edge id="e0" source="n4::n2" target="n0::n3">
-      <data key="d11" xml:space="preserve"><![CDATA[economic]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[money]]></data>
-      <data key="d15">
+    <node id="cluster_environment" yfiles.foldertype="group">
+      <data key="d_graphics">
+        <y:ProxyAutoBoundsNode>
+          <y:Realizers active="0">
+            <y:GroupNode>
+              <y:Geometry width="280" height="350"/>
+              <y:Fill color="#F8FAFC" transparent="false"/>
+              <y:BorderStyle color="#CBD5E1" type="line" width="1.5"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#E2E8F0" fontSize="12" fontStyle="bold" modelName="internal" modelPosition="t">4. Target Execution Environment &amp; Blast Radius</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false"/>
+            </y:GroupNode>
+          </y:Realizers>
+        </y:ProxyAutoBoundsNode>
+      </data>
+      <graph id="cluster_environment:" edgedefault="directed">
+        <node id="N_TOOL_GATEWAY">
+          <data key="d_cluster">cluster_environment</data>
+          <data key="d_domains">technical, governance</data>
+          <data key="d_sublabel">Decoupled Tool Broker &amp; Context Provider (MCP)</data>
+          <data key="d_shape">subproc</data>
+          <data key="d_prop_cardinality">10^4 - 10^5 Gateway Servers</data>
+          <data key="d_prop_nist_function">MANAGE</data>
+          <data key="d_prop_protocol_standards">Model Context Protocol (MCP), OpenAPI, GraphQL (A2T)</data>
+          <data key="d_prop_security_role">Tool discovery, sandbox isolation, scope negotiation</data>
+          <data key="d_prop_vsm_tier">System 2 (Coordination &amp; Oscillation Damping)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Capability &amp; Tool Gateway
+(Decoupled Tool Broker &amp; Context Provider (MCP))</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_TARGET_SYS">
+          <data key="d_cluster">cluster_environment</data>
+          <data key="d_domains">technical, governance</data>
+          <data key="d_sublabel">Databases, Production ERP, Financial Rails</data>
+          <data key="d_shape">cylinder</data>
+          <data key="d_prop_cardinality">10^6 Production Systems Globally</data>
+          <data key="d_prop_nist_function">MANAGE</data>
+          <data key="d_prop_risk_zone">Direct Causation Blast Radius</data>
+          <data key="d_prop_vsm_tier">System 1 (Real-World Actuation &amp; Operations)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Target Systems &amp; Operational APIs
+(Databases, Production ERP, Financial Rails)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_AFFECTED_PARTY">
+          <data key="d_cluster">cluster_environment</data>
+          <data key="d_domains">governance</data>
+          <data key="d_sublabel">Consumers, Employees, Citizens</data>
+          <data key="d_shape">circle</data>
+          <data key="d_prop_cardinality">Billions of Impacted Individuals</data>
+          <data key="d_prop_eu_ai_act_role">Affected_Subject</data>
+          <data key="d_prop_legal_standing">Private Right of Action, Tort Plaintiff, Data Subject</data>
+          <data key="d_prop_vsm_tier">External Environment (Ultimate Impact Receptor)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Impacted Third Party
+(Consumers, Employees, Citizens)</y:NodeLabel>
+              <y:Shape type="ellipse"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+      </graph>
+    </node>
+    <edge id="e0" source="N_ENTERPRISE" target="N_ISV_PRODUCT">
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_type">money</data>
+      <data key="d_edge_graphics">
         <y:PolyLineEdge>
-          <y:Path sx="5.0" sy="48.0" tx="5.0" ty="-66.0">
-            <y:Point x="1060.0" y="210.0"/>
-            <y:Point x="1235.0" y="210.0"/>
-            <y:Point x="1235.0" y="265.0"/>
-            <y:Point x="1060.0" y="265.0"/>
-          </y:Path>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="136.08203125" x="106.958984375" xml:space="preserve" y="30.298828125">$$$ SaaS Subscription / 
-Outcome Fee<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
+          <y:EdgeLabel alignment="center">$$$ SaaS Subscription / Outcome Fee</y:EdgeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n2::n2" target="n0::n3">
-      <data key="d11" xml:space="preserve"><![CDATA[economic]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[tension]]></data>
-      <data key="d15">
+    <edge id="e1" source="N_ISV_PRODUCT" target="N_FRONTIER">
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_type">money</data>
+      <data key="d_edge_graphics">
         <y:PolyLineEdge>
-          <y:Path sx="96.5" sy="5.0" tx="-96.5" ty="5.0">
-            <y:Point x="435.0" y="355.0"/>
-            <y:Point x="435.0" y="450.0"/>
-            <y:Point x="595.0" y="450.0"/>
-            <y:Point x="595.0" y="355.0"/>
-          </y:Path>
-          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="144.712890625" x="21.1435546875" xml:space="preserve" y="78.298828125">Platform Commoditization 
-Pressure<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e2" source="n1::n2" target="n4::n2">
-      <data key="d11" xml:space="preserve"><![CDATA[economic, governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[money]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="74.16666666666666" sy="-5.0" tx="-82.5" ty="-5.0">
-            <y:Point x="170.0" y="135.0"/>
-            <y:Point x="170.0" y="60.0"/>
-            <y:Point x="310.0" y="60.0"/>
-            <y:Point x="310.0" y="135.0"/>
-          </y:Path>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="106.69140625" x="32.48762512207031" xml:space="preserve" y="-91.70117187500001">$ Policy Premiums 
-&amp; Underwriting<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
+          <y:EdgeLabel alignment="center">$$ Wholesale Token Consumption Cost</y:EdgeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n0::n2" target="n4::n2">
-      <data key="d11" xml:space="preserve"><![CDATA[economic, technical]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-      <data key="d15">
+    <edge id="e2" source="N_FRONTIER" target="N_TRAIN">
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_type">money</data>
+      <data key="d_edge_graphics">
         <y:PolyLineEdge>
-          <y:Path sx="10.0" sy="-66.0" tx="10.0" ty="48.0">
-            <y:Point x="1065.0" y="270.0"/>
-            <y:Point x="1365.0" y="270.0"/>
-            <y:Point x="1365.0" y="205.0"/>
-            <y:Point x="1065.0" y="205.0"/>
-          </y:Path>
-          <y:LineStyle color="#64748B" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.3671875" x="247.31640625" xml:space="preserve" y="-55.673828125">Real-time Cost 
-&amp; Token Telemetry<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e4" source="n1::n1" target="n4::n2">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[authority]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="74.16666666666666" sy="0.0" tx="-82.5" ty="0.0"/>
-          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="122.0546875" x="34.80598449707031" xml:space="preserve" y="-16.701171875">Statutory Compliance 
-&amp; Fines (Art. 71)<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e5" source="n1::n1" target="n2::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[authority]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="5.0" sy="48.0" tx="-96.50000000000003" ty="0.0">
-            <y:Point x="75.0" y="350.0"/>
-          </y:Path>
-          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.37890625" x="7.310546875" xml:space="preserve" y="145.298828125">GPAI Codes of Practice 
-&amp; Transparency (Art. 53)<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e6" source="n1::n0" target="n4::n2">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[authority]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="74.16666666666666" sy="5.0" tx="-82.5" ty="5.0">
-            <y:Point x="170.0" y="145.0"/>
-            <y:Point x="170.0" y="220.0"/>
-            <y:Point x="320.0" y="220.0"/>
-            <y:Point x="320.0" y="145.0"/>
-          </y:Path>
-          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="130.71484375" x="35.47590637207031" xml:space="preserve" y="58.298828125">Conformity Audits 
-(ISO 42001 / High Risk)<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e7" source="n2::n0" target="n4::n2">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[disclaim]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-57.0" tx="-82.5" ty="10.0">
-            <y:Point x="325.0" y="150.0"/>
-          </y:Path>
-          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="102.021484375" x="-51.0107421875" xml:space="preserve" y="-44.666259765625">Disclaims Liability 
-(ToS 'AS-IS')<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e8" source="n4::n2" target="n3::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[tension]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="82.5" sy="0.0" tx="-5.0" ty="-76.5">
-            <y:Point x="1480.0" y="140.0"/>
-          </y:Path>
-          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="125.400390625" x="9.7998046875" xml:space="preserve" y="-24.0517578125">Vicarious Liability for 
-Agent Harm 
-(Respondeat Superior)<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e9" source="n3::n0" target="n1::n1">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-76.5" tx="0.0" ty="-48.0">
-            <y:Point x="1485.0" y="15.0"/>
-            <y:Point x="70.0" y="15.0"/>
-          </y:Path>
-          <y:LineStyle color="#64748B" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="103.375" x="-1406.6875" xml:space="preserve" y="-275.16961669921903">Complaints &amp; 
-Redress Demands<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e10" source="n0::n1" target="n1::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="66.0" tx="0.0" ty="48.0">
-            <y:Point x="1055.0" y="475.0"/>
-            <y:Point x="70.0" y="475.0"/>
-          </y:Path>
-          <y:LineStyle color="#64748B" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="130.05859375" x="-975.029296875" xml:space="preserve" y="42.29882812499983">Forensic Evidence for 
-Compliance Verification<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e11" source="n4::n1" target="n0::n3">
-      <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[flow]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="48.0" tx="0.0" ty="-66.0"/>
-          <y:LineStyle color="#64748B" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="92.69921875" x="-46.349609375" xml:space="preserve" y="30.298828125">Prompt Intent &amp;
-Working Context<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e12" source="n4::n0" target="n0::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[protocol]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="-5.0" sy="48.0" tx="-5.0" ty="-66.0">
-            <y:Point x="1050.0" y="210.0"/>
-            <y:Point x="895.0" y="210.0"/>
-            <y:Point x="895.0" y="260.0"/>
-            <y:Point x="1050.0" y="260.0"/>
-          </y:Path>
-          <y:LineStyle color="#2563EB" type="line" width="2.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.060546875" x="-204.0302734375" xml:space="preserve" y="30.298828125">Issues Scoped 
-Delegation Token<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e13" source="n4::n2" target="n0::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[authority]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="-10.0" sy="48.0" tx="-10.0" ty="-66.0">
-            <y:Point x="1045.0" y="205.0"/>
-            <y:Point x="775.0" y="205.0"/>
-            <y:Point x="775.0" y="265.0"/>
-            <y:Point x="1045.0" y="265.0"/>
-          </y:Path>
-          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="123.396484375" x="-331.6982421875" xml:space="preserve" y="25.29882812499997">Delegates Authority &amp; 
-Safety Boundaries<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e14" source="n4::n1" target="n0::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[governance]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[authority]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="-15.0" sy="48.0" tx="-15.0" ty="-66.0">
-            <y:Point x="1040.0" y="200.0"/>
-            <y:Point x="635.0" y="200.0"/>
-            <y:Point x="635.0" y="270.0"/>
-            <y:Point x="1040.0" y="270.0"/>
-          </y:Path>
-          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="136.052734375" x="-473.0263671875" xml:space="preserve" y="20.298828125000085">Art. 14 Human Oversight
-&amp; Stop Button<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e15" source="n0::n0" target="n2::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[protocol]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="-96.5" sy="-5.0" tx="96.5" ty="-5.0">
-            <y:Point x="565.0" y="345.0"/>
-            <y:Point x="565.0" y="250.0"/>
-            <y:Point x="435.0" y="250.0"/>
-            <y:Point x="435.0" y="345.0"/>
-          </y:Path>
-          <y:LineStyle color="#2563EB" type="line" width="2.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.69140625" x="-517.7976684570312" xml:space="preserve" y="-111.70117187499994">Inference API 
-(Tokens &amp; Directives)<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e16" source="n0::n3" target="n2::n0">
-      <data key="d11" xml:space="preserve"><![CDATA[economic]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[money]]></data>
-      <data key="d15">
-        <y:PolyLineEdge>
-          <y:Path sx="-96.5" sy="0.0" tx="96.5" ty="0.0"/>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="102.712890625" x="-514.8236694335938" xml:space="preserve" y="-16.701171874999943">$$ Token 
-Consumption Cost<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
+          <y:EdgeLabel alignment="center">$ Compute CapEx &amp; Annotation</y:EdgeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e17" source="n0::n0" target="n3::n2">
-      <data key="d11" xml:space="preserve"><![CDATA[governance, technical]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[governance_control]]></data>
-      <data key="d15">
+    <edge id="e3" source="N_ABSORBED" target="N_ISV_PRODUCT">
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_type">tension</data>
+      <data key="d_edge_graphics">
         <y:PolyLineEdge>
-          <y:Path sx="96.5" sy="0.0" tx="-113.0" ty="0.0"/>
+          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Platform Commoditization Pressure (a16z Stack)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="N_INSURER" target="N_ENTERPRISE">
+      <data key="d_edge_domains">economic, governance</data>
+      <data key="d_edge_type">money</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#16A34A" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">$ Policy Premiums &amp; Underwriting</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="N_OBSERVE" target="N_ENTERPRISE">
+      <data key="d_edge_domains">economic, technical</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Real-time Cost &amp; Token Telemetry</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="N_REGULATOR" target="N_ENTERPRISE">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">authority</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Statutory Compliance &amp; Fines (Art. 71)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="N_REGULATOR" target="N_FRONTIER">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">authority</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">GPAI Codes of Practice &amp; Transparency (Art. 53)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="N_AUDITOR" target="N_ENTERPRISE">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">authority</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Conformity Audits (ISO 42001 / High Risk)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="N_FRONTIER" target="N_ENTERPRISE">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">disclaim</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Disclaims Liability (ToS &#x27;AS-IS&#x27; / Ada Lovelace Gap)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="N_ENTERPRISE" target="N_AFFECTED_PARTY">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">tension</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Vicarious Liability for Agent Harm (Respondeat Superior)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e11" source="N_AFFECTED_PARTY" target="N_REGULATOR">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Complaints &amp; Redress Demands</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="N_ENTERPRISE" target="N_HARNESS">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">authority</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Delegates Authority &amp; Safety Boundaries (VSM 5 to 3)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e13" source="N_HUMAN_USER" target="N_HARNESS">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">authority</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Art. 14 Human Oversight &amp; Stop Button</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e14" source="N_HARNESS" target="N_AUDIT_STORE">
+      <data key="d_edge_domains">governance, technical</data>
+      <data key="d_edge_type">governance_control</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
           <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="137.39453125" x="19.802734375" xml:space="preserve" y="-16.701171875">Enforces Least-Privilege 
-Scopes<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
+          <y:EdgeLabel alignment="center">Cryptographic Tamper-Proof Audit Trail (Art. 12)</y:EdgeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e18" source="n0::n0" target="n3::n2">
-      <data key="d11" xml:space="preserve"><![CDATA[technical]]></data>
-      <data key="d12" xml:space="preserve"><![CDATA[protocol]]></data>
-      <data key="d15">
+    <edge id="e15" source="N_AUDIT_STORE" target="N_AUDITOR">
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
         <y:PolyLineEdge>
-          <y:Path sx="96.5" sy="5.0" tx="-113.0" ty="5.0">
-            <y:Point x="1165.0" y="355.0"/>
-            <y:Point x="1165.0" y="460.0"/>
-            <y:Point x="1315.0" y="460.0"/>
-            <y:Point x="1315.0" y="355.0"/>
-          </y:Path>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Forensic Evidence for Compliance Verification</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e16" source="N_HARNESS" target="N_TOOL_GATEWAY">
+      <data key="d_edge_domains">governance, technical</data>
+      <data key="d_edge_type">governance_control</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Enforces Least-Privilege Scopes (VSM 3 to 2)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e17" source="N_TARGET_SYS" target="N_AFFECTED_PARTY">
+      <data key="d_edge_domains">governance, technical</data>
+      <data key="d_edge_type">tension</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Direct Impact &amp; Real-World Blast Radius</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e18" source="N_HUMAN_USER" target="N_ISV_PRODUCT">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Prompt Intent &amp; Working Context</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e19" source="N_IDP" target="N_HARNESS">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">protocol</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
           <y:LineStyle color="#2563EB" type="line" width="2.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.05078125" x="22.474609375" xml:space="preserve" y="88.298828125">JSON-RPC / MCP Tool 
-Discovery &amp; Invocations<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
+          <y:EdgeLabel alignment="center">A2E Workload Identity Delegation (OAuth/OIDC)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e20" source="N_ISV_PRODUCT" target="N_HARNESS">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Initiates Autonomous Loop</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e21" source="N_HARNESS" target="N_FRONTIER">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">protocol</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#2563EB" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">MIP Inference API (Tokens &amp; Directives)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e22" source="N_HARNESS" target="N_KNOWLEDGE_STORE">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">RAG Semantic Retrieval &amp; Working Context (CoALA)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e23" source="N_HARNESS" target="N_HARNESS">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">protocol</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#2563EB" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">A2A Multi-Agent Delegation &amp; Peer Protocol</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e24" source="N_HARNESS" target="N_OBSERVE">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Traces &amp; LLM Evaluation Metrics</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e25" source="N_HARNESS" target="N_TOOL_GATEWAY">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">protocol</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#2563EB" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">A2T Tool Calling &amp; Context Protocol (MCP / OpenAPI)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e26" source="N_TOOL_GATEWAY" target="N_TARGET_SYS">
+      <data key="d_edge_domains">technical</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Authenticated Operations Execution (VSM System 1)</y:EdgeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
   </graph>
-  <data key="d10">
-    <y:Resources/>
-  </data>
 </graphml>

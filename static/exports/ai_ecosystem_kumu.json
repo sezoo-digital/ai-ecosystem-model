@@ -8,8 +8,13 @@
       "tags": [
         "governance"
       ],
+      "shape": "hexagon",
       "Cluster": "0. Jurisdictional & Regulatory Sphere",
-      "Enforcement Powers": "Fines up to 7% turnover, injunctions"
+      "Cluster ID": "cluster_regulatory",
+      "Cardinality": "10^1 Jurisdictional Bodies",
+      "Enforcement Powers": "Fines up to 7% global turnover, stop orders",
+      "VSM Tier": "System 5 (External Statutory Meta-System)",
+      "NIST Function": "GOVERN"
     },
     {
       "id": "N_AUDITOR",
@@ -19,60 +24,87 @@
       "tags": [
         "governance"
       ],
+      "shape": "hexagon",
       "Cluster": "0. Jurisdictional & Regulatory Sphere",
-      "Role": "AIMS certification & post-market monitoring"
+      "Cluster ID": "cluster_regulatory",
+      "Cardinality": "10^2 Accredited Audit Entities",
+      "Role": "CE conformity assessments & continuous surveillance",
+      "VSM Tier": "System 3* (Sporadic External Audit)",
+      "NIST Function": "MEASURE"
     },
     {
       "id": "N_INSURER",
       "label": "AI Risk Underwriter & Insurer",
       "type": "Economic",
-      "description": "Cyber & Algorithmic Liability Carrier",
+      "description": "Algorithmic Liability & Cyber Risk Carrier",
       "tags": [
         "economic",
         "governance"
       ],
+      "shape": "rect",
       "Cluster": "0. Jurisdictional & Regulatory Sphere",
-      "Underwriting Gate": "Requires verifiable audit trail & human oversight"
+      "Cluster ID": "cluster_regulatory",
+      "Cardinality": "10^2 Global Underwriters",
+      "Underwriting Gate": "Requires verifiable audit trail & human oversight",
+      "VSM Tier": "System 3 (Economic Viability Gate)",
+      "NIST Function": "MANAGE"
     },
     {
       "id": "N_TRAIN",
       "label": "Training Supply Chain",
       "type": "Economic",
-      "description": "Data Curators, Annotators, Compute Clusters",
+      "description": "Data Curators, Annotators, Mega-Compute Hubs",
       "tags": [
         "economic",
         "technical"
       ],
+      "shape": "rect",
       "Cluster": "1. Upstream Foundation & Model Lab",
-      "Cost Type": "Fixed / Heavy R&D CapEx",
-      "Ip Risk": "Copyright / Scraping litigation"
+      "Cluster ID": "cluster_supply",
+      "Cardinality": "Top 5-10 Global Mega-Campuses",
+      "Compute Profile": "Concentrated 50k-100k+ GPU clusters; GW-scale power",
+      "Cost Type": "Fixed / Heavy CapEx ($600B Infrastructure Question)",
+      "Ip Risk": "Copyright infringement / scraping litigation",
+      "VSM Tier": "System 1 (Upstream Production)",
+      "NIST Function": "MAP"
     },
     {
       "id": "N_FRONTIER",
-      "label": "Frontier GPAI Lab",
+      "label": "Frontier Foundation Model",
       "type": "Economic",
-      "description": "Weights & Wholesale Inference APIs",
+      "description": "Globally Replicated Weights & Inference Fleets",
       "tags": [
         "economic",
         "technical",
         "governance"
       ],
+      "shape": "rounded",
       "Cluster": "1. Upstream Foundation & Model Lab",
+      "Cluster ID": "cluster_supply",
+      "Cardinality": "Top 5-10 Labs; Replicated across 10^3 Regional Clusters",
+      "Compute Profile": "High memory-bandwidth inference clusters; low latency",
+      "Sovereignty Gap": "Physical data residency does not equal jurisdictional independence",
       "EU AI Act Role": "Provider_GPAI",
-      "Pricing Model": "Per-Token Usage",
-      "Liability Posture": "Disclaimed via ToS ('AS-IS')"
+      "Pricing Model": "Wholesale Per-Token Usage",
+      "Liability Posture": "Disclaimed via ToS ('AS-IS')",
+      "VSM Tier": "System 4 (Probabilistic Intelligence Engine)",
+      "NIST Function": "MEASURE"
     },
     {
       "id": "N_ABSORBED",
       "label": "Platform Absorption Zone",
       "type": "Economic",
-      "description": "Native Tools, Prompt Cache, Hosted Agent State",
+      "description": "Native Tools, Prompt Cache, Hosted State",
       "tags": [
         "economic",
         "technical"
       ],
+      "shape": "rect",
       "Cluster": "1. Upstream Foundation & Model Lab",
-      "Market Effect": "Feature commoditization of wrapper ISVs"
+      "Cluster ID": "cluster_supply",
+      "Cardinality": "Top 3-5 Cloud Ecosystems",
+      "Market Effect": "Feature commoditization of wrapper ISVs (a16z Stack)",
+      "VSM Tier": "System 4 (Environmental Encroachment)"
     },
     {
       "id": "N_ISV_PRODUCT",
@@ -83,9 +115,15 @@
         "economic",
         "technical"
       ],
+      "shape": "rounded",
       "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
+      "Cluster ID": "cluster_product",
+      "Cardinality": "10^4 - 10^5 Vertical SaaS Products",
       "EU AI Act Role": "Provider_System",
-      "Pricing Model": "SaaS Seat / Value Outcome"
+      "Pricing Model": "Per-Seat SaaS / Value-Added Outcome Fee",
+      "Margin Exposure": "Squeezed between token costs & platform absorption",
+      "VSM Tier": "System 4 (Operational Domain Intelligence)",
+      "NIST Function": "MAP"
     },
     {
       "id": "N_HARNESS",
@@ -96,9 +134,17 @@
         "technical",
         "governance"
       ],
+      "shape": "subproc",
       "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
+      "Cluster ID": "cluster_product",
+      "Cardinality": "10^7 - 10^9 Ephemeral Agent Invocations",
+      "Compute Profile": "Lightweight CPU / Orchestration Logic",
       "Iso 42001 Role": "AIMS Technical Control Implementation",
-      "Duty Of Care": "Caps blast radius, halts unsafe prompts/actions"
+      "Duty Of Care": "Caps blast radius, halts unsafe prompts/actions",
+      "CoALA Role": "Action Execution Engine & Procedural Memory Guard",
+      "Anthropic Pattern": "Decoupled Orchestrator-Worker & Gate",
+      "VSM Tier": "System 3 (Internal Operational Control & Stability)",
+      "NIST Function": "MANAGE"
     },
     {
       "id": "N_AUDIT_STORE",
@@ -109,9 +155,15 @@
         "technical",
         "governance"
       ],
+      "shape": "cylinder",
       "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
+      "Cluster ID": "cluster_product",
+      "Cardinality": "10^4 Enterprise Sovereign Ledgers",
       "Compliance": "Art. 12 Mandatory Logging / Rebuttal of Fault",
-      "Sovereignty": "Client / Enterprise Owned"
+      "Sovereignty": "Client / Enterprise Owned",
+      "Evidentiary Role": "Black-Box Flight Recorder for Liability Disputes",
+      "VSM Tier": "System 3* (Internal Audit Channel)",
+      "NIST Function": "MEASURE"
     },
     {
       "id": "N_OBSERVE",
@@ -123,8 +175,13 @@
         "governance",
         "economic"
       ],
+      "shape": "rounded",
       "Cluster": "2. Specialized Product & Harness Domain (ISV / Custom Runtime)",
-      "Capabilities": "LLM-as-a-judge, OTEL tracing, token cost tracking"
+      "Cluster ID": "cluster_product",
+      "Cardinality": "10^4 Monitoring Pipelines",
+      "Capabilities": "LLM-as-a-judge, OTEL tracing, token telemetry",
+      "VSM Tier": "System 3 (Performance Monitoring & Homeostasis)",
+      "NIST Function": "MEASURE"
     },
     {
       "id": "N_ENTERPRISE",
@@ -135,9 +192,15 @@
         "economic",
         "governance"
       ],
+      "shape": "rect",
       "Cluster": "3. Enterprise Deployer & Principal Domain",
+      "Cluster ID": "cluster_client",
+      "Cardinality": "10^5 Commercial Deployers Globally",
       "EU AI Act Role": "Deployer",
-      "Liability Posture": "Holds Vicarious & Strict Liability"
+      "Liability Posture": "Holds Vicarious & Strict Legal Liability",
+      "Roi Hurdle": "High CapEx Recovery Pressure (Sequoia Act Two)",
+      "VSM Tier": "System 5 (Corporate Policy & Ultimate Governance)",
+      "NIST Function": "GOVERN"
     },
     {
       "id": "N_IDP",
@@ -148,8 +211,31 @@
         "technical",
         "governance"
       ],
+      "shape": "stadium",
       "Cluster": "3. Enterprise Deployer & Principal Domain",
-      "Security Role": "Issues scoped actor delegations to agents"
+      "Cluster ID": "cluster_client",
+      "Cardinality": "10^5 Enterprise Directories",
+      "Security Role": "Issues scoped actor delegations to agents (A2E)",
+      "VSM Tier": "System 2 (Security Coordination)",
+      "NIST Function": "MANAGE"
+    },
+    {
+      "id": "N_KNOWLEDGE_STORE",
+      "label": "Enterprise Semantic Knowledge Base",
+      "type": "Technical",
+      "description": "Proprietary Vector DBs, Documents & Embeddings",
+      "tags": [
+        "technical",
+        "governance"
+      ],
+      "shape": "cylinder",
+      "Cluster": "3. Enterprise Deployer & Principal Domain",
+      "Cluster ID": "cluster_client",
+      "Cardinality": "10^5 Private Knowledge Bases",
+      "CoALA Memory Type": "Semantic Memory (Factual & Document Knowledge)",
+      "Sovereignty": "Enterprise Controlled / Private Boundary",
+      "VSM Tier": "System 1 (Knowledge Asset)",
+      "NIST Function": "MAP"
     },
     {
       "id": "N_HUMAN_USER",
@@ -160,21 +246,31 @@
         "technical",
         "governance"
       ],
+      "shape": "circle",
       "Cluster": "3. Enterprise Deployer & Principal Domain",
-      "Control Mode": "Prompting, Art. 14 Human Oversight, Override"
+      "Cluster ID": "cluster_client",
+      "Cardinality": "10^8 End Users & Operators",
+      "Control Mode": "Prompting, Art. 14 Human Oversight, Override",
+      "VSM Tier": "System 5 (Human Intent & Final Agency)",
+      "NIST Function": "GOVERN"
     },
     {
-      "id": "N_MCP_HOST",
-      "label": "Protocol Gateway (MCP Host)",
+      "id": "N_TOOL_GATEWAY",
+      "label": "Capability & Tool Gateway",
       "type": "Technical",
-      "description": "Standardized Tool Broker & Context Provider",
+      "description": "Decoupled Tool Broker & Context Provider (MCP)",
       "tags": [
         "technical",
         "governance"
       ],
+      "shape": "subproc",
       "Cluster": "4. Target Execution Environment & Blast Radius",
-      "Protocol Standard": "Model Context Protocol (MCP)",
-      "Isolation": "Dynamic capability & permission negotiation"
+      "Cluster ID": "cluster_environment",
+      "Cardinality": "10^4 - 10^5 Gateway Servers",
+      "Protocol Standards": "Model Context Protocol (MCP), OpenAPI, GraphQL (A2T)",
+      "Security Role": "Tool discovery, sandbox isolation, scope negotiation",
+      "VSM Tier": "System 2 (Coordination & Oscillation Damping)",
+      "NIST Function": "MANAGE"
     },
     {
       "id": "N_TARGET_SYS",
@@ -185,8 +281,13 @@
         "technical",
         "governance"
       ],
+      "shape": "cylinder",
       "Cluster": "4. Target Execution Environment & Blast Radius",
-      "Risk Zone": "Direct Causation Blast Radius"
+      "Cluster ID": "cluster_environment",
+      "Cardinality": "10^6 Production Systems Globally",
+      "Risk Zone": "Direct Causation Blast Radius",
+      "VSM Tier": "System 1 (Real-World Actuation & Operations)",
+      "NIST Function": "MANAGE"
     },
     {
       "id": "N_AFFECTED_PARTY",
@@ -196,9 +297,13 @@
       "tags": [
         "governance"
       ],
+      "shape": "circle",
       "Cluster": "4. Target Execution Environment & Blast Radius",
+      "Cluster ID": "cluster_environment",
+      "Cardinality": "Billions of Impacted Individuals",
       "EU AI Act Role": "Affected_Subject",
-      "Legal Standing": "Private right of action, tort claimant"
+      "Legal Standing": "Private Right of Action, Tort Plaintiff, Data Subject",
+      "VSM Tier": "External Environment (Ultimate Impact Receptor)"
     }
   ],
   "connections": [
@@ -218,7 +323,7 @@
       "id": "conn_1",
       "from": "N_ISV_PRODUCT",
       "to": "N_FRONTIER",
-      "label": "$$ Token Consumption Cost",
+      "label": "$$ Wholesale Token Consumption Cost",
       "type": "money",
       "direction": "directed",
       "tags": [
@@ -230,7 +335,7 @@
       "id": "conn_2",
       "from": "N_FRONTIER",
       "to": "N_TRAIN",
-      "label": "$ Compute & Data CapEx",
+      "label": "$ Compute CapEx & Annotation",
       "type": "money",
       "direction": "directed",
       "tags": [
@@ -242,7 +347,7 @@
       "id": "conn_3",
       "from": "N_ABSORBED",
       "to": "N_ISV_PRODUCT",
-      "label": "Platform Commoditization Pressure",
+      "label": "Platform Commoditization Pressure (a16z Stack)",
       "type": "tension",
       "direction": "directed",
       "tags": [
@@ -316,7 +421,7 @@
       "id": "conn_9",
       "from": "N_FRONTIER",
       "to": "N_ENTERPRISE",
-      "label": "Disclaims Liability (ToS 'AS-IS')",
+      "label": "Disclaims Liability (ToS 'AS-IS' / Ada Lovelace Gap)",
       "type": "disclaim",
       "direction": "directed",
       "tags": [
@@ -352,7 +457,7 @@
       "id": "conn_12",
       "from": "N_ENTERPRISE",
       "to": "N_HARNESS",
-      "label": "Delegates Authority & Safety Boundaries",
+      "label": "Delegates Authority & Safety Boundaries (VSM 5 to 3)",
       "type": "authority",
       "direction": "directed",
       "tags": [
@@ -376,7 +481,7 @@
       "id": "conn_14",
       "from": "N_HARNESS",
       "to": "N_AUDIT_STORE",
-      "label": "Cryptographic Tamper-Proof Audit Trail",
+      "label": "Cryptographic Tamper-Proof Audit Trail (Art. 12)",
       "type": "governance_control",
       "direction": "directed",
       "tags": [
@@ -400,8 +505,8 @@
     {
       "id": "conn_16",
       "from": "N_HARNESS",
-      "to": "N_MCP_HOST",
-      "label": "Enforces Least-Privilege Scopes",
+      "to": "N_TOOL_GATEWAY",
+      "label": "Enforces Least-Privilege Scopes (VSM 3 to 2)",
       "type": "governance_control",
       "direction": "directed",
       "tags": [
@@ -439,7 +544,7 @@
       "id": "conn_19",
       "from": "N_IDP",
       "to": "N_HARNESS",
-      "label": "Issues Scoped Delegation Token",
+      "label": "A2E Workload Identity Delegation (OAuth/OIDC)",
       "type": "protocol",
       "direction": "directed",
       "tags": [
@@ -463,7 +568,7 @@
       "id": "conn_21",
       "from": "N_HARNESS",
       "to": "N_FRONTIER",
-      "label": "Inference API (Tokens & Directives)",
+      "label": "MIP Inference API (Tokens & Directives)",
       "type": "protocol",
       "direction": "directed",
       "tags": [
@@ -474,8 +579,8 @@
     {
       "id": "conn_22",
       "from": "N_HARNESS",
-      "to": "N_AUDIT_STORE",
-      "label": "Context Retrieval (RAG) & Checkpointing",
+      "to": "N_KNOWLEDGE_STORE",
+      "label": "RAG Semantic Retrieval & Working Context (CoALA)",
       "type": "flow",
       "direction": "directed",
       "tags": [
@@ -485,6 +590,18 @@
     },
     {
       "id": "conn_23",
+      "from": "N_HARNESS",
+      "to": "N_HARNESS",
+      "label": "A2A Multi-Agent Delegation & Peer Protocol",
+      "type": "protocol",
+      "direction": "directed",
+      "tags": [
+        "technical"
+      ],
+      "description": "Relationship type: protocol"
+    },
+    {
+      "id": "conn_24",
       "from": "N_HARNESS",
       "to": "N_OBSERVE",
       "label": "Traces & LLM Evaluation Metrics",
@@ -496,10 +613,10 @@
       "description": "Relationship type: flow"
     },
     {
-      "id": "conn_24",
+      "id": "conn_25",
       "from": "N_HARNESS",
-      "to": "N_MCP_HOST",
-      "label": "JSON-RPC / MCP Tool Discovery & Invocations",
+      "to": "N_TOOL_GATEWAY",
+      "label": "A2T Tool Calling & Context Protocol (MCP / OpenAPI)",
       "type": "protocol",
       "direction": "directed",
       "tags": [
@@ -508,10 +625,10 @@
       "description": "Relationship type: protocol"
     },
     {
-      "id": "conn_25",
-      "from": "N_MCP_HOST",
+      "id": "conn_26",
+      "from": "N_TOOL_GATEWAY",
       "to": "N_TARGET_SYS",
-      "label": "Authenticated Read/Write Operations",
+      "label": "Authenticated Operations Execution (VSM System 1)",
       "type": "flow",
       "direction": "directed",
       "tags": [

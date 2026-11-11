@@ -1,7 +1,7 @@
 metadata:
   title: "AI Ecosystem Canonical Governance, Economic & Architecture Model"
-  version: "2.2"
-  description: "Single-source-of-truth property graph capturing economic flows, technical protocols, legal agency, and liability boundaries across the AI value chain."
+  version: "2.4"
+  description: "Single-source-of-truth property graph integrating cognitive agent state (CoALA), cybernetic control (VSM), macro-economics (a16z/Sequoia), and regulatory liability (NIST/EU AI Act)."
 
 styles:
   shapes:
@@ -13,7 +13,7 @@ styles:
       description: "Human principals, operators (HITL), or impacted third-party individuals."
     subproc:
       label: "Deterministic Gateway & Policy Kernel"
-      description: "Sandboxes, policy harnesses, MCP gateways where strict deterministic logic bounds AI."
+      description: "Sandboxes, policy harnesses, capability gateways where deterministic logic bounds AI."
     cylinder:
       label: "Stateful Store & Critical Data Asset"
       description: "Append-only audit stores, vector databases, production databases, target ERPs."
@@ -51,7 +51,7 @@ styles:
     protocol:
       syntax: "-->|'label'|"
       label: "Technical Protocol"
-      description: "JSON-RPC tool calling, OAuth bearer flows, inference API calls."
+      description: "JSON-RPC tool calling, OAuth bearer flows, inference API calls, A2A delegation."
     flow:
       syntax: "-->|'label'|"
       label: "Data & Intent Flow"
@@ -61,6 +61,15 @@ taxonomies:
   domains: [economic, technical, governance]
   eu_ai_act_roles: [Provider_GPAI, Provider_System, Deployer, Importer, Distributor, Affected_Subject]
   liability_types: [Strict, Vicarious, Contractual_Capped, Disclaimed]
+  cardinality_scale: [Global_Oligopoly_10_1, Replicated_Inference_10_3, Domain_ISVs_10_5, Ephemeral_Agents_10_8]
+  protocol_planes:
+    A2E: "Agent-to-Enterprise (Identity, Auth, Entitlements)"
+    MIP: "Model Inference Protocol (Token generation, directives)"
+    A2T: "Agent-to-Tool / Context (MCP, Function Calling)"
+    A2A: "Agent-to-Agent (Distributed delegation, negotiation)"
+  vsm_subsystems: [System_1_Operations, System_2_Coordination, System_3_Control_Audit, System_4_Intelligence, System_5_Policy]
+  nist_rmf_functions: [GOVERN, MAP, MEASURE, MANAGE]
+  coala_memory_types: [Working_Memory, Semantic_Memory, Episodic_Memory, Procedural_Rules]
 
 clusters:
   - id: cluster_regulatory
@@ -75,7 +84,9 @@ clusters:
     label: "4. Target Execution Environment & Blast Radius"
 
 nodes:
-  # --- Cluster 0: Regulatory & Oversight ---
+  # ===================================================================
+  # Cluster 0: Regulatory & Oversight
+  # ===================================================================
   - id: N_REGULATOR
     label: "Market Surveillance Authorities"
     sublabel: "EU AI Office, FTC, DPAs, Courts"
@@ -83,7 +94,10 @@ nodes:
     domains: [governance]
     shape: hexagon
     properties:
-      enforcement_powers: "Fines up to 7% turnover, injunctions"
+      cardinality: "10^1 Jurisdictional Bodies"
+      enforcement_powers: "Fines up to 7% global turnover, stop orders"
+      vsm_tier: "System 5 (External Statutory Meta-System)"
+      nist_function: "GOVERN"
 
   - id: N_AUDITOR
     label: "Conformity Body & ISO Auditor"
@@ -92,49 +106,70 @@ nodes:
     domains: [governance]
     shape: hexagon
     properties:
-      role: "AIMS certification & post-market monitoring"
+      cardinality: "10^2 Accredited Audit Entities"
+      role: "CE conformity assessments & continuous surveillance"
+      vsm_tier: "System 3* (Sporadic External Audit)"
+      nist_function: "MEASURE"
 
   - id: N_INSURER
     label: "AI Risk Underwriter & Insurer"
-    sublabel: "Cyber & Algorithmic Liability Carrier"
+    sublabel: "Algorithmic Liability & Cyber Risk Carrier"
     cluster: cluster_regulatory
     domains: [economic, governance]
     shape: rect
     properties:
+      cardinality: "10^2 Global Underwriters"
       underwriting_gate: "Requires verifiable audit trail & human oversight"
+      vsm_tier: "System 3 (Economic Viability Gate)"
+      nist_function: "MANAGE"
 
-  # --- Cluster 1: Upstream Supply Chain ---
+  # ===================================================================
+  # Cluster 1: Upstream Foundation & Model Lab
+  # ===================================================================
   - id: N_TRAIN
     label: "Training Supply Chain"
-    sublabel: "Data Curators, Annotators, Compute Clusters"
+    sublabel: "Data Curators, Annotators, Mega-Compute Hubs"
     cluster: cluster_supply
     domains: [economic, technical]
     shape: rect
     properties:
-      cost_type: "Fixed / Heavy R&D CapEx"
-      ip_risk: "Copyright / Scraping litigation"
+      cardinality: "Top 5-10 Global Mega-Campuses"
+      compute_profile: "Concentrated 50k-100k+ GPU clusters; GW-scale power"
+      cost_type: "Fixed / Heavy CapEx ($600B Infrastructure Question)"
+      ip_risk: "Copyright infringement / scraping litigation"
+      vsm_tier: "System 1 (Upstream Production)"
+      nist_function: "MAP"
 
   - id: N_FRONTIER
-    label: "Frontier GPAI Lab"
-    sublabel: "Weights & Wholesale Inference APIs"
+    label: "Frontier Foundation Model"
+    sublabel: "Globally Replicated Weights & Inference Fleets"
     cluster: cluster_supply
     domains: [economic, technical, governance]
     shape: rounded
     properties:
+      cardinality: "Top 5-10 Labs; Replicated across 10^3 Regional Clusters"
+      compute_profile: "High memory-bandwidth inference clusters; low latency"
+      sovereignty_gap: "Physical data residency does not equal jurisdictional independence"
       eu_ai_act_role: "Provider_GPAI"
-      pricing_model: "Per-Token Usage"
+      pricing_model: "Wholesale Per-Token Usage"
       liability_posture: "Disclaimed via ToS ('AS-IS')"
+      vsm_tier: "System 4 (Probabilistic Intelligence Engine)"
+      nist_function: "MEASURE"
 
   - id: N_ABSORBED
     label: "Platform Absorption Zone"
-    sublabel: "Native Tools, Prompt Cache, Hosted Agent State"
+    sublabel: "Native Tools, Prompt Cache, Hosted State"
     cluster: cluster_supply
     domains: [economic, technical]
     shape: rect
     properties:
-      market_effect: "Feature commoditization of wrapper ISVs"
+      cardinality: "Top 3-5 Cloud Ecosystems"
+      market_effect: "Feature commoditization of wrapper ISVs (a16z Stack)"
+      vsm_tier: "System 4 (Environmental Encroachment)"
 
-  # --- Cluster 2: Product & Agent Harness ---
+  # ===================================================================
+  # Cluster 2: Specialized Product & Harness Domain (ISV / Custom)
+  # ===================================================================
   - id: N_ISV_PRODUCT
     label: "Specialized AI Application"
     sublabel: "Vertical Solutions (Legal, Medical, Finance, Ops)"
@@ -142,8 +177,12 @@ nodes:
     domains: [economic, technical]
     shape: rounded
     properties:
+      cardinality: "10^4 - 10^5 Vertical SaaS Products"
       eu_ai_act_role: "Provider_System"
-      pricing_model: "SaaS Seat / Value Outcome"
+      pricing_model: "Per-Seat SaaS / Value-Added Outcome Fee"
+      margin_exposure: "Squeezed between token costs & platform absorption"
+      vsm_tier: "System 4 (Operational Domain Intelligence)"
+      nist_function: "MAP"
 
   - id: N_HARNESS
     label: "Agent Governance Harness"
@@ -152,8 +191,14 @@ nodes:
     domains: [technical, governance]
     shape: subproc
     properties:
+      cardinality: "10^7 - 10^9 Ephemeral Agent Invocations"
+      compute_profile: "Lightweight CPU / Orchestration Logic"
       iso_42001_role: "AIMS Technical Control Implementation"
       duty_of_care: "Caps blast radius, halts unsafe prompts/actions"
+      coala_role: "Action Execution Engine & Procedural Memory Guard"
+      anthropic_pattern: "Decoupled Orchestrator-Worker & Gate"
+      vsm_tier: "System 3 (Internal Operational Control & Stability)"
+      nist_function: "MANAGE"
 
   - id: N_AUDIT_STORE
     label: "Sovereign Audit Ledger"
@@ -162,8 +207,12 @@ nodes:
     domains: [technical, governance]
     shape: cylinder
     properties:
+      cardinality: "10^4 Enterprise Sovereign Ledgers"
       compliance: "Art. 12 Mandatory Logging / Rebuttal of Fault"
       sovereignty: "Client / Enterprise Owned"
+      evidentiary_role: "Black-Box Flight Recorder for Liability Disputes"
+      vsm_tier: "System 3* (Internal Audit Channel)"
+      nist_function: "MEASURE"
 
   - id: N_OBSERVE
     label: "Observability & Evals Engine"
@@ -172,9 +221,14 @@ nodes:
     domains: [technical, governance, economic]
     shape: rounded
     properties:
-      capabilities: "LLM-as-a-judge, OTEL tracing, token cost tracking"
+      cardinality: "10^4 Monitoring Pipelines"
+      capabilities: "LLM-as-a-judge, OTEL tracing, token telemetry"
+      vsm_tier: "System 3 (Performance Monitoring & Homeostasis)"
+      nist_function: "MEASURE"
 
-  # --- Cluster 3: Enterprise Client & Principal ---
+  # ===================================================================
+  # Cluster 3: Enterprise Deployer & Principal Domain
+  # ===================================================================
   - id: N_ENTERPRISE
     label: "Enterprise Deployer"
     sublabel: "Legal Principal & Economic Sponsor"
@@ -182,8 +236,12 @@ nodes:
     domains: [economic, governance]
     shape: rect
     properties:
+      cardinality: "10^5 Commercial Deployers Globally"
       eu_ai_act_role: "Deployer"
-      liability_posture: "Holds Vicarious & Strict Liability"
+      liability_posture: "Holds Vicarious & Strict Legal Liability"
+      roi_hurdle: "High CapEx Recovery Pressure (Sequoia Act Two)"
+      vsm_tier: "System 5 (Corporate Policy & Ultimate Governance)"
+      nist_function: "GOVERN"
 
   - id: N_IDP
     label: "Enterprise Identity & Auth (IdP)"
@@ -192,7 +250,23 @@ nodes:
     domains: [technical, governance]
     shape: stadium
     properties:
-      security_role: "Issues scoped actor delegations to agents"
+      cardinality: "10^5 Enterprise Directories"
+      security_role: "Issues scoped actor delegations to agents (A2E)"
+      vsm_tier: "System 2 (Security Coordination)"
+      nist_function: "MANAGE"
+
+  - id: N_KNOWLEDGE_STORE
+    label: "Enterprise Semantic Knowledge Base"
+    sublabel: "Proprietary Vector DBs, Documents & Embeddings"
+    cluster: cluster_client
+    domains: [technical, governance]
+    shape: cylinder
+    properties:
+      cardinality: "10^5 Private Knowledge Bases"
+      coala_memory_type: "Semantic Memory (Factual & Document Knowledge)"
+      sovereignty: "Enterprise Controlled / Private Boundary"
+      vsm_tier: "System 1 (Knowledge Asset)"
+      nist_function: "MAP"
 
   - id: N_HUMAN_USER
     label: "Human Task Delegator & Overseer"
@@ -201,18 +275,26 @@ nodes:
     domains: [technical, governance]
     shape: circle
     properties:
+      cardinality: "10^8 End Users & Operators"
       control_mode: "Prompting, Art. 14 Human Oversight, Override"
+      vsm_tier: "System 5 (Human Intent & Final Agency)"
+      nist_function: "GOVERN"
 
-  # --- Cluster 4: Environment & Blast Radius ---
-  - id: N_MCP_HOST
-    label: "Protocol Gateway (MCP Host)"
-    sublabel: "Standardized Tool Broker & Context Provider"
+  # ===================================================================
+  # Cluster 4: Target Execution Environment & Blast Radius
+  # ===================================================================
+  - id: N_TOOL_GATEWAY
+    label: "Capability & Tool Gateway"
+    sublabel: "Decoupled Tool Broker & Context Provider (MCP)"
     cluster: cluster_environment
     domains: [technical, governance]
     shape: subproc
     properties:
-      protocol_standard: "Model Context Protocol (MCP)"
-      isolation: "Dynamic capability & permission negotiation"
+      cardinality: "10^4 - 10^5 Gateway Servers"
+      protocol_standards: "Model Context Protocol (MCP), OpenAPI, GraphQL (A2T)"
+      security_role: "Tool discovery, sandbox isolation, scope negotiation"
+      vsm_tier: "System 2 (Coordination & Oscillation Damping)"
+      nist_function: "MANAGE"
 
   - id: N_TARGET_SYS
     label: "Target Systems & Operational APIs"
@@ -221,7 +303,10 @@ nodes:
     domains: [technical, governance]
     shape: cylinder
     properties:
+      cardinality: "10^6 Production Systems Globally"
       risk_zone: "Direct Causation Blast Radius"
+      vsm_tier: "System 1 (Real-World Actuation & Operations)"
+      nist_function: "MANAGE"
 
   - id: N_AFFECTED_PARTY
     label: "Impacted Third Party"
@@ -230,12 +315,17 @@ nodes:
     domains: [governance]
     shape: circle
     properties:
+      cardinality: "Billions of Impacted Individuals"
       eu_ai_act_role: "Affected_Subject"
-      legal_standing: "Private right of action, tort claimant"
+      legal_standing: "Private Right of Action, Tort Plaintiff, Data Subject"
+      vsm_tier: "External Environment (Ultimate Impact Receptor)"
 
+# ===================================================================
+# Relationships & Edges (Fully Audited Source & Target IDs)
+# ===================================================================
 edges:
   # ==========================================
-  # Economic Edges
+  # 1. Economic Edges (Capital & Value Flows)
   # ==========================================
   - from: N_ENTERPRISE
     to: N_ISV_PRODUCT
@@ -245,19 +335,19 @@ edges:
 
   - from: N_ISV_PRODUCT
     to: N_FRONTIER
-    label: "$$ Token Consumption Cost"
+    label: "$$ Wholesale Token Consumption Cost"
     domains: [economic]
     type: money
 
   - from: N_FRONTIER
     to: N_TRAIN
-    label: "$ Compute & Data CapEx"
+    label: "$ Compute CapEx & Annotation"
     domains: [economic]
     type: money
 
   - from: N_ABSORBED
     to: N_ISV_PRODUCT
-    label: "Platform Commoditization Pressure"
+    label: "Platform Commoditization Pressure (a16z Stack)"
     domains: [economic]
     type: tension
 
@@ -274,7 +364,7 @@ edges:
     type: flow
 
   # ==========================================
-  # Governance, Regulatory & Liability Edges
+  # 2. Governance, Regulatory & Liability Edges
   # ==========================================
   - from: N_REGULATOR
     to: N_ENTERPRISE
@@ -296,7 +386,7 @@ edges:
 
   - from: N_FRONTIER
     to: N_ENTERPRISE
-    label: "Disclaims Liability (ToS 'AS-IS')"
+    label: "Disclaims Liability (ToS 'AS-IS' / Ada Lovelace Gap)"
     domains: [governance]
     type: disclaim
 
@@ -314,7 +404,7 @@ edges:
 
   - from: N_ENTERPRISE
     to: N_HARNESS
-    label: "Delegates Authority & Safety Boundaries"
+    label: "Delegates Authority & Safety Boundaries (VSM 5 to 3)"
     domains: [governance]
     type: authority
 
@@ -326,7 +416,7 @@ edges:
 
   - from: N_HARNESS
     to: N_AUDIT_STORE
-    label: "Cryptographic Tamper-Proof Audit Trail"
+    label: "Cryptographic Tamper-Proof Audit Trail (Art. 12)"
     domains: [governance, technical]
     type: governance_control
 
@@ -337,8 +427,8 @@ edges:
     type: flow
 
   - from: N_HARNESS
-    to: N_MCP_HOST
-    label: "Enforces Least-Privilege Scopes"
+    to: N_TOOL_GATEWAY
+    label: "Enforces Least-Privilege Scopes (VSM 3 to 2)"
     domains: [governance, technical]
     type: governance_control
 
@@ -349,7 +439,7 @@ edges:
     type: tension
 
   # ==========================================
-  # Technical & Protocol Edges
+  # 3. Technical & Protocol Edges (The 4 Protocol Planes)
   # ==========================================
   - from: N_HUMAN_USER
     to: N_ISV_PRODUCT
@@ -359,7 +449,7 @@ edges:
 
   - from: N_IDP
     to: N_HARNESS
-    label: "Issues Scoped Delegation Token"
+    label: "A2E Workload Identity Delegation (OAuth/OIDC)"
     domains: [technical]
     type: protocol
 
@@ -371,15 +461,21 @@ edges:
 
   - from: N_HARNESS
     to: N_FRONTIER
-    label: "Inference API (Tokens & Directives)"
+    label: "MIP Inference API (Tokens & Directives)"
     domains: [technical]
     type: protocol
 
   - from: N_HARNESS
-    to: N_AUDIT_STORE
-    label: "Context Retrieval (RAG) & Checkpointing"
+    to: N_KNOWLEDGE_STORE
+    label: "RAG Semantic Retrieval & Working Context (CoALA)"
     domains: [technical]
     type: flow
+
+  - from: N_HARNESS
+    to: N_HARNESS
+    label: "A2A Multi-Agent Delegation & Peer Protocol"
+    domains: [technical]
+    type: protocol
 
   - from: N_HARNESS
     to: N_OBSERVE
@@ -388,38 +484,41 @@ edges:
     type: flow
 
   - from: N_HARNESS
-    to: N_MCP_HOST
-    label: "JSON-RPC / MCP Tool Discovery & Invocations"
+    to: N_TOOL_GATEWAY
+    label: "A2T Tool Calling & Context Protocol (MCP / OpenAPI)"
     domains: [technical]
     type: protocol
 
-  - from: N_MCP_HOST
+  - from: N_TOOL_GATEWAY
     to: N_TARGET_SYS
-    label: "Authenticated Read/Write Operations"
+    label: "Authenticated Operations Execution (VSM System 1)"
     domains: [technical]
     type: flow
 
+# ===================================================================
+# Multi-Lens Views
+# ===================================================================
 views:
   - id: view_economic
     title: "Executive & Economic Perspective"
-    description: "Capital allocation, SaaS margins, token cost exposure, and platform absorption."
+    description: "Capital allocation, SaaS margins, token cost exposure, and platform absorption (a16z & Sequoia Stack)."
     domains: [economic]
     direction: "TB"
 
   - id: view_governance_liability
     title: "Legal, Regulatory & Liability Perspective"
-    description: "The liability disconnect: upstream ToS disclaimers vs deployer vicarious liability and regulatory enforcement."
+    description: "The liability disconnect: upstream ToS disclaimers vs deployer vicarious liability and regulatory enforcement (Ada Lovelace & EU AI Act)."
     domains: [governance]
     direction: "TB"
 
   - id: view_technical_runtime
     title: "Engineering & Technical Runtime Perspective"
-    description: "The agentic execution loop: IdP delegation, inference protocols, MCP gateways, and state stores."
+    description: "The agentic execution loop: A2E IdP delegation, MIP inference, CoALA semantic RAG, A2A delegation, and A2T capability gateways."
     domains: [technical]
     direction: "LR"
 
   - id: view_full_unified
     title: "Unified Ecosystem Model"
-    description: "The complete property graph combining economic flows, technical loops, and governance gates."
+    description: "The complete property graph combining economic flows, technical loops, and cybernetic governance gates (VSM Systems 1–5)."
     domains: [economic, technical, governance]
     direction: "TB"
