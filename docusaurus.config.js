@@ -64,9 +64,9 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'ecosystemSidebar', // Point to our unified sidebar
             position: 'left',
-            label: 'AI Ecosystem Models',
+            label: 'AI Ecosystem Model',
           },
           {
             href: 'https://sezoo.digital',

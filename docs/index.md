@@ -1,17 +1,24 @@
 ---
-title: AI Ecosystem Multi-Lens Architecture
+title: Canonical AI Ecosystem Model
 sidebar_position: 1
 slug: /
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # AI Ecosystem: Multi-Lens Architecture & Governance
 
+Welcome to Sezoo's **AI Ecosystem Model**. 
+
+This model provides a holistic conceptual map of how the global AI ecosystem operates, bringing together:
+- **Macroeconomics & Capital Flows:** How venture subsidies, CapEx, token fees, and SaaS pricing interact.
+- **Cybernetic Governance:** How deterministic policy harnesses (Beer's Viable System Model) constrain non-deterministic probabilistic models.
+- **Statutory Liability:** How the EU AI Act and common law assign vicarious liability across deployers, foundation labs, and end users.
+
+Explore the unified architecture below, query individual components via the data dictionary, or dive into specific competency questions in our **[Sense-Making Inquiries](/inquiries)** catalog.
+
 :::tip Download Canonical Models
-Download the raw model to explore and query in external visual modeling tools:
+Download the raw model to query in external visual modeling tools:
 
 - <a href={useBaseUrl("/exports/ai_ecosystem.graphml")} download="ai_ecosystem.graphml">**Download for yEd** (.graphml)</a>
 - <a href={useBaseUrl("/exports/ai_ecosystem.drawio")} download="ai_ecosystem.drawio">**Download for draw.io** (.drawio)</a>
@@ -73,177 +80,7 @@ flowchart LR
 
 </details>
 
-:::info Where is the "AI Agent" in this model?
-An **AI Agent** is not a single monolithic entity or box. In this architecture, it is an **emergent composite loop** that arises when five distinct elements interact:
-
-- 🧠 **The Brain (Reasoning Core)**: `Frontier Foundation Model` (`N_FRONTIER`) — Stateless next-token prediction and probabilistic planning.
-- ⚙️ **The Controller & Drive Loop (The Ego)**: `Agent Governance Harness` (`N_HARNESS`) — The continuous while-loop, self-reflection, and deterministic policy guardrails.
-- 📚 **The Memory (Semantic Context)**: `Enterprise Semantic Knowledge Base` (`N_KNOWLEDGE_STORE`) — Vector databases and private enterprise documents retrieved via RAG (CoALA architecture).
-- 🛠️ **The Hands (Tool Actuation)**: `Capability & Tool Gateway` (`N_TOOL_GATEWAY`) $\to$ `Target Systems` (`N_TARGET_SYS`) — Decoupled tool broker (MCP / OpenAPI) executing real-world read/write operations.
-- ⚖️ **The Principal (Legal Agency)**: `Enterprise Deployer` (`N_ENTERPRISE`) & `Human Delegator` (`N_HUMAN_USER`) — The legal entity that confers agency, issues workload credentials (`N_IDP`), and retains vicarious legal liability.
-:::
-
-### Interactive Lenses
-Select a lens below to explore the ecosystem interactively:
-
-<Tabs>
-<TabItem value="view_economic" label="Executive & Economic Perspective">
-
-*Capital allocation, SaaS margins, token cost exposure, and platform absorption (a16z & Sequoia Stack).*
-
-```mermaid
-flowchart TB
-    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
-    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
-    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
-    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
-
-    subgraph cluster_regulatory ["0. Jurisdictional & Regulatory Sphere"]
-        N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Algorithmic Liability &amp; Cyber Risk Carrier</i></small>"]:::gov
-        N_CAPITAL["Capital Markets &amp; Venture Underwriters<br/><small><i>VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth</i></small>"]:::econ
-    end
-
-    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
-        N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Mega-Compute Hubs</i></small>"]:::econ
-        N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
-        N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]:::econ
-        N_OPEN_MODEL("Open-Weight Model Commons<br/><small><i>Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</i></small>"):::econ
-    end
-
-    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
-        N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical Solutions (Legal, Medical, Finance, Ops)</i></small>"):::econ
-        N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
-    end
-
-    subgraph cluster_client ["3. Enterprise Deployer & Principal Domain"]
-        N_ENTERPRISE["Enterprise Deployer<br/><small><i>Legal Principal &amp; Economic Sponsor</i></small>"]:::gov
-    end
-
-    N_ENTERPRISE == "$$$ SaaS Subscription / Outcome Fee" ==> N_ISV_PRODUCT
-    N_ISV_PRODUCT == "$$ Wholesale Token Consumption Cost" ==> N_FRONTIER
-    N_FRONTIER == "$ Compute CapEx & Annotation" ==> N_TRAIN
-    N_ABSORBED -. "Platform Commoditization Pressure (a16z Stack)" .-> N_ISV_PRODUCT
-    N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
-    N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
-    N_CAPITAL == "$$$ Equity Subsidies & Cloud Compute Credits" ==> N_FRONTIER
-    N_CAPITAL == "$$$ CapEx Infrastructure Project Debt & Equity" ==> N_TRAIN
-    N_TRAIN -->|"Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)"| N_OPEN_MODEL
-    N_OPEN_MODEL -. "Inference Price Deflation & Multiple Compression" .-> N_FRONTIER
-    N_ISV_PRODUCT -->|"Self-Hosted Inference (Bypasses Wholesale Token Toll)"| N_OPEN_MODEL
-```
-
-</TabItem>
-<TabItem value="view_governance_liability" label="Legal, Regulatory & Liability Perspective">
-
-*The liability disconnect: upstream ToS disclaimers vs deployer vicarious liability and regulatory enforcement (Ada Lovelace & EU AI Act).*
-
-```mermaid
-flowchart TB
-    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
-    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
-    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
-    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
-
-    subgraph cluster_regulatory ["0. Jurisdictional & Regulatory Sphere"]
-        N_REGULATOR{{"Market Surveillance Authorities<br/><small><i>EU AI Office, FTC, DPAs, Courts</i></small>"}}:::gov
-        N_AUDITOR{{"Conformity Body &amp; ISO Auditor<br/><small><i>Notified Bodies, ISO/IEC 42001 Certifiers</i></small>"}}:::gov
-        N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Algorithmic Liability &amp; Cyber Risk Carrier</i></small>"]:::gov
-    end
-
-    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
-        N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
-    end
-
-    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
-        N_HARNESS[["Autonomous Agent Runtime (The Harness)<br/><small><i>Execution Loop, Planning, Rights &amp; Guardrails</i></small>"]]:::gov
-        N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
-        N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
-    end
-
-    subgraph cluster_client ["3. Enterprise Deployer & Principal Domain"]
-        N_ENTERPRISE["Enterprise Deployer<br/><small><i>Legal Principal &amp; Economic Sponsor</i></small>"]:::gov
-        N_IDP(["Enterprise Identity &amp; Auth (IdP)<br/><small><i>OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens</i></small>"]):::gov
-        N_KNOWLEDGE_STORE[("Enterprise Semantic Knowledge Base<br/><small><i>Proprietary Vector DBs, Documents &amp; Embeddings</i></small>")]:::gov
-        N_HUMAN_USER(("Human Task Delegator &amp; Overseer<br/><small><i>End User / Mandatory HITL Supervisor</i></small>")):::gov
-    end
-
-    subgraph cluster_environment ["4. Target Execution Environment & Blast Radius"]
-        N_TOOL_GATEWAY[["Capability &amp; Tool Gateway<br/><small><i>Decoupled Tool Broker &amp; Context Provider (MCP)</i></small>"]]:::gov
-        N_TARGET_SYS[("Target Systems &amp; Operational APIs<br/><small><i>Databases, Production ERP, Financial Rails</i></small>")]:::gov
-        N_AFFECTED_PARTY(("Impacted Third Party<br/><small><i>Consumers, Employees, Citizens</i></small>")):::gov
-    end
-
-    N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
-    N_REGULATOR == "Statutory Compliance & Fines (Art. 71)" ==> N_ENTERPRISE
-    N_REGULATOR == "GPAI Codes of Practice & Transparency (Art. 53)" ==> N_FRONTIER
-    N_AUDITOR == "Conformity Audits (ISO 42001 / High Risk)" ==> N_ENTERPRISE
-    N_FRONTIER -. "Disclaims Liability (ToS 'AS-IS' / Ada Lovelace Gap)" .-> N_ENTERPRISE
-    N_ENTERPRISE -. "Vicarious Liability for Agent Harm (Respondeat Superior)" .-> N_AFFECTED_PARTY
-    N_AFFECTED_PARTY -->|"Complaints & Redress Demands"| N_REGULATOR
-    N_ENTERPRISE == "Delegates Authority & Safety Boundaries (VSM 5 to 3)" ==> N_HARNESS
-    N_HUMAN_USER == "Art. 14 Human Oversight & Stop Button" ==> N_HARNESS
-    N_HARNESS -. "Cryptographic Tamper-Proof Audit Trail (Art. 12)" .-> N_AUDIT_STORE
-    N_AUDIT_STORE -->|"Forensic Evidence for Compliance Verification"| N_AUDITOR
-    N_HARNESS -. "Enforces Least-Privilege Scopes (VSM 3 to 2)" .-> N_TOOL_GATEWAY
-    N_TARGET_SYS -. "Direct Impact & Real-World Blast Radius" .-> N_AFFECTED_PARTY
-```
-
-</TabItem>
-<TabItem value="view_technical_runtime" label="Engineering Lens: Autonomous Agent Loop & Protocol Architecture">
-
-*Maps the anatomy of an agent: how the runtime harness coordinates reasoning (MIP), memory (CoALA RAG), multi-agent delegation (A2A), and tool execution (A2T).*
-
-```mermaid
-flowchart LR
-    classDef gov fill:#FFF1F0,stroke:#F5222D,stroke-width:2px;
-    classDef econ fill:#F6FFED,stroke:#52C41A,stroke-width:2px;
-    classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
-    classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
-
-    subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
-        N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Mega-Compute Hubs</i></small>"]:::econ
-        N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
-        N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]:::econ
-        N_OPEN_MODEL("Open-Weight Model Commons<br/><small><i>Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</i></small>"):::econ
-    end
-
-    subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
-        N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical Solutions (Legal, Medical, Finance, Ops)</i></small>"):::econ
-        N_HARNESS[["Autonomous Agent Runtime (The Harness)<br/><small><i>Execution Loop, Planning, Rights &amp; Guardrails</i></small>"]]:::gov
-        N_AUDIT_STORE[("Sovereign Audit Ledger<br/><small><i>Tamper-Evident WORM State &amp; Forensic Store</i></small>")]:::gov
-        N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Continuous Evaluation, Traces &amp; Cost Telemetry</i></small>"):::gov
-    end
-
-    subgraph cluster_client ["3. Enterprise Deployer & Principal Domain"]
-        N_IDP(["Enterprise Identity &amp; Auth (IdP)<br/><small><i>OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens</i></small>"]):::gov
-        N_KNOWLEDGE_STORE[("Enterprise Semantic Knowledge Base<br/><small><i>Proprietary Vector DBs, Documents &amp; Embeddings</i></small>")]:::gov
-        N_HUMAN_USER(("Human Task Delegator &amp; Overseer<br/><small><i>End User / Mandatory HITL Supervisor</i></small>")):::gov
-    end
-
-    subgraph cluster_environment ["4. Target Execution Environment & Blast Radius"]
-        N_TOOL_GATEWAY[["Capability &amp; Tool Gateway<br/><small><i>Decoupled Tool Broker &amp; Context Provider (MCP)</i></small>"]]:::gov
-        N_TARGET_SYS[("Target Systems &amp; Operational APIs<br/><small><i>Databases, Production ERP, Financial Rails</i></small>")]:::gov
-    end
-
-    N_TRAIN -->|"Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)"| N_OPEN_MODEL
-    N_ISV_PRODUCT -->|"Self-Hosted Inference (Bypasses Wholesale Token Toll)"| N_OPEN_MODEL
-    N_HARNESS -. "Cryptographic Tamper-Proof Audit Trail (Art. 12)" .-> N_AUDIT_STORE
-    N_HARNESS -. "Enforces Least-Privilege Scopes (VSM 3 to 2)" .-> N_TOOL_GATEWAY
-    N_HUMAN_USER -->|"Prompt Intent & Working Context"| N_ISV_PRODUCT
-    N_IDP -->|"A2E Workload Identity Delegation (OAuth/OIDC)"| N_HARNESS
-    N_ISV_PRODUCT -->|"Initiates Autonomous Loop"| N_HARNESS
-    N_HARNESS -->|"MIP Inference API (Tokens & Directives)"| N_FRONTIER
-    N_HARNESS -->|"RAG Semantic Retrieval & Working Context (CoALA)"| N_KNOWLEDGE_STORE
-    N_HARNESS -->|"A2A Multi-Agent Delegation & Peer Protocol"| N_HARNESS
-    N_HARNESS -->|"Traces & LLM Evaluation Metrics"| N_OBSERVE
-    N_HARNESS -->|"A2T Tool Calling & Context Protocol (MCP / OpenAPI)"| N_TOOL_GATEWAY
-    N_TOOL_GATEWAY -->|"Authenticated Operations Execution (VSM System 1)"| N_TARGET_SYS
-```
-
-</TabItem>
-<TabItem value="view_full_unified" label="Unified Ecosystem Model">
-
-*The complete property graph combining economic flows, technical loops, and cybernetic governance gates (VSM Systems 1–5).*
+## Unified Ecosystem Architecture
 
 ```mermaid
 flowchart TB
@@ -319,9 +156,6 @@ flowchart TB
     N_HARNESS -->|"A2T Tool Calling & Context Protocol (MCP / OpenAPI)"| N_TOOL_GATEWAY
     N_TOOL_GATEWAY -->|"Authenticated Operations Execution (VSM System 1)"| N_TARGET_SYS
 ```
-
-</TabItem>
-</Tabs>
 
 ## Canonical Element Dictionary
 

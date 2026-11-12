@@ -22,36 +22,23 @@ jobs:
         uses: actions/checkout@v4
 
       # ------------------------------------------------------------------
-      # PHASE 1: Python Environment Setup
+      # PHASE 1: Python Environment & Master Pipeline
       # ------------------------------------------------------------------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install Python YAML Parser
-        run: pip install pyyaml
-
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pyyaml linkml
 
+      - name: Run Master Model Pipeline (Validate, Generate Docs & Exports)
+        run: python scripts/build_all.py
 
       # ------------------------------------------------------------------
-      # PHASE 2: Run Exporters in Sequence
-      # ------------------------------------------------------------------
-      - name: "Phase 2A: Generate yEd GraphML Exports"
-        run: python scripts/export_yed.py
-
-      - name: "Phase 2B: Generate draw.io XML Exports"
-        run: python scripts/export_drawio.py
-
-      - name: "Phase 2C: Generate Docusaurus Markdown & Mermaid Views"
-        run: python scripts/generate_docs.py
-
-      # ------------------------------------------------------------------
-      # PHASE 3: Node & Docusaurus Compilation
+      # PHASE 2: Node & Docusaurus Compilation
       # ------------------------------------------------------------------
       - name: Set up Node.js
         uses: actions/setup-node@v4
