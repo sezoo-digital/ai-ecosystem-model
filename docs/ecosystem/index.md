@@ -100,12 +100,14 @@ flowchart TB
 
     subgraph cluster_regulatory ["0. Jurisdictional & Regulatory Sphere"]
         N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Algorithmic Liability &amp; Cyber Risk Carrier</i></small>"]:::gov
+        N_CAPITAL["Capital Markets &amp; Venture Underwriters<br/><small><i>VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth</i></small>"]:::econ
     end
 
     subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
         N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Mega-Compute Hubs</i></small>"]:::econ
         N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
         N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]:::econ
+        N_OPEN_MODEL("Open-Weight Model Commons<br/><small><i>Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</i></small>"):::econ
     end
 
     subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
@@ -123,6 +125,11 @@ flowchart TB
     N_ABSORBED -. "Platform Commoditization Pressure (a16z Stack)" .-> N_ISV_PRODUCT
     N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
     N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
+    N_CAPITAL == "$$$ Equity Subsidies & Cloud Compute Credits" ==> N_FRONTIER
+    N_CAPITAL == "$$$ CapEx Infrastructure Project Debt & Equity" ==> N_TRAIN
+    N_TRAIN -->|"Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)"| N_OPEN_MODEL
+    N_OPEN_MODEL -. "Inference Price Deflation & Multiple Compression" .-> N_FRONTIER
+    N_ISV_PRODUCT -->|"Self-Hosted Inference (Bypasses Wholesale Token Toll)"| N_OPEN_MODEL
 ```
 
 </TabItem>
@@ -197,6 +204,7 @@ flowchart LR
         N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Mega-Compute Hubs</i></small>"]:::econ
         N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
         N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]:::econ
+        N_OPEN_MODEL("Open-Weight Model Commons<br/><small><i>Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</i></small>"):::econ
     end
 
     subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
@@ -217,6 +225,8 @@ flowchart LR
         N_TARGET_SYS[("Target Systems &amp; Operational APIs<br/><small><i>Databases, Production ERP, Financial Rails</i></small>")]:::gov
     end
 
+    N_TRAIN -->|"Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)"| N_OPEN_MODEL
+    N_ISV_PRODUCT -->|"Self-Hosted Inference (Bypasses Wholesale Token Toll)"| N_OPEN_MODEL
     N_HARNESS -. "Cryptographic Tamper-Proof Audit Trail (Art. 12)" .-> N_AUDIT_STORE
     N_HARNESS -. "Enforces Least-Privilege Scopes (VSM 3 to 2)" .-> N_TOOL_GATEWAY
     N_HUMAN_USER -->|"Prompt Intent & Working Context"| N_ISV_PRODUCT
@@ -246,12 +256,14 @@ flowchart TB
         N_REGULATOR{{"Market Surveillance Authorities<br/><small><i>EU AI Office, FTC, DPAs, Courts</i></small>"}}:::gov
         N_AUDITOR{{"Conformity Body &amp; ISO Auditor<br/><small><i>Notified Bodies, ISO/IEC 42001 Certifiers</i></small>"}}:::gov
         N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Algorithmic Liability &amp; Cyber Risk Carrier</i></small>"]:::gov
+        N_CAPITAL["Capital Markets &amp; Venture Underwriters<br/><small><i>VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth</i></small>"]:::econ
     end
 
     subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
         N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Mega-Compute Hubs</i></small>"]:::econ
         N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
         N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]:::econ
+        N_OPEN_MODEL("Open-Weight Model Commons<br/><small><i>Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</i></small>"):::econ
     end
 
     subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
@@ -280,6 +292,11 @@ flowchart TB
     N_ABSORBED -. "Platform Commoditization Pressure (a16z Stack)" .-> N_ISV_PRODUCT
     N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
     N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
+    N_CAPITAL == "$$$ Equity Subsidies & Cloud Compute Credits" ==> N_FRONTIER
+    N_CAPITAL == "$$$ CapEx Infrastructure Project Debt & Equity" ==> N_TRAIN
+    N_TRAIN -->|"Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)"| N_OPEN_MODEL
+    N_OPEN_MODEL -. "Inference Price Deflation & Multiple Compression" .-> N_FRONTIER
+    N_ISV_PRODUCT -->|"Self-Hosted Inference (Bypasses Wholesale Token Toll)"| N_OPEN_MODEL
     N_REGULATOR == "Statutory Compliance & Fines (Art. 71)" ==> N_ENTERPRISE
     N_REGULATOR == "GPAI Codes of Practice & Transparency (Art. 53)" ==> N_FRONTIER
     N_AUDITOR == "Conformity Audits (ISO 42001 / High Risk)" ==> N_ENTERPRISE
@@ -313,9 +330,11 @@ flowchart TB
 | **Market Surveillance Authorities**<br/><small>EU AI Office, FTC, DPAs, Courts</small><br/>`N_REGULATOR` | 0. Jurisdictional & Regulatory Sphere | governance | **cardinality**: 10^1 Jurisdictional Bodies<br/>**enforcement_powers**: Fines up to 7% global turnover, stop orders<br/>**vsm_tier**: System 5 (External Statutory Meta-System)<br/>**nist_function**: GOVERN |
 | **Conformity Body & ISO Auditor**<br/><small>Notified Bodies, ISO/IEC 42001 Certifiers</small><br/>`N_AUDITOR` | 0. Jurisdictional & Regulatory Sphere | governance | **cardinality**: 10^2 Accredited Audit Entities<br/>**role**: CE conformity assessments & continuous surveillance<br/>**vsm_tier**: System 3* (Sporadic External Audit)<br/>**nist_function**: MEASURE |
 | **AI Risk Underwriter & Insurer**<br/><small>Algorithmic Liability & Cyber Risk Carrier</small><br/>`N_INSURER` | 0. Jurisdictional & Regulatory Sphere | economic, governance | **cardinality**: 10^2 Global Underwriters<br/>**underwriting_gate**: Requires verifiable audit trail & human oversight<br/>**vsm_tier**: System 3 (Economic Viability Gate)<br/>**nist_function**: MANAGE |
+| **Capital Markets & Venture Underwriters**<br/><small>VC Syndicates, Hyperscaler Equity & Sovereign Wealth</small><br/>`N_CAPITAL` | 0. Jurisdictional & Regulatory Sphere | economic | **cardinality**: 10^2 Global Mega-Funds & Hyperscaler Treasuries<br/>**financing_role**: Subsidizes CapEx overhang & absorbs initial operating losses<br/>**hurdle_rate**: Demands hyper-scale equity returns ($600B AI Question)<br/>**vsm_tier**: System 5 (Macro Financial Sponsorship)<br/>**nist_function**: GOVERN |
 | **Training Supply Chain**<br/><small>Data Curators, Annotators, Mega-Compute Hubs</small><br/>`N_TRAIN` | 1. Upstream Foundation & Model Lab | economic, technical | **cardinality**: Top 5-10 Global Mega-Campuses<br/>**compute_profile**: Concentrated 50k-100k+ GPU clusters; GW-scale power<br/>**cost_type**: Fixed / Heavy CapEx ($600B Infrastructure Question)<br/>**ip_risk**: Copyright infringement / scraping litigation<br/>**vsm_tier**: System 1 (Upstream Production)<br/>**nist_function**: MAP |
 | **Frontier Foundation Model**<br/><small>Globally Replicated Weights & Inference Fleets</small><br/>`N_FRONTIER` | 1. Upstream Foundation & Model Lab | economic, technical, governance | **cardinality**: Top 5-10 Labs; Replicated across 10^3 Regional Clusters<br/>**compute_profile**: High memory-bandwidth inference clusters; low latency<br/>**sovereignty_gap**: Physical data residency does not equal jurisdictional independence<br/>**eu_ai_act_role**: Provider_GPAI<br/>**pricing_model**: Wholesale Per-Token Usage<br/>**liability_posture**: Disclaimed via ToS ('AS-IS')<br/>**vsm_tier**: System 4 (Probabilistic Intelligence Engine)<br/>**nist_function**: MEASURE |
 | **Platform Absorption Zone**<br/><small>Native Tools, Prompt Cache, Hosted State</small><br/>`N_ABSORBED` | 1. Upstream Foundation & Model Lab | economic, technical | **cardinality**: Top 3-5 Cloud Ecosystems<br/>**market_effect**: Feature commoditization of wrapper ISVs (a16z Stack)<br/>**vsm_tier**: System 4 (Environmental Encroachment) |
+| **Open-Weight Model Commons**<br/><small>Commoditized Weights, Distilled Checkpoints & Local Runtimes</small><br/>`N_OPEN_MODEL` | 1. Upstream Foundation & Model Lab | economic, technical | **cardinality**: 10^2 Viable Open Foundation Checkpoints<br/>**pricing_model**: Zero Marginal License Cost (Commoditized Inference)<br/>**hosting_model**: Raw Compute Lease or On-Premise GPU Fleets<br/>**market_effect**: Deflates proprietary per-token pricing power<br/>**vsm_tier**: System 4 (Commoditized Commons Intelligence)<br/>**nist_function**: MAP |
 | **Specialized AI Application**<br/><small>Vertical Solutions (Legal, Medical, Finance, Ops)</small><br/>`N_ISV_PRODUCT` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | economic, technical | **cardinality**: 10^4 - 10^5 Vertical SaaS Products<br/>**eu_ai_act_role**: Provider_System<br/>**pricing_model**: Per-Seat SaaS / Value-Added Outcome Fee<br/>**margin_exposure**: Squeezed between token costs & platform absorption<br/>**vsm_tier**: System 4 (Operational Domain Intelligence)<br/>**nist_function**: MAP |
 | **Autonomous Agent Runtime (The Harness)**<br/><small>Execution Loop, Planning, Rights & Guardrails</small><br/>`N_HARNESS` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **cardinality**: 10^7 - 10^9 Ephemeral Agent Invocations<br/>**compute_profile**: Lightweight CPU / Orchestration Logic<br/>**iso_42001_role**: AIMS Technical Control Implementation<br/>**duty_of_care**: Caps blast radius, halts unsafe prompts/actions<br/>**coala_role**: Action Execution Engine & Procedural Memory Guard<br/>**anthropic_pattern**: Decoupled Orchestrator-Worker & Gate<br/>**vsm_tier**: System 3 (Internal Operational Control & Stability)<br/>**nist_function**: MANAGE |
 | **Sovereign Audit Ledger**<br/><small>Tamper-Evident WORM State & Forensic Store</small><br/>`N_AUDIT_STORE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **cardinality**: 10^4 Enterprise Sovereign Ledgers<br/>**compliance**: Art. 12 Mandatory Logging / Rebuttal of Fault<br/>**sovereignty**: Client / Enterprise Owned<br/>**evidentiary_role**: Black-Box Flight Recorder for Liability Disputes<br/>**vsm_tier**: System 3* (Internal Audit Channel)<br/>**nist_function**: MEASURE |

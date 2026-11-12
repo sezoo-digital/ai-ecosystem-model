@@ -124,6 +124,19 @@ nodes:
       vsm_tier: "System 3 (Economic Viability Gate)"
       nist_function: "MANAGE"
 
+  - id: N_CAPITAL
+    label: "Capital Markets & Venture Underwriters"
+    sublabel: "VC Syndicates, Hyperscaler Equity & Sovereign Wealth"
+    cluster: cluster_regulatory
+    domains: [economic]
+    shape: rect
+    properties:
+      cardinality: "10^2 Global Mega-Funds & Hyperscaler Treasuries"
+      financing_role: "Subsidizes CapEx overhang & absorbs initial operating losses"
+      hurdle_rate: "Demands hyper-scale equity returns ($600B AI Question)"
+      vsm_tier: "System 5 (Macro Financial Sponsorship)"
+      nist_function: "GOVERN"
+
   # ===================================================================
   # Cluster 1: Upstream Foundation & Model Lab
   # ===================================================================
@@ -167,6 +180,20 @@ nodes:
       cardinality: "Top 3-5 Cloud Ecosystems"
       market_effect: "Feature commoditization of wrapper ISVs (a16z Stack)"
       vsm_tier: "System 4 (Environmental Encroachment)"
+
+  - id: N_OPEN_MODEL
+    label: "Open-Weight Model Commons"
+    sublabel: "Commoditized Weights, Distilled Checkpoints & Local Runtimes"
+    cluster: cluster_supply
+    domains: [economic, technical]
+    shape: rounded
+    properties:
+      cardinality: "10^2 Viable Open Foundation Checkpoints"
+      pricing_model: "Zero Marginal License Cost (Commoditized Inference)"
+      hosting_model: "Raw Compute Lease or On-Premise GPU Fleets"
+      market_effect: "Deflates proprietary per-token pricing power"
+      vsm_tier: "System 4 (Commoditized Commons Intelligence)"
+      nist_function: "MAP"
 
   # ===================================================================
   # Cluster 2: Specialized Product & Harness Domain (ISV / Custom)
@@ -363,6 +390,40 @@ edges:
     label: "Real-time Cost & Token Telemetry"
     domains: [economic, technical]
     type: flow
+
+# Capital Injection & Financing Edges
+
+  - from: N_CAPITAL
+    to: N_FRONTIER
+    label: "$$$ Equity Subsidies & Cloud Compute Credits"
+    domains: [economic]
+    type: money
+
+  - from: N_CAPITAL
+    to: N_TRAIN
+    label: "$$$ CapEx Infrastructure Project Debt & Equity"
+    domains: [economic]
+    type: money
+
+# Open-Weight Dynamics & Market Deflation
+
+  - from: N_TRAIN
+    to: N_OPEN_MODEL
+    label: "Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)"
+    domains: [economic, technical]
+    type: flow
+
+  - from: N_OPEN_MODEL
+    to: N_FRONTIER
+    label: "Inference Price Deflation & Multiple Compression"
+    domains: [economic]
+    type: tension
+
+  - from: N_ISV_PRODUCT
+    to: N_OPEN_MODEL
+    label: "Self-Hosted Inference (Bypasses Wholesale Token Toll)"
+    domains: [economic, technical]
+    type: protocol
 
   # ==========================================
   # 2. Governance, Regulatory & Liability Edges

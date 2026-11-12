@@ -50,6 +50,23 @@
       "NIST Function": "MANAGE"
     },
     {
+      "id": "N_CAPITAL",
+      "label": "Capital Markets & Venture Underwriters",
+      "type": "Economic",
+      "description": "VC Syndicates, Hyperscaler Equity & Sovereign Wealth",
+      "tags": [
+        "economic"
+      ],
+      "shape": "rect",
+      "Cluster": "0. Jurisdictional & Regulatory Sphere",
+      "Cluster ID": "cluster_regulatory",
+      "Cardinality": "10^2 Global Mega-Funds & Hyperscaler Treasuries",
+      "Financing Role": "Subsidizes CapEx overhang & absorbs initial operating losses",
+      "Hurdle Rate": "Demands hyper-scale equity returns ($600B AI Question)",
+      "VSM Tier": "System 5 (Macro Financial Sponsorship)",
+      "NIST Function": "GOVERN"
+    },
+    {
       "id": "N_TRAIN",
       "label": "Training Supply Chain",
       "type": "Economic",
@@ -105,6 +122,25 @@
       "Cardinality": "Top 3-5 Cloud Ecosystems",
       "Market Effect": "Feature commoditization of wrapper ISVs (a16z Stack)",
       "VSM Tier": "System 4 (Environmental Encroachment)"
+    },
+    {
+      "id": "N_OPEN_MODEL",
+      "label": "Open-Weight Model Commons",
+      "type": "Economic",
+      "description": "Commoditized Weights, Distilled Checkpoints & Local Runtimes",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "shape": "rounded",
+      "Cluster": "1. Upstream Foundation & Model Lab",
+      "Cluster ID": "cluster_supply",
+      "Cardinality": "10^2 Viable Open Foundation Checkpoints",
+      "Pricing Model": "Zero Marginal License Cost (Commoditized Inference)",
+      "Hosting Model": "Raw Compute Lease or On-Premise GPU Fleets",
+      "Market Effect": "Deflates proprietary per-token pricing power",
+      "VSM Tier": "System 4 (Commoditized Commons Intelligence)",
+      "NIST Function": "MAP"
     },
     {
       "id": "N_ISV_PRODUCT",
@@ -383,6 +419,68 @@
     },
     {
       "id": "conn_6",
+      "from": "N_CAPITAL",
+      "to": "N_FRONTIER",
+      "label": "$$$ Equity Subsidies & Cloud Compute Credits",
+      "type": "money",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "description": "Relationship type: money"
+    },
+    {
+      "id": "conn_7",
+      "from": "N_CAPITAL",
+      "to": "N_TRAIN",
+      "label": "$$$ CapEx Infrastructure Project Debt & Equity",
+      "type": "money",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "description": "Relationship type: money"
+    },
+    {
+      "id": "conn_8",
+      "from": "N_TRAIN",
+      "to": "N_OPEN_MODEL",
+      "label": "Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)",
+      "type": "flow",
+      "direction": "directed",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "description": "Relationship type: flow"
+    },
+    {
+      "id": "conn_9",
+      "from": "N_OPEN_MODEL",
+      "to": "N_FRONTIER",
+      "label": "Inference Price Deflation & Multiple Compression",
+      "type": "tension",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "description": "Relationship type: tension"
+    },
+    {
+      "id": "conn_10",
+      "from": "N_ISV_PRODUCT",
+      "to": "N_OPEN_MODEL",
+      "label": "Self-Hosted Inference (Bypasses Wholesale Token Toll)",
+      "type": "protocol",
+      "direction": "directed",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "description": "Relationship type: protocol"
+    },
+    {
+      "id": "conn_11",
       "from": "N_REGULATOR",
       "to": "N_ENTERPRISE",
       "label": "Statutory Compliance & Fines (Art. 71)",
@@ -394,7 +492,7 @@
       "description": "Relationship type: authority"
     },
     {
-      "id": "conn_7",
+      "id": "conn_12",
       "from": "N_REGULATOR",
       "to": "N_FRONTIER",
       "label": "GPAI Codes of Practice & Transparency (Art. 53)",
@@ -406,7 +504,7 @@
       "description": "Relationship type: authority"
     },
     {
-      "id": "conn_8",
+      "id": "conn_13",
       "from": "N_AUDITOR",
       "to": "N_ENTERPRISE",
       "label": "Conformity Audits (ISO 42001 / High Risk)",
@@ -418,7 +516,7 @@
       "description": "Relationship type: authority"
     },
     {
-      "id": "conn_9",
+      "id": "conn_14",
       "from": "N_FRONTIER",
       "to": "N_ENTERPRISE",
       "label": "Disclaims Liability (ToS 'AS-IS' / Ada Lovelace Gap)",
@@ -430,7 +528,7 @@
       "description": "Relationship type: disclaim"
     },
     {
-      "id": "conn_10",
+      "id": "conn_15",
       "from": "N_ENTERPRISE",
       "to": "N_AFFECTED_PARTY",
       "label": "Vicarious Liability for Agent Harm (Respondeat Superior)",
@@ -442,7 +540,7 @@
       "description": "Relationship type: tension"
     },
     {
-      "id": "conn_11",
+      "id": "conn_16",
       "from": "N_AFFECTED_PARTY",
       "to": "N_REGULATOR",
       "label": "Complaints & Redress Demands",
@@ -454,7 +552,7 @@
       "description": "Relationship type: flow"
     },
     {
-      "id": "conn_12",
+      "id": "conn_17",
       "from": "N_ENTERPRISE",
       "to": "N_HARNESS",
       "label": "Delegates Authority & Safety Boundaries (VSM 5 to 3)",
@@ -466,7 +564,7 @@
       "description": "Relationship type: authority"
     },
     {
-      "id": "conn_13",
+      "id": "conn_18",
       "from": "N_HUMAN_USER",
       "to": "N_HARNESS",
       "label": "Art. 14 Human Oversight & Stop Button",
@@ -478,7 +576,7 @@
       "description": "Relationship type: authority"
     },
     {
-      "id": "conn_14",
+      "id": "conn_19",
       "from": "N_HARNESS",
       "to": "N_AUDIT_STORE",
       "label": "Cryptographic Tamper-Proof Audit Trail (Art. 12)",
@@ -491,7 +589,7 @@
       "description": "Relationship type: governance_control"
     },
     {
-      "id": "conn_15",
+      "id": "conn_20",
       "from": "N_AUDIT_STORE",
       "to": "N_AUDITOR",
       "label": "Forensic Evidence for Compliance Verification",
@@ -503,7 +601,7 @@
       "description": "Relationship type: flow"
     },
     {
-      "id": "conn_16",
+      "id": "conn_21",
       "from": "N_HARNESS",
       "to": "N_TOOL_GATEWAY",
       "label": "Enforces Least-Privilege Scopes (VSM 3 to 2)",
@@ -516,7 +614,7 @@
       "description": "Relationship type: governance_control"
     },
     {
-      "id": "conn_17",
+      "id": "conn_22",
       "from": "N_TARGET_SYS",
       "to": "N_AFFECTED_PARTY",
       "label": "Direct Impact & Real-World Blast Radius",
@@ -529,7 +627,7 @@
       "description": "Relationship type: tension"
     },
     {
-      "id": "conn_18",
+      "id": "conn_23",
       "from": "N_HUMAN_USER",
       "to": "N_ISV_PRODUCT",
       "label": "Prompt Intent & Working Context",
@@ -541,7 +639,7 @@
       "description": "Relationship type: flow"
     },
     {
-      "id": "conn_19",
+      "id": "conn_24",
       "from": "N_IDP",
       "to": "N_HARNESS",
       "label": "A2E Workload Identity Delegation (OAuth/OIDC)",
@@ -553,7 +651,7 @@
       "description": "Relationship type: protocol"
     },
     {
-      "id": "conn_20",
+      "id": "conn_25",
       "from": "N_ISV_PRODUCT",
       "to": "N_HARNESS",
       "label": "Initiates Autonomous Loop",
@@ -565,7 +663,7 @@
       "description": "Relationship type: flow"
     },
     {
-      "id": "conn_21",
+      "id": "conn_26",
       "from": "N_HARNESS",
       "to": "N_FRONTIER",
       "label": "MIP Inference API (Tokens & Directives)",
@@ -577,7 +675,7 @@
       "description": "Relationship type: protocol"
     },
     {
-      "id": "conn_22",
+      "id": "conn_27",
       "from": "N_HARNESS",
       "to": "N_KNOWLEDGE_STORE",
       "label": "RAG Semantic Retrieval & Working Context (CoALA)",
@@ -589,7 +687,7 @@
       "description": "Relationship type: flow"
     },
     {
-      "id": "conn_23",
+      "id": "conn_28",
       "from": "N_HARNESS",
       "to": "N_HARNESS",
       "label": "A2A Multi-Agent Delegation & Peer Protocol",
@@ -601,7 +699,7 @@
       "description": "Relationship type: protocol"
     },
     {
-      "id": "conn_24",
+      "id": "conn_29",
       "from": "N_HARNESS",
       "to": "N_OBSERVE",
       "label": "Traces & LLM Evaluation Metrics",
@@ -613,7 +711,7 @@
       "description": "Relationship type: flow"
     },
     {
-      "id": "conn_25",
+      "id": "conn_30",
       "from": "N_HARNESS",
       "to": "N_TOOL_GATEWAY",
       "label": "A2T Tool Calling & Context Protocol (MCP / OpenAPI)",
@@ -625,7 +723,7 @@
       "description": "Relationship type: protocol"
     },
     {
-      "id": "conn_26",
+      "id": "conn_31",
       "from": "N_TOOL_GATEWAY",
       "to": "N_TARGET_SYS",
       "label": "Authenticated Operations Execution (VSM System 1)",

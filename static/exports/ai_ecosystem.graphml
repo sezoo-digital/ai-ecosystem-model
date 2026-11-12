@@ -21,6 +21,9 @@
   <key for="node" id="d_prop_enforcement_powers" attr.name="enforcement_powers" attr.type="string"/>
   <key for="node" id="d_prop_eu_ai_act_role" attr.name="eu_ai_act_role" attr.type="string"/>
   <key for="node" id="d_prop_evidentiary_role" attr.name="evidentiary_role" attr.type="string"/>
+  <key for="node" id="d_prop_financing_role" attr.name="financing_role" attr.type="string"/>
+  <key for="node" id="d_prop_hosting_model" attr.name="hosting_model" attr.type="string"/>
+  <key for="node" id="d_prop_hurdle_rate" attr.name="hurdle_rate" attr.type="string"/>
   <key for="node" id="d_prop_ip_risk" attr.name="ip_risk" attr.type="string"/>
   <key for="node" id="d_prop_iso_42001_role" attr.name="iso_42001_role" attr.type="string"/>
   <key for="node" id="d_prop_legal_standing" attr.name="legal_standing" attr.type="string"/>
@@ -117,6 +120,27 @@
             </y:ShapeNode>
           </data>
         </node>
+        <node id="N_CAPITAL">
+          <data key="d_cluster">cluster_regulatory</data>
+          <data key="d_domains">economic</data>
+          <data key="d_sublabel">VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth</data>
+          <data key="d_shape">rect</data>
+          <data key="d_prop_cardinality">10^2 Global Mega-Funds &amp; Hyperscaler Treasuries</data>
+          <data key="d_prop_financing_role">Subsidizes CapEx overhang &amp; absorbs initial operating losses</data>
+          <data key="d_prop_hurdle_rate">Demands hyper-scale equity returns ($600B AI Question)</data>
+          <data key="d_prop_nist_function">GOVERN</data>
+          <data key="d_prop_vsm_tier">System 5 (Macro Financial Sponsorship)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#F6FFED" transparent="false"/>
+              <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Capital Markets &amp; Venture Underwriters
+(VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth)</y:NodeLabel>
+              <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
       </graph>
     </node>
     <node id="cluster_supply" yfiles.foldertype="group">
@@ -197,6 +221,28 @@
               <y:NodeLabel alignment="center" autoSizePolicy="content">Platform Absorption Zone
 (Native Tools, Prompt Cache, Hosted State)</y:NodeLabel>
               <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_OPEN_MODEL">
+          <data key="d_cluster">cluster_supply</data>
+          <data key="d_domains">economic, technical</data>
+          <data key="d_sublabel">Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</data>
+          <data key="d_shape">rounded</data>
+          <data key="d_prop_cardinality">10^2 Viable Open Foundation Checkpoints</data>
+          <data key="d_prop_hosting_model">Raw Compute Lease or On-Premise GPU Fleets</data>
+          <data key="d_prop_market_effect">Deflates proprietary per-token pricing power</data>
+          <data key="d_prop_nist_function">MAP</data>
+          <data key="d_prop_pricing_model">Zero Marginal License Cost (Commoditized Inference)</data>
+          <data key="d_prop_vsm_tier">System 4 (Commoditized Commons Intelligence)</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#F6FFED" transparent="false"/>
+              <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Open-Weight Model Commons
+(Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
             </y:ShapeNode>
           </data>
         </node>
@@ -554,7 +600,62 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e6" source="N_REGULATOR" target="N_ENTERPRISE">
+    <edge id="e6" source="N_CAPITAL" target="N_FRONTIER">
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_type">money</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#16A34A" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">$$$ Equity Subsidies &amp; Cloud Compute Credits</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="N_CAPITAL" target="N_TRAIN">
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_type">money</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#16A34A" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">$$$ CapEx Infrastructure Project Debt &amp; Equity</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="N_TRAIN" target="N_OPEN_MODEL">
+      <data key="d_edge_domains">economic, technical</data>
+      <data key="d_edge_type">flow</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="N_OPEN_MODEL" target="N_FRONTIER">
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_type">tension</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Inference Price Deflation &amp; Multiple Compression</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="N_ISV_PRODUCT" target="N_OPEN_MODEL">
+      <data key="d_edge_domains">economic, technical</data>
+      <data key="d_edge_type">protocol</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#2563EB" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Self-Hosted Inference (Bypasses Wholesale Token Toll)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e11" source="N_REGULATOR" target="N_ENTERPRISE">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">authority</data>
       <data key="d_edge_graphics">
@@ -565,7 +666,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e7" source="N_REGULATOR" target="N_FRONTIER">
+    <edge id="e12" source="N_REGULATOR" target="N_FRONTIER">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">authority</data>
       <data key="d_edge_graphics">
@@ -576,7 +677,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e8" source="N_AUDITOR" target="N_ENTERPRISE">
+    <edge id="e13" source="N_AUDITOR" target="N_ENTERPRISE">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">authority</data>
       <data key="d_edge_graphics">
@@ -587,7 +688,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e9" source="N_FRONTIER" target="N_ENTERPRISE">
+    <edge id="e14" source="N_FRONTIER" target="N_ENTERPRISE">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">disclaim</data>
       <data key="d_edge_graphics">
@@ -598,7 +699,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e10" source="N_ENTERPRISE" target="N_AFFECTED_PARTY">
+    <edge id="e15" source="N_ENTERPRISE" target="N_AFFECTED_PARTY">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">tension</data>
       <data key="d_edge_graphics">
@@ -609,7 +710,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e11" source="N_AFFECTED_PARTY" target="N_REGULATOR">
+    <edge id="e16" source="N_AFFECTED_PARTY" target="N_REGULATOR">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">flow</data>
       <data key="d_edge_graphics">
@@ -620,7 +721,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e12" source="N_ENTERPRISE" target="N_HARNESS">
+    <edge id="e17" source="N_ENTERPRISE" target="N_HARNESS">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">authority</data>
       <data key="d_edge_graphics">
@@ -631,7 +732,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e13" source="N_HUMAN_USER" target="N_HARNESS">
+    <edge id="e18" source="N_HUMAN_USER" target="N_HARNESS">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">authority</data>
       <data key="d_edge_graphics">
@@ -642,7 +743,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e14" source="N_HARNESS" target="N_AUDIT_STORE">
+    <edge id="e19" source="N_HARNESS" target="N_AUDIT_STORE">
       <data key="d_edge_domains">governance, technical</data>
       <data key="d_edge_type">governance_control</data>
       <data key="d_edge_graphics">
@@ -653,7 +754,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e15" source="N_AUDIT_STORE" target="N_AUDITOR">
+    <edge id="e20" source="N_AUDIT_STORE" target="N_AUDITOR">
       <data key="d_edge_domains">governance</data>
       <data key="d_edge_type">flow</data>
       <data key="d_edge_graphics">
@@ -664,7 +765,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e16" source="N_HARNESS" target="N_TOOL_GATEWAY">
+    <edge id="e21" source="N_HARNESS" target="N_TOOL_GATEWAY">
       <data key="d_edge_domains">governance, technical</data>
       <data key="d_edge_type">governance_control</data>
       <data key="d_edge_graphics">
@@ -675,7 +776,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e17" source="N_TARGET_SYS" target="N_AFFECTED_PARTY">
+    <edge id="e22" source="N_TARGET_SYS" target="N_AFFECTED_PARTY">
       <data key="d_edge_domains">governance, technical</data>
       <data key="d_edge_type">tension</data>
       <data key="d_edge_graphics">
@@ -686,7 +787,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e18" source="N_HUMAN_USER" target="N_ISV_PRODUCT">
+    <edge id="e23" source="N_HUMAN_USER" target="N_ISV_PRODUCT">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">flow</data>
       <data key="d_edge_graphics">
@@ -697,7 +798,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e19" source="N_IDP" target="N_HARNESS">
+    <edge id="e24" source="N_IDP" target="N_HARNESS">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">protocol</data>
       <data key="d_edge_graphics">
@@ -708,7 +809,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e20" source="N_ISV_PRODUCT" target="N_HARNESS">
+    <edge id="e25" source="N_ISV_PRODUCT" target="N_HARNESS">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">flow</data>
       <data key="d_edge_graphics">
@@ -719,7 +820,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e21" source="N_HARNESS" target="N_FRONTIER">
+    <edge id="e26" source="N_HARNESS" target="N_FRONTIER">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">protocol</data>
       <data key="d_edge_graphics">
@@ -730,7 +831,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e22" source="N_HARNESS" target="N_KNOWLEDGE_STORE">
+    <edge id="e27" source="N_HARNESS" target="N_KNOWLEDGE_STORE">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">flow</data>
       <data key="d_edge_graphics">
@@ -741,7 +842,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e23" source="N_HARNESS" target="N_HARNESS">
+    <edge id="e28" source="N_HARNESS" target="N_HARNESS">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">protocol</data>
       <data key="d_edge_graphics">
@@ -752,7 +853,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e24" source="N_HARNESS" target="N_OBSERVE">
+    <edge id="e29" source="N_HARNESS" target="N_OBSERVE">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">flow</data>
       <data key="d_edge_graphics">
@@ -763,7 +864,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e25" source="N_HARNESS" target="N_TOOL_GATEWAY">
+    <edge id="e30" source="N_HARNESS" target="N_TOOL_GATEWAY">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">protocol</data>
       <data key="d_edge_graphics">
@@ -774,7 +875,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e26" source="N_TOOL_GATEWAY" target="N_TARGET_SYS">
+    <edge id="e31" source="N_TOOL_GATEWAY" target="N_TARGET_SYS">
       <data key="d_edge_domains">technical</data>
       <data key="d_edge_type">flow</data>
       <data key="d_edge_graphics">
