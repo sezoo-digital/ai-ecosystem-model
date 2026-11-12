@@ -147,13 +147,7 @@ The composite agent loop decomposes into six distinct functional roles:
 
 - **Function:** Injects proprietary business rules, historical interactions, and private documents into the prompt context via RAG, bounding hallucinations.
 
-### 4. The Hands (Decoupled Actuation) — N_TOOL_GATEWAY
-
-```
-→
-```
-
-N_TARGET_SYS
+### 4. The Hands (Decoupled Actuation) — N_TOOL_GATEWAY -> N_TARGET_SYS
 
 - **Role:** Execution of real-world state changes (database writes, transaction execution, ERP updates).
 
@@ -185,11 +179,11 @@ N_TARGET_SYS
 
 | Boundary                                                    | Interaction                            | Cybernetic / Governance Risk                                                                                                                           |
 | ----------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| N_ENTERPRISE<br></br><br></br>```<br></br>→<br></br>```<br></br><br></br>N_HARNESS        | **Authority Delegation**               | Over-delegation of authority without bounded deterministic guardrails exposes the enterprise to strict tort liability.                                 |
-| N_HARNESS<br></br><br></br>```<br></br>→<br></br>```<br></br><br></br>N_FRONTIER          | **Probabilistic Gap**                  | The harness relies on a non-deterministic inference engine that disclaims liability for incorrect, biased, or hallucinated outputs.                    |
-| N_HARNESS<br></br><br></br>```<br></br>→<br></br>```<br></br><br></br>N_TOOL_GATEWAY      | **Scope Creep / Privilege Escalation** | Inadequate capability isolation can allow prompt-injection attacks to trigger unauthorized tool actuation against production databases.                |
-| N_TARGET_SYS<br></br><br></br>```<br></br>→<br></br>```<br></br><br></br>N_AFFECTED_PARTY | **Blast Radius Causation**             | Actions taken by the agent impact external citizens or customers; the legal doctrine of respondeat superior imputes direct fault back to N_ENTERPRISE. |
-| N_HUMAN_USER<br></br><br></br>```<br></br>→<br></br>```<br></br><br></br>N_HARNESS        | **Automation Bias**                    | Humans tasked with Art. 14 oversight often rubber-stamp agent suggestions, degrading supervisory control into a decorative governance facade.          |
+| N_ENTERPRISE -> N_HARNESS        | **Authority Delegation**               | Over-delegation of authority without bounded deterministic guardrails exposes the enterprise to strict tort liability.                                 |
+| N_HARNESS -> N_FRONTIER          | **Probabilistic Gap**                  | The harness relies on a non-deterministic inference engine that disclaims liability for incorrect, biased, or hallucinated outputs.                    |
+| N_HARNESS -> N_TOOL_GATEWAY      | **Scope Creep / Privilege Escalation** | Inadequate capability isolation can allow prompt-injection attacks to trigger unauthorized tool actuation against production databases.                |
+| N_TARGET_SYS -> N_AFFECTED_PARTY | **Blast Radius Causation**             | Actions taken by the agent impact external citizens or customers; the legal doctrine of respondeat superior imputes direct fault back to N_ENTERPRISE. |
+| N_HUMAN_USER -> N_HARNESS        | **Automation Bias**                    | Humans tasked with Art. 14 oversight often rubber-stamp agent suggestions, degrading supervisory control into a decorative governance facade.          |
 
 ---
 
