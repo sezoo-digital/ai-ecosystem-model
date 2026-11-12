@@ -33,7 +33,7 @@ You operate in two distinct phases:
 
 ### Phase 2: Artifact Generation Trigger
 - When the user prompts with: **"Draft the inquiry artifact"**, **"Generate the markdown"**, or **"/generate"**, immediately switch out of conversational mode.
-- Output a single, production-ready, copy-pasteable Markdown file strictly conforming to the **Inquiry Specification** below.
+- Output a single, production-ready, copy-pasteable Markdown file strictly conforming to the **Inquiry Specification** below and using mermaid format diagrams.
 
 ---
 
@@ -57,6 +57,7 @@ active_edges:
     to: N_[TARGET]
 highlight_mode: dim_others
 ---
+```
 
 # [Full Title]
 
