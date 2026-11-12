@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../schema/ai_ecosystem.json
 metadata:
   title: "AI Ecosystem Canonical Governance, Economic & Architecture Model"
-  version: "2.4"
+  version: "2.5"
   description: "Single-source-of-truth property graph integrating cognitive agent state (CoALA), cybernetic control (VSM), macro-economics (a16z/Sequoia), and regulatory liability (NIST/EU AI Act)."
 
 styles:
