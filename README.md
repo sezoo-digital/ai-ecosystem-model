@@ -21,3 +21,15 @@ We want to be able to ask powerful questions of the model and have the explanati
 An example of the kind of question we want the model to help answer and understand is:
 
 "The current global interests in AI include the to-be-expected discussions on existential threats and employment threats from AI. Other than these,  a significant volume of discussion is on the utility and economic impact of "AI Agents". **Where can a viewer see AI Agents in our model?**"
+
+### Contributing Inquiries & Sense-Making Pages
+
+To explore a new question or generate an inquiry page:
+1. Open your LLM environment of choice (e.g., Google AI Studio, Claude, ChatGPT).
+2. Load the system instructions from [`prompts/inquiry_protocol.md`](./prompts/inquiry_protocol.md).
+3. Provide the canonical model [`model/ai_ecosystem.yaml`](./model/ai_ecosystem.yaml) as context
+4. Explore your question conversationally, "how does the model ... ?"
+5. Once the analysis (response) is sound, prompt the AI: *"Draft the inquiry artifact."*
+6. Save the output to `docs/inquiries/<inquiry-id>.md` and submit a Pull Request.
+
+**WARNING:** Be careful with step 3, some A prompt dialogues struggle with attached YAML files and get caught in a loop. If in doubt, use place the content of the file(s) in the prompt within fences. Fence start is "\`\`\`yaml" and end fence is "\`\`\`".
