@@ -1,8 +1,8 @@
 id: https://w3id.org/ai-ecosystem/schema
 name: ai_ecosystem_schema
 title: AI Ecosystem Metamodel Specification
-description: Formal schema defining nodes, edges, clusters, regulatory roles, and protocols.
-version: "1.0.0"
+description: Formal schema defining nodes, edges, clusters, regulatory roles, cybernetic systems, and protocol planes.
+version: "2.1.0"
 
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -39,10 +39,11 @@ classes:
       - description
 
   Cluster:
-    description: "Functional or organizational grouping boundary."
+    description: "Functional or value-chain boundary."
     slots:
       - id
       - label
+      - description
 
   Node:
     description: "Architectural archetype (system, authority, actor, or asset)."
@@ -52,7 +53,14 @@ classes:
       - sublabel
       - cluster
       - domains
-      - shape
+      - kind
+      - vsm_system
+      - vsm_recursion_level
+      - eu_ai_act_role
+      - nist_function
+      - cardinality_log10_min
+      - cardinality_log10_max
+      - cardinality_unit
       - properties
     slot_usage:
       cluster:
@@ -62,19 +70,45 @@ classes:
         range: DomainEnum
         multivalued: true
         required: true
-      shape:
-        range: ShapeEnum
+      kind:
+        range: NodeKindEnum
+        required: true
+      vsm_system:
+        range: VSMSystemEnum
+        required: true
+      vsm_recursion_level:
+        range: VSMRecursionLevelEnum
+        required: true
+      eu_ai_act_role:
+        range: EuAiActRoleEnum
+        required: true
+      nist_function:
+        range: NistRmfFunctionEnum
+        required: true
+      cardinality_log10_min:
+        range: float
+        required: true
+      cardinality_log10_max:
+        range: float
+        required: true
+      cardinality_unit:
+        range: CardinalityUnitEnum
         required: true
 
   Edge:
     description: "Directed relationship, financial flow, protocol call, or liability boundary."
     slots:
+      - id
       - from_node
       - to_node
       - label
       - domains
-      - edge_type
+      - relation_kind
+      - protocol_plane
+      - polarity
     slot_usage:
+      id:
+        required: true
       from_node:
         range: Node
         required: true
@@ -85,8 +119,14 @@ classes:
         range: DomainEnum
         multivalued: true
         required: true
-      edge_type:
-        range: EdgeTypeEnum
+      relation_kind:
+        range: RelationKindEnum
+        required: true
+      protocol_plane:
+        range: ProtocolPlaneEnum
+        required: true
+      polarity:
+        range: PolarityEnum
         required: true
 
   View:
@@ -105,10 +145,9 @@ classes:
       direction:
         range: DirectionEnum
 
-  # Official LinkML pattern for extensible key-value maps
   AnyObject:
     class_uri: linkml:Any
-    description: "Unconstrained dictionary for dynamic node properties, styles, and taxonomies."
+    description: "Unconstrained dictionary for dynamic node properties."
 
 # ===================================================================
 # SLOTS
@@ -133,15 +172,32 @@ slots:
   to_node:
     alias: to
     range: Node
-  edge_type:
-    alias: type
-    range: EdgeTypeEnum
   cluster:
     range: Cluster
   direction:
     range: DirectionEnum
-  shape:
-    range: ShapeEnum
+  kind:
+    range: NodeKindEnum
+  vsm_system:
+    range: VSMSystemEnum
+  vsm_recursion_level:
+    range: VSMRecursionLevelEnum
+  eu_ai_act_role:
+    range: EuAiActRoleEnum
+  nist_function:
+    range: NistRmfFunctionEnum
+  cardinality_log10_min:
+    range: float
+  cardinality_log10_max:
+    range: float
+  cardinality_unit:
+    range: CardinalityUnitEnum
+  relation_kind:
+    range: RelationKindEnum
+  protocol_plane:
+    range: ProtocolPlaneEnum
+  polarity:
+    range: PolarityEnum
   metadata:
     range: Metadata
     inlined: true
@@ -184,25 +240,122 @@ enums:
       technical: {}
       governance: {}
 
-  ShapeEnum:
+  NodeKindEnum:
     permissible_values:
-      hexagon: {}
-      circle: {}
-      subproc: {}
-      cylinder: {}
-      stadium: {}
-      rounded: {}
-      rect: {}
+      StatutoryAuthority:
+        description: "Regulators, court systems, market surveillance."
+      NaturalPerson:
+        description: "Human delegators, operators, impacted citizens."
+      DeterministicGate:
+        description: "Policy kernels, sandboxes, capability brokers."
+      StateStore:
+        description: "Vector databases, audit ledgers, ERP systems."
+      SecurityAuthority:
+        description: "IdP, OAuth token brokers, workload IAM."
+      SoftwareService:
+        description: "Foundation model endpoints, vertical SaaS."
+      EconomicEntity:
+        description: "Commercial deployers, compute hubs, insurers."
 
-  EdgeTypeEnum:
+  VSMSystemEnum:
     permissible_values:
-      money: {}
-      authority: {}
-      governance_control: {}
-      tension: {}
-      disclaim: {}
-      protocol: {}
-      flow: {}
+      S1_Operations:
+        description: "System 1: Operational primary activities."
+      S2_Coordination:
+        description: "System 2: Oscillation damping and protocol arbitration."
+      S3_Control:
+        description: "System 3: Operational control and internal stability."
+      S3_Star_Audit:
+        description: "System 3*: Sporadic, independent audit and red-teaming."
+      S4_Intelligence:
+        description: "System 4: Environmental scanning and horizon strategy."
+      S5_Policy:
+        description: "System 5: Ultimate policy and identity closure."
+      ENVIRONMENT:
+        description: "External operational environment and blast radius."
+
+  VSMRecursionLevelEnum:
+    permissible_values:
+      Level_n_Enterprise:
+        description: "Recursion Level n: The enterprise deployer and its internal AI operations."
+      Level_n_plus_1_Jurisdiction:
+        description: "Recursion Level n+1: The societal, statutory, and macro-financial meta-system."
+      Level_n_minus_1_Component:
+        description: "Recursion Level n-1: Internal micro-components within an agent runtime."
+
+  CardinalityUnitEnum:
+    permissible_values:
+      jurisdictions:
+        description: "Independent sovereign legal jurisdictions"
+      entities:
+        description: "Incorporated organizations, firms, or labs"
+      clusters:
+        description: "Physical mega-compute data center clusters"
+      instances:
+        description: "Deployed persistent application instances or gateways"
+      invocations_per_year:
+        description: "Annual ephemeral agent execution loops"
+      natural_persons:
+        description: "Individual human beings"
+
+  EuAiActRoleEnum:
+    permissible_values:
+      Provider_GPAI: {}
+      Provider_System: {}
+      Deployer: {}
+      Importer: {}
+      Distributor: {}
+      Affected_Subject: {}
+      Not_Applicable: {}
+
+  NistRmfFunctionEnum:
+    permissible_values:
+      GOVERN: {}
+      MAP: {}
+      MEASURE: {}
+      MANAGE: {}
+      NOT_APPLICABLE: {}
+
+  RelationKindEnum:
+    permissible_values:
+      commercial_flow:
+        description: "Capital, subscription fees, CapEx."
+      statutory_mandate:
+        description: "Legal authority, compliance orders, fines."
+      governance_control:
+        description: "Policy bounds, scope enforcement, human override."
+      liability_exposure:
+        description: "Tort liability, blast radius, recourse."
+      contractual_term:
+        description: "ToS liability disclaimers, SLAs."
+      protocol_call:
+        description: "Authenticated technical protocols (MIP, A2E, A2T, A2A)."
+      data_flow:
+        description: "Telemetry, prompts, audit logs."
+      algedonic_signal:
+        description: "Emergency bypass alarm signaling critical failure from S1 to S5."
+
+  ProtocolPlaneEnum:
+    permissible_values:
+      A2E:
+        description: "Agent-to-Enterprise Identity & Auth"
+      MIP:
+        description: "Model Inference Protocol"
+      A2T:
+        description: "Agent-to-Tool Context (MCP, OpenAPI)"
+      A2A:
+        description: "Agent-to-Agent Peer Protocols"
+      NONE:
+        description: "Non-technical institutional relationship"
+
+  PolarityEnum:
+    permissible_values:
+      positive:
+        description: "Reinforcing edge: increases state of target."
+      negative:
+        description: "Dampening edge: bounds or drains state of target."
+      neutral:
+        description: "Transactional or state transfer without dynamic sign."
 
   DirectionEnum:
     permissible_values:

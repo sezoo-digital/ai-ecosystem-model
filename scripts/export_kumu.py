@@ -1,8 +1,18 @@
+#!/usr/bin/env python3
+"""
+Kumu Dynamic Blueprint JSON Exporter for AI Ecosystem Model.
+Outputs: static/exports/ai_ecosystem_kumu.json
+Formats:
+  - Elements: Promotes Kind, VSM, NIST, and EU AI Act roles to Kumu fields
+  - Connections: Preserves relation_kind, protocol_plane, and polarity
+"""
+
 import sys
 import json
 import yaml
 from pathlib import Path
 
+# Force UTF-8 on Windows
 if sys.platform == "win32":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -12,7 +22,11 @@ if sys.platform == "win32":
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 def to_title_header(snake_str):
-    acronyms = {"eu": "EU", "ai": "AI", "id": "ID", "mcp": "MCP", "iam": "IAM", "api": "API", "tos": "ToS", "vsm": "VSM", "nist": "NIST", "coala": "CoALA", "rag": "RAG"}
+    acronyms = {
+        "eu": "EU", "ai": "AI", "id": "ID", "mcp": "MCP",
+        "iam": "IAM", "api": "API", "tos": "ToS", "vsm": "VSM",
+        "nist": "NIST", "coala": "CoALA", "rag": "RAG", "gpai": "GPAI"
+    }
     words = snake_str.split("_")
     return " ".join(acronyms.get(w.lower(), w.capitalize()) for w in words)
 
@@ -35,7 +49,7 @@ def main():
         "connections": []
     }
 
-    # Build Elements losslessly
+    # Build Elements
     for n in model.get("nodes", []):
         domains = n.get("domains", [])
         primary_domain = domains[0].capitalize() if domains else "Entity"
@@ -48,28 +62,37 @@ def main():
             "type": primary_domain,
             "description": n.get("sublabel", ""),
             "tags": domains,
-            "shape": n.get("shape", "rect"),
+            "Kind": n.get("kind", "EconomicEntity"),
+            "VSM System": n.get("vsm_system", ""),
+            "EU AI Act Role": n.get("eu_ai_act_role", ""),
+            "NIST Function": n.get("nist_function", ""),
             "Cluster": cluster_name,
             "Cluster ID": cid
         }
 
-        # Promote all dynamic properties (VSM, NIST, CoALA, Cardinality, etc.)
+        # Promote dynamic properties (e.g. cardinality, compute_profile, etc.)
         for prop_key, prop_val in n.get("properties", {}).items():
             element[to_title_header(prop_key)] = prop_val
 
         blueprint["elements"].append(element)
 
-    # Build Connections losslessly
+    # Build Connections
     for i, e in enumerate(model.get("edges", [])):
+        rkind = e.get("relation_kind", "data_flow")
+        pplane = e.get("protocol_plane", "NONE")
+        polarity = e.get("polarity", "neutral")
+
         connection = {
-            "id": f"conn_{i}",
+            "id": e.get("id", f"conn_{i}"),
             "from": e["from"],
             "to": e["to"],
             "label": e.get("label", ""),
-            "type": e.get("type", "flow"),
+            "type": rkind,
             "direction": "directed",
             "tags": e.get("domains", []),
-            "description": f"Relationship type: {e.get('type', 'flow')}"
+            "Protocol Plane": pplane,
+            "Polarity": polarity,
+            "description": f"Kind: {rkind} | Protocol: {pplane} | Polarity: {polarity}"
         }
         blueprint["connections"].append(connection)
 

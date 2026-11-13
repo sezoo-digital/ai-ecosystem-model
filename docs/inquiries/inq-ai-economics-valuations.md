@@ -34,8 +34,8 @@ active_edges:
     to: N_FRONTIER
   - from: N_ABSORBED
     to: N_ISV_PRODUCT
-  - from: N_INSURER
-    to: N_ENTERPRISE
+  - from: N_ENTERPRISE
+    to: N_INSURER
   - from: N_OBSERVE
     to: N_ENTERPRISE
 highlight_mode: dim_others
@@ -49,7 +49,7 @@ Value in the AI ecosystem does not pool evenly; it behaves as an **asymmetric ca
 The canonical model illustrates that:
 1. **Upstream Labs & Infrastructure** survive on a mix of wholesale token tolls and massive **equity/compute subsidies from capital markets** to offset multi-gigawatt training runs.
 2. **Specialized Vertical ISVs** face a structural **"SaaS Margin Sandwich"**—squeezed between variable token COGS below and fixed SaaS pricing expectations above, while cloud platforms continually threaten to absorb their features.
-3. **Open-Weight Commons** act as a critical macroeconomic deflationary force, depressing the pricing power of proprietary frontier labs and offering ISVs an escape hatch from the per-token toll.
+3. **Open-Weight Commons** act as a critical macroeconomic deflationary force, depressing the pricing power of proprietary frontier labs and offering ISVs an architectural escape hatch from the per-token toll.
 
 ---
 
@@ -70,7 +70,7 @@ flowchart TB
     N_AFFECTED_PARTY[Impacted Third Party]:::dim
 
     %% Cluster 0: Capital & Macro Sphere
-    subgraph cluster_regulatory ["0. Jurisdictional & Capital Sphere"]
+    subgraph cluster_regulatory ["0. Jurisdictional, Capital & Regulatory Sphere"]
         N_CAPITAL["Capital Markets &amp; Venture Underwriters<br/><small><i>VC, Hyperscaler Treasuries &amp; Sovereign Wealth</i></small>"]:::econ
         N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Algorithmic Liability Carrier</i></small>"]:::econ
     end
@@ -84,31 +84,31 @@ flowchart TB
     end
 
     %% Cluster 2: Product & Runtime
-    subgraph cluster_product ["2. Specialized Product Domain"]
+    subgraph cluster_product ["2. Specialized Product &amp; Harness Domain"]
         N_ISV_PRODUCT("Specialized AI Application<br/><small><i>Vertical SaaS (Legal, Medical, Finance)</i></small>"):::econ
         N_OBSERVE("Observability &amp; Evals Engine<br/><small><i>Cost &amp; Token Telemetry</i></small>"):::econ
     end
 
     %% Cluster 3: Enterprise Principal
-    subgraph cluster_client ["3. Enterprise Deployer Domain"]
+    subgraph cluster_client ["3. Enterprise Deployer &amp; Principal Domain"]
         N_ENTERPRISE["Enterprise Deployer<br/><small><i>Legal Principal &amp; Economic Sponsor</i></small>"]:::econ
     end
 
     %% Capital & Equity Flows
     N_CAPITAL == "$$$ Equity Subsidies & Compute Credits" ==> N_FRONTIER
-    N_CAPITAL == "$$$ CapEx Project Finance & Equity" ==> N_TRAIN
+    N_CAPITAL == "$$$ CapEx Infrastructure Project Debt & Equity" ==> N_TRAIN
 
     %% Commercial Operating Revenue Flows
     N_ENTERPRISE == "$$$ SaaS Subscription / Outcome Fee" ==> N_ISV_PRODUCT
     N_ISV_PRODUCT == "$$ Wholesale Token Consumption Cost" ==> N_FRONTIER
     N_ISV_PRODUCT -->|"Self-Hosted / Private Inference (Zero Token Toll)"| N_OPEN_MODEL
     N_FRONTIER == "$ Compute CapEx & Annotation" ==> N_TRAIN
-    N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
+    N_ENTERPRISE == "$ Policy Premiums & Risk Transfer" ==> N_INSURER
 
     %% Tensions, Commons & Telemetry
     N_TRAIN -->|"Sunk-Cost Open Weights Release"| N_OPEN_MODEL
     N_OPEN_MODEL -. "Inference Price Deflation & Compression" .-> N_FRONTIER
-    N_ABSORBED -. "Platform Commoditization Pressure" .-> N_ISV_PRODUCT
+    N_ABSORBED -. "Platform Commoditization Pressure (a16z Stack)" .-> N_ISV_PRODUCT
     N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
 ```
 
@@ -118,23 +118,13 @@ flowchart TB
 
 In a normalized software economy, revenue flows up from the buyer to the application, which passes margin down to suppliers. In the AI ecosystem, this waterfall has distinct friction points:
 
-1. **Enterprise Deployment (N_ENTERPRISE**
-   
-   **`→`**
-   
-   **N_ISV_PRODUCT):** The enterprise deploys capital via traditional SaaS recurring fees or emerging outcome-based contracts. However, the enterprise faces strict ROI payback pressure (the Sequoia "Act Two" hurdle).
+1. **Enterprise Deployment (N_ENTERPRISE → N_ISV_PRODUCT):** The enterprise deploys capital via traditional SaaS recurring fees or emerging outcome-based contracts. However, the enterprise faces strict ROI payback pressure (the Sequoia "Act Two" hurdle).
 
-2. **Wholesale Token Toll (N_ISV_PRODUCT**
-   
-   **`→`**
-   
-   **N_FRONTIER):** Unlike traditional software where hosting represents 5–15% of revenue, vertical AI ISVs face variable marginal inference costs that scale with customer usage, degrading gross margins to 40–60%.
+2. **Wholesale Token Toll (N_ISV_PRODUCT →  N_FRONTIER):** Unlike traditional software where hosting represents 5–15% of revenue, vertical AI ISVs face variable marginal inference costs that scale with customer usage, degrading gross margins to 40–60%.
 
-3. **CapEx Siphon (N_FRONTIER**
-   
-   **`→`**
-   
-   **N_TRAIN):** Foundation labs channel their token revenues directly into massive, continuous compute CapEx (GPU clusters, power procurement, human reinforcement data).
+3. **CapEx Siphon (N_FRONTIER → N_TRAIN):** Foundation labs channel their token revenues directly into massive, continuous compute CapEx (GPU clusters, power procurement, human reinforcement data).
+
+4. **Risk Transfer (N_ENTERPRISE → N_INSURER):** Enterprise deployers pay insurance premiums to balance-sheet underwriters to offload tort and algorithmic liability exposure.
 
 ### Tier 2: The Equity Bridge & Capital Overhang
 
@@ -163,4 +153,14 @@ The emergence of **Open-Weight Models (N_OPEN_MODEL)** breaks the pricing monopo
 | N_OPEN_MODEL vs N_FRONTIER  | **Price Deflation**          | Near-frontier open weights limit the ability of proprietary labs to charge premium margins for commoditized reasoning tasks.               |
 | N_ENTERPRISE vs N_OBSERVE   | **FinOps & Throttling**      | Real-time observability gives enterprise CFOs the telemetry needed to throttle agent autonomy when token spend exceeds value creation.     |
 
+---
 
+## 5. Model Feedback & Audit Trail
+
+- **Entities Evaluated:** N_ENTERPRISE, N_ISV_PRODUCT, N_FRONTIER, N_TRAIN, N_ABSORBED, N_OBSERVE, N_INSURER, N_CAPITAL, N_OPEN_MODEL.
+
+- **Ontological Additions Resolved:**
+  
+  - Synchronized the capital direction on E_ENT_TO_INSURER_PREMIUM.
+  
+  - Fully integrated N_CAPITAL and N_OPEN_MODEL with typed LinkML properties.

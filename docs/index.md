@@ -36,47 +36,48 @@ flowchart LR
     classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
 
     subgraph LegendShapes ["Architectural Node Archetypes"]
-        K_HEXAGON{{"Statutory &amp; Regulatory Authority<br/><small><i>shape: hexagon</i></small>"}}:::gov
-        K_CIRCLE(("Human Actor / Natural Person<br/><small><i>shape: circle</i></small>")):::gov
-        K_SUBPROC[["Deterministic Gateway &amp; Policy Kernel<br/><small><i>shape: subproc</i></small>"]]:::tech
-        K_CYLINDER[("Stateful Store &amp; Critical Data Asset<br/><small><i>shape: cylinder</i></small>")]:::tech
-        K_STADIUM(["Identity &amp; Security Issuer<br/><small><i>shape: stadium</i></small>"]):::tech
-        K_ROUNDED("Software Service &amp; Inference API<br/><small><i>shape: rounded</i></small>"):::tech
-        K_RECT["Organizational &amp; Economic Entity<br/><small><i>shape: rect</i></small>"]:::econ
+        K_HEX{{"Statutory Authority<br/><small><i>kind: StatutoryAuthority</i></small>"}}:::gov
+        K_CIR(("Natural Person<br/><small><i>kind: NaturalPerson</i></small>")):::gov
+        K_SUB[["Deterministic Gate<br/><small><i>kind: DeterministicGate</i></small>"]]:::tech
+        K_CYL[("State Store<br/><small><i>kind: StateStore</i></small>")]:::tech
+        K_STA(["Security Authority<br/><small><i>kind: SecurityAuthority</i></small>"]):::tech
+        K_RND("Software Service<br/><small><i>kind: SoftwareService</i></small>"):::tech
+        K_REC["Economic Entity<br/><small><i>kind: EconomicEntity</i></small>"]:::econ
     end
 ```
 
-### Node Archetypes (Shapes)
+### Node Archetypes (Kinds)
 
-| Shape | Archetype / Meaning | Description |
-| :---: | :--- | :--- |
-| `hexagon` | **Statutory & Regulatory Authority** | External legal jurisdictions, court systems, conformity auditors (non-negotiable authority). |
-| `circle` | **Human Actor / Natural Person** | Human principals, operators (HITL), or impacted third-party individuals. |
-| `subproc` | **Deterministic Gateway & Policy Kernel** | Sandboxes, policy harnesses, capability gateways where deterministic logic bounds AI. |
-| `cylinder` | **Stateful Store & Critical Data Asset** | Append-only audit stores, vector databases, production databases, target ERPs. |
-| `stadium` | **Identity & Security Issuer** | Enterprise IdP, OAuth token issuers, workload authorization brokers. |
-| `rounded` | **Software Service & Inference API** | Frontier model endpoints, vertical applications, continuous eval engines. |
-| `rect` | **Organizational & Economic Entity** | Commercial deployers, CapEx supply chain entities, market absorption zones. |
+| Kind | Semantic Meaning | Visual Shape |
+| :--- | :--- | :---: |
+| `StatutoryAuthority` | Non-negotiable external legal authorities, courts, market surveillance | `hexagon` |
+| `NaturalPerson` | Human delegators, mandatory Art. 14 supervisors, impacted third parties | `circle` |
+| `DeterministicGate` | Sandboxes, policy harnesses, capability brokers bounding non-deterministic AI | `subproc` |
+| `StateStore` | WORM audit ledgers, vector databases, operational enterprise ERPs | `cylinder` |
+| `SecurityAuthority` | Enterprise IdP, OAuth token issuers, workload authorization brokers | `stadium` |
+| `SoftwareService` | Foundation model endpoints, vertical applications, continuous eval engines | `rounded` |
+| `EconomicEntity` | Commercial deployers, CapEx supply chain entities, venture capital funds | `rect` |
 
 ### Relationship & Edge Types
 
-| Line Style | Relationship Type | Semantic Meaning |
+| Line Style | Semantic Relation Kind | Description |
 | :---: | :--- | :--- |
-| `== 'label' ==>` | **Capital / Commercial Flow** (`money`) | Financial transactions, SaaS subscriptions, compute CapEx, insurance premiums. |
-| `== 'label' ==>` | **Direct Authority & Override** (`authority`) | Statutory mandates, legal agency delegation, mandatory human oversight. |
-| `-. 'label' .->` | **Policy Constraint & Audit Trail** (`governance_control`) | Tamper-evident logging, scope enforcement, sandbox boundaries. |
-| `-. 'label' .->` | **Liability & Market Tension** (`tension`) | Tort liability exposure, blast radius impact, platform commoditization pressure. |
-| `-. 'label' .->` | **Contractual Disclaimer** (`disclaim`) | ToS liability carve-outs and 'AS-IS' warranty limitations. |
-| `-->|'label'|` | **Technical Protocol** (`protocol`) | JSON-RPC tool calling, OAuth bearer flows, inference API calls, A2A delegation. |
-| `-->|'label'|` | **Data & Intent Flow** (`flow`) | Prompt context, telemetry metrics, audit evidence submissions. |
+| `== '🚨 label' ==>` | `algedonic_signal` | **VSM Emergency Tripwire:** Direct crisis bypass from S1 operations to S5 board/policy |
+| `== 'label' ==>` | `commercial_flow` | Capital transactions, SaaS fees, token costs, insurance premiums |
+| `== 'label' ==>` | `statutory_mandate` | Statutory orders, compliance mandates, mandatory oversight |
+| `-. 'label' .->` | `governance_control` | Policy bounds, audit trail logging, S3* independent sampling probes |
+| `-. 'label' .->` | `liability_exposure` | Tort liability, blast radius causation, platform margin pressure |
+| `-. 'label' .->` | `contractual_term` | Contractual liability carve-outs, ToS 'AS-IS' disclaimers |
+| `-->|'label'|` | `protocol_call` | Technical protocols (A2E, MIP, A2T via MCP, A2A) |
+| `-->|'label'|` | `data_flow` | Telemetry traces, prompt context (RAG), evidence logs |
 
 ### Domain Boundary Colors
 
 | Color | Domain | Scope |
 | :---: | :--- | :--- |
-| 🔴 **Red / Pink** | `governance` | Statutory duties, liability allocation, compliance controls, human oversight. |
-| 🟢 **Green** | `economic` | SaaS contracts, token consumption costs, GPU CapEx, underwriting fees. |
-| 🔵 **Blue** | `technical` | API execution protocols, JSON-RPC (MCP), state persistence, telemetry. |
+| 🔴 **Red / Pink** | `governance` | Statutory duties, liability allocation, compliance controls, human oversight |
+| 🟢 **Green** | `economic` | SaaS contracts, token consumption costs, GPU CapEx, underwriting fees |
+| 🔵 **Blue** | `technical` | API execution protocols, JSON-RPC (MCP), state persistence, telemetry |
 
 </details>
 
@@ -89,7 +90,7 @@ flowchart TB
     classDef tech fill:#E6F7FF,stroke:#1890FF,stroke-width:2px;
     classDef default fill:#F8FAFC,stroke:#64748B,stroke-width:1.5px;
 
-    subgraph cluster_regulatory ["0. Jurisdictional & Regulatory Sphere"]
+    subgraph cluster_regulatory ["0. Jurisdictional, Capital & Regulatory Sphere"]
         N_REGULATOR{{"Market Surveillance Authorities<br/><small><i>EU AI Office, FTC, DPAs, Courts</i></small>"}}:::gov
         N_AUDITOR{{"Conformity Body &amp; ISO Auditor<br/><small><i>Notified Bodies, ISO/IEC 42001 Certifiers</i></small>"}}:::gov
         N_INSURER["AI Risk Underwriter &amp; Insurer<br/><small><i>Algorithmic Liability &amp; Cyber Risk Carrier</i></small>"]:::gov
@@ -99,8 +100,8 @@ flowchart TB
     subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
         N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Mega-Compute Hubs</i></small>"]:::econ
         N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
-        N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]:::econ
         N_OPEN_MODEL("Open-Weight Model Commons<br/><small><i>Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</i></small>"):::econ
+        N_ABSORBED["Platform Absorption Zone<br/><small><i>Native Tools, Prompt Cache, Hosted State</i></small>"]:::econ
     end
 
     subgraph cluster_product ["2. Specialized Product & Harness Domain (ISV / Custom Runtime)"]
@@ -123,29 +124,30 @@ flowchart TB
         N_AFFECTED_PARTY(("Impacted Third Party<br/><small><i>Consumers, Employees, Citizens</i></small>")):::gov
     end
 
+    N_CAPITAL == "$$$ Equity Subsidies & Compute Credits" ==> N_FRONTIER
+    N_CAPITAL == "$$$ CapEx Infrastructure Project Debt & Equity" ==> N_TRAIN
     N_ENTERPRISE == "$$$ SaaS Subscription / Outcome Fee" ==> N_ISV_PRODUCT
     N_ISV_PRODUCT == "$$ Wholesale Token Consumption Cost" ==> N_FRONTIER
     N_FRONTIER == "$ Compute CapEx & Annotation" ==> N_TRAIN
+    N_ENTERPRISE == "$ Policy Premiums & Risk Transfer" ==> N_INSURER
     N_ABSORBED -. "Platform Commoditization Pressure (a16z Stack)" .-> N_ISV_PRODUCT
-    N_INSURER == "$ Policy Premiums & Underwriting" ==> N_ENTERPRISE
-    N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
-    N_CAPITAL == "$$$ Equity Subsidies & Cloud Compute Credits" ==> N_FRONTIER
-    N_CAPITAL == "$$$ CapEx Infrastructure Project Debt & Equity" ==> N_TRAIN
-    N_TRAIN -->|"Sunk-Cost Open Weights Release (Meta, Mistral, DeepSeek)"| N_OPEN_MODEL
-    N_OPEN_MODEL -. "Inference Price Deflation & Multiple Compression" .-> N_FRONTIER
-    N_ISV_PRODUCT -->|"Self-Hosted Inference (Bypasses Wholesale Token Toll)"| N_OPEN_MODEL
-    N_REGULATOR == "Statutory Compliance & Fines (Art. 71)" ==> N_ENTERPRISE
-    N_REGULATOR == "GPAI Codes of Practice & Transparency (Art. 53)" ==> N_FRONTIER
+    N_TRAIN -->|"Sunk-Cost Open Weights Release"| N_OPEN_MODEL
+    N_OPEN_MODEL -. "Inference Price Deflation & Compression" .-> N_FRONTIER
+    N_REGULATOR == "Statutory Penalties & Enforcement (Art. 99)" ==> N_ENTERPRISE
+    N_REGULATOR == "GPAI Codes of Practice & Transparency (Art. 53/101)" ==> N_FRONTIER
+    N_REGULATOR == "High-Risk System Compliance & Surveillance (Art. 9/43)" ==> N_ISV_PRODUCT
     N_AUDITOR == "Conformity Audits (ISO 42001 / High Risk)" ==> N_ENTERPRISE
-    N_FRONTIER -. "Disclaims Liability (ToS 'AS-IS' / Ada Lovelace Gap)" .-> N_ENTERPRISE
-    N_ENTERPRISE -. "Vicarious Liability for Agent Harm (Respondeat Superior)" .-> N_AFFECTED_PARTY
-    N_AFFECTED_PARTY -->|"Complaints & Redress Demands"| N_REGULATOR
-    N_ENTERPRISE == "Delegates Authority & Safety Boundaries (VSM 5 to 3)" ==> N_HARNESS
-    N_HUMAN_USER == "Art. 14 Human Oversight & Stop Button" ==> N_HARNESS
+    N_FRONTIER -. "Disclaims Liability (ToS 'AS-IS' / Recourse Gap)" .-> N_ENTERPRISE
+    N_ENTERPRISE -. "Vicarious Liability for Harm (Respondeat Superior)" .-> N_AFFECTED_PARTY
+    N_AFFECTED_PARTY -->|"Complaints & Redress Demands (Art. 85)"| N_REGULATOR
+    N_ENTERPRISE -. "Delegates Authority & Safety Boundaries (VSM 5 to 3)" .-> N_HARNESS
+    N_HUMAN_USER -. "Art. 14 Human Oversight & Kill Switch" .-> N_HARNESS
     N_HARNESS -. "Cryptographic Tamper-Proof Audit Trail (Art. 12)" .-> N_AUDIT_STORE
     N_AUDIT_STORE -->|"Forensic Evidence for Compliance Verification"| N_AUDITOR
     N_HARNESS -. "Enforces Least-Privilege Scopes (VSM 3 to 2)" .-> N_TOOL_GATEWAY
     N_TARGET_SYS -. "Direct Impact & Real-World Blast Radius" .-> N_AFFECTED_PARTY
+    N_OBSERVE -. "VSM S3* Independent Behavioral Probe & Red-Teaming" .-> N_TARGET_SYS
+    N_TARGET_SYS == "🚨 VSM Algedonic Alarm (Direct S1 to S5 Circuit Breaker)" ==> N_ENTERPRISE
     N_HUMAN_USER -->|"Prompt Intent & Working Context"| N_ISV_PRODUCT
     N_IDP -->|"A2E Workload Identity Delegation (OAuth/OIDC)"| N_HARNESS
     N_ISV_PRODUCT -->|"Initiates Autonomous Loop"| N_HARNESS
@@ -153,30 +155,32 @@ flowchart TB
     N_HARNESS -->|"RAG Semantic Retrieval & Working Context (CoALA)"| N_KNOWLEDGE_STORE
     N_HARNESS -->|"A2A Multi-Agent Delegation & Peer Protocol"| N_HARNESS
     N_HARNESS -->|"Traces & LLM Evaluation Metrics"| N_OBSERVE
+    N_OBSERVE -->|"Real-time Cost & Token Telemetry"| N_ENTERPRISE
     N_HARNESS -->|"A2T Tool Calling & Context Protocol (MCP / OpenAPI)"| N_TOOL_GATEWAY
     N_TOOL_GATEWAY -->|"Authenticated Operations Execution (VSM System 1)"| N_TARGET_SYS
+    N_ISV_PRODUCT -->|"Self-Hosted / Private Inference (Zero Token Toll)"| N_OPEN_MODEL
 ```
 
 ## Canonical Element Dictionary
 
-| Element | Cluster | Domains | Properties |
-| :--- | :--- | :--- | :--- |
-| **Market Surveillance Authorities**<br/><small>EU AI Office, FTC, DPAs, Courts</small><br/>`N_REGULATOR` | 0. Jurisdictional & Regulatory Sphere | governance | **cardinality**: 10^1 Jurisdictional Bodies<br/>**enforcement_powers**: Fines up to 7% global turnover, stop orders<br/>**vsm_tier**: System 5 (External Statutory Meta-System)<br/>**nist_function**: GOVERN |
-| **Conformity Body & ISO Auditor**<br/><small>Notified Bodies, ISO/IEC 42001 Certifiers</small><br/>`N_AUDITOR` | 0. Jurisdictional & Regulatory Sphere | governance | **cardinality**: 10^2 Accredited Audit Entities<br/>**role**: CE conformity assessments & continuous surveillance<br/>**vsm_tier**: System 3* (Sporadic External Audit)<br/>**nist_function**: MEASURE |
-| **AI Risk Underwriter & Insurer**<br/><small>Algorithmic Liability & Cyber Risk Carrier</small><br/>`N_INSURER` | 0. Jurisdictional & Regulatory Sphere | economic, governance | **cardinality**: 10^2 Global Underwriters<br/>**underwriting_gate**: Requires verifiable audit trail & human oversight<br/>**vsm_tier**: System 3 (Economic Viability Gate)<br/>**nist_function**: MANAGE |
-| **Capital Markets & Venture Underwriters**<br/><small>VC Syndicates, Hyperscaler Equity & Sovereign Wealth</small><br/>`N_CAPITAL` | 0. Jurisdictional & Regulatory Sphere | economic | **cardinality**: 10^2 Global Mega-Funds & Hyperscaler Treasuries<br/>**financing_role**: Subsidizes CapEx overhang & absorbs initial operating losses<br/>**hurdle_rate**: Demands hyper-scale equity returns ($600B AI Question)<br/>**vsm_tier**: System 5 (Macro Financial Sponsorship)<br/>**nist_function**: GOVERN |
-| **Training Supply Chain**<br/><small>Data Curators, Annotators, Mega-Compute Hubs</small><br/>`N_TRAIN` | 1. Upstream Foundation & Model Lab | economic, technical | **cardinality**: Top 5-10 Global Mega-Campuses<br/>**compute_profile**: Concentrated 50k-100k+ GPU clusters; GW-scale power<br/>**cost_type**: Fixed / Heavy CapEx ($600B Infrastructure Question)<br/>**ip_risk**: Copyright infringement / scraping litigation<br/>**vsm_tier**: System 1 (Upstream Production)<br/>**nist_function**: MAP |
-| **Frontier Foundation Model**<br/><small>Globally Replicated Weights & Inference Fleets</small><br/>`N_FRONTIER` | 1. Upstream Foundation & Model Lab | economic, technical, governance | **cardinality**: Top 5-10 Labs; Replicated across 10^3 Regional Clusters<br/>**compute_profile**: High memory-bandwidth inference clusters; low latency<br/>**sovereignty_gap**: Physical data residency does not equal jurisdictional independence<br/>**eu_ai_act_role**: Provider_GPAI<br/>**pricing_model**: Wholesale Per-Token Usage<br/>**liability_posture**: Disclaimed via ToS ('AS-IS')<br/>**vsm_tier**: System 4 (Probabilistic Intelligence Engine)<br/>**nist_function**: MEASURE |
-| **Platform Absorption Zone**<br/><small>Native Tools, Prompt Cache, Hosted State</small><br/>`N_ABSORBED` | 1. Upstream Foundation & Model Lab | economic, technical | **cardinality**: Top 3-5 Cloud Ecosystems<br/>**market_effect**: Feature commoditization of wrapper ISVs (a16z Stack)<br/>**vsm_tier**: System 4 (Environmental Encroachment) |
-| **Open-Weight Model Commons**<br/><small>Commoditized Weights, Distilled Checkpoints & Local Runtimes</small><br/>`N_OPEN_MODEL` | 1. Upstream Foundation & Model Lab | economic, technical | **cardinality**: 10^2 Viable Open Foundation Checkpoints<br/>**pricing_model**: Zero Marginal License Cost (Commoditized Inference)<br/>**hosting_model**: Raw Compute Lease or On-Premise GPU Fleets<br/>**market_effect**: Deflates proprietary per-token pricing power<br/>**vsm_tier**: System 4 (Commoditized Commons Intelligence)<br/>**nist_function**: MAP |
-| **Specialized AI Application**<br/><small>Vertical Solutions (Legal, Medical, Finance, Ops)</small><br/>`N_ISV_PRODUCT` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | economic, technical | **cardinality**: 10^4 - 10^5 Vertical SaaS Products<br/>**eu_ai_act_role**: Provider_System<br/>**pricing_model**: Per-Seat SaaS / Value-Added Outcome Fee<br/>**margin_exposure**: Squeezed between token costs & platform absorption<br/>**vsm_tier**: System 4 (Operational Domain Intelligence)<br/>**nist_function**: MAP |
-| **Autonomous Agent Runtime (The Harness)**<br/><small>Execution Loop, Planning, Rights & Guardrails</small><br/>`N_HARNESS` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **cardinality**: 10^7 - 10^9 Ephemeral Agent Invocations<br/>**compute_profile**: Lightweight CPU / Orchestration Logic<br/>**iso_42001_role**: AIMS Technical Control Implementation<br/>**duty_of_care**: Caps blast radius, halts unsafe prompts/actions<br/>**coala_role**: Action Execution Engine & Procedural Memory Guard<br/>**anthropic_pattern**: Decoupled Orchestrator-Worker & Gate<br/>**vsm_tier**: System 3 (Internal Operational Control & Stability)<br/>**nist_function**: MANAGE |
-| **Sovereign Audit Ledger**<br/><small>Tamper-Evident WORM State & Forensic Store</small><br/>`N_AUDIT_STORE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance | **cardinality**: 10^4 Enterprise Sovereign Ledgers<br/>**compliance**: Art. 12 Mandatory Logging / Rebuttal of Fault<br/>**sovereignty**: Client / Enterprise Owned<br/>**evidentiary_role**: Black-Box Flight Recorder for Liability Disputes<br/>**vsm_tier**: System 3* (Internal Audit Channel)<br/>**nist_function**: MEASURE |
-| **Observability & Evals Engine**<br/><small>Continuous Evaluation, Traces & Cost Telemetry</small><br/>`N_OBSERVE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | technical, governance, economic | **cardinality**: 10^4 Monitoring Pipelines<br/>**capabilities**: LLM-as-a-judge, OTEL tracing, token telemetry<br/>**vsm_tier**: System 3 (Performance Monitoring & Homeostasis)<br/>**nist_function**: MEASURE |
-| **Enterprise Deployer**<br/><small>Legal Principal & Economic Sponsor</small><br/>`N_ENTERPRISE` | 3. Enterprise Deployer & Principal Domain | economic, governance | **cardinality**: 10^5 Commercial Deployers Globally<br/>**eu_ai_act_role**: Deployer<br/>**liability_posture**: Holds Vicarious & Strict Legal Liability<br/>**roi_hurdle**: High CapEx Recovery Pressure (Sequoia Act Two)<br/>**vsm_tier**: System 5 (Corporate Policy & Ultimate Governance)<br/>**nist_function**: GOVERN |
-| **Enterprise Identity & Auth (IdP)**<br/><small>OAuth, OIDC, Workload IAM & Ephemeral Tokens</small><br/>`N_IDP` | 3. Enterprise Deployer & Principal Domain | technical, governance | **cardinality**: 10^5 Enterprise Directories<br/>**security_role**: Issues scoped actor delegations to agents (A2E)<br/>**vsm_tier**: System 2 (Security Coordination)<br/>**nist_function**: MANAGE |
-| **Enterprise Semantic Knowledge Base**<br/><small>Proprietary Vector DBs, Documents & Embeddings</small><br/>`N_KNOWLEDGE_STORE` | 3. Enterprise Deployer & Principal Domain | technical, governance | **cardinality**: 10^5 Private Knowledge Bases<br/>**coala_memory_type**: Semantic Memory (Factual & Document Knowledge)<br/>**sovereignty**: Enterprise Controlled / Private Boundary<br/>**vsm_tier**: System 1 (Knowledge Asset)<br/>**nist_function**: MAP |
-| **Human Task Delegator & Overseer**<br/><small>End User / Mandatory HITL Supervisor</small><br/>`N_HUMAN_USER` | 3. Enterprise Deployer & Principal Domain | technical, governance | **cardinality**: 10^8 End Users & Operators<br/>**control_mode**: Prompting, Art. 14 Human Oversight, Override<br/>**vsm_tier**: System 5 (Human Intent & Final Agency)<br/>**nist_function**: GOVERN |
-| **Capability & Tool Gateway**<br/><small>Decoupled Tool Broker & Context Provider (MCP)</small><br/>`N_TOOL_GATEWAY` | 4. Target Execution Environment & Blast Radius | technical, governance | **cardinality**: 10^4 - 10^5 Gateway Servers<br/>**protocol_standards**: Model Context Protocol (MCP), OpenAPI, GraphQL (A2T)<br/>**security_role**: Tool discovery, sandbox isolation, scope negotiation<br/>**vsm_tier**: System 2 (Coordination & Oscillation Damping)<br/>**nist_function**: MANAGE |
-| **Target Systems & Operational APIs**<br/><small>Databases, Production ERP, Financial Rails</small><br/>`N_TARGET_SYS` | 4. Target Execution Environment & Blast Radius | technical, governance | **cardinality**: 10^6 Production Systems Globally<br/>**risk_zone**: Direct Causation Blast Radius<br/>**vsm_tier**: System 1 (Real-World Actuation & Operations)<br/>**nist_function**: MANAGE |
-| **Impacted Third Party**<br/><small>Consumers, Employees, Citizens</small><br/>`N_AFFECTED_PARTY` | 4. Target Execution Environment & Blast Radius | governance | **cardinality**: Billions of Impacted Individuals<br/>**eu_ai_act_role**: Affected_Subject<br/>**legal_standing**: Private Right of Action, Tort Plaintiff, Data Subject<br/>**vsm_tier**: External Environment (Ultimate Impact Receptor) |
+| Element | Cluster | Kind | VSM Tier & Recursion | Ashby Variety (Cardinality) | EU AI Act Role |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Market Surveillance Authorities**<br/><small>EU AI Office, FTC, DPAs, Courts</small><br/>`N_REGULATOR` | 0. Jurisdictional, Capital & Regulatory Sphere | `StatutoryAuthority` | `S5_Policy`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^1–10^2 jurisdictions | `Not_Applicable` |
+| **Conformity Body & ISO Auditor**<br/><small>Notified Bodies, ISO/IEC 42001 Certifiers</small><br/>`N_AUDITOR` | 0. Jurisdictional, Capital & Regulatory Sphere | `StatutoryAuthority` | `S3_Star_Audit`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^2–10^3 entities | `Not_Applicable` |
+| **AI Risk Underwriter & Insurer**<br/><small>Algorithmic Liability & Cyber Risk Carrier</small><br/>`N_INSURER` | 0. Jurisdictional, Capital & Regulatory Sphere | `EconomicEntity` | `S3_Control`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^2–10^3 entities | `Not_Applicable` |
+| **Capital Markets & Venture Underwriters**<br/><small>VC Syndicates, Hyperscaler Equity & Sovereign Wealth</small><br/>`N_CAPITAL` | 0. Jurisdictional, Capital & Regulatory Sphere | `EconomicEntity` | `S5_Policy`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^2–10^3 entities | `Not_Applicable` |
+| **Training Supply Chain**<br/><small>Data Curators, Annotators, Mega-Compute Hubs</small><br/>`N_TRAIN` | 1. Upstream Foundation & Model Lab | `EconomicEntity` | `S1_Operations`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^1–10^1.3 clusters | `Not_Applicable` |
+| **Frontier Foundation Model**<br/><small>Globally Replicated Weights & Inference Fleets</small><br/>`N_FRONTIER` | 1. Upstream Foundation & Model Lab | `SoftwareService` | `S1_Operations`<br/><small>Level_n_Enterprise</small> | 10^1–10^1.3 entities | `Provider_GPAI` |
+| **Open-Weight Model Commons**<br/><small>Commoditized Weights, Distilled Checkpoints & Local Runtimes</small><br/>`N_OPEN_MODEL` | 1. Upstream Foundation & Model Lab | `SoftwareService` | `S4_Intelligence`<br/><small>Level_n_Enterprise</small> | 10^2–10^3 instances | `Provider_GPAI` |
+| **Platform Absorption Zone**<br/><small>Native Tools, Prompt Cache, Hosted State</small><br/>`N_ABSORBED` | 1. Upstream Foundation & Model Lab | `EconomicEntity` | `ENVIRONMENT`<br/><small>Level_n_Enterprise</small> | 10^0.5–10^0.8 entities | `Not_Applicable` |
+| **Specialized AI Application**<br/><small>Vertical Solutions (Legal, Medical, Finance, Ops)</small><br/>`N_ISV_PRODUCT` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | `SoftwareService` | `S4_Intelligence`<br/><small>Level_n_Enterprise</small> | 10^4–10^5 instances | `Provider_System` |
+| **Autonomous Agent Runtime (The Harness)**<br/><small>Execution Loop, Planning, Rights & Guardrails</small><br/>`N_HARNESS` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | `DeterministicGate` | `S3_Control`<br/><small>Level_n_Enterprise</small> | 10^7–10^9 invocations_per_year | `Not_Applicable` |
+| **Sovereign Audit Ledger**<br/><small>Tamper-Evident WORM State & Forensic Store</small><br/>`N_AUDIT_STORE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | `StateStore` | `S3_Control`<br/><small>Level_n_Enterprise</small> | 10^4–10^5 instances | `Not_Applicable` |
+| **Observability & Evals Engine**<br/><small>Continuous Evaluation, Traces & Cost Telemetry</small><br/>`N_OBSERVE` | 2. Specialized Product & Harness Domain (ISV / Custom Runtime) | `SoftwareService` | `S3_Star_Audit`<br/><small>Level_n_Enterprise</small> | 10^4–10^5 instances | `Not_Applicable` |
+| **Enterprise Deployer**<br/><small>Legal Principal & Economic Sponsor</small><br/>`N_ENTERPRISE` | 3. Enterprise Deployer & Principal Domain | `EconomicEntity` | `S5_Policy`<br/><small>Level_n_Enterprise</small> | 10^5–10^6 entities | `Deployer` |
+| **Enterprise Identity & Auth (IdP)**<br/><small>OAuth, OIDC, Workload IAM & Ephemeral Tokens</small><br/>`N_IDP` | 3. Enterprise Deployer & Principal Domain | `SecurityAuthority` | `S2_Coordination`<br/><small>Level_n_Enterprise</small> | 10^5–10^6 instances | `Not_Applicable` |
+| **Enterprise Semantic Knowledge Base**<br/><small>Proprietary Vector DBs, Documents & Embeddings</small><br/>`N_KNOWLEDGE_STORE` | 3. Enterprise Deployer & Principal Domain | `StateStore` | `S1_Operations`<br/><small>Level_n_Enterprise</small> | 10^5–10^6 instances | `Not_Applicable` |
+| **Human Task Delegator & Overseer**<br/><small>End User / Mandatory HITL Supervisor</small><br/>`N_HUMAN_USER` | 3. Enterprise Deployer & Principal Domain | `NaturalPerson` | `S5_Policy`<br/><small>Level_n_Enterprise</small> | 10^7–10^8.5 natural_persons | `Deployer` |
+| **Capability & Tool Gateway**<br/><small>Decoupled Tool Broker & Context Provider (MCP)</small><br/>`N_TOOL_GATEWAY` | 4. Target Execution Environment & Blast Radius | `DeterministicGate` | `S2_Coordination`<br/><small>Level_n_Enterprise</small> | 10^4–10^5 instances | `Not_Applicable` |
+| **Target Systems & Operational APIs**<br/><small>Databases, Production ERP, Financial Rails</small><br/>`N_TARGET_SYS` | 4. Target Execution Environment & Blast Radius | `StateStore` | `S1_Operations`<br/><small>Level_n_Enterprise</small> | 10^6–10^7 instances | `Not_Applicable` |
+| **Impacted Third Party**<br/><small>Consumers, Employees, Citizens</small><br/>`N_AFFECTED_PARTY` | 4. Target Execution Environment & Blast Radius | `NaturalPerson` | `ENVIRONMENT`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^9–10^10 natural_persons | `Affected_Subject` |
