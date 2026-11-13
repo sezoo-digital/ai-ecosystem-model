@@ -98,6 +98,8 @@ flowchart TB
     end
 
     subgraph cluster_supply ["1. Upstream Foundation & Model Lab"]
+        N_SILICON_CHOKEPOINT["Leading-Edge Silicon &amp; Lithography<br/><small><i>ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory</i></small>"]:::econ
+        N_ENERGY_GRID["Energy Grids &amp; Power Generation<br/><small><i>Nuclear PPAs, Substation Transformers, Cooling</i></small>"]:::econ
         N_TRAIN["Training Supply Chain<br/><small><i>Data Curators, Annotators, Mega-Compute Hubs</i></small>"]:::econ
         N_FRONTIER("Frontier Foundation Model<br/><small><i>Globally Replicated Weights &amp; Inference Fleets</i></small>"):::gov
         N_OPEN_MODEL("Open-Weight Model Commons<br/><small><i>Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</i></small>"):::econ
@@ -124,6 +126,11 @@ flowchart TB
         N_AFFECTED_PARTY(("Impacted Third Party<br/><small><i>Consumers, Employees, Citizens</i></small>")):::gov
     end
 
+    N_CAPITAL == "$$$ Fab CapEx & Lithography Tool Procurement" ==> N_SILICON_CHOKEPOINT
+    N_CAPITAL == "$$$ Clean Energy PPAs & Grid Upgrades" ==> N_ENERGY_GRID
+    N_REGULATOR == "Export Controls, Entity List & Technology Sanctions" ==> N_SILICON_CHOKEPOINT
+    N_SILICON_CHOKEPOINT -->|"Leading-Edge GPU Allocation & Advanced Packaging (CoWoS)"| N_TRAIN
+    N_ENERGY_GRID -. "Physical GW Power & Transformer Bottleneck" .-> N_TRAIN
     N_CAPITAL == "$$$ Equity Subsidies & Compute Credits" ==> N_FRONTIER
     N_CAPITAL == "$$$ CapEx Infrastructure Project Debt & Equity" ==> N_TRAIN
     N_ENTERPRISE == "$$$ SaaS Subscription / Outcome Fee" ==> N_ISV_PRODUCT
@@ -169,6 +176,8 @@ flowchart TB
 | **Conformity Body & ISO Auditor**<br/><small>Notified Bodies, ISO/IEC 42001 Certifiers</small><br/>`N_AUDITOR` | 0. Jurisdictional, Capital & Regulatory Sphere | `StatutoryAuthority` | `S3_Star_Audit`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^2–10^3 entities | `Not_Applicable` |
 | **AI Risk Underwriter & Insurer**<br/><small>Algorithmic Liability & Cyber Risk Carrier</small><br/>`N_INSURER` | 0. Jurisdictional, Capital & Regulatory Sphere | `EconomicEntity` | `S3_Control`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^2–10^3 entities | `Not_Applicable` |
 | **Capital Markets & Venture Underwriters**<br/><small>VC Syndicates, Hyperscaler Equity & Sovereign Wealth</small><br/>`N_CAPITAL` | 0. Jurisdictional, Capital & Regulatory Sphere | `EconomicEntity` | `S5_Policy`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^2–10^3 entities | `Not_Applicable` |
+| **Leading-Edge Silicon & Lithography**<br/><small>ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory</small><br/>`N_SILICON_CHOKEPOINT` | 1. Upstream Foundation & Model Lab | `EconomicEntity` | `S1_Operations`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^0–10^1 entities | `Not_Applicable` |
+| **Energy Grids & Power Generation**<br/><small>Nuclear PPAs, Substation Transformers, Cooling</small><br/>`N_ENERGY_GRID` | 1. Upstream Foundation & Model Lab | `EconomicEntity` | `S1_Operations`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^2–10^3 entities | `Not_Applicable` |
 | **Training Supply Chain**<br/><small>Data Curators, Annotators, Mega-Compute Hubs</small><br/>`N_TRAIN` | 1. Upstream Foundation & Model Lab | `EconomicEntity` | `S1_Operations`<br/><small>Level_n_plus_1_Jurisdiction</small> | 10^1–10^1.3 clusters | `Not_Applicable` |
 | **Frontier Foundation Model**<br/><small>Globally Replicated Weights & Inference Fleets</small><br/>`N_FRONTIER` | 1. Upstream Foundation & Model Lab | `SoftwareService` | `S1_Operations`<br/><small>Level_n_Enterprise</small> | 10^1–10^1.3 entities | `Provider_GPAI` |
 | **Open-Weight Model Commons**<br/><small>Commoditized Weights, Distilled Checkpoints & Local Runtimes</small><br/>`N_OPEN_MODEL` | 1. Upstream Foundation & Model Lab | `SoftwareService` | `S4_Intelligence`<br/><small>Level_n_Enterprise</small> | 10^2–10^3 instances | `Provider_GPAI` |

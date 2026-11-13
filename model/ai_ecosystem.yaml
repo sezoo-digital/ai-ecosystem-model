@@ -92,6 +92,42 @@ nodes:
   # ===================================================================
   # Cluster 1: Upstream Foundation & Model Lab
   # ===================================================================
+
+  - id: N_SILICON_CHOKEPOINT
+    label: "Leading-Edge Silicon & Lithography"
+    sublabel: "ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory"
+    cluster: cluster_supply
+    domains: [economic, technical]
+    kind: EconomicEntity
+    vsm_system: S1_Operations
+    vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    eu_ai_act_role: Not_Applicable
+    nist_function: MAP
+    cardinality_log10_min: 0.0
+    cardinality_log10_max: 1.0
+    cardinality_unit: entities
+    properties:
+      geopolitical_exposure: "Concentrated in Taiwan Strait & Netherlands; subject to strict US EAR export controls"
+      capex_cycle: "$20B+ per fab; 3-5 year construction lead time"
+
+  - id: N_ENERGY_GRID
+    label: "Energy Grids & Power Generation"
+    sublabel: "Nuclear PPAs, Substation Transformers, Cooling"
+    cluster: cluster_supply
+    domains: [economic, technical]
+    kind: EconomicEntity
+    vsm_system: S1_Operations
+    vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    eu_ai_act_role: Not_Applicable
+    nist_function: MAP
+    cardinality_log10_min: 2.0
+    cardinality_log10_max: 3.0
+    cardinality_unit: entities
+    properties:
+      physical_bottleneck: "Substation transformer lead times of 3-5 years; GW-scale interconnection queues"
+      environmental_impact: "Carbon intensity, baseline grid load, cooling water consumption"
+
+
   - id: N_TRAIN
     label: "Training Supply Chain"
     sublabel: "Data Curators, Annotators, Mega-Compute Hubs"
@@ -351,6 +387,53 @@ edges:
   # ==========================================
   # 1. Economic & Capital Flows
   # ==========================================
+
+  - id: E_CAPITAL_TO_SILICON
+    from: N_CAPITAL
+    to: N_SILICON_CHOKEPOINT
+    label: "$$$ Fab CapEx & Lithography Tool Procurement"
+    domains: [economic]
+    relation_kind: commercial_flow
+    protocol_plane: NONE
+    polarity: positive
+
+  - id: E_CAPITAL_TO_ENERGY
+    from: N_CAPITAL
+    to: N_ENERGY_GRID
+    label: "$$$ Clean Energy PPAs & Grid Upgrades"
+    domains: [economic]
+    relation_kind: commercial_flow
+    protocol_plane: NONE
+    polarity: positive
+
+  - id: E_REG_TO_SILICON_EXPORT
+    from: N_REGULATOR
+    to: N_SILICON_CHOKEPOINT
+    label: "Export Controls, Entity List & Technology Sanctions"
+    domains: [governance]
+    relation_kind: statutory_mandate
+    protocol_plane: NONE
+    polarity: negative
+
+  - id: E_SILICON_TO_TRAIN_ALLOCATION
+    from: N_SILICON_CHOKEPOINT
+    to: N_TRAIN
+    label: "Leading-Edge GPU Allocation & Advanced Packaging (CoWoS)"
+    domains: [economic, technical]
+    relation_kind: data_flow
+    protocol_plane: NONE
+    polarity: positive
+
+  - id: E_ENERGY_TO_TRAIN_CONSTRAINT
+    from: N_ENERGY_GRID
+    to: N_TRAIN
+    label: "Physical GW Power & Transformer Bottleneck"
+    domains: [economic, technical]
+    relation_kind: liability_exposure
+    protocol_plane: NONE
+    polarity: negative
+
+
   - id: E_CAPITAL_TO_FRONTIER
     from: N_CAPITAL
     to: N_FRONTIER

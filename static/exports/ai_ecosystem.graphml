@@ -12,18 +12,22 @@
   <key for="node" id="d_eu_role" attr.name="eu_ai_act_role" attr.type="string"/>
   <key for="node" id="d_nist" attr.name="nist_function" attr.type="string"/>
   <key for="node" id="d_prop_capabilities" attr.name="capabilities" attr.type="string"/>
+  <key for="node" id="d_prop_capex_cycle" attr.name="capex_cycle" attr.type="string"/>
   <key for="node" id="d_prop_coala_memory_type" attr.name="coala_memory_type" attr.type="string"/>
   <key for="node" id="d_prop_compliance" attr.name="compliance" attr.type="string"/>
   <key for="node" id="d_prop_compute_profile" attr.name="compute_profile" attr.type="string"/>
   <key for="node" id="d_prop_control_mode" attr.name="control_mode" attr.type="string"/>
   <key for="node" id="d_prop_cost_type" attr.name="cost_type" attr.type="string"/>
   <key for="node" id="d_prop_enforcement_powers" attr.name="enforcement_powers" attr.type="string"/>
+  <key for="node" id="d_prop_environmental_impact" attr.name="environmental_impact" attr.type="string"/>
   <key for="node" id="d_prop_financing_role" attr.name="financing_role" attr.type="string"/>
+  <key for="node" id="d_prop_geopolitical_exposure" attr.name="geopolitical_exposure" attr.type="string"/>
   <key for="node" id="d_prop_iso_42001_role" attr.name="iso_42001_role" attr.type="string"/>
   <key for="node" id="d_prop_legal_standing" attr.name="legal_standing" attr.type="string"/>
   <key for="node" id="d_prop_liability_posture" attr.name="liability_posture" attr.type="string"/>
   <key for="node" id="d_prop_margin_exposure" attr.name="margin_exposure" attr.type="string"/>
   <key for="node" id="d_prop_market_effect" attr.name="market_effect" attr.type="string"/>
+  <key for="node" id="d_prop_physical_bottleneck" attr.name="physical_bottleneck" attr.type="string"/>
   <key for="node" id="d_prop_pricing_model" attr.name="pricing_model" attr.type="string"/>
   <key for="node" id="d_prop_risk_zone" attr.name="risk_zone" attr.type="string"/>
   <key for="node" id="d_prop_role" attr.name="role" attr.type="string"/>
@@ -149,6 +153,48 @@
         </y:ProxyAutoBoundsNode>
       </data>
       <graph id="cluster_supply:" edgedefault="directed">
+        <node id="N_SILICON_CHOKEPOINT">
+          <data key="d_cluster">cluster_supply</data>
+          <data key="d_domains">economic, technical</data>
+          <data key="d_kind">EconomicEntity</data>
+          <data key="d_sublabel">ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory</data>
+          <data key="d_vsm">S1_Operations</data>
+          <data key="d_eu_role">Not_Applicable</data>
+          <data key="d_nist">MAP</data>
+          <data key="d_prop_capex_cycle">$20B+ per fab; 3-5 year construction lead time</data>
+          <data key="d_prop_geopolitical_exposure">Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#F6FFED" transparent="false"/>
+              <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Leading-Edge Silicon &amp; Lithography
+(ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory)</y:NodeLabel>
+              <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_ENERGY_GRID">
+          <data key="d_cluster">cluster_supply</data>
+          <data key="d_domains">economic, technical</data>
+          <data key="d_kind">EconomicEntity</data>
+          <data key="d_sublabel">Nuclear PPAs, Substation Transformers, Cooling</data>
+          <data key="d_vsm">S1_Operations</data>
+          <data key="d_eu_role">Not_Applicable</data>
+          <data key="d_nist">MAP</data>
+          <data key="d_prop_environmental_impact">Carbon intensity, baseline grid load, cooling water consumption</data>
+          <data key="d_prop_physical_bottleneck">Substation transformer lead times of 3-5 years; GW-scale interconnection queues</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#F6FFED" transparent="false"/>
+              <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Energy Grids &amp; Power Generation
+(Nuclear PPAs, Substation Transformers, Cooling)</y:NodeLabel>
+              <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
         <node id="N_TRAIN">
           <data key="d_cluster">cluster_supply</data>
           <data key="d_domains">economic, technical</data>
@@ -508,6 +554,76 @@
         </node>
       </graph>
     </node>
+    <edge id="E_CAPITAL_TO_SILICON" source="N_CAPITAL" target="N_SILICON_CHOKEPOINT">
+      <data key="d_edge_id">E_CAPITAL_TO_SILICON</data>
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_relation_kind">commercial_flow</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#16A34A" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">$$$ Fab CapEx &amp; Lithography Tool Procurement</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_CAPITAL_TO_ENERGY" source="N_CAPITAL" target="N_ENERGY_GRID">
+      <data key="d_edge_id">E_CAPITAL_TO_ENERGY</data>
+      <data key="d_edge_domains">economic</data>
+      <data key="d_edge_relation_kind">commercial_flow</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#16A34A" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">$$$ Clean Energy PPAs &amp; Grid Upgrades</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_REG_TO_SILICON_EXPORT" source="N_REGULATOR" target="N_SILICON_CHOKEPOINT">
+      <data key="d_edge_id">E_REG_TO_SILICON_EXPORT</data>
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_relation_kind">statutory_mandate</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#722ED1" type="line" width="3.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Export Controls, Entity List &amp; Technology Sanctions</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_SILICON_TO_TRAIN_ALLOCATION" source="N_SILICON_CHOKEPOINT" target="N_TRAIN">
+      <data key="d_edge_id">E_SILICON_TO_TRAIN_ALLOCATION</data>
+      <data key="d_edge_domains">economic, technical</data>
+      <data key="d_edge_relation_kind">data_flow</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_ENERGY_TO_TRAIN_CONSTRAINT" source="N_ENERGY_GRID" target="N_TRAIN">
+      <data key="d_edge_id">E_ENERGY_TO_TRAIN_CONSTRAINT</data>
+      <data key="d_edge_domains">economic, technical</data>
+      <data key="d_edge_relation_kind">liability_exposure</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Physical GW Power &amp; Transformer Bottleneck</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
     <edge id="E_CAPITAL_TO_FRONTIER" source="N_CAPITAL" target="N_FRONTIER">
       <data key="d_edge_id">E_CAPITAL_TO_FRONTIER</data>
       <data key="d_edge_domains">economic</data>

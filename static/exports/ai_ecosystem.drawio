@@ -28,26 +28,36 @@
           </mxCell>
         </object>
         <mxCell id="master_view_cluster_supply" value="1. Upstream Foundation &amp; Model Lab" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="360" y="40" width="280" height="540" as="geometry"/>
+          <mxGeometry x="360" y="40" width="280" height="770" as="geometry"/>
         </mxCell>
-        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
+        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
+            <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
+            <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
         <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
-            <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_GPAI" nist_function="MAP" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
-            <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
-            <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="600" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="master_view_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
@@ -114,6 +124,21 @@
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
+        <mxCell id="E_CAPITAL_TO_SILICON" value="$$$ Fab CapEx &amp; Lithography Tool Procurement" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_SILICON_CHOKEPOINT" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_CAPITAL_TO_ENERGY" value="$$$ Clean Energy PPAs &amp; Grid Upgrades" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_ENERGY_GRID" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_REG_TO_SILICON_EXPORT" value="Export Controls, Entity List &amp; Technology Sanctions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_SILICON_CHOKEPOINT" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
         <mxCell id="E_CAPITAL_TO_FRONTIER" value="$$$ Equity Subsidies &amp; Compute Credits" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_FRONTIER" parent="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -241,26 +266,36 @@
           </mxCell>
         </object>
         <mxCell id="view_economic_cluster_supply" value="1. Upstream Foundation &amp; Model Lab" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="360" y="40" width="280" height="540" as="geometry"/>
+          <mxGeometry x="360" y="40" width="280" height="770" as="geometry"/>
         </mxCell>
-        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
+        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
+            <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
+            <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
         <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
-            <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_GPAI" nist_function="MAP" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
-            <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
-            <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="600" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="view_economic_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
@@ -284,6 +319,18 @@
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
+        <mxCell id="E_CAPITAL_TO_SILICON" value="$$$ Fab CapEx &amp; Lithography Tool Procurement" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_SILICON_CHOKEPOINT" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_CAPITAL_TO_ENERGY" value="$$$ Clean Energy PPAs &amp; Grid Upgrades" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_ENERGY_GRID" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
         <mxCell id="E_CAPITAL_TO_FRONTIER" value="$$$ Equity Subsidies &amp; Compute Credits" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_FRONTIER" parent="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -464,26 +511,36 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
         <mxCell id="view_technical_cluster_supply" value="1. Upstream Foundation &amp; Model Lab" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="280" height="540" as="geometry"/>
+          <mxGeometry x="40" y="40" width="280" height="770" as="geometry"/>
         </mxCell>
-        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
+        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
+            <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
+            <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
         <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
-            <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_GPAI" nist_function="MAP" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
-            <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
-            <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
+            <mxGeometry x="30" y="600" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="view_technical_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
@@ -540,6 +597,12 @@
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
+        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
         <mxCell id="E_TRAIN_TO_OPEN_MODEL" value="Sunk-Cost Open Weights Release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TRAIN" target="N_OPEN_MODEL" parent="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>

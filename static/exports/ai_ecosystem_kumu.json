@@ -66,6 +66,42 @@
       "Financing Role": "Subsidizes CapEx overhang & absorbs initial operating losses"
     },
     {
+      "id": "N_SILICON_CHOKEPOINT",
+      "label": "Leading-Edge Silicon & Lithography",
+      "type": "Economic",
+      "description": "ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "Kind": "EconomicEntity",
+      "VSM System": "S1_Operations",
+      "EU AI Act Role": "Not_Applicable",
+      "NIST Function": "MAP",
+      "Cluster": "1. Upstream Foundation & Model Lab",
+      "Cluster ID": "cluster_supply",
+      "Geopolitical Exposure": "Concentrated in Taiwan Strait & Netherlands; subject to strict US EAR export controls",
+      "Capex Cycle": "$20B+ per fab; 3-5 year construction lead time"
+    },
+    {
+      "id": "N_ENERGY_GRID",
+      "label": "Energy Grids & Power Generation",
+      "type": "Economic",
+      "description": "Nuclear PPAs, Substation Transformers, Cooling",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "Kind": "EconomicEntity",
+      "VSM System": "S1_Operations",
+      "EU AI Act Role": "Not_Applicable",
+      "NIST Function": "MAP",
+      "Cluster": "1. Upstream Foundation & Model Lab",
+      "Cluster ID": "cluster_supply",
+      "Physical Bottleneck": "Substation transformer lead times of 3-5 years; GW-scale interconnection queues",
+      "Environmental Impact": "Carbon intensity, baseline grid load, cooling water consumption"
+    },
+    {
       "id": "N_TRAIN",
       "label": "Training Supply Chain",
       "type": "Economic",
@@ -326,6 +362,78 @@
     }
   ],
   "connections": [
+    {
+      "id": "E_CAPITAL_TO_SILICON",
+      "from": "N_CAPITAL",
+      "to": "N_SILICON_CHOKEPOINT",
+      "label": "$$$ Fab CapEx & Lithography Tool Procurement",
+      "type": "commercial_flow",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "Protocol Plane": "NONE",
+      "Polarity": "positive",
+      "description": "Kind: commercial_flow | Protocol: NONE | Polarity: positive"
+    },
+    {
+      "id": "E_CAPITAL_TO_ENERGY",
+      "from": "N_CAPITAL",
+      "to": "N_ENERGY_GRID",
+      "label": "$$$ Clean Energy PPAs & Grid Upgrades",
+      "type": "commercial_flow",
+      "direction": "directed",
+      "tags": [
+        "economic"
+      ],
+      "Protocol Plane": "NONE",
+      "Polarity": "positive",
+      "description": "Kind: commercial_flow | Protocol: NONE | Polarity: positive"
+    },
+    {
+      "id": "E_REG_TO_SILICON_EXPORT",
+      "from": "N_REGULATOR",
+      "to": "N_SILICON_CHOKEPOINT",
+      "label": "Export Controls, Entity List & Technology Sanctions",
+      "type": "statutory_mandate",
+      "direction": "directed",
+      "tags": [
+        "governance"
+      ],
+      "Protocol Plane": "NONE",
+      "Polarity": "negative",
+      "description": "Kind: statutory_mandate | Protocol: NONE | Polarity: negative"
+    },
+    {
+      "id": "E_SILICON_TO_TRAIN_ALLOCATION",
+      "from": "N_SILICON_CHOKEPOINT",
+      "to": "N_TRAIN",
+      "label": "Leading-Edge GPU Allocation & Advanced Packaging (CoWoS)",
+      "type": "data_flow",
+      "direction": "directed",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "Protocol Plane": "NONE",
+      "Polarity": "positive",
+      "description": "Kind: data_flow | Protocol: NONE | Polarity: positive"
+    },
+    {
+      "id": "E_ENERGY_TO_TRAIN_CONSTRAINT",
+      "from": "N_ENERGY_GRID",
+      "to": "N_TRAIN",
+      "label": "Physical GW Power & Transformer Bottleneck",
+      "type": "liability_exposure",
+      "direction": "directed",
+      "tags": [
+        "economic",
+        "technical"
+      ],
+      "Protocol Plane": "NONE",
+      "Polarity": "negative",
+      "description": "Kind: liability_exposure | Protocol: NONE | Polarity: negative"
+    },
     {
       "id": "E_CAPITAL_TO_FRONTIER",
       "from": "N_CAPITAL",
