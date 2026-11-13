@@ -132,13 +132,7 @@ The entire $600B global AI capital cycle rests on a needlepoint of single-digit 
 
 ### 2. The Silicon Chokepoint — N_SILICON_CHOKEPOINT
 
-- **Single Point of Failure (Lithography):** All leading-edge training and inference silicon (
-  
-  ```
-  <5nm
-  ```
-  
-  ) relies on Extreme Ultraviolet (EUV) photolithography machines produced by a single company in Veldhoven, Netherlands (**ASML**).
+- **Single Point of Failure (Lithography):** All leading-edge training and inference silicon (<5nm) relies on Extreme Ultraviolet (EUV) photolithography machines produced by a single company in Veldhoven, Netherlands (**ASML**).
 
 - **Single Point of Failure (Foundry & Packaging):** Over 90% of advanced AI accelerators are fabricated and packaged using proprietary chip-on-wafer-on-substrate (CoWoS) technology by **TSMC in Hsinchu and Tainan, Taiwan**.
 
@@ -152,13 +146,7 @@ The entire $600B global AI capital cycle rests on a needlepoint of single-digit 
   
   - Utility interconnection queue approvals: **4–7 years in PJM, ERCOT, and European grids**.
 
-- **The Nuclear & Clean Power Shift:** Because training runs of
-  
-  ```
-  1026−1027
-  ```
-  
-  FLOPs require 100MW–1GW of continuous, non-intermittent baseline power, hyperscalers are bypassing public utility auctions by executing long-term private Power Purchase Agreements (PPAs) with dedicated nuclear plants and small modular reactor (SMR) developers.
+- **The Nuclear & Clean Power Shift:** Because training runs of 10<sup>26</sup> to 10<sup>27</sup> FLOPs require 100MW–1GW of continuous, non-intermittent baseline power, hyperscalers are bypassing public utility auctions by executing long-term private Power Purchase Agreements (PPAs) with dedicated nuclear plants and small modular reactor (SMR) developers.
 
 - **Negative Feedback Polarity:** The relationship E_ENERGY_TO_TRAIN_CONSTRAINT carries a **negative (-) polarity**: as compute cluster demand accelerates, local grid capacity acts as a dampening feedback loop that halts physical construction regardless of available financial capital (N_CAPITAL).
 
