@@ -45,7 +45,7 @@ highlight_mode: dim_others
 In the AI governance architecture, technical standards and third-party conformity certifications serve as an indispensable **cybernetic variety filter**, but an incomplete **operational safety mechanism**.
 
 The model reveals an acute **Compliance Paradox**:
-1. **Macro Success (Variety Attenuation):** Standards organizations (`N_STANDARDS_BODY`) and conformity auditors (`N_AUDITOR`) solve Ashby's variety problem. Without them, statutory authorities ($10^1$ jurisdictions) could never supervise $10^5$ commercial deployers and $10^9$ annual agent invocations.
+1. **Macro Success (Variety Attenuation):** Standards organizations (`N_STANDARDS_BODY`) and conformity auditors (`N_AUDITOR`) solve Ashby's variety problem. Without them, statutory authorities (10<sup>1</sup> jurisdictions) could never supervise 10<sup>5</sup> commercial deployers and 10<sup>9</sup> annual agent invocations.
 2. **Runtime Failure (The Temporal Gap):** Certifications (such as ISO/IEC 42001 or CE conformity assessments) are **static, point-in-time snapshot audits (VSM System 3\*)**. Because systemic AI risk is non-deterministic, emergent, and driven by runtime tool actuation, an enterprise deployer (`N_ENTERPRISE`) can maintain a flawless certification posture while operating autonomous loops that trigger severe real-world harm.
 
 Standards and certifications establish essential governance hygiene and unlock market insurability, but they do not substitute for live, independent behavioral telemetry and runtime circuit breakers.

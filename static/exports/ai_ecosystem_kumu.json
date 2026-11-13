@@ -932,6 +932,23 @@
       "description": "Kind: liability_exposure | Protocol: NONE | Polarity: negative"
     },
     {
+      "id": "E_AFFECTED_TO_ENT_CHURN",
+      "from": "N_AFFECTED_PARTY",
+      "to": "N_ENTERPRISE",
+      "label": "Market Resistance, Consumer Churn & Social License Revocation",
+      "type": "liability_exposure",
+      "direction": "directed",
+      "tags": [
+        "economic",
+        "governance"
+      ],
+      "Protocol Plane": "NONE",
+      "Polarity": "negative",
+      "description": "Kind: liability_exposure | Protocol: NONE | Polarity: negative",
+      "Power Asymmetry": "buyer_dominant",
+      "Switching Cost": "low"
+    },
+    {
       "id": "E_OBSERVE_S3_STAR_PROBE",
       "from": "N_OBSERVE",
       "to": "N_TARGET_SYS",

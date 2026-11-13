@@ -168,6 +168,7 @@ flowchart TB
     N_AUDIT_STORE -->|"Forensic Evidence for Compliance Verification"| N_AUDITOR
     N_HARNESS -. "Enforces Least-Privilege Scopes (VSM 3 to 2)" .-> N_TOOL_GATEWAY
     N_TARGET_SYS -. "Direct Impact & Real-World Blast Radius" .-> N_AFFECTED_PARTY
+    N_AFFECTED_PARTY -. "Market Resistance, Consumer Churn & Social License Revocation" .-> N_ENTERPRISE
     N_OBSERVE -. "VSM S3* Independent Behavioral Probe & Red-Teaming" .-> N_TARGET_SYS
     N_TARGET_SYS == "🚨 VSM Algedonic Alarm (Direct S1 to S5 Circuit Breaker)" ==> N_ENTERPRISE
     N_HUMAN_USER -->|"Prompt Intent & Working Context"| N_ISV_PRODUCT

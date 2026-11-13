@@ -1218,6 +1218,22 @@
         </y:PolyLineEdge>
       </data>
     </edge>
+    <edge id="E_AFFECTED_TO_ENT_CHURN" source="N_AFFECTED_PARTY" target="N_ENTERPRISE">
+      <data key="d_edge_id">E_AFFECTED_TO_ENT_CHURN</data>
+      <data key="d_edge_domains">economic, governance</data>
+      <data key="d_edge_relation_kind">liability_exposure</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym">buyer_dominant</data>
+      <data key="d_edge_scost">low</data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Market Resistance, Consumer Churn &amp; Social License Revocation</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
     <edge id="E_OBSERVE_S3_STAR_PROBE" source="N_OBSERVE" target="N_TARGET_SYS">
       <data key="d_edge_id">E_OBSERVE_S3_STAR_PROBE</data>
       <data key="d_edge_domains">governance, technical</data>

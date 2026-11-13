@@ -227,6 +227,9 @@
         <mxCell id="E_TARGET_BLAST_AFFECTED" value="Direct Impact &amp; Real-World Blast Radius" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_TARGET_SYS" target="N_AFFECTED_PARTY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
+        <mxCell id="E_AFFECTED_TO_ENT_CHURN" value="Market Resistance, Consumer Churn &amp; Social License Revocation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_AFFECTED_PARTY" target="N_ENTERPRISE" parent="1" power_asymmetry="buyer_dominant" switching_cost="low" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
         <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -538,6 +541,9 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
         <mxCell id="E_TARGET_BLAST_AFFECTED" value="Direct Impact &amp; Real-World Blast Radius" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_TARGET_SYS" target="N_AFFECTED_PARTY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_AFFECTED_TO_ENT_CHURN" value="Market Resistance, Consumer Churn &amp; Social License Revocation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_AFFECTED_PARTY" target="N_ENTERPRISE" parent="1" power_asymmetry="buyer_dominant" switching_cost="low" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
         <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
