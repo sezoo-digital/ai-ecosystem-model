@@ -750,6 +750,17 @@ edges:
     protocol_plane: NONE
     polarity: negative
 
+  - id: E_AFFECTED_TO_ENT_CHURN
+    from: N_AFFECTED_PARTY
+    to: N_ENTERPRISE
+    label: "Market Resistance, Consumer Churn & Social License Revocation"
+    domains: [economic, governance]
+    relation_kind: liability_exposure
+    protocol_plane: NONE
+    polarity: negative
+    power_asymmetry: buyer_dominant
+    switching_cost: low
+
   # ===================================================================
   # 4. Cybernetic Control Channels (VSM S3* Audit & Algedonic Alarm)
   # ===================================================================
