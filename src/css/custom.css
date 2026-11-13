@@ -1,8 +1,7 @@
 /* src/css/custom.css */
 
 :root {
-  /* --- 1. BRAND VARIABLES (New) --- */
-  /* Define these once so you can use them in React/JS components */
+  /* --- 1. BRAND VARIABLES --- */
   --sezoo-brand-blue: #00B2E3;
   --sezoo-brand-green: #80bc00;
   --sezoo-dark-navy: #1c1f2a;
@@ -10,12 +9,8 @@
   --sezoo-light-yellow: #eddb00;
   --sezoo-light-orange: #E04512;
   --sezoo-rubine-red: #d50057;
-  
-
 
   /* --- 2. PRIMARY COLOR PALETTE (Light Mode) --- */
-  /* Currently set to Dark Navy. 
-     Note: This means "button--primary" will be Navy in light mode. */
   --ifm-color-primary: #1c1f2a;
   --ifm-color-primary-dark: #191c26;
   --ifm-color-primary-darker: #181a24;
@@ -35,7 +30,7 @@
   /* --- 5. CUSTOM THEME VARS --- */
   --sezoo-particle-color: #49516d; 
   --sezoo-accent-color: #d50057;   
-  --sezoo-heading-color: var(--sezoo-brand-green); /* Fixed syntax error */
+  --sezoo-heading-color: var(--sezoo-brand-green);
 }
 
 /* --- DARK MODE OVERRIDES --- */
@@ -59,7 +54,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
   /* Heading Color */
-  --sezoo-heading-color: var(--sezoo-brand-green); /* Fixed syntax error */
+  --sezoo-heading-color: var(--sezoo-brand-green);
 }
 
 /* --- TYPOGRAPHY --- */
@@ -74,9 +69,7 @@ strong, b {
   font-weight: 700;
 }
 
-/* Apply the variable to all headings globally */
-/* Note: This forces ALL headings to Green. 
-   If you want Blue headings on the home page, you will need to override this there. */
+/* Apply heading variable globally */
 h1, h2, h3, h4, h5, h6 {
   color: var(--sezoo-heading-color);
 }
@@ -99,7 +92,7 @@ h2 {
 .navbar {
   height: var(--ifm-navbar-height);
   position: relative; 
-  z-index: 100; /* Lift above animation */
+  z-index: 100;
 }
 
 .navbar__inner {
@@ -132,14 +125,12 @@ h2 {
 
 /* --- LAYOUT FIXES --- */
 
-/* Lift main content above animation */
 #__docusaurus > div[id^="skip-to-content"] {
   position: relative;
   z-index: 50;
 }
 
-/* --- UTILITY CLASSES (New) --- */
-/* Use this in your React components instead of inline styles! */
+/* --- UTILITY CLASSES --- */
 .text--brand-blue {
     color: var(--sezoo-brand-blue) !important;
 }
@@ -152,11 +143,113 @@ h2 {
     display: none !important;
   }
   
-  /* Optional: Make the download button look more like a primary action on mobile */
   .pdf-viewer .button {
     width: 100%;
     justify-content: center;
     margin-top: 1rem;
     padding: 1rem;
   }
+}
+
+/* ===================================================================
+   MERMAID DIAGRAM THEME TUNING (DOCUSAURUS V3 DARK MODE)
+   =================================================================== */
+
+/* Container card for diagrams in dark mode */
+[data-theme='dark'] .docusaurus-mermaid-container {
+  background-color: #14161d !important;
+  padding: 1.5rem !important;
+  border-radius: 8px !important;
+  border: 1px solid #282d3c !important;
+  margin-bottom: 2rem !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container svg {
+  background-color: transparent !important;
+}
+
+/* 1. Force all Edge Lines and Connectors to be high-contrast light slate */
+[data-theme='dark'] .docusaurus-mermaid-container svg .edgePath path,
+[data-theme='dark'] .docusaurus-mermaid-container svg .flowchart-link,
+[data-theme='dark'] .docusaurus-mermaid-container svg path.link {
+  stroke: #cbd5e1 !important;
+}
+
+/* Force Arrowheads to match */
+[data-theme='dark'] .docusaurus-mermaid-container svg marker path,
+[data-theme='dark'] .docusaurus-mermaid-container svg .marker {
+  fill: #cbd5e1 !important;
+  stroke: #cbd5e1 !important;
+}
+
+/* 2. Edge label boxes: dark background pill with readable white text */
+[data-theme='dark'] .docusaurus-mermaid-container svg .edgeLabel {
+  background-color: #14161d !important;
+  color: #f8fafc !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container svg .edgeLabel rect {
+  fill: #14161d !important;
+  opacity: 0.95 !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container svg .edgeLabel span,
+[data-theme='dark'] .docusaurus-mermaid-container svg .edgeLabel foreignObject div {
+  color: #f8fafc !important;
+  font-weight: 500 !important;
+}
+
+/* ===================================================================
+   3. HIGH-CONTRAST TEXT INSIDE ACTIVE PASTEL BOXES
+   Forces all text (HTML & SVG) inside active nodes to deep dark ink
+   =================================================================== */
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) *,
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) text,
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) tspan,
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) span,
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) small,
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) i,
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) b {
+  color: #090d16 !important;        /* Deep ink black for HTML labels */
+  fill: #090d16 !important;         /* Deep ink black for SVG text/tspan */
+  stroke: none !important;
+  font-weight: 500 !important;
+}
+
+/* Ensure strong/bold titles inside nodes pop */
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) b,
+[data-theme='dark'] .docusaurus-mermaid-container svg .node:not(.dim) strong {
+  font-weight: 700 !important;
+}
+
+/* ===================================================================
+   4. DIMMED NODES (Subdued & Faded)
+   =================================================================== */
+[data-theme='dark'] .docusaurus-mermaid-container svg .dim rect,
+[data-theme='dark'] .docusaurus-mermaid-container svg .dim circle,
+[data-theme='dark'] .docusaurus-mermaid-container svg .dim polygon {
+  fill: #1f2430 !important;
+  stroke: #333a4d !important;
+  opacity: 0.45 !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container svg .dim *,
+[data-theme='dark'] .docusaurus-mermaid-container svg .dim text,
+[data-theme='dark'] .docusaurus-mermaid-container svg .dim tspan,
+[data-theme='dark'] .docusaurus-mermaid-container svg .dim span {
+  color: #64748b !important;
+  fill: #64748b !important;
+}
+
+/* 5. Subgraph / Cluster boundary boxes in dark mode */
+[data-theme='dark'] .docusaurus-mermaid-container svg .cluster rect {
+  fill: #1c1f2a !important;
+  stroke: #334155 !important;
+  stroke-dasharray: 4 4 !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container svg .cluster span,
+[data-theme='dark'] .docusaurus-mermaid-container svg .cluster foreignObject div {
+  color: var(--sezoo-brand-blue) !important;
+  font-weight: 600 !important;
 }
