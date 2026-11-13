@@ -2,7 +2,7 @@ id: https://w3id.org/ai-ecosystem/schema
 name: ai_ecosystem_schema
 title: AI Ecosystem Metamodel Specification
 description: Formal schema defining nodes, edges, clusters, regulatory roles, cybernetic systems, and protocol planes.
-version: "2.1.0"
+version: "2.2.0"
 
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -56,6 +56,7 @@ classes:
       - kind
       - vsm_system
       - vsm_recursion_level
+      - jurisdiction
       - eu_ai_act_role
       - nist_function
       - cardinality_log10_min
@@ -79,12 +80,15 @@ classes:
       vsm_recursion_level:
         range: VSMRecursionLevelEnum
         required: true
+      jurisdiction:
+        range: JurisdictionEnum
+        required: false
       eu_ai_act_role:
         range: EuAiActRoleEnum
-        required: true
+        required: false
       nist_function:
         range: NistRmfFunctionEnum
-        required: true
+        required: false
       cardinality_log10_min:
         range: float
         required: true
@@ -106,6 +110,8 @@ classes:
       - relation_kind
       - protocol_plane
       - polarity
+      - power_asymmetry
+      - switching_cost
     slot_usage:
       id:
         required: true
@@ -128,6 +134,12 @@ classes:
       polarity:
         range: PolarityEnum
         required: true
+      power_asymmetry:
+        range: PowerAsymmetryEnum
+        required: false
+      switching_cost:
+        range: SwitchingCostEnum
+        required: false
 
   View:
     description: "Queryable lens projecting a slice of the property graph."
@@ -182,6 +194,8 @@ slots:
     range: VSMSystemEnum
   vsm_recursion_level:
     range: VSMRecursionLevelEnum
+  jurisdiction:
+    range: JurisdictionEnum
   eu_ai_act_role:
     range: EuAiActRoleEnum
   nist_function:
@@ -198,6 +212,10 @@ slots:
     range: ProtocolPlaneEnum
   polarity:
     range: PolarityEnum
+  power_asymmetry:
+    range: PowerAsymmetryEnum
+  switching_cost:
+    range: SwitchingCostEnum
   metadata:
     range: Metadata
     inlined: true
@@ -244,6 +262,10 @@ enums:
     permissible_values:
       StatutoryAuthority:
         description: "Regulators, court systems, market surveillance."
+      StandardsConsortium:
+        description: "International standards setting organizations, technical committees (ISO/IEC JTC 1/SC 42, IEEE, W3C, CEN-CENELEC)."
+      ForesightInstitute:
+        description: "National AI Safety Institutes (US/UK/Japan AISI), frontier red-team evaluators, horizon-scanning bodies."
       NaturalPerson:
         description: "Human delegators, operators, impacted citizens."
       DeterministicGate:
@@ -255,7 +277,7 @@ enums:
       SoftwareService:
         description: "Foundation model endpoints, vertical SaaS."
       EconomicEntity:
-        description: "Commercial deployers, compute hubs, insurers."
+        description: "Commercial deployers, compute hubs, insurers, utility operators."
 
   VSMSystemEnum:
     permissible_values:
@@ -268,7 +290,7 @@ enums:
       S3_Star_Audit:
         description: "System 3*: Sporadic, independent audit and red-teaming."
       S4_Intelligence:
-        description: "System 4: Environmental scanning and horizon strategy."
+        description: "System 4: Environmental scanning, foresight, and horizon strategy."
       S5_Policy:
         description: "System 5: Ultimate policy and identity closure."
       ENVIRONMENT:
@@ -282,6 +304,21 @@ enums:
         description: "Recursion Level n+1: The societal, statutory, and macro-financial meta-system."
       Level_n_minus_1_Component:
         description: "Recursion Level n-1: Internal micro-components within an agent runtime."
+
+  JurisdictionEnum:
+    permissible_values:
+      Global:
+        description: "Transnational / global consensus or market space"
+      EU:
+        description: "European Union legal framework"
+      US:
+        description: "United States federal and state jurisdictions"
+      UK:
+        description: "United Kingdom regulatory framework"
+      APAC:
+        description: "Asia-Pacific legal frameworks (Australia, Singapore, Japan)"
+      Multi_Jurisdictional:
+        description: "Cross-border operational footprint"
 
   CardinalityUnitEnum:
     permissible_values:
@@ -356,6 +393,28 @@ enums:
         description: "Dampening edge: bounds or drains state of target."
       neutral:
         description: "Transactional or state transfer without dynamic sign."
+
+  PowerAsymmetryEnum:
+    permissible_values:
+      supplier_dominant:
+        description: "Supplier dictates terms, access, and pricing (seller's market)."
+      buyer_dominant:
+        description: "Buyer dictates terms and performance specifications (buyer's market)."
+      balanced:
+        description: "Bilateral bargaining parity between commercial parties."
+      captive:
+        description: "Target is structurally captive with near-zero alternative suppliers."
+
+  SwitchingCostEnum:
+    permissible_values:
+      prohibitive:
+        description: "Switching involves complete architectural, physical, or legal refactoring."
+      high:
+        description: "Switching requires significant data migration, re-indexing, or prompt re-tuning."
+      moderate:
+        description: "Standard multi-cloud or modular API adaptation effort."
+      low:
+        description: "Commoditized drop-in replacement (e.g. OpenAI-compatible endpoints)."
 
   DirectionEnum:
     permissible_values:

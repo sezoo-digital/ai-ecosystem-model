@@ -4,8 +4,8 @@ yEd GraphML Exporter for AI Ecosystem Model.
 Outputs: static/exports/ai_ecosystem.graphml
 Preserves:
   - yFiles group nodes for clusters
-  - Ontological node kinds and custom property keys
-  - Edge relation kinds, protocol planes, and polarity
+  - Ontological node kinds, VSM recursion, Ashby variety, and jurisdiction
+  - Edge relation kinds, protocol planes, polarity, power asymmetry, and switching costs
 """
 
 import sys
@@ -35,12 +35,12 @@ def get_yed_node_colors(domains):
     return "#F8FAFC", "#64748B"
 
 def get_yed_edge_style(relation_kind):
+    if relation_kind == "algedonic_signal": return "#B91C1C", "line", "4.0"
     if relation_kind == "commercial_flow": return "#16A34A", "line", "3.0"
     if relation_kind == "statutory_mandate": return "#722ED1", "line", "3.0"
     if relation_kind in ["liability_exposure", "contractual_term"]: return "#DC2626", "dashed", "2.0"
     if relation_kind == "governance_control": return "#E11D48", "dashed", "2.0"
     if relation_kind == "protocol_call": return "#2563EB", "line", "2.0"
-    if relation_kind == "algedonic_signal": return "#B91C1C", "line", "4.0"
     return "#64748B", "line", "1.5"
 
 def main():
@@ -74,8 +74,13 @@ def main():
         '  <key for="node" id="d_kind" attr.name="kind" attr.type="string"/>',
         '  <key for="node" id="d_sublabel" attr.name="sublabel" attr.type="string"/>',
         '  <key for="node" id="d_vsm" attr.name="vsm_system" attr.type="string"/>',
+        '  <key for="node" id="d_vsm_rec" attr.name="vsm_recursion_level" attr.type="string"/>',
+        '  <key for="node" id="d_jurisdiction" attr.name="jurisdiction" attr.type="string"/>',
         '  <key for="node" id="d_eu_role" attr.name="eu_ai_act_role" attr.type="string"/>',
         '  <key for="node" id="d_nist" attr.name="nist_function" attr.type="string"/>',
+        '  <key for="node" id="d_card_min" attr.name="cardinality_log10_min" attr.type="string"/>',
+        '  <key for="node" id="d_card_max" attr.name="cardinality_log10_max" attr.type="string"/>',
+        '  <key for="node" id="d_card_unit" attr.name="cardinality_unit" attr.type="string"/>',
     ]
 
     for pk in sorted_prop_keys:
@@ -87,6 +92,8 @@ def main():
         '  <key for="edge" id="d_edge_relation_kind" attr.name="relation_kind" attr.type="string"/>',
         '  <key for="edge" id="d_edge_protocol_plane" attr.name="protocol_plane" attr.type="string"/>',
         '  <key for="edge" id="d_edge_polarity" attr.name="polarity" attr.type="string"/>',
+        '  <key for="edge" id="d_edge_asym" attr.name="power_asymmetry" attr.type="string"/>',
+        '  <key for="edge" id="d_edge_scost" attr.name="switching_cost" attr.type="string"/>',
         '  <graph id="G" edgedefault="directed">'
     ])
 
@@ -131,9 +138,14 @@ def main():
             xml.append(f'          <data key="d_domains">{html.escape(domains_str)}</data>')
             xml.append(f'          <data key="d_kind">{html.escape(kind)}</data>')
             xml.append(f'          <data key="d_sublabel">{sub}</data>')
-            xml.append(f'          <data key="d_vsm">{html.escape(n.get("vsm_system", ""))}</data>')
-            xml.append(f'          <data key="d_eu_role">{html.escape(n.get("eu_ai_act_role", ""))}</data>')
-            xml.append(f'          <data key="d_nist">{html.escape(n.get("nist_function", ""))}</data>')
+            xml.append(f'          <data key="d_vsm">{html.escape(str(n.get("vsm_system", "")))}</data>')
+            xml.append(f'          <data key="d_vsm_rec">{html.escape(str(n.get("vsm_recursion_level", "")))}</data>')
+            xml.append(f'          <data key="d_jurisdiction">{html.escape(str(n.get("jurisdiction", "Global")))}</data>')
+            xml.append(f'          <data key="d_eu_role">{html.escape(str(n.get("eu_ai_act_role") or ""))}</data>')
+            xml.append(f'          <data key="d_nist">{html.escape(str(n.get("nist_function") or ""))}</data>')
+            xml.append(f'          <data key="d_card_min">{html.escape(str(n.get("cardinality_log10_min", "")))}</data>')
+            xml.append(f'          <data key="d_card_max">{html.escape(str(n.get("cardinality_log10_max", "")))}</data>')
+            xml.append(f'          <data key="d_card_unit">{html.escape(str(n.get("cardinality_unit", "")))}</data>')
 
             n_props = n.get("properties", {})
             for pk in sorted_prop_keys:
@@ -161,6 +173,8 @@ def main():
         rkind = e.get("relation_kind", "data_flow")
         pplane = e.get("protocol_plane", "NONE")
         polarity = e.get("polarity", "neutral")
+        asym = e.get("power_asymmetry", "")
+        scost = e.get("switching_cost", "")
         color, line_type, width = get_yed_edge_style(rkind)
 
         xml.append(f'    <edge id="{html.escape(eid)}" source="{e["from"]}" target="{e["to"]}">')
@@ -169,6 +183,8 @@ def main():
         xml.append(f'      <data key="d_edge_relation_kind">{html.escape(rkind)}</data>')
         xml.append(f'      <data key="d_edge_protocol_plane">{html.escape(pplane)}</data>')
         xml.append(f'      <data key="d_edge_polarity">{html.escape(polarity)}</data>')
+        xml.append(f'      <data key="d_edge_asym">{html.escape(str(asym))}</data>')
+        xml.append(f'      <data key="d_edge_scost">{html.escape(str(scost))}</data>')
         xml.append('      <data key="d_edge_graphics">')
         xml.append('        <y:PolyLineEdge>')
         xml.append(f'          <y:LineStyle color="{color}" type="{line_type}" width="{width}"/>')

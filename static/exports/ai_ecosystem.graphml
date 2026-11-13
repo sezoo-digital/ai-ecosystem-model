@@ -9,8 +9,13 @@
   <key for="node" id="d_kind" attr.name="kind" attr.type="string"/>
   <key for="node" id="d_sublabel" attr.name="sublabel" attr.type="string"/>
   <key for="node" id="d_vsm" attr.name="vsm_system" attr.type="string"/>
+  <key for="node" id="d_vsm_rec" attr.name="vsm_recursion_level" attr.type="string"/>
+  <key for="node" id="d_jurisdiction" attr.name="jurisdiction" attr.type="string"/>
   <key for="node" id="d_eu_role" attr.name="eu_ai_act_role" attr.type="string"/>
   <key for="node" id="d_nist" attr.name="nist_function" attr.type="string"/>
+  <key for="node" id="d_card_min" attr.name="cardinality_log10_min" attr.type="string"/>
+  <key for="node" id="d_card_max" attr.name="cardinality_log10_max" attr.type="string"/>
+  <key for="node" id="d_card_unit" attr.name="cardinality_unit" attr.type="string"/>
   <key for="node" id="d_prop_capabilities" attr.name="capabilities" attr.type="string"/>
   <key for="node" id="d_prop_capex_cycle" attr.name="capex_cycle" attr.type="string"/>
   <key for="node" id="d_prop_coala_memory_type" attr.name="coala_memory_type" attr.type="string"/>
@@ -22,6 +27,7 @@
   <key for="node" id="d_prop_environmental_impact" attr.name="environmental_impact" attr.type="string"/>
   <key for="node" id="d_prop_financing_role" attr.name="financing_role" attr.type="string"/>
   <key for="node" id="d_prop_geopolitical_exposure" attr.name="geopolitical_exposure" attr.type="string"/>
+  <key for="node" id="d_prop_harmonization_role" attr.name="harmonization_role" attr.type="string"/>
   <key for="node" id="d_prop_iso_42001_role" attr.name="iso_42001_role" attr.type="string"/>
   <key for="node" id="d_prop_legal_standing" attr.name="legal_standing" attr.type="string"/>
   <key for="node" id="d_prop_liability_posture" attr.name="liability_posture" attr.type="string"/>
@@ -29,15 +35,20 @@
   <key for="node" id="d_prop_market_effect" attr.name="market_effect" attr.type="string"/>
   <key for="node" id="d_prop_physical_bottleneck" attr.name="physical_bottleneck" attr.type="string"/>
   <key for="node" id="d_prop_pricing_model" attr.name="pricing_model" attr.type="string"/>
+  <key for="node" id="d_prop_red_team_role" attr.name="red_team_role" attr.type="string"/>
   <key for="node" id="d_prop_risk_zone" attr.name="risk_zone" attr.type="string"/>
   <key for="node" id="d_prop_role" attr.name="role" attr.type="string"/>
   <key for="node" id="d_prop_security_role" attr.name="security_role" attr.type="string"/>
   <key for="node" id="d_prop_underwriting_gate" attr.name="underwriting_gate" attr.type="string"/>
+  <key for="node" id="d_prop_variety_function" attr.name="variety_function" attr.type="string"/>
+  <key for="node" id="d_prop_vsm_role" attr.name="vsm_role" attr.type="string"/>
   <key for="edge" id="d_edge_id" attr.name="edge_id" attr.type="string"/>
   <key for="edge" id="d_edge_domains" attr.name="domains" attr.type="string"/>
   <key for="edge" id="d_edge_relation_kind" attr.name="relation_kind" attr.type="string"/>
   <key for="edge" id="d_edge_protocol_plane" attr.name="protocol_plane" attr.type="string"/>
   <key for="edge" id="d_edge_polarity" attr.name="polarity" attr.type="string"/>
+  <key for="edge" id="d_edge_asym" attr.name="power_asymmetry" attr.type="string"/>
+  <key for="edge" id="d_edge_scost" attr.name="switching_cost" attr.type="string"/>
   <graph id="G" edgedefault="directed">
     <node id="cluster_regulatory" yfiles.foldertype="group">
       <data key="d_graphics">
@@ -59,19 +70,76 @@
           <data key="d_cluster">cluster_regulatory</data>
           <data key="d_domains">governance</data>
           <data key="d_kind">StatutoryAuthority</data>
-          <data key="d_sublabel">EU AI Office, FTC, DPAs, Courts</data>
+          <data key="d_sublabel">EU AI Office, FTC, BIS Export Controls, DPAs, Courts</data>
           <data key="d_vsm">S5_Policy</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Multi_Jurisdictional</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">GOVERN</data>
-          <data key="d_prop_enforcement_powers">Fines up to 7% global turnover (Art. 99), stop orders</data>
+          <data key="d_card_min">1.0</data>
+          <data key="d_card_max">2.0</data>
+          <data key="d_card_unit">jurisdictions</data>
+          <data key="d_prop_enforcement_powers">Fines up to 7% global turnover (Art. 99), export control sanctions, stop orders</data>
           <data key="d_graphics">
             <y:ShapeNode>
               <y:Geometry width="230" height="75"/>
               <y:Fill color="#FFF1F0" transparent="false"/>
               <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content">Market Surveillance Authorities
-(EU AI Office, FTC, DPAs, Courts)</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Market Surveillance &amp; Trade Authorities
+(EU AI Office, FTC, BIS Export Controls, DPAs, Courts)</y:NodeLabel>
               <y:Shape type="hexagon"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_STANDARDS_BODY">
+          <data key="d_cluster">cluster_regulatory</data>
+          <data key="d_domains">governance, technical</data>
+          <data key="d_kind">StandardsConsortium</data>
+          <data key="d_sublabel">ISO/IEC JTC 1/SC 42, NIST, CEN-CENELEC, IEEE</data>
+          <data key="d_vsm">S2_Coordination</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Global</data>
+          <data key="d_eu_role">Not_Applicable</data>
+          <data key="d_nist">MAP</data>
+          <data key="d_card_min">1.0</data>
+          <data key="d_card_max">1.5</data>
+          <data key="d_card_unit">entities</data>
+          <data key="d_prop_harmonization_role">Defines CEN-CENELEC harmonised European standards (hENs) and ISO/IEC 42001 AIMS controls</data>
+          <data key="d_prop_variety_function">Attenuates technical variety into standardized conformity benchmarks</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Standards Setting Organizations
+(ISO/IEC JTC 1/SC 42, NIST, CEN-CENELEC, IEEE)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="N_SAFETY_INSTITUTE">
+          <data key="d_cluster">cluster_regulatory</data>
+          <data key="d_domains">governance, technical</data>
+          <data key="d_kind">ForesightInstitute</data>
+          <data key="d_sublabel">US AISI, UK AISI, Japan AISI, Frontier Evaluators</data>
+          <data key="d_vsm">S4_Intelligence</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Multi_Jurisdictional</data>
+          <data key="d_eu_role">Not_Applicable</data>
+          <data key="d_nist">MEASURE</data>
+          <data key="d_card_min">1.0</data>
+          <data key="d_card_max">1.5</data>
+          <data key="d_card_unit">entities</data>
+          <data key="d_prop_red_team_role">Pre-deployment red-teaming, biosecurity/cyber capability evaluations, systemic risk thresholds</data>
+          <data key="d_prop_vsm_role">Macro System 4 horizon scanning feeding statutory policy</data>
+          <data key="d_graphics">
+            <y:ShapeNode>
+              <y:Geometry width="230" height="75"/>
+              <y:Fill color="#FFF1F0" transparent="false"/>
+              <y:BorderStyle color="#F5222D" type="line" width="2.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">AI Safety &amp; Horizon Institutes
+(US AISI, UK AISI, Japan AISI, Frontier Evaluators)</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
             </y:ShapeNode>
           </data>
         </node>
@@ -81,8 +149,13 @@
           <data key="d_kind">StatutoryAuthority</data>
           <data key="d_sublabel">Notified Bodies, ISO/IEC 42001 Certifiers</data>
           <data key="d_vsm">S3_Star_Audit</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Multi_Jurisdictional</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MEASURE</data>
+          <data key="d_card_min">2.0</data>
+          <data key="d_card_max">3.0</data>
+          <data key="d_card_unit">entities</data>
           <data key="d_prop_role">CE conformity assessments (Art. 43) &amp; continuous surveillance</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -101,8 +174,13 @@
           <data key="d_kind">EconomicEntity</data>
           <data key="d_sublabel">Algorithmic Liability &amp; Cyber Risk Carrier</data>
           <data key="d_vsm">S3_Control</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MANAGE</data>
+          <data key="d_card_min">2.0</data>
+          <data key="d_card_max">3.0</data>
+          <data key="d_card_unit">entities</data>
           <data key="d_prop_underwriting_gate">Requires verifiable audit trail &amp; human oversight</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -121,9 +199,14 @@
           <data key="d_kind">EconomicEntity</data>
           <data key="d_sublabel">VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth</data>
           <data key="d_vsm">S5_Policy</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">GOVERN</data>
-          <data key="d_prop_financing_role">Subsidizes CapEx overhang &amp; absorbs initial operating losses</data>
+          <data key="d_card_min">2.0</data>
+          <data key="d_card_max">3.0</data>
+          <data key="d_card_unit">entities</data>
+          <data key="d_prop_financing_role">Subsidizes CapEx overhang, silicon leases &amp; nuclear PPAs</data>
           <data key="d_graphics">
             <y:ShapeNode>
               <y:Geometry width="230" height="75"/>
@@ -145,7 +228,7 @@
               <y:Geometry width="280" height="350"/>
               <y:Fill color="#F8FAFC" transparent="false"/>
               <y:BorderStyle color="#CBD5E1" type="line" width="1.5"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#E2E8F0" fontSize="12" fontStyle="bold" modelName="internal" modelPosition="t">1. Upstream Foundation &amp; Model Lab</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#E2E8F0" fontSize="12" fontStyle="bold" modelName="internal" modelPosition="t">1. Upstream Foundation, Silicon &amp; Energy Supply</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false"/>
             </y:GroupNode>
@@ -159,8 +242,13 @@
           <data key="d_kind">EconomicEntity</data>
           <data key="d_sublabel">ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory</data>
           <data key="d_vsm">S1_Operations</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MAP</data>
+          <data key="d_card_min">0.0</data>
+          <data key="d_card_max">1.0</data>
+          <data key="d_card_unit">entities</data>
           <data key="d_prop_capex_cycle">$20B+ per fab; 3-5 year construction lead time</data>
           <data key="d_prop_geopolitical_exposure">Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls</data>
           <data key="d_graphics">
@@ -180,8 +268,13 @@
           <data key="d_kind">EconomicEntity</data>
           <data key="d_sublabel">Nuclear PPAs, Substation Transformers, Cooling</data>
           <data key="d_vsm">S1_Operations</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Multi_Jurisdictional</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MAP</data>
+          <data key="d_card_min">2.0</data>
+          <data key="d_card_max">3.0</data>
+          <data key="d_card_unit">entities</data>
           <data key="d_prop_environmental_impact">Carbon intensity, baseline grid load, cooling water consumption</data>
           <data key="d_prop_physical_bottleneck">Substation transformer lead times of 3-5 years; GW-scale interconnection queues</data>
           <data key="d_graphics">
@@ -199,10 +292,15 @@
           <data key="d_cluster">cluster_supply</data>
           <data key="d_domains">economic, technical</data>
           <data key="d_kind">EconomicEntity</data>
-          <data key="d_sublabel">Data Curators, Annotators, Mega-Compute Hubs</data>
+          <data key="d_sublabel">Mega-Data Centers, Cluster Fabric, Data Curators</data>
           <data key="d_vsm">S1_Operations</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MAP</data>
+          <data key="d_card_min">1.0</data>
+          <data key="d_card_max">1.3</data>
+          <data key="d_card_unit">clusters</data>
           <data key="d_prop_compute_profile">Concentrated 50k-100k+ GPU clusters; GW-scale power</data>
           <data key="d_prop_cost_type">Fixed / Heavy CapEx ($600B Infrastructure Question)</data>
           <data key="d_graphics">
@@ -210,8 +308,8 @@
               <y:Geometry width="230" height="75"/>
               <y:Fill color="#F6FFED" transparent="false"/>
               <y:BorderStyle color="#52C41A" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content">Training Supply Chain
-(Data Curators, Annotators, Mega-Compute Hubs)</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content">Training Supply Chain &amp; Compute Campuses
+(Mega-Data Centers, Cluster Fabric, Data Curators)</y:NodeLabel>
               <y:Shape type="rectangle"/>
             </y:ShapeNode>
           </data>
@@ -222,8 +320,13 @@
           <data key="d_kind">SoftwareService</data>
           <data key="d_sublabel">Globally Replicated Weights &amp; Inference Fleets</data>
           <data key="d_vsm">S1_Operations</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Provider_GPAI</data>
           <data key="d_nist">MEASURE</data>
+          <data key="d_card_min">1.0</data>
+          <data key="d_card_max">1.3</data>
+          <data key="d_card_unit">entities</data>
           <data key="d_prop_compute_profile">High memory-bandwidth inference clusters; low latency</data>
           <data key="d_prop_liability_posture">Disclaimed via ToS (&#x27;AS-IS&#x27;)</data>
           <data key="d_graphics">
@@ -243,8 +346,13 @@
           <data key="d_kind">SoftwareService</data>
           <data key="d_sublabel">Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes</data>
           <data key="d_vsm">S4_Intelligence</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Provider_GPAI</data>
           <data key="d_nist">MAP</data>
+          <data key="d_card_min">2.0</data>
+          <data key="d_card_max">3.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_pricing_model">Zero Marginal License Cost (Commoditized Inference)</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -263,8 +371,13 @@
           <data key="d_kind">EconomicEntity</data>
           <data key="d_sublabel">Native Tools, Prompt Cache, Hosted State</data>
           <data key="d_vsm">ENVIRONMENT</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">NOT_APPLICABLE</data>
+          <data key="d_card_min">0.5</data>
+          <data key="d_card_max">0.8</data>
+          <data key="d_card_unit">entities</data>
           <data key="d_prop_market_effect">Feature commoditization of wrapper ISVs (a16z Stack)</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -301,8 +414,13 @@
           <data key="d_kind">SoftwareService</data>
           <data key="d_sublabel">Vertical Solutions (Legal, Medical, Finance, Ops)</data>
           <data key="d_vsm">S4_Intelligence</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Provider_System</data>
           <data key="d_nist">MAP</data>
+          <data key="d_card_min">4.0</data>
+          <data key="d_card_max">5.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_margin_exposure">Squeezed between token costs &amp; platform absorption</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -321,8 +439,13 @@
           <data key="d_kind">DeterministicGate</data>
           <data key="d_sublabel">Execution Loop, Planning, Rights &amp; Guardrails</data>
           <data key="d_vsm">S3_Control</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MANAGE</data>
+          <data key="d_card_min">7.0</data>
+          <data key="d_card_max">9.0</data>
+          <data key="d_card_unit">invocations_per_year</data>
           <data key="d_prop_compute_profile">Lightweight CPU / Orchestration Logic</data>
           <data key="d_prop_iso_42001_role">AIMS Technical Control Implementation</data>
           <data key="d_graphics">
@@ -342,8 +465,13 @@
           <data key="d_kind">StateStore</data>
           <data key="d_sublabel">Tamper-Evident WORM State &amp; Forensic Store</data>
           <data key="d_vsm">S3_Control</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MEASURE</data>
+          <data key="d_card_min">4.0</data>
+          <data key="d_card_max">5.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_compliance">Art. 12 Mandatory Logging / Rebuttal of Fault</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -362,8 +490,13 @@
           <data key="d_kind">SoftwareService</data>
           <data key="d_sublabel">Continuous Evaluation, Traces &amp; Cost Telemetry</data>
           <data key="d_vsm">S3_Star_Audit</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MEASURE</data>
+          <data key="d_card_min">4.0</data>
+          <data key="d_card_max">5.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_capabilities">LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -400,8 +533,13 @@
           <data key="d_kind">EconomicEntity</data>
           <data key="d_sublabel">Legal Principal &amp; Economic Sponsor</data>
           <data key="d_vsm">S5_Policy</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Multi_Jurisdictional</data>
           <data key="d_eu_role">Deployer</data>
           <data key="d_nist">GOVERN</data>
+          <data key="d_card_min">5.0</data>
+          <data key="d_card_max">6.0</data>
+          <data key="d_card_unit">entities</data>
           <data key="d_prop_liability_posture">Holds Vicarious &amp; Strict Legal Liability</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -420,8 +558,13 @@
           <data key="d_kind">SecurityAuthority</data>
           <data key="d_sublabel">OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens</data>
           <data key="d_vsm">S2_Coordination</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MANAGE</data>
+          <data key="d_card_min">5.0</data>
+          <data key="d_card_max">6.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_security_role">Issues scoped actor delegations to agents (A2E)</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -440,8 +583,13 @@
           <data key="d_kind">StateStore</data>
           <data key="d_sublabel">Proprietary Vector DBs, Documents &amp; Embeddings</data>
           <data key="d_vsm">S1_Operations</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MAP</data>
+          <data key="d_card_min">5.0</data>
+          <data key="d_card_max">6.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_coala_memory_type">Semantic Memory (Factual &amp; Document Knowledge)</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -460,8 +608,13 @@
           <data key="d_kind">NaturalPerson</data>
           <data key="d_sublabel">End User / Mandatory HITL Supervisor</data>
           <data key="d_vsm">S5_Policy</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Deployer</data>
           <data key="d_nist">GOVERN</data>
+          <data key="d_card_min">7.0</data>
+          <data key="d_card_max">8.5</data>
+          <data key="d_card_unit">natural_persons</data>
           <data key="d_prop_control_mode">Prompting, Art. 14 Human Oversight, Override</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -498,8 +651,13 @@
           <data key="d_kind">DeterministicGate</data>
           <data key="d_sublabel">Decoupled Tool Broker &amp; Context Provider (MCP)</data>
           <data key="d_vsm">S2_Coordination</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MANAGE</data>
+          <data key="d_card_min">4.0</data>
+          <data key="d_card_max">5.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_security_role">Tool discovery, sandbox isolation, scope negotiation</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -518,8 +676,13 @@
           <data key="d_kind">StateStore</data>
           <data key="d_sublabel">Databases, Production ERP, Financial Rails</data>
           <data key="d_vsm">S1_Operations</data>
+          <data key="d_vsm_rec">Level_n_Enterprise</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Not_Applicable</data>
           <data key="d_nist">MANAGE</data>
+          <data key="d_card_min">6.0</data>
+          <data key="d_card_max">7.0</data>
+          <data key="d_card_unit">instances</data>
           <data key="d_prop_risk_zone">Direct Causation Blast Radius</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -538,8 +701,13 @@
           <data key="d_kind">NaturalPerson</data>
           <data key="d_sublabel">Consumers, Employees, Citizens</data>
           <data key="d_vsm">ENVIRONMENT</data>
+          <data key="d_vsm_rec">Level_n_plus_1_Jurisdiction</data>
+          <data key="d_jurisdiction">Global</data>
           <data key="d_eu_role">Affected_Subject</data>
           <data key="d_nist">NOT_APPLICABLE</data>
+          <data key="d_card_min">9.0</data>
+          <data key="d_card_max">10.0</data>
+          <data key="d_card_unit">natural_persons</data>
           <data key="d_prop_legal_standing">Private Right of Action, Tort Plaintiff, Data Subject</data>
           <data key="d_graphics">
             <y:ShapeNode>
@@ -560,6 +728,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">supplier_dominant</data>
+      <data key="d_edge_scost">prohibitive</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -574,6 +744,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">supplier_dominant</data>
+      <data key="d_edge_scost">prohibitive</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -588,6 +760,8 @@
       <data key="d_edge_relation_kind">statutory_mandate</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#722ED1" type="line" width="3.0"/>
@@ -602,6 +776,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">supplier_dominant</data>
+      <data key="d_edge_scost">prohibitive</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -616,11 +792,77 @@
       <data key="d_edge_relation_kind">liability_exposure</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:EdgeLabel alignment="center">Physical GW Power &amp; Transformer Bottleneck</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_SAFETY_TO_REG_INTELLIGENCE" source="N_SAFETY_INSTITUTE" target="N_REGULATOR">
+      <data key="d_edge_id">E_SAFETY_TO_REG_INTELLIGENCE</data>
+      <data key="d_edge_domains">governance</data>
+      <data key="d_edge_relation_kind">governance_control</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Pre-Deployment Evaluations &amp; Systemic Risk Alerts (Macro S4 to S5)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_STANDARDS_TO_AUDITOR_BENCHMARK" source="N_STANDARDS_BODY" target="N_AUDITOR">
+      <data key="d_edge_id">E_STANDARDS_TO_AUDITOR_BENCHMARK</data>
+      <data key="d_edge_domains">governance, technical</data>
+      <data key="d_edge_relation_kind">governance_control</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Harmonized Standards &amp; Audit Specifications (ISO 42001 / CEN)</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_STANDARDS_TO_HARNESS_SPEC" source="N_STANDARDS_BODY" target="N_HARNESS">
+      <data key="d_edge_id">E_STANDARDS_TO_HARNESS_SPEC</data>
+      <data key="d_edge_domains">technical, governance</data>
+      <data key="d_edge_relation_kind">governance_control</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Technical Control Standards &amp; Interoperability Profiles</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="E_FRONTIER_TO_SAFETY_EVAL" source="N_FRONTIER" target="N_SAFETY_INSTITUTE">
+      <data key="d_edge_id">E_FRONTIER_TO_SAFETY_EVAL</data>
+      <data key="d_edge_domains">governance, technical</data>
+      <data key="d_edge_relation_kind">data_flow</data>
+      <data key="d_edge_protocol_plane">NONE</data>
+      <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
+      <data key="d_edge_graphics">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#64748B" type="line" width="1.5"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center">Pre-Release Model Weight Access for National Security Red-Teaming</y:EdgeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
@@ -630,6 +872,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">supplier_dominant</data>
+      <data key="d_edge_scost">high</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -644,6 +888,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">balanced</data>
+      <data key="d_edge_scost">high</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -658,6 +904,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">balanced</data>
+      <data key="d_edge_scost">moderate</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -672,6 +920,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">supplier_dominant</data>
+      <data key="d_edge_scost">high</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -686,6 +936,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">balanced</data>
+      <data key="d_edge_scost">high</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -700,6 +952,8 @@
       <data key="d_edge_relation_kind">commercial_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym">balanced</data>
+      <data key="d_edge_scost">moderate</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#16A34A" type="line" width="3.0"/>
@@ -714,6 +968,8 @@
       <data key="d_edge_relation_kind">liability_exposure</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym">captive</data>
+      <data key="d_edge_scost">prohibitive</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
@@ -728,6 +984,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -742,6 +1000,8 @@
       <data key="d_edge_relation_kind">liability_exposure</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
@@ -756,6 +1016,8 @@
       <data key="d_edge_relation_kind">statutory_mandate</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#722ED1" type="line" width="3.0"/>
@@ -770,6 +1032,8 @@
       <data key="d_edge_relation_kind">statutory_mandate</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#722ED1" type="line" width="3.0"/>
@@ -784,6 +1048,8 @@
       <data key="d_edge_relation_kind">statutory_mandate</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#722ED1" type="line" width="3.0"/>
@@ -798,6 +1064,8 @@
       <data key="d_edge_relation_kind">statutory_mandate</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#722ED1" type="line" width="3.0"/>
@@ -812,6 +1080,8 @@
       <data key="d_edge_relation_kind">contractual_term</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
@@ -826,6 +1096,8 @@
       <data key="d_edge_relation_kind">liability_exposure</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
@@ -840,6 +1112,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -854,6 +1128,8 @@
       <data key="d_edge_relation_kind">governance_control</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
@@ -868,6 +1144,8 @@
       <data key="d_edge_relation_kind">governance_control</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
@@ -882,6 +1160,8 @@
       <data key="d_edge_relation_kind">governance_control</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
@@ -896,6 +1176,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -910,6 +1192,8 @@
       <data key="d_edge_relation_kind">governance_control</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
@@ -924,6 +1208,8 @@
       <data key="d_edge_relation_kind">liability_exposure</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#DC2626" type="dashed" width="2.0"/>
@@ -938,6 +1224,8 @@
       <data key="d_edge_relation_kind">governance_control</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#E11D48" type="dashed" width="2.0"/>
@@ -952,6 +1240,8 @@
       <data key="d_edge_relation_kind">algedonic_signal</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#B91C1C" type="line" width="4.0"/>
@@ -966,6 +1256,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -980,6 +1272,8 @@
       <data key="d_edge_relation_kind">protocol_call</data>
       <data key="d_edge_protocol_plane">A2E</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#2563EB" type="line" width="2.0"/>
@@ -994,6 +1288,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -1008,6 +1304,8 @@
       <data key="d_edge_relation_kind">protocol_call</data>
       <data key="d_edge_protocol_plane">MIP</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">supplier_dominant</data>
+      <data key="d_edge_scost">high</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#2563EB" type="line" width="2.0"/>
@@ -1022,6 +1320,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -1036,6 +1336,8 @@
       <data key="d_edge_relation_kind">protocol_call</data>
       <data key="d_edge_protocol_plane">A2A</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#2563EB" type="line" width="2.0"/>
@@ -1050,6 +1352,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -1064,6 +1368,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">negative</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -1078,6 +1384,8 @@
       <data key="d_edge_relation_kind">protocol_call</data>
       <data key="d_edge_protocol_plane">A2T</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#2563EB" type="line" width="2.0"/>
@@ -1092,6 +1400,8 @@
       <data key="d_edge_relation_kind">data_flow</data>
       <data key="d_edge_protocol_plane">NONE</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym"></data>
+      <data key="d_edge_scost"></data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#64748B" type="line" width="1.5"/>
@@ -1106,6 +1416,8 @@
       <data key="d_edge_relation_kind">protocol_call</data>
       <data key="d_edge_protocol_plane">MIP</data>
       <data key="d_edge_polarity">positive</data>
+      <data key="d_edge_asym">buyer_dominant</data>
+      <data key="d_edge_scost">low</data>
       <data key="d_edge_graphics">
         <y:PolyLineEdge>
           <y:LineStyle color="#2563EB" type="line" width="2.0"/>

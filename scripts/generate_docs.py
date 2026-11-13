@@ -2,9 +2,9 @@
 """
 Generates the canonical docs/index.md page.
 Decouples presentation styles from ontology:
-- Maps NodeKindEnum to Mermaid shapes
+- Maps NodeKindEnum (including Standards and Foresight bodies) to Mermaid shapes
 - Maps RelationKindEnum (including algedonic_signal) to Mermaid edge styles
-- Computes Ashby variety spans from log10 cardinality values
+- Renders tables for Power Asymmetry, Switching Costs, and Jurisdictions
 """
 
 import sys
@@ -25,13 +25,15 @@ MODEL_FILE = PROJECT_ROOT / "model" / "ai_ecosystem.yaml"
 OUTPUT_FILE = PROJECT_ROOT / "docs" / "index.md"
 
 KIND_TO_SHAPE = {
-    "StatutoryAuthority": "hexagon",
-    "NaturalPerson":      "circle",
-    "DeterministicGate":  "subproc",
-    "StateStore":         "cylinder",
-    "SecurityAuthority":  "stadium",
-    "SoftwareService":    "rounded",
-    "EconomicEntity":     "rect",
+    "StatutoryAuthority":   "hexagon",
+    "StandardsConsortium":  "stadium",
+    "ForesightInstitute":   "subproc",
+    "NaturalPerson":        "circle",
+    "DeterministicGate":    "subproc",
+    "StateStore":           "cylinder",
+    "SecurityAuthority":    "stadium",
+    "SoftwareService":      "rounded",
+    "EconomicEntity":       "rect",
 }
 
 def format_node_shape(node_id, label, sublabel, kind):
@@ -77,6 +79,8 @@ def build_visual_key_mermaid():
     ]
     key_samples = [
         ("K_HEX", "Statutory Authority", "StatutoryAuthority", "gov"),
+        ("K_STA_STD", "Standards Consortium", "StandardsConsortium", "gov"),
+        ("K_SUB_FOR", "Foresight Institute", "ForesightInstitute", "gov"),
         ("K_CIR", "Natural Person", "NaturalPerson", "gov"),
         ("K_SUB", "Deterministic Gate", "DeterministicGate", "tech"),
         ("K_CYL", "State Store", "StateStore", "tech"),
@@ -95,7 +99,9 @@ def build_notation_table():
 
 | Kind | Semantic Meaning | Visual Shape |
 | :--- | :--- | :---: |
-| `StatutoryAuthority` | Non-negotiable external legal authorities, courts, market surveillance | `hexagon` |
+| `StatutoryAuthority` | Non-negotiable legal authorities, courts, market surveillance | `hexagon` |
+| `StandardsConsortium` | International technical standards bodies (ISO/IEC JTC 1/SC 42, NIST, CEN) | `stadium` |
+| `ForesightInstitute` | National AI Safety Institutes (US/UK/Japan AISI), frontier red-team evaluators | `subproc` |
 | `NaturalPerson` | Human delegators, mandatory Art. 14 supervisors, impacted third parties | `circle` |
 | `DeterministicGate` | Sandboxes, policy harnesses, capability brokers bounding non-deterministic AI | `subproc` |
 | `StateStore` | WORM audit ledgers, vector databases, operational enterprise ERPs | `cylinder` |
@@ -116,13 +122,18 @@ def build_notation_table():
 | `-->|'label'|` | `protocol_call` | Technical protocols (A2E, MIP, A2T via MCP, A2A) |
 | `-->|'label'|` | `data_flow` | Telemetry traces, prompt context (RAG), evidence logs |
 
-### Domain Boundary Colors
+### Market Dynamics: Power Asymmetry & Switching Costs
 
-| Color | Domain | Scope |
-| :---: | :--- | :--- |
-| 🔴 **Red / Pink** | `governance` | Statutory duties, liability allocation, compliance controls, human oversight |
-| 🟢 **Green** | `economic` | SaaS contracts, token consumption costs, GPU CapEx, underwriting fees |
-| 🔵 **Blue** | `technical` | API execution protocols, JSON-RPC (MCP), state persistence, telemetry |"""
+| Property | Values | Semantic Meaning |
+| :--- | :--- | :--- |
+| **`power_asymmetry`** | `supplier_dominant` | Supplier dictates pricing, access, and terms (seller's market; e.g. leading-edge GPU allocation) |
+| | `buyer_dominant` | Buyer dictates terms and performance specifications (buyer's market; e.g. open-weight hosting) |
+| | `balanced` | Bilateral commercial parity (e.g. enterprise software contracts) |
+| | `captive` | Downstream participant is structurally trapped with near-zero alternative options |
+| **`switching_cost`** | `prohibitive` | Switching requires full architectural, physical, or legal refactoring (e.g. ASML lithography) |
+| | `high` | Switching requires extensive re-indexing, prompt re-tuning, and workflow rebuilding |
+| | `moderate` | Standard multi-cloud or modular API adaptation effort |
+| | `low` | Commoditized, drop-in replacement (e.g. OpenAI-compatible open-weight endpoints) |"""
 
 def build_full_unified_mermaid(model):
     lines = [
@@ -174,7 +185,7 @@ def main():
         intro_content = (
             "# Canonical AI Ecosystem Model\n\n"
             "A logical property graph integrating cognitive agent state (CoALA), "
-            "cybernetic control (Beer's VSM), macro-economics, and regulatory liability."
+            "cybernetic control (Beer's VSM), macro-economics, standards bodies, and regulatory liability."
         )
 
     key_chart = build_visual_key_mermaid()
@@ -219,8 +230,8 @@ def main():
         "",
         "## Canonical Element Dictionary",
         "",
-        "| Element | Cluster | Kind | VSM Tier & Recursion | Ashby Variety (Cardinality) | EU AI Act Role |",
-        "| :--- | :--- | :--- | :--- | :--- | :--- |",
+        "| Element | Cluster | Kind | VSM Tier & Recursion | Ashby Variety | Jurisdiction | EU AI Act Role |",
+        "| :--- | :--- | :--- | :--- | :--- | :--- | :--- |",
     ]
 
     clusters_map = {c["id"]: c["label"] for c in model.get("clusters", [])}
@@ -229,7 +240,9 @@ def main():
         sub = f"<br/><small>{n['sublabel']}</small>" if n.get("sublabel") else ""
         vsm_desc = f"`{n.get('vsm_system', '')}`<br/><small>{n.get('vsm_recursion_level', '')}</small>"
         cardinality_str = format_cardinality(n)
-        md.append(f"| **{n['label']}**{sub}<br/>`{n['id']}` | {cluster_name} | `{n.get('kind', '')}` | {vsm_desc} | {cardinality_str} | `{n.get('eu_ai_act_role', '')}` |")
+        jurisdiction = n.get("jurisdiction", "Global")
+        eu_role = n.get("eu_ai_act_role") or "—"
+        md.append(f"| **{n['label']}**{sub}<br/>`{n['id']}` | {cluster_name} | `{n.get('kind', '')}` | {vsm_desc} | {cardinality_str} | `{jurisdiction}` | `{eu_role}` |")
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_FILE.write_text("\n".join(md), encoding="utf-8")

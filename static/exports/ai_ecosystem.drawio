@@ -5,57 +5,67 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
         <mxCell id="master_view_cluster_regulatory" value="0. Jurisdictional, Capital &amp; Regulatory Sphere" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="280" height="540" as="geometry"/>
+          <mxGeometry x="40" y="40" width="280" height="770" as="geometry"/>
         </mxCell>
-        <object id="N_REGULATOR" label="&lt;b&gt;Market Surveillance Authorities&lt;/b&gt;&lt;br/&gt;&lt;small&gt;EU AI Office, FTC, DPAs, Courts&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S5_Policy" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" enforcement_powers="Fines up to 7% global turnover (Art. 99), stop orders">
+        <object id="N_REGULATOR" label="&lt;b&gt;Market Surveillance &amp; Trade Authorities&lt;/b&gt;&lt;br/&gt;&lt;small&gt;EU AI Office, FTC, BIS Export Controls, DPAs, Courts&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S5_Policy" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" cardinality_min="1.0" cardinality_max="2.0" cardinality_unit="jurisdictions" enforcement_powers="Fines up to 7% global turnover (Art. 99), export control sanctions, stop orders">
           <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_AUDITOR" label="&lt;b&gt;Conformity Body &amp; ISO Auditor&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Notified Bodies, ISO/IEC 42001 Certifiers&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S3_Star_Audit" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" role="CE conformity assessments (Art. 43) &amp; continuous surveillance">
-          <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
+        <object id="N_STANDARDS_BODY" label="&lt;b&gt;Standards Setting Organizations&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ISO/IEC JTC 1/SC 42, NIST, CEN-CENELEC, IEEE&lt;/small&gt;" kind="StandardsConsortium" domains="governance, technical" cluster="cluster_regulatory" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="1.0" cardinality_max="1.5" cardinality_unit="entities" harmonization_role="Defines CEN-CENELEC harmonised European standards (hENs) and ISO/IEC 42001 AIMS controls" variety_function="Attenuates technical variety into standardized conformity benchmarks">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_INSURER" label="&lt;b&gt;AI Risk Underwriter &amp; Insurer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Algorithmic Liability &amp; Cyber Risk Carrier&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_regulatory" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" underwriting_gate="Requires verifiable audit trail &amp; human oversight">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
+        <object id="N_SAFETY_INSTITUTE" label="&lt;b&gt;AI Safety &amp; Horizon Institutes&lt;/b&gt;&lt;br/&gt;&lt;small&gt;US AISI, UK AISI, Japan AISI, Frontier Evaluators&lt;/small&gt;" kind="ForesightInstitute" domains="governance, technical" cluster="cluster_regulatory" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="1.0" cardinality_max="1.5" cardinality_unit="entities" red_team_role="Pre-deployment red-teaming, biosecurity/cyber capability evaluations, systemic risk thresholds" vsm_role="Macro System 4 horizon scanning feeding statutory policy">
+          <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_CAPITAL" label="&lt;b&gt;Capital Markets &amp; Venture Underwriters&lt;/b&gt;&lt;br/&gt;&lt;small&gt;VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth&lt;/small&gt;" kind="EconomicEntity" domains="economic" cluster="cluster_regulatory" vsm_system="S5_Policy" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" financing_role="Subsidizes CapEx overhang &amp; absorbs initial operating losses">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
+        <object id="N_AUDITOR" label="&lt;b&gt;Conformity Body &amp; ISO Auditor&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Notified Bodies, ISO/IEC 42001 Certifiers&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S3_Star_Audit" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" role="CE conformity assessments (Art. 43) &amp; continuous surveillance">
+          <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <mxCell id="master_view_cluster_supply" value="1. Upstream Foundation &amp; Model Lab" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
+        <object id="N_INSURER" label="&lt;b&gt;AI Risk Underwriter &amp; Insurer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Algorithmic Liability &amp; Cyber Risk Carrier&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_regulatory" vsm_system="S3_Control" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" underwriting_gate="Requires verifiable audit trail &amp; human oversight">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
+            <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <object id="N_CAPITAL" label="&lt;b&gt;Capital Markets &amp; Venture Underwriters&lt;/b&gt;&lt;br/&gt;&lt;small&gt;VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth&lt;/small&gt;" kind="EconomicEntity" domains="economic" cluster="cluster_regulatory" vsm_system="S5_Policy" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" financing_role="Subsidizes CapEx overhang, silicon leases &amp; nuclear PPAs">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_regulatory">
+            <mxGeometry x="30" y="600" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <mxCell id="master_view_cluster_supply" value="1. Upstream Foundation, Silicon &amp; Energy Supply" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="360" y="40" width="280" height="770" as="geometry"/>
         </mxCell>
-        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
+        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="0.0" cardinality_max="1.0" cardinality_unit="entities" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
+        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain &amp; Compute Campuses&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Mega-Data Centers, Cluster Fabric, Data Curators&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="1.0" cardinality_max="1.3" cardinality_unit="clusters" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
+        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" cardinality_min="1.0" cardinality_max="1.3" cardinality_unit="entities" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_GPAI" nist_function="MAP" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
+        <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_GPAI" nist_function="MAP" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="instances" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
             <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
+        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" cardinality_min="0.5" cardinality_max="0.8" cardinality_unit="entities" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_supply">
             <mxGeometry x="30" y="600" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -63,22 +73,22 @@
         <mxCell id="master_view_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="680" y="40" width="280" height="540" as="geometry"/>
         </mxCell>
-        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Application&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance, Ops)&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_product" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_System" nist_function="MAP" margin_exposure="Squeezed between token costs &amp; platform absorption">
+        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Application&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance, Ops)&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_product" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_System" nist_function="MAP" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" margin_exposure="Squeezed between token costs &amp; platform absorption">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_product">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation">
+        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="7.0" cardinality_max="9.0" cardinality_unit="invocations_per_year" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_product">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_AUDIT_STORE" label="&lt;b&gt;Sovereign Audit Ledger&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Tamper-Evident WORM State &amp; Forensic Store&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" compliance="Art. 12 Mandatory Logging / Rebuttal of Fault">
+        <object id="N_AUDIT_STORE" label="&lt;b&gt;Sovereign Audit Ledger&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Tamper-Evident WORM State &amp; Forensic Store&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" compliance="Art. 12 Mandatory Logging / Rebuttal of Fault">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_product">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
+        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_product">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -86,22 +96,22 @@
         <mxCell id="master_view_cluster_client" value="3. Enterprise Deployer &amp; Principal Domain" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="1000" y="40" width="280" height="540" as="geometry"/>
         </mxCell>
-        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Deployer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Legal Principal &amp; Economic Sponsor&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_client" vsm_system="S5_Policy" eu_ai_act_role="Deployer" nist_function="GOVERN" liability_posture="Holds Vicarious &amp; Strict Legal Liability">
+        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Deployer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Legal Principal &amp; Economic Sponsor&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_client" vsm_system="S5_Policy" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Deployer" nist_function="GOVERN" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="entities" liability_posture="Holds Vicarious &amp; Strict Legal Liability">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_client">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_IDP" label="&lt;b&gt;Enterprise Identity &amp; Auth (IdP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens&lt;/small&gt;" kind="SecurityAuthority" domains="technical, governance" cluster="cluster_client" vsm_system="S2_Coordination" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" security_role="Issues scoped actor delegations to agents (A2E)">
+        <object id="N_IDP" label="&lt;b&gt;Enterprise Identity &amp; Auth (IdP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens&lt;/small&gt;" kind="SecurityAuthority" domains="technical, governance" cluster="cluster_client" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="instances" security_role="Issues scoped actor delegations to agents (A2E)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_client">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_KNOWLEDGE_STORE" label="&lt;b&gt;Enterprise Semantic Knowledge Base&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Proprietary Vector DBs, Documents &amp; Embeddings&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_client" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" coala_memory_type="Semantic Memory (Factual &amp; Document Knowledge)">
+        <object id="N_KNOWLEDGE_STORE" label="&lt;b&gt;Enterprise Semantic Knowledge Base&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Proprietary Vector DBs, Documents &amp; Embeddings&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_client" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="instances" coala_memory_type="Semantic Memory (Factual &amp; Document Knowledge)">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_client">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator &amp; Overseer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Mandatory HITL Supervisor&lt;/small&gt;" kind="NaturalPerson" domains="technical, governance" cluster="cluster_client" vsm_system="S5_Policy" eu_ai_act_role="Deployer" nist_function="GOVERN" control_mode="Prompting, Art. 14 Human Oversight, Override">
+        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator &amp; Overseer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Mandatory HITL Supervisor&lt;/small&gt;" kind="NaturalPerson" domains="technical, governance" cluster="cluster_client" vsm_system="S5_Policy" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Deployer" nist_function="GOVERN" cardinality_min="7.0" cardinality_max="8.5" cardinality_unit="natural_persons" control_mode="Prompting, Art. 14 Human Oversight, Override">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_client">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -109,139 +119,151 @@
         <mxCell id="master_view_cluster_environment" value="4. Target Execution Environment &amp; Blast Radius" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="1320" y="40" width="280" height="425" as="geometry"/>
         </mxCell>
-        <object id="N_TOOL_GATEWAY" label="&lt;b&gt;Capability &amp; Tool Gateway&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Decoupled Tool Broker &amp; Context Provider (MCP)&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_environment" vsm_system="S2_Coordination" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" security_role="Tool discovery, sandbox isolation, scope negotiation">
+        <object id="N_TOOL_GATEWAY" label="&lt;b&gt;Capability &amp; Tool Gateway&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Decoupled Tool Broker &amp; Context Provider (MCP)&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_environment" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" security_role="Tool discovery, sandbox isolation, scope negotiation">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_environment">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; Operational APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, Production ERP, Financial Rails&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_environment" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" risk_zone="Direct Causation Blast Radius">
+        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; Operational APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, Production ERP, Financial Rails&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_environment" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="6.0" cardinality_max="7.0" cardinality_unit="instances" risk_zone="Direct Causation Blast Radius">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_environment">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_AFFECTED_PARTY" label="&lt;b&gt;Impacted Third Party&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Consumers, Employees, Citizens&lt;/small&gt;" kind="NaturalPerson" domains="governance" cluster="cluster_environment" vsm_system="ENVIRONMENT" eu_ai_act_role="Affected_Subject" nist_function="NOT_APPLICABLE" legal_standing="Private Right of Action, Tort Plaintiff, Data Subject">
+        <object id="N_AFFECTED_PARTY" label="&lt;b&gt;Impacted Third Party&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Consumers, Employees, Citizens&lt;/small&gt;" kind="NaturalPerson" domains="governance" cluster="cluster_environment" vsm_system="ENVIRONMENT" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Affected_Subject" nist_function="NOT_APPLICABLE" cardinality_min="9.0" cardinality_max="10.0" cardinality_unit="natural_persons" legal_standing="Private Right of Action, Tort Plaintiff, Data Subject">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="master_view_cluster_environment">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <mxCell id="E_CAPITAL_TO_SILICON" value="$$$ Fab CapEx &amp; Lithography Tool Procurement" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_SILICON_CHOKEPOINT" parent="1">
+        <mxCell id="E_CAPITAL_TO_SILICON" value="$$$ Fab CapEx &amp; Lithography Tool Procurement" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_SILICON_CHOKEPOINT" parent="1" power_asymmetry="supplier_dominant" switching_cost="prohibitive" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_CAPITAL_TO_ENERGY" value="$$$ Clean Energy PPAs &amp; Grid Upgrades" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_ENERGY_GRID" parent="1">
+        <mxCell id="E_CAPITAL_TO_ENERGY" value="$$$ Clean Energy PPAs &amp; Grid Upgrades" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_ENERGY_GRID" parent="1" power_asymmetry="supplier_dominant" switching_cost="prohibitive" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_REG_TO_SILICON_EXPORT" value="Export Controls, Entity List &amp; Technology Sanctions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_SILICON_CHOKEPOINT" parent="1">
+        <mxCell id="E_REG_TO_SILICON_EXPORT" value="Export Controls, Entity List &amp; Technology Sanctions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_SILICON_CHOKEPOINT" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1">
+        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1" power_asymmetry="supplier_dominant" switching_cost="prohibitive" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1">
+        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_CAPITAL_TO_FRONTIER" value="$$$ Equity Subsidies &amp; Compute Credits" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_FRONTIER" parent="1">
+        <mxCell id="E_SAFETY_TO_REG_INTELLIGENCE" value="Pre-Deployment Evaluations &amp; Systemic Risk Alerts (Macro S4 to S5)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_SAFETY_INSTITUTE" target="N_REGULATOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_CAPITAL_TO_TRAIN" value="$$$ CapEx Infrastructure Project Debt &amp; Equity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_TRAIN" parent="1">
+        <mxCell id="E_STANDARDS_TO_AUDITOR_BENCHMARK" value="Harmonized Standards &amp; Audit Specifications (ISO 42001 / CEN)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_STANDARDS_BODY" target="N_AUDITOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_TO_ISV_SUB" value="$$$ SaaS Subscription / Outcome Fee" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_ISV_PRODUCT" parent="1">
+        <mxCell id="E_STANDARDS_TO_HARNESS_SPEC" value="Technical Control Standards &amp; Interoperability Profiles" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_STANDARDS_BODY" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ISV_TO_FRONTIER_TOKEN" value="$$ Wholesale Token Consumption Cost" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_FRONTIER" parent="1">
+        <mxCell id="E_FRONTIER_TO_SAFETY_EVAL" value="Pre-Release Model Weight Access for National Security Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_FRONTIER" target="N_SAFETY_INSTITUTE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_FRONTIER_TO_TRAIN_CAPEX" value="$ Compute CapEx &amp; Annotation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_FRONTIER" target="N_TRAIN" parent="1">
+        <mxCell id="E_CAPITAL_TO_FRONTIER" value="$$$ Equity Subsidies &amp; Compute Credits" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_FRONTIER" parent="1" power_asymmetry="supplier_dominant" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_TO_INSURER_PREMIUM" value="$ Policy Premiums &amp; Risk Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_INSURER" parent="1">
+        <mxCell id="E_CAPITAL_TO_TRAIN" value="$$$ CapEx Infrastructure Project Debt &amp; Equity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_TRAIN" parent="1" power_asymmetry="balanced" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ABSORBED_TENSION_ISV" value="Platform Commoditization Pressure (a16z Stack)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ABSORBED" target="N_ISV_PRODUCT" parent="1">
+        <mxCell id="E_ENT_TO_ISV_SUB" value="$$$ SaaS Subscription / Outcome Fee" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_ISV_PRODUCT" parent="1" power_asymmetry="balanced" switching_cost="moderate" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_TRAIN_TO_OPEN_MODEL" value="Sunk-Cost Open Weights Release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TRAIN" target="N_OPEN_MODEL" parent="1">
+        <mxCell id="E_ISV_TO_FRONTIER_TOKEN" value="$$ Wholesale Token Consumption Cost" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_FRONTIER" parent="1" power_asymmetry="supplier_dominant" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_OPEN_DEFLATION_FRONTIER" value="Inference Price Deflation &amp; Compression" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OPEN_MODEL" target="N_FRONTIER" parent="1">
+        <mxCell id="E_FRONTIER_TO_TRAIN_CAPEX" value="$ Compute CapEx &amp; Annotation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_FRONTIER" target="N_TRAIN" parent="1" power_asymmetry="balanced" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_REG_TO_ENT_COMPLIANCE" value="Statutory Penalties &amp; Enforcement (Art. 99)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_ENT_TO_INSURER_PREMIUM" value="$ Policy Premiums &amp; Risk Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_INSURER" parent="1" power_asymmetry="balanced" switching_cost="moderate" polarity="negative" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_REG_TO_FRONTIER_GPAI" value="GPAI Codes of Practice &amp; Transparency (Art. 53/101)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_FRONTIER" parent="1">
+        <mxCell id="E_ABSORBED_TENSION_ISV" value="Platform Commoditization Pressure (a16z Stack)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ABSORBED" target="N_ISV_PRODUCT" parent="1" power_asymmetry="captive" switching_cost="prohibitive" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_REG_TO_ISV_HIGH_RISK" value="High-Risk System Compliance &amp; Surveillance (Art. 9/43)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_ISV_PRODUCT" parent="1">
+        <mxCell id="E_TRAIN_TO_OPEN_MODEL" value="Sunk-Cost Open Weights Release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TRAIN" target="N_OPEN_MODEL" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_AUDITOR_TO_ENT" value="Conformity Audits (ISO 42001 / High Risk)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_AUDITOR" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_OPEN_DEFLATION_FRONTIER" value="Inference Price Deflation &amp; Compression" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OPEN_MODEL" target="N_FRONTIER" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_FRONTIER_DISCLAIM_ENT" value="Disclaims Liability (ToS &#x27;AS-IS&#x27; / Recourse Gap)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_FRONTIER" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_REG_TO_ENT_COMPLIANCE" value="Statutory Penalties &amp; Enforcement (Art. 99)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_VICARIOUS_AFFECTED" value="Vicarious Liability for Harm (Respondeat Superior)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_AFFECTED_PARTY" parent="1">
+        <mxCell id="E_REG_TO_FRONTIER_GPAI" value="GPAI Codes of Practice &amp; Transparency (Art. 53/101)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_FRONTIER" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_AFFECTED_TO_REG_COMPLAINT" value="Complaints &amp; Redress Demands (Art. 85)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AFFECTED_PARTY" target="N_REGULATOR" parent="1">
+        <mxCell id="E_REG_TO_ISV_HIGH_RISK" value="High-Risk System Compliance &amp; Surveillance (Art. 9/43)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_ISV_PRODUCT" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_TO_HARNESS_DELEGATION" value="Delegates Authority &amp; Safety Boundaries (VSM 5 to 3)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_HARNESS" parent="1">
+        <mxCell id="E_AUDITOR_TO_ENT" value="Conformity Audits (ISO 42001 / High Risk)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_AUDITOR" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_USER_TO_HARNESS_HITL" value="Art. 14 Human Oversight &amp; Kill Switch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HUMAN_USER" target="N_HARNESS" parent="1">
+        <mxCell id="E_FRONTIER_DISCLAIM_ENT" value="Disclaims Liability (ToS &#x27;AS-IS&#x27; / Recourse Gap)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_FRONTIER" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="contractual_term">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_AUDIT_LOG" value="Cryptographic Tamper-Proof Audit Trail (Art. 12)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_AUDIT_STORE" parent="1">
+        <mxCell id="E_ENT_VICARIOUS_AFFECTED" value="Vicarious Liability for Harm (Respondeat Superior)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_AFFECTED_PARTY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_AUDIT_TO_AUDITOR_EVIDENCE" value="Forensic Evidence for Compliance Verification" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AUDIT_STORE" target="N_AUDITOR" parent="1">
+        <mxCell id="E_AFFECTED_TO_REG_COMPLAINT" value="Complaints &amp; Redress Demands (Art. 85)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AFFECTED_PARTY" target="N_REGULATOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_GATEWAY_SCOPE" value="Enforces Least-Privilege Scopes (VSM 3 to 2)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1">
+        <mxCell id="E_ENT_TO_HARNESS_DELEGATION" value="Delegates Authority &amp; Safety Boundaries (VSM 5 to 3)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_TARGET_BLAST_AFFECTED" value="Direct Impact &amp; Real-World Blast Radius" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_TARGET_SYS" target="N_AFFECTED_PARTY" parent="1">
+        <mxCell id="E_USER_TO_HARNESS_HITL" value="Art. 14 Human Oversight &amp; Kill Switch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HUMAN_USER" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1">
+        <mxCell id="E_HARNESS_TO_AUDIT_LOG" value="Cryptographic Tamper-Proof Audit Trail (Art. 12)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_AUDIT_STORE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ALGEDONIC_TRIPWIRE" value="VSM Algedonic Alarm (Direct S1 to S5 Circuit Breaker)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B91C1C;strokeWidth=4;html=1;" edge="1" source="N_TARGET_SYS" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_AUDIT_TO_AUDITOR_EVIDENCE" value="Forensic Evidence for Compliance Verification" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AUDIT_STORE" target="N_AUDITOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_USER_TO_ISV_PROMPT" value="Prompt Intent &amp; Working Context" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HUMAN_USER" target="N_ISV_PRODUCT" parent="1">
+        <mxCell id="E_HARNESS_TO_GATEWAY_SCOPE" value="Enforces Least-Privilege Scopes (VSM 3 to 2)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_IDP_TO_HARNESS_A2E" value="A2E Workload Identity Delegation (OAuth/OIDC)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_IDP" target="N_HARNESS" parent="1">
+        <mxCell id="E_TARGET_BLAST_AFFECTED" value="Direct Impact &amp; Real-World Blast Radius" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_TARGET_SYS" target="N_AFFECTED_PARTY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ISV_TO_HARNESS_INIT" value="Initiates Autonomous Loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_HARNESS" parent="1">
+        <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_FRONTIER_MIP" value="MIP Inference API (Tokens &amp; Directives)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_FRONTIER" parent="1">
+        <mxCell id="E_ALGEDONIC_TRIPWIRE" value="VSM Algedonic Alarm (Direct S1 to S5 Circuit Breaker)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B91C1C;strokeWidth=4;html=1;" edge="1" source="N_TARGET_SYS" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="algedonic_signal">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_KNOWLEDGE_RAG" value="RAG Semantic Retrieval &amp; Working Context (CoALA)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_KNOWLEDGE_STORE" parent="1">
+        <mxCell id="E_USER_TO_ISV_PROMPT" value="Prompt Intent &amp; Working Context" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HUMAN_USER" target="N_ISV_PRODUCT" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_HARNESS_A2A" value="A2A Multi-Agent Delegation &amp; Peer Protocol" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_HARNESS" parent="1">
+        <mxCell id="E_IDP_TO_HARNESS_A2E" value="A2E Workload Identity Delegation (OAuth/OIDC)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_IDP" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="A2E" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_OBSERVE_TRACE" value="Traces &amp; LLM Evaluation Metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_OBSERVE" parent="1">
+        <mxCell id="E_ISV_TO_HARNESS_INIT" value="Initiates Autonomous Loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_OBSERVE_TO_ENT_FINOPS" value="Real-time Cost &amp; Token Telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_OBSERVE" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_HARNESS_TO_FRONTIER_MIP" value="MIP Inference API (Tokens &amp; Directives)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_FRONTIER" parent="1" power_asymmetry="supplier_dominant" switching_cost="high" polarity="positive" protocol_plane="MIP" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_GATEWAY_A2T" value="A2T Tool Calling &amp; Context Protocol (MCP / OpenAPI)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1">
+        <mxCell id="E_HARNESS_TO_KNOWLEDGE_RAG" value="RAG Semantic Retrieval &amp; Working Context (CoALA)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_KNOWLEDGE_STORE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_GATEWAY_TO_TARGET_ACTUATE" value="Authenticated Operations Execution (VSM System 1)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TOOL_GATEWAY" target="N_TARGET_SYS" parent="1">
+        <mxCell id="E_HARNESS_TO_HARNESS_A2A" value="A2A Multi-Agent Delegation &amp; Peer Protocol" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="A2A" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ISV_TO_OPEN_MODEL" value="Self-Hosted / Private Inference (Zero Token Toll)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_OPEN_MODEL" parent="1">
+        <mxCell id="E_HARNESS_TO_OBSERVE_TRACE" value="Traces &amp; LLM Evaluation Metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_OBSERVE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_OBSERVE_TO_ENT_FINOPS" value="Real-time Cost &amp; Token Telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_OBSERVE" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="data_flow">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_HARNESS_TO_GATEWAY_A2T" value="A2T Tool Calling &amp; Context Protocol (MCP / OpenAPI)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="A2T" relation_kind="protocol_call">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_GATEWAY_TO_TARGET_ACTUATE" value="Authenticated Operations Execution (VSM System 1)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TOOL_GATEWAY" target="N_TARGET_SYS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_ISV_TO_OPEN_MODEL" value="Self-Hosted / Private Inference (Zero Token Toll)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_OPEN_MODEL" parent="1" power_asymmetry="buyer_dominant" switching_cost="low" polarity="positive" protocol_plane="MIP" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
       </root>
@@ -255,45 +277,45 @@
         <mxCell id="view_economic_cluster_regulatory" value="0. Jurisdictional, Capital &amp; Regulatory Sphere" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="40" y="40" width="280" height="310" as="geometry"/>
         </mxCell>
-        <object id="N_INSURER" label="&lt;b&gt;AI Risk Underwriter &amp; Insurer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Algorithmic Liability &amp; Cyber Risk Carrier&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_regulatory" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" underwriting_gate="Requires verifiable audit trail &amp; human oversight">
+        <object id="N_INSURER" label="&lt;b&gt;AI Risk Underwriter &amp; Insurer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Algorithmic Liability &amp; Cyber Risk Carrier&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_regulatory" vsm_system="S3_Control" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" underwriting_gate="Requires verifiable audit trail &amp; human oversight">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_regulatory">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_CAPITAL" label="&lt;b&gt;Capital Markets &amp; Venture Underwriters&lt;/b&gt;&lt;br/&gt;&lt;small&gt;VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth&lt;/small&gt;" kind="EconomicEntity" domains="economic" cluster="cluster_regulatory" vsm_system="S5_Policy" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" financing_role="Subsidizes CapEx overhang &amp; absorbs initial operating losses">
+        <object id="N_CAPITAL" label="&lt;b&gt;Capital Markets &amp; Venture Underwriters&lt;/b&gt;&lt;br/&gt;&lt;small&gt;VC Syndicates, Hyperscaler Equity &amp; Sovereign Wealth&lt;/small&gt;" kind="EconomicEntity" domains="economic" cluster="cluster_regulatory" vsm_system="S5_Policy" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" financing_role="Subsidizes CapEx overhang, silicon leases &amp; nuclear PPAs">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_regulatory">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <mxCell id="view_economic_cluster_supply" value="1. Upstream Foundation &amp; Model Lab" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
+        <mxCell id="view_economic_cluster_supply" value="1. Upstream Foundation, Silicon &amp; Energy Supply" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="360" y="40" width="280" height="770" as="geometry"/>
         </mxCell>
-        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
+        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="0.0" cardinality_max="1.0" cardinality_unit="entities" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
+        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain &amp; Compute Campuses&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Mega-Data Centers, Cluster Fabric, Data Curators&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="1.0" cardinality_max="1.3" cardinality_unit="clusters" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
+        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" cardinality_min="1.0" cardinality_max="1.3" cardinality_unit="entities" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_GPAI" nist_function="MAP" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
+        <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_GPAI" nist_function="MAP" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="instances" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
             <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
+        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" cardinality_min="0.5" cardinality_max="0.8" cardinality_unit="entities" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_supply">
             <mxGeometry x="30" y="600" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -301,12 +323,12 @@
         <mxCell id="view_economic_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="680" y="40" width="280" height="310" as="geometry"/>
         </mxCell>
-        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Application&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance, Ops)&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_product" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_System" nist_function="MAP" margin_exposure="Squeezed between token costs &amp; platform absorption">
+        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Application&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance, Ops)&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_product" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_System" nist_function="MAP" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" margin_exposure="Squeezed between token costs &amp; platform absorption">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_product">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
+        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_product">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -314,54 +336,54 @@
         <mxCell id="view_economic_cluster_client" value="3. Enterprise Deployer &amp; Principal Domain" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="1000" y="40" width="280" height="195" as="geometry"/>
         </mxCell>
-        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Deployer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Legal Principal &amp; Economic Sponsor&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_client" vsm_system="S5_Policy" eu_ai_act_role="Deployer" nist_function="GOVERN" liability_posture="Holds Vicarious &amp; Strict Legal Liability">
+        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Deployer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Legal Principal &amp; Economic Sponsor&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_client" vsm_system="S5_Policy" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Deployer" nist_function="GOVERN" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="entities" liability_posture="Holds Vicarious &amp; Strict Legal Liability">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_economic_cluster_client">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <mxCell id="E_CAPITAL_TO_SILICON" value="$$$ Fab CapEx &amp; Lithography Tool Procurement" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_SILICON_CHOKEPOINT" parent="1">
+        <mxCell id="E_CAPITAL_TO_SILICON" value="$$$ Fab CapEx &amp; Lithography Tool Procurement" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_SILICON_CHOKEPOINT" parent="1" power_asymmetry="supplier_dominant" switching_cost="prohibitive" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_CAPITAL_TO_ENERGY" value="$$$ Clean Energy PPAs &amp; Grid Upgrades" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_ENERGY_GRID" parent="1">
+        <mxCell id="E_CAPITAL_TO_ENERGY" value="$$$ Clean Energy PPAs &amp; Grid Upgrades" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_ENERGY_GRID" parent="1" power_asymmetry="supplier_dominant" switching_cost="prohibitive" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1">
+        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1" power_asymmetry="supplier_dominant" switching_cost="prohibitive" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1">
+        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_CAPITAL_TO_FRONTIER" value="$$$ Equity Subsidies &amp; Compute Credits" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_FRONTIER" parent="1">
+        <mxCell id="E_CAPITAL_TO_FRONTIER" value="$$$ Equity Subsidies &amp; Compute Credits" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_FRONTIER" parent="1" power_asymmetry="supplier_dominant" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_CAPITAL_TO_TRAIN" value="$$$ CapEx Infrastructure Project Debt &amp; Equity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_TRAIN" parent="1">
+        <mxCell id="E_CAPITAL_TO_TRAIN" value="$$$ CapEx Infrastructure Project Debt &amp; Equity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_CAPITAL" target="N_TRAIN" parent="1" power_asymmetry="balanced" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_TO_ISV_SUB" value="$$$ SaaS Subscription / Outcome Fee" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_ISV_PRODUCT" parent="1">
+        <mxCell id="E_ENT_TO_ISV_SUB" value="$$$ SaaS Subscription / Outcome Fee" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_ISV_PRODUCT" parent="1" power_asymmetry="balanced" switching_cost="moderate" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ISV_TO_FRONTIER_TOKEN" value="$$ Wholesale Token Consumption Cost" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_FRONTIER" parent="1">
+        <mxCell id="E_ISV_TO_FRONTIER_TOKEN" value="$$ Wholesale Token Consumption Cost" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_FRONTIER" parent="1" power_asymmetry="supplier_dominant" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_FRONTIER_TO_TRAIN_CAPEX" value="$ Compute CapEx &amp; Annotation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_FRONTIER" target="N_TRAIN" parent="1">
+        <mxCell id="E_FRONTIER_TO_TRAIN_CAPEX" value="$ Compute CapEx &amp; Annotation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_FRONTIER" target="N_TRAIN" parent="1" power_asymmetry="balanced" switching_cost="high" polarity="positive" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_TO_INSURER_PREMIUM" value="$ Policy Premiums &amp; Risk Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_INSURER" parent="1">
+        <mxCell id="E_ENT_TO_INSURER_PREMIUM" value="$ Policy Premiums &amp; Risk Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_INSURER" parent="1" power_asymmetry="balanced" switching_cost="moderate" polarity="negative" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ABSORBED_TENSION_ISV" value="Platform Commoditization Pressure (a16z Stack)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ABSORBED" target="N_ISV_PRODUCT" parent="1">
+        <mxCell id="E_ABSORBED_TENSION_ISV" value="Platform Commoditization Pressure (a16z Stack)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ABSORBED" target="N_ISV_PRODUCT" parent="1" power_asymmetry="captive" switching_cost="prohibitive" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_TRAIN_TO_OPEN_MODEL" value="Sunk-Cost Open Weights Release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TRAIN" target="N_OPEN_MODEL" parent="1">
+        <mxCell id="E_TRAIN_TO_OPEN_MODEL" value="Sunk-Cost Open Weights Release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TRAIN" target="N_OPEN_MODEL" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_OPEN_DEFLATION_FRONTIER" value="Inference Price Deflation &amp; Compression" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OPEN_MODEL" target="N_FRONTIER" parent="1">
+        <mxCell id="E_OPEN_DEFLATION_FRONTIER" value="Inference Price Deflation &amp; Compression" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OPEN_MODEL" target="N_FRONTIER" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_OBSERVE_TO_ENT_FINOPS" value="Real-time Cost &amp; Token Telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_OBSERVE" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_OBSERVE_TO_ENT_FINOPS" value="Real-time Cost &amp; Token Telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_OBSERVE" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ISV_TO_OPEN_MODEL" value="Self-Hosted / Private Inference (Zero Token Toll)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_OPEN_MODEL" parent="1">
+        <mxCell id="E_ISV_TO_OPEN_MODEL" value="Self-Hosted / Private Inference (Zero Token Toll)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_OPEN_MODEL" parent="1" power_asymmetry="buyer_dominant" switching_cost="low" polarity="positive" protocol_plane="MIP" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
       </root>
@@ -373,27 +395,37 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
         <mxCell id="view_governance_cluster_regulatory" value="0. Jurisdictional, Capital &amp; Regulatory Sphere" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="280" height="425" as="geometry"/>
+          <mxGeometry x="40" y="40" width="280" height="655" as="geometry"/>
         </mxCell>
-        <object id="N_REGULATOR" label="&lt;b&gt;Market Surveillance Authorities&lt;/b&gt;&lt;br/&gt;&lt;small&gt;EU AI Office, FTC, DPAs, Courts&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S5_Policy" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" enforcement_powers="Fines up to 7% global turnover (Art. 99), stop orders">
+        <object id="N_REGULATOR" label="&lt;b&gt;Market Surveillance &amp; Trade Authorities&lt;/b&gt;&lt;br/&gt;&lt;small&gt;EU AI Office, FTC, BIS Export Controls, DPAs, Courts&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S5_Policy" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="GOVERN" cardinality_min="1.0" cardinality_max="2.0" cardinality_unit="jurisdictions" enforcement_powers="Fines up to 7% global turnover (Art. 99), export control sanctions, stop orders">
           <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_regulatory">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_AUDITOR" label="&lt;b&gt;Conformity Body &amp; ISO Auditor&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Notified Bodies, ISO/IEC 42001 Certifiers&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S3_Star_Audit" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" role="CE conformity assessments (Art. 43) &amp; continuous surveillance">
-          <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_regulatory">
+        <object id="N_STANDARDS_BODY" label="&lt;b&gt;Standards Setting Organizations&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ISO/IEC JTC 1/SC 42, NIST, CEN-CENELEC, IEEE&lt;/small&gt;" kind="StandardsConsortium" domains="governance, technical" cluster="cluster_regulatory" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="1.0" cardinality_max="1.5" cardinality_unit="entities" harmonization_role="Defines CEN-CENELEC harmonised European standards (hENs) and ISO/IEC 42001 AIMS controls" variety_function="Attenuates technical variety into standardized conformity benchmarks">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_regulatory">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_INSURER" label="&lt;b&gt;AI Risk Underwriter &amp; Insurer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Algorithmic Liability &amp; Cyber Risk Carrier&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_regulatory" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" underwriting_gate="Requires verifiable audit trail &amp; human oversight">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_regulatory">
+        <object id="N_SAFETY_INSTITUTE" label="&lt;b&gt;AI Safety &amp; Horizon Institutes&lt;/b&gt;&lt;br/&gt;&lt;small&gt;US AISI, UK AISI, Japan AISI, Frontier Evaluators&lt;/small&gt;" kind="ForesightInstitute" domains="governance, technical" cluster="cluster_regulatory" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="1.0" cardinality_max="1.5" cardinality_unit="entities" red_team_role="Pre-deployment red-teaming, biosecurity/cyber capability evaluations, systemic risk thresholds" vsm_role="Macro System 4 horizon scanning feeding statutory policy">
+          <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_regulatory">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <mxCell id="view_governance_cluster_supply" value="1. Upstream Foundation &amp; Model Lab" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
+        <object id="N_AUDITOR" label="&lt;b&gt;Conformity Body &amp; ISO Auditor&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Notified Bodies, ISO/IEC 42001 Certifiers&lt;/small&gt;" kind="StatutoryAuthority" domains="governance" cluster="cluster_regulatory" vsm_system="S3_Star_Audit" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" role="CE conformity assessments (Art. 43) &amp; continuous surveillance">
+          <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_regulatory">
+            <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <object id="N_INSURER" label="&lt;b&gt;AI Risk Underwriter &amp; Insurer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Algorithmic Liability &amp; Cyber Risk Carrier&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_regulatory" vsm_system="S3_Control" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" underwriting_gate="Requires verifiable audit trail &amp; human oversight">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_regulatory">
+            <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <mxCell id="view_governance_cluster_supply" value="1. Upstream Foundation, Silicon &amp; Energy Supply" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="360" y="40" width="280" height="195" as="geometry"/>
         </mxCell>
-        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
+        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" cardinality_min="1.0" cardinality_max="1.3" cardinality_unit="entities" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_supply">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -401,17 +433,17 @@
         <mxCell id="view_governance_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="680" y="40" width="280" height="425" as="geometry"/>
         </mxCell>
-        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation">
+        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="7.0" cardinality_max="9.0" cardinality_unit="invocations_per_year" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_product">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_AUDIT_STORE" label="&lt;b&gt;Sovereign Audit Ledger&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Tamper-Evident WORM State &amp; Forensic Store&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" compliance="Art. 12 Mandatory Logging / Rebuttal of Fault">
+        <object id="N_AUDIT_STORE" label="&lt;b&gt;Sovereign Audit Ledger&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Tamper-Evident WORM State &amp; Forensic Store&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" compliance="Art. 12 Mandatory Logging / Rebuttal of Fault">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_product">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
+        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_product">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -419,22 +451,22 @@
         <mxCell id="view_governance_cluster_client" value="3. Enterprise Deployer &amp; Principal Domain" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="1000" y="40" width="280" height="540" as="geometry"/>
         </mxCell>
-        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Deployer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Legal Principal &amp; Economic Sponsor&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_client" vsm_system="S5_Policy" eu_ai_act_role="Deployer" nist_function="GOVERN" liability_posture="Holds Vicarious &amp; Strict Legal Liability">
+        <object id="N_ENTERPRISE" label="&lt;b&gt;Enterprise Deployer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Legal Principal &amp; Economic Sponsor&lt;/small&gt;" kind="EconomicEntity" domains="economic, governance" cluster="cluster_client" vsm_system="S5_Policy" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Deployer" nist_function="GOVERN" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="entities" liability_posture="Holds Vicarious &amp; Strict Legal Liability">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_client">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_IDP" label="&lt;b&gt;Enterprise Identity &amp; Auth (IdP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens&lt;/small&gt;" kind="SecurityAuthority" domains="technical, governance" cluster="cluster_client" vsm_system="S2_Coordination" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" security_role="Issues scoped actor delegations to agents (A2E)">
+        <object id="N_IDP" label="&lt;b&gt;Enterprise Identity &amp; Auth (IdP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens&lt;/small&gt;" kind="SecurityAuthority" domains="technical, governance" cluster="cluster_client" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="instances" security_role="Issues scoped actor delegations to agents (A2E)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_client">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_KNOWLEDGE_STORE" label="&lt;b&gt;Enterprise Semantic Knowledge Base&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Proprietary Vector DBs, Documents &amp; Embeddings&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_client" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" coala_memory_type="Semantic Memory (Factual &amp; Document Knowledge)">
+        <object id="N_KNOWLEDGE_STORE" label="&lt;b&gt;Enterprise Semantic Knowledge Base&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Proprietary Vector DBs, Documents &amp; Embeddings&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_client" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="instances" coala_memory_type="Semantic Memory (Factual &amp; Document Knowledge)">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_client">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator &amp; Overseer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Mandatory HITL Supervisor&lt;/small&gt;" kind="NaturalPerson" domains="technical, governance" cluster="cluster_client" vsm_system="S5_Policy" eu_ai_act_role="Deployer" nist_function="GOVERN" control_mode="Prompting, Art. 14 Human Oversight, Override">
+        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator &amp; Overseer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Mandatory HITL Supervisor&lt;/small&gt;" kind="NaturalPerson" domains="technical, governance" cluster="cluster_client" vsm_system="S5_Policy" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Deployer" nist_function="GOVERN" cardinality_min="7.0" cardinality_max="8.5" cardinality_unit="natural_persons" control_mode="Prompting, Art. 14 Human Oversight, Override">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_client">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
@@ -442,64 +474,76 @@
         <mxCell id="view_governance_cluster_environment" value="4. Target Execution Environment &amp; Blast Radius" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
           <mxGeometry x="1320" y="40" width="280" height="425" as="geometry"/>
         </mxCell>
-        <object id="N_TOOL_GATEWAY" label="&lt;b&gt;Capability &amp; Tool Gateway&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Decoupled Tool Broker &amp; Context Provider (MCP)&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_environment" vsm_system="S2_Coordination" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" security_role="Tool discovery, sandbox isolation, scope negotiation">
+        <object id="N_TOOL_GATEWAY" label="&lt;b&gt;Capability &amp; Tool Gateway&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Decoupled Tool Broker &amp; Context Provider (MCP)&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_environment" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" security_role="Tool discovery, sandbox isolation, scope negotiation">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_environment">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; Operational APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, Production ERP, Financial Rails&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_environment" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" risk_zone="Direct Causation Blast Radius">
+        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; Operational APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, Production ERP, Financial Rails&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_environment" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="6.0" cardinality_max="7.0" cardinality_unit="instances" risk_zone="Direct Causation Blast Radius">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_environment">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_AFFECTED_PARTY" label="&lt;b&gt;Impacted Third Party&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Consumers, Employees, Citizens&lt;/small&gt;" kind="NaturalPerson" domains="governance" cluster="cluster_environment" vsm_system="ENVIRONMENT" eu_ai_act_role="Affected_Subject" nist_function="NOT_APPLICABLE" legal_standing="Private Right of Action, Tort Plaintiff, Data Subject">
+        <object id="N_AFFECTED_PARTY" label="&lt;b&gt;Impacted Third Party&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Consumers, Employees, Citizens&lt;/small&gt;" kind="NaturalPerson" domains="governance" cluster="cluster_environment" vsm_system="ENVIRONMENT" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Affected_Subject" nist_function="NOT_APPLICABLE" cardinality_min="9.0" cardinality_max="10.0" cardinality_unit="natural_persons" legal_standing="Private Right of Action, Tort Plaintiff, Data Subject">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_governance_cluster_environment">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <mxCell id="E_ENT_TO_INSURER_PREMIUM" value="$ Policy Premiums &amp; Risk Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_INSURER" parent="1">
+        <mxCell id="E_SAFETY_TO_REG_INTELLIGENCE" value="Pre-Deployment Evaluations &amp; Systemic Risk Alerts (Macro S4 to S5)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_SAFETY_INSTITUTE" target="N_REGULATOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_REG_TO_ENT_COMPLIANCE" value="Statutory Penalties &amp; Enforcement (Art. 99)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_STANDARDS_TO_AUDITOR_BENCHMARK" value="Harmonized Standards &amp; Audit Specifications (ISO 42001 / CEN)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_STANDARDS_BODY" target="N_AUDITOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_REG_TO_FRONTIER_GPAI" value="GPAI Codes of Practice &amp; Transparency (Art. 53/101)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_FRONTIER" parent="1">
+        <mxCell id="E_STANDARDS_TO_HARNESS_SPEC" value="Technical Control Standards &amp; Interoperability Profiles" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_STANDARDS_BODY" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_AUDITOR_TO_ENT" value="Conformity Audits (ISO 42001 / High Risk)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_AUDITOR" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_FRONTIER_TO_SAFETY_EVAL" value="Pre-Release Model Weight Access for National Security Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_FRONTIER" target="N_SAFETY_INSTITUTE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_FRONTIER_DISCLAIM_ENT" value="Disclaims Liability (ToS &#x27;AS-IS&#x27; / Recourse Gap)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_FRONTIER" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_ENT_TO_INSURER_PREMIUM" value="$ Policy Premiums &amp; Risk Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;" edge="1" source="N_ENTERPRISE" target="N_INSURER" parent="1" power_asymmetry="balanced" switching_cost="moderate" polarity="negative" protocol_plane="NONE" relation_kind="commercial_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_VICARIOUS_AFFECTED" value="Vicarious Liability for Harm (Respondeat Superior)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_AFFECTED_PARTY" parent="1">
+        <mxCell id="E_REG_TO_ENT_COMPLIANCE" value="Statutory Penalties &amp; Enforcement (Art. 99)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_AFFECTED_TO_REG_COMPLAINT" value="Complaints &amp; Redress Demands (Art. 85)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AFFECTED_PARTY" target="N_REGULATOR" parent="1">
+        <mxCell id="E_REG_TO_FRONTIER_GPAI" value="GPAI Codes of Practice &amp; Transparency (Art. 53/101)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_REGULATOR" target="N_FRONTIER" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENT_TO_HARNESS_DELEGATION" value="Delegates Authority &amp; Safety Boundaries (VSM 5 to 3)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_HARNESS" parent="1">
+        <mxCell id="E_AUDITOR_TO_ENT" value="Conformity Audits (ISO 42001 / High Risk)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;" edge="1" source="N_AUDITOR" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="statutory_mandate">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_USER_TO_HARNESS_HITL" value="Art. 14 Human Oversight &amp; Kill Switch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HUMAN_USER" target="N_HARNESS" parent="1">
+        <mxCell id="E_FRONTIER_DISCLAIM_ENT" value="Disclaims Liability (ToS &#x27;AS-IS&#x27; / Recourse Gap)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_FRONTIER" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="contractual_term">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_AUDIT_LOG" value="Cryptographic Tamper-Proof Audit Trail (Art. 12)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_AUDIT_STORE" parent="1">
+        <mxCell id="E_ENT_VICARIOUS_AFFECTED" value="Vicarious Liability for Harm (Respondeat Superior)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_AFFECTED_PARTY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_AUDIT_TO_AUDITOR_EVIDENCE" value="Forensic Evidence for Compliance Verification" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AUDIT_STORE" target="N_AUDITOR" parent="1">
+        <mxCell id="E_AFFECTED_TO_REG_COMPLAINT" value="Complaints &amp; Redress Demands (Art. 85)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AFFECTED_PARTY" target="N_REGULATOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_GATEWAY_SCOPE" value="Enforces Least-Privilege Scopes (VSM 3 to 2)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1">
+        <mxCell id="E_ENT_TO_HARNESS_DELEGATION" value="Delegates Authority &amp; Safety Boundaries (VSM 5 to 3)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENTERPRISE" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_TARGET_BLAST_AFFECTED" value="Direct Impact &amp; Real-World Blast Radius" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_TARGET_SYS" target="N_AFFECTED_PARTY" parent="1">
+        <mxCell id="E_USER_TO_HARNESS_HITL" value="Art. 14 Human Oversight &amp; Kill Switch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HUMAN_USER" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1">
+        <mxCell id="E_HARNESS_TO_AUDIT_LOG" value="Cryptographic Tamper-Proof Audit Trail (Art. 12)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_AUDIT_STORE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ALGEDONIC_TRIPWIRE" value="VSM Algedonic Alarm (Direct S1 to S5 Circuit Breaker)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B91C1C;strokeWidth=4;html=1;" edge="1" source="N_TARGET_SYS" target="N_ENTERPRISE" parent="1">
+        <mxCell id="E_AUDIT_TO_AUDITOR_EVIDENCE" value="Forensic Evidence for Compliance Verification" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_AUDIT_STORE" target="N_AUDITOR" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_HARNESS_TO_GATEWAY_SCOPE" value="Enforces Least-Privilege Scopes (VSM 3 to 2)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_TARGET_BLAST_AFFECTED" value="Direct Impact &amp; Real-World Blast Radius" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_TARGET_SYS" target="N_AFFECTED_PARTY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_ALGEDONIC_TRIPWIRE" value="VSM Algedonic Alarm (Direct S1 to S5 Circuit Breaker)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B91C1C;strokeWidth=4;html=1;" edge="1" source="N_TARGET_SYS" target="N_ENTERPRISE" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="algedonic_signal">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
       </root>
@@ -510,139 +554,158 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="view_technical_cluster_supply" value="1. Upstream Foundation &amp; Model Lab" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="280" height="770" as="geometry"/>
+        <mxCell id="view_technical_cluster_regulatory" value="0. Jurisdictional, Capital &amp; Regulatory Sphere" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="280" height="310" as="geometry"/>
         </mxCell>
-        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
+        <object id="N_STANDARDS_BODY" label="&lt;b&gt;Standards Setting Organizations&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ISO/IEC JTC 1/SC 42, NIST, CEN-CENELEC, IEEE&lt;/small&gt;" kind="StandardsConsortium" domains="governance, technical" cluster="cluster_regulatory" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="1.0" cardinality_max="1.5" cardinality_unit="entities" harmonization_role="Defines CEN-CENELEC harmonised European standards (hENs) and ISO/IEC 42001 AIMS controls" variety_function="Attenuates technical variety into standardized conformity benchmarks">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_regulatory">
+            <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <object id="N_SAFETY_INSTITUTE" label="&lt;b&gt;AI Safety &amp; Horizon Institutes&lt;/b&gt;&lt;br/&gt;&lt;small&gt;US AISI, UK AISI, Japan AISI, Frontier Evaluators&lt;/small&gt;" kind="ForesightInstitute" domains="governance, technical" cluster="cluster_regulatory" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="1.0" cardinality_max="1.5" cardinality_unit="entities" red_team_role="Pre-deployment red-teaming, biosecurity/cyber capability evaluations, systemic risk thresholds" vsm_role="Macro System 4 horizon scanning feeding statutory policy">
+          <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_regulatory">
+            <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
+          </mxCell>
+        </object>
+        <mxCell id="view_technical_cluster_supply" value="1. Upstream Foundation, Silicon &amp; Energy Supply" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="280" height="770" as="geometry"/>
+        </mxCell>
+        <object id="N_SILICON_CHOKEPOINT" label="&lt;b&gt;Leading-Edge Silicon &amp; Lithography&lt;/b&gt;&lt;br/&gt;&lt;small&gt;ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="0.0" cardinality_max="1.0" cardinality_unit="entities" geopolitical_exposure="Concentrated in Taiwan Strait &amp; Netherlands; subject to strict US EAR export controls" capex_cycle="$20B+ per fab; 3-5 year construction lead time">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
+        <object id="N_ENERGY_GRID" label="&lt;b&gt;Energy Grids &amp; Power Generation&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Nuclear PPAs, Substation Transformers, Cooling&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Multi_Jurisdictional" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="entities" physical_bottleneck="Substation transformer lead times of 3-5 years; GW-scale interconnection queues" environmental_impact="Carbon intensity, baseline grid load, cooling water consumption">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Data Curators, Annotators, Mega-Compute Hubs&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
+        <object id="N_TRAIN" label="&lt;b&gt;Training Supply Chain &amp; Compute Campuses&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Mega-Data Centers, Cluster Fabric, Data Curators&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_plus_1_Jurisdiction" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="1.0" cardinality_max="1.3" cardinality_unit="clusters" compute_profile="Concentrated 50k-100k+ GPU clusters; GW-scale power" cost_type="Fixed / Heavy CapEx ($600B Infrastructure Question)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
+        <object id="N_FRONTIER" label="&lt;b&gt;Frontier Foundation Model&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Globally Replicated Weights &amp; Inference Fleets&lt;/small&gt;" kind="SoftwareService" domains="economic, technical, governance" cluster="cluster_supply" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_GPAI" nist_function="MEASURE" cardinality_min="1.0" cardinality_max="1.3" cardinality_unit="entities" compute_profile="High memory-bandwidth inference clusters; low latency" liability_posture="Disclaimed via ToS (&#x27;AS-IS&#x27;)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_GPAI" nist_function="MAP" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
+        <object id="N_OPEN_MODEL" label="&lt;b&gt;Open-Weight Model Commons&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Commoditized Weights, Distilled Checkpoints &amp; Local Runtimes&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_supply" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_GPAI" nist_function="MAP" cardinality_min="2.0" cardinality_max="3.0" cardinality_unit="instances" pricing_model="Zero Marginal License Cost (Commoditized Inference)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
             <mxGeometry x="30" y="490" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
+        <object id="N_ABSORBED" label="&lt;b&gt;Platform Absorption Zone&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Native Tools, Prompt Cache, Hosted State&lt;/small&gt;" kind="EconomicEntity" domains="economic, technical" cluster="cluster_supply" vsm_system="ENVIRONMENT" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="NOT_APPLICABLE" cardinality_min="0.5" cardinality_max="0.8" cardinality_unit="entities" market_effect="Feature commoditization of wrapper ISVs (a16z Stack)">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_supply">
             <mxGeometry x="30" y="600" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="view_technical_cluster_product" value="2. Specialized Product &amp; Harness Domain (ISV / Custom Runtime)" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="360" y="40" width="280" height="540" as="geometry"/>
+          <mxGeometry x="680" y="40" width="280" height="540" as="geometry"/>
         </mxCell>
-        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Application&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance, Ops)&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_product" vsm_system="S4_Intelligence" eu_ai_act_role="Provider_System" nist_function="MAP" margin_exposure="Squeezed between token costs &amp; platform absorption">
+        <object id="N_ISV_PRODUCT" label="&lt;b&gt;Specialized AI Application&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Vertical Solutions (Legal, Medical, Finance, Ops)&lt;/small&gt;" kind="SoftwareService" domains="economic, technical" cluster="cluster_product" vsm_system="S4_Intelligence" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Provider_System" nist_function="MAP" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" margin_exposure="Squeezed between token costs &amp; platform absorption">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#F6FFED;strokeColor=#52C41A;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_product">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation">
+        <object id="N_HARNESS" label="&lt;b&gt;Autonomous Agent Runtime (The Harness)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Execution Loop, Planning, Rights &amp; Guardrails&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="7.0" cardinality_max="9.0" cardinality_unit="invocations_per_year" compute_profile="Lightweight CPU / Orchestration Logic" iso_42001_role="AIMS Technical Control Implementation">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_product">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_AUDIT_STORE" label="&lt;b&gt;Sovereign Audit Ledger&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Tamper-Evident WORM State &amp; Forensic Store&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" compliance="Art. 12 Mandatory Logging / Rebuttal of Fault">
+        <object id="N_AUDIT_STORE" label="&lt;b&gt;Sovereign Audit Ledger&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Tamper-Evident WORM State &amp; Forensic Store&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_product" vsm_system="S3_Control" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" compliance="Art. 12 Mandatory Logging / Rebuttal of Fault">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_product">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
+        <object id="N_OBSERVE" label="&lt;b&gt;Observability &amp; Evals Engine&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Continuous Evaluation, Traces &amp; Cost Telemetry&lt;/small&gt;" kind="SoftwareService" domains="technical, governance, economic" cluster="cluster_product" vsm_system="S3_Star_Audit" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MEASURE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" capabilities="LLM-as-a-judge, OTEL tracing, token telemetry, independent red-teaming">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_product">
             <mxGeometry x="30" y="380" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="view_technical_cluster_client" value="3. Enterprise Deployer &amp; Principal Domain" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="680" y="40" width="280" height="425" as="geometry"/>
+          <mxGeometry x="1000" y="40" width="280" height="425" as="geometry"/>
         </mxCell>
-        <object id="N_IDP" label="&lt;b&gt;Enterprise Identity &amp; Auth (IdP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens&lt;/small&gt;" kind="SecurityAuthority" domains="technical, governance" cluster="cluster_client" vsm_system="S2_Coordination" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" security_role="Issues scoped actor delegations to agents (A2E)">
+        <object id="N_IDP" label="&lt;b&gt;Enterprise Identity &amp; Auth (IdP)&lt;/b&gt;&lt;br/&gt;&lt;small&gt;OAuth, OIDC, Workload IAM &amp; Ephemeral Tokens&lt;/small&gt;" kind="SecurityAuthority" domains="technical, governance" cluster="cluster_client" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="instances" security_role="Issues scoped actor delegations to agents (A2E)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_client">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_KNOWLEDGE_STORE" label="&lt;b&gt;Enterprise Semantic Knowledge Base&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Proprietary Vector DBs, Documents &amp; Embeddings&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_client" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MAP" coala_memory_type="Semantic Memory (Factual &amp; Document Knowledge)">
+        <object id="N_KNOWLEDGE_STORE" label="&lt;b&gt;Enterprise Semantic Knowledge Base&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Proprietary Vector DBs, Documents &amp; Embeddings&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_client" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MAP" cardinality_min="5.0" cardinality_max="6.0" cardinality_unit="instances" coala_memory_type="Semantic Memory (Factual &amp; Document Knowledge)">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_client">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator &amp; Overseer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Mandatory HITL Supervisor&lt;/small&gt;" kind="NaturalPerson" domains="technical, governance" cluster="cluster_client" vsm_system="S5_Policy" eu_ai_act_role="Deployer" nist_function="GOVERN" control_mode="Prompting, Art. 14 Human Oversight, Override">
+        <object id="N_HUMAN_USER" label="&lt;b&gt;Human Task Delegator &amp; Overseer&lt;/b&gt;&lt;br/&gt;&lt;small&gt;End User / Mandatory HITL Supervisor&lt;/small&gt;" kind="NaturalPerson" domains="technical, governance" cluster="cluster_client" vsm_system="S5_Policy" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Deployer" nist_function="GOVERN" cardinality_min="7.0" cardinality_max="8.5" cardinality_unit="natural_persons" control_mode="Prompting, Art. 14 Human Oversight, Override">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_client">
             <mxGeometry x="30" y="270" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
         <mxCell id="view_technical_cluster_environment" value="4. Target Execution Environment &amp; Blast Radius" style="swimlane;startSize=30;rounded=1;arcSize=8;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;fontStyle=1;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
-          <mxGeometry x="1000" y="40" width="280" height="310" as="geometry"/>
+          <mxGeometry x="1320" y="40" width="280" height="310" as="geometry"/>
         </mxCell>
-        <object id="N_TOOL_GATEWAY" label="&lt;b&gt;Capability &amp; Tool Gateway&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Decoupled Tool Broker &amp; Context Provider (MCP)&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_environment" vsm_system="S2_Coordination" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" security_role="Tool discovery, sandbox isolation, scope negotiation">
+        <object id="N_TOOL_GATEWAY" label="&lt;b&gt;Capability &amp; Tool Gateway&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Decoupled Tool Broker &amp; Context Provider (MCP)&lt;/small&gt;" kind="DeterministicGate" domains="technical, governance" cluster="cluster_environment" vsm_system="S2_Coordination" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="4.0" cardinality_max="5.0" cardinality_unit="instances" security_role="Tool discovery, sandbox isolation, scope negotiation">
           <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_environment">
             <mxGeometry x="30" y="50" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; Operational APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, Production ERP, Financial Rails&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_environment" vsm_system="S1_Operations" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" risk_zone="Direct Causation Blast Radius">
+        <object id="N_TARGET_SYS" label="&lt;b&gt;Target Systems &amp; Operational APIs&lt;/b&gt;&lt;br/&gt;&lt;small&gt;Databases, Production ERP, Financial Rails&lt;/small&gt;" kind="StateStore" domains="technical, governance" cluster="cluster_environment" vsm_system="S1_Operations" vsm_recursion_level="Level_n_Enterprise" jurisdiction="Global" eu_ai_act_role="Not_Applicable" nist_function="MANAGE" cardinality_min="6.0" cardinality_max="7.0" cardinality_unit="instances" risk_zone="Direct Causation Blast Radius">
           <mxCell style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#FFF1F0;strokeColor=#F5222D;strokeWidth=2;fontColor=#0F172A;" vertex="1" parent="view_technical_cluster_environment">
             <mxGeometry x="30" y="160" width="220" height="75" as="geometry"/>
           </mxCell>
         </object>
-        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1">
+        <mxCell id="E_SILICON_TO_TRAIN_ALLOCATION" value="Leading-Edge GPU Allocation &amp; Advanced Packaging (CoWoS)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_SILICON_CHOKEPOINT" target="N_TRAIN" parent="1" power_asymmetry="supplier_dominant" switching_cost="prohibitive" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1">
+        <mxCell id="E_ENERGY_TO_TRAIN_CONSTRAINT" value="Physical GW Power &amp; Transformer Bottleneck" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_ENERGY_GRID" target="N_TRAIN" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="liability_exposure">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_TRAIN_TO_OPEN_MODEL" value="Sunk-Cost Open Weights Release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TRAIN" target="N_OPEN_MODEL" parent="1">
+        <mxCell id="E_STANDARDS_TO_HARNESS_SPEC" value="Technical Control Standards &amp; Interoperability Profiles" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_STANDARDS_BODY" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_AUDIT_LOG" value="Cryptographic Tamper-Proof Audit Trail (Art. 12)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_AUDIT_STORE" parent="1">
+        <mxCell id="E_FRONTIER_TO_SAFETY_EVAL" value="Pre-Release Model Weight Access for National Security Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_FRONTIER" target="N_SAFETY_INSTITUTE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_GATEWAY_SCOPE" value="Enforces Least-Privilege Scopes (VSM 3 to 2)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1">
+        <mxCell id="E_TRAIN_TO_OPEN_MODEL" value="Sunk-Cost Open Weights Release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TRAIN" target="N_OPEN_MODEL" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1">
+        <mxCell id="E_HARNESS_TO_AUDIT_LOG" value="Cryptographic Tamper-Proof Audit Trail (Art. 12)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_AUDIT_STORE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_USER_TO_ISV_PROMPT" value="Prompt Intent &amp; Working Context" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HUMAN_USER" target="N_ISV_PRODUCT" parent="1">
+        <mxCell id="E_HARNESS_TO_GATEWAY_SCOPE" value="Enforces Least-Privilege Scopes (VSM 3 to 2)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_IDP_TO_HARNESS_A2E" value="A2E Workload Identity Delegation (OAuth/OIDC)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_IDP" target="N_HARNESS" parent="1">
+        <mxCell id="E_OBSERVE_S3_STAR_PROBE" value="VSM S3* Independent Behavioral Probe &amp; Red-Teaming" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;" edge="1" source="N_OBSERVE" target="N_TARGET_SYS" parent="1" power_asymmetry="" switching_cost="" polarity="negative" protocol_plane="NONE" relation_kind="governance_control">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ISV_TO_HARNESS_INIT" value="Initiates Autonomous Loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_HARNESS" parent="1">
+        <mxCell id="E_USER_TO_ISV_PROMPT" value="Prompt Intent &amp; Working Context" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HUMAN_USER" target="N_ISV_PRODUCT" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_FRONTIER_MIP" value="MIP Inference API (Tokens &amp; Directives)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_FRONTIER" parent="1">
+        <mxCell id="E_IDP_TO_HARNESS_A2E" value="A2E Workload Identity Delegation (OAuth/OIDC)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_IDP" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="A2E" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_KNOWLEDGE_RAG" value="RAG Semantic Retrieval &amp; Working Context (CoALA)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_KNOWLEDGE_STORE" parent="1">
+        <mxCell id="E_ISV_TO_HARNESS_INIT" value="Initiates Autonomous Loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_HARNESS_A2A" value="A2A Multi-Agent Delegation &amp; Peer Protocol" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_HARNESS" parent="1">
+        <mxCell id="E_HARNESS_TO_FRONTIER_MIP" value="MIP Inference API (Tokens &amp; Directives)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_FRONTIER" parent="1" power_asymmetry="supplier_dominant" switching_cost="high" polarity="positive" protocol_plane="MIP" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_OBSERVE_TRACE" value="Traces &amp; LLM Evaluation Metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_OBSERVE" parent="1">
+        <mxCell id="E_HARNESS_TO_KNOWLEDGE_RAG" value="RAG Semantic Retrieval &amp; Working Context (CoALA)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_KNOWLEDGE_STORE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_HARNESS_TO_GATEWAY_A2T" value="A2T Tool Calling &amp; Context Protocol (MCP / OpenAPI)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1">
+        <mxCell id="E_HARNESS_TO_HARNESS_A2A" value="A2A Multi-Agent Delegation &amp; Peer Protocol" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_HARNESS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="A2A" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_GATEWAY_TO_TARGET_ACTUATE" value="Authenticated Operations Execution (VSM System 1)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TOOL_GATEWAY" target="N_TARGET_SYS" parent="1">
+        <mxCell id="E_HARNESS_TO_OBSERVE_TRACE" value="Traces &amp; LLM Evaluation Metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_HARNESS" target="N_OBSERVE" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="E_ISV_TO_OPEN_MODEL" value="Self-Hosted / Private Inference (Zero Token Toll)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_OPEN_MODEL" parent="1">
+        <mxCell id="E_HARNESS_TO_GATEWAY_A2T" value="A2T Tool Calling &amp; Context Protocol (MCP / OpenAPI)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_HARNESS" target="N_TOOL_GATEWAY" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="A2T" relation_kind="protocol_call">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_GATEWAY_TO_TARGET_ACTUATE" value="Authenticated Operations Execution (VSM System 1)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;" edge="1" source="N_TOOL_GATEWAY" target="N_TARGET_SYS" parent="1" power_asymmetry="" switching_cost="" polarity="positive" protocol_plane="NONE" relation_kind="data_flow">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_ISV_TO_OPEN_MODEL" value="Self-Hosted / Private Inference (Zero Token Toll)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;" edge="1" source="N_ISV_PRODUCT" target="N_OPEN_MODEL" parent="1" power_asymmetry="buyer_dominant" switching_cost="low" polarity="positive" protocol_plane="MIP" relation_kind="protocol_call">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
       </root>

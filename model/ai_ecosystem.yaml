@@ -1,16 +1,16 @@
 # yaml-language-server: $schema=../schema/ai_ecosystem.json
 metadata:
   title: "AI Ecosystem Canonical Governance, Economic & Architecture Model"
-  version: "2.7"
-  description: "Single-source-of-truth property graph integrating cognitive agent state (CoALA), cybernetic control (Beer's VSM Systems 1-5), Ashby's variety calculus, and regulatory liability."
+  version: "2.9"
+  description: "Single-source-of-truth property graph integrating cognitive agent state (CoALA), cybernetic control (Beer's VSM Systems 1-5), standards bodies, safety institutes, physical semiconductor chokepoints, energy constraints, and market power asymmetry."
 
 clusters:
   - id: cluster_regulatory
     label: "0. Jurisdictional, Capital & Regulatory Sphere"
-    description: "Statutory authorities, standards bodies, underwriting insurers, and macro capital markets."
+    description: "Statutory authorities, standards bodies, national safety institutes, underwriting insurers, and macro capital markets."
   - id: cluster_supply
-    label: "1. Upstream Foundation & Model Lab"
-    description: "Training mega-compute hubs, frontier model providers, open-source commons, and platform absorption layers."
+    label: "1. Upstream Foundation, Silicon & Energy Supply"
+    description: "Semiconductor lithography, energy grids, training mega-compute hubs, frontier labs, open commons, and platform absorption."
   - id: cluster_product
     label: "2. Specialized Product & Harness Domain (ISV / Custom Runtime)"
     description: "Vertical AI applications, continuous observability/evals, and autonomous runtime harnesses."
@@ -26,20 +26,57 @@ nodes:
   # Cluster 0: Regulatory & Oversight (Recursion Level n+1: Meta-System)
   # ===================================================================
   - id: N_REGULATOR
-    label: "Market Surveillance Authorities"
-    sublabel: "EU AI Office, FTC, DPAs, Courts"
+    label: "Market Surveillance & Trade Authorities"
+    sublabel: "EU AI Office, FTC, BIS Export Controls, DPAs, Courts"
     cluster: cluster_regulatory
     domains: [governance]
     kind: StatutoryAuthority
     vsm_system: S5_Policy
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Multi_Jurisdictional
     eu_ai_act_role: Not_Applicable
     nist_function: GOVERN
     cardinality_log10_min: 1.0
     cardinality_log10_max: 2.0
     cardinality_unit: jurisdictions
     properties:
-      enforcement_powers: "Fines up to 7% global turnover (Art. 99), stop orders"
+      enforcement_powers: "Fines up to 7% global turnover (Art. 99), export control sanctions, stop orders"
+
+  - id: N_STANDARDS_BODY
+    label: "Standards Setting Organizations"
+    sublabel: "ISO/IEC JTC 1/SC 42, NIST, CEN-CENELEC, IEEE"
+    cluster: cluster_regulatory
+    domains: [governance, technical]
+    kind: StandardsConsortium
+    vsm_system: S2_Coordination
+    vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Global
+    eu_ai_act_role: Not_Applicable
+    nist_function: MAP
+    cardinality_log10_min: 1.0
+    cardinality_log10_max: 1.5
+    cardinality_unit: entities
+    properties:
+      harmonization_role: "Defines CEN-CENELEC harmonised European standards (hENs) and ISO/IEC 42001 AIMS controls"
+      variety_function: "Attenuates technical variety into standardized conformity benchmarks"
+
+  - id: N_SAFETY_INSTITUTE
+    label: "AI Safety & Horizon Institutes"
+    sublabel: "US AISI, UK AISI, Japan AISI, Frontier Evaluators"
+    cluster: cluster_regulatory
+    domains: [governance, technical]
+    kind: ForesightInstitute
+    vsm_system: S4_Intelligence
+    vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Multi_Jurisdictional
+    eu_ai_act_role: Not_Applicable
+    nist_function: MEASURE
+    cardinality_log10_min: 1.0
+    cardinality_log10_max: 1.5
+    cardinality_unit: entities
+    properties:
+      red_team_role: "Pre-deployment red-teaming, biosecurity/cyber capability evaluations, systemic risk thresholds"
+      vsm_role: "Macro System 4 horizon scanning feeding statutory policy"
 
   - id: N_AUDITOR
     label: "Conformity Body & ISO Auditor"
@@ -49,6 +86,7 @@ nodes:
     kind: StatutoryAuthority
     vsm_system: S3_Star_Audit
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Multi_Jurisdictional
     eu_ai_act_role: Not_Applicable
     nist_function: MEASURE
     cardinality_log10_min: 2.0
@@ -65,6 +103,7 @@ nodes:
     kind: EconomicEntity
     vsm_system: S3_Control
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MANAGE
     cardinality_log10_min: 2.0
@@ -81,18 +120,18 @@ nodes:
     kind: EconomicEntity
     vsm_system: S5_Policy
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: GOVERN
     cardinality_log10_min: 2.0
     cardinality_log10_max: 3.0
     cardinality_unit: entities
     properties:
-      financing_role: "Subsidizes CapEx overhang & absorbs initial operating losses"
+      financing_role: "Subsidizes CapEx overhang, silicon leases & nuclear PPAs"
 
   # ===================================================================
-  # Cluster 1: Upstream Foundation & Model Lab
+  # Cluster 1: Upstream Foundation, Silicon & Energy Supply
   # ===================================================================
-
   - id: N_SILICON_CHOKEPOINT
     label: "Leading-Edge Silicon & Lithography"
     sublabel: "ASML (EUV), TSMC (Foundry), Nvidia, HBM Memory"
@@ -101,6 +140,7 @@ nodes:
     kind: EconomicEntity
     vsm_system: S1_Operations
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MAP
     cardinality_log10_min: 0.0
@@ -118,6 +158,7 @@ nodes:
     kind: EconomicEntity
     vsm_system: S1_Operations
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Multi_Jurisdictional
     eu_ai_act_role: Not_Applicable
     nist_function: MAP
     cardinality_log10_min: 2.0
@@ -127,15 +168,15 @@ nodes:
       physical_bottleneck: "Substation transformer lead times of 3-5 years; GW-scale interconnection queues"
       environmental_impact: "Carbon intensity, baseline grid load, cooling water consumption"
 
-
   - id: N_TRAIN
-    label: "Training Supply Chain"
-    sublabel: "Data Curators, Annotators, Mega-Compute Hubs"
+    label: "Training Supply Chain & Compute Campuses"
+    sublabel: "Mega-Data Centers, Cluster Fabric, Data Curators"
     cluster: cluster_supply
     domains: [economic, technical]
     kind: EconomicEntity
     vsm_system: S1_Operations
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MAP
     cardinality_log10_min: 1.0
@@ -153,6 +194,7 @@ nodes:
     kind: SoftwareService
     vsm_system: S1_Operations
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Provider_GPAI
     nist_function: MEASURE
     cardinality_log10_min: 1.0
@@ -170,6 +212,7 @@ nodes:
     kind: SoftwareService
     vsm_system: S4_Intelligence
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Provider_GPAI
     nist_function: MAP
     cardinality_log10_min: 2.0
@@ -186,6 +229,7 @@ nodes:
     kind: EconomicEntity
     vsm_system: ENVIRONMENT
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: NOT_APPLICABLE
     cardinality_log10_min: 0.5
@@ -205,6 +249,7 @@ nodes:
     kind: SoftwareService
     vsm_system: S4_Intelligence
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Provider_System
     nist_function: MAP
     cardinality_log10_min: 4.0
@@ -221,6 +266,7 @@ nodes:
     kind: DeterministicGate
     vsm_system: S3_Control
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MANAGE
     cardinality_log10_min: 7.0
@@ -238,6 +284,7 @@ nodes:
     kind: StateStore
     vsm_system: S3_Control
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MEASURE
     cardinality_log10_min: 4.0
@@ -254,6 +301,7 @@ nodes:
     kind: SoftwareService
     vsm_system: S3_Star_Audit
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MEASURE
     cardinality_log10_min: 4.0
@@ -273,6 +321,7 @@ nodes:
     kind: EconomicEntity
     vsm_system: S5_Policy
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Multi_Jurisdictional
     eu_ai_act_role: Deployer
     nist_function: GOVERN
     cardinality_log10_min: 5.0
@@ -289,6 +338,7 @@ nodes:
     kind: SecurityAuthority
     vsm_system: S2_Coordination
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MANAGE
     cardinality_log10_min: 5.0
@@ -305,6 +355,7 @@ nodes:
     kind: StateStore
     vsm_system: S1_Operations
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MAP
     cardinality_log10_min: 5.0
@@ -321,6 +372,7 @@ nodes:
     kind: NaturalPerson
     vsm_system: S5_Policy
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Deployer
     nist_function: GOVERN
     cardinality_log10_min: 7.0
@@ -340,6 +392,7 @@ nodes:
     kind: DeterministicGate
     vsm_system: S2_Coordination
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MANAGE
     cardinality_log10_min: 4.0
@@ -356,6 +409,7 @@ nodes:
     kind: StateStore
     vsm_system: S1_Operations
     vsm_recursion_level: Level_n_Enterprise
+    jurisdiction: Global
     eu_ai_act_role: Not_Applicable
     nist_function: MANAGE
     cardinality_log10_min: 6.0
@@ -372,6 +426,7 @@ nodes:
     kind: NaturalPerson
     vsm_system: ENVIRONMENT
     vsm_recursion_level: Level_n_plus_1_Jurisdiction
+    jurisdiction: Global
     eu_ai_act_role: Affected_Subject
     nist_function: NOT_APPLICABLE
     cardinality_log10_min: 9.0
@@ -385,9 +440,8 @@ nodes:
 # ===================================================================
 edges:
   # ==========================================
-  # 1. Economic & Capital Flows
+  # 0. Physical Silicon & Energy Supply Edges
   # ==========================================
-
   - id: E_CAPITAL_TO_SILICON
     from: N_CAPITAL
     to: N_SILICON_CHOKEPOINT
@@ -396,6 +450,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: supplier_dominant
+    switching_cost: prohibitive
 
   - id: E_CAPITAL_TO_ENERGY
     from: N_CAPITAL
@@ -405,6 +461,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: supplier_dominant
+    switching_cost: prohibitive
 
   - id: E_REG_TO_SILICON_EXPORT
     from: N_REGULATOR
@@ -423,6 +481,8 @@ edges:
     relation_kind: data_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: supplier_dominant
+    switching_cost: prohibitive
 
   - id: E_ENERGY_TO_TRAIN_CONSTRAINT
     from: N_ENERGY_GRID
@@ -433,7 +493,48 @@ edges:
     protocol_plane: NONE
     polarity: negative
 
+  # ==========================================
+  # 1. Standards & Macro Foresight Edges
+  # ==========================================
+  - id: E_SAFETY_TO_REG_INTELLIGENCE
+    from: N_SAFETY_INSTITUTE
+    to: N_REGULATOR
+    label: "Pre-Deployment Evaluations & Systemic Risk Alerts (Macro S4 to S5)"
+    domains: [governance]
+    relation_kind: governance_control
+    protocol_plane: NONE
+    polarity: positive
 
+  - id: E_STANDARDS_TO_AUDITOR_BENCHMARK
+    from: N_STANDARDS_BODY
+    to: N_AUDITOR
+    label: "Harmonized Standards & Audit Specifications (ISO 42001 / CEN)"
+    domains: [governance, technical]
+    relation_kind: governance_control
+    protocol_plane: NONE
+    polarity: positive
+
+  - id: E_STANDARDS_TO_HARNESS_SPEC
+    from: N_STANDARDS_BODY
+    to: N_HARNESS
+    label: "Technical Control Standards & Interoperability Profiles"
+    domains: [technical, governance]
+    relation_kind: governance_control
+    protocol_plane: NONE
+    polarity: positive
+
+  - id: E_FRONTIER_TO_SAFETY_EVAL
+    from: N_FRONTIER
+    to: N_SAFETY_INSTITUTE
+    label: "Pre-Release Model Weight Access for National Security Red-Teaming"
+    domains: [governance, technical]
+    relation_kind: data_flow
+    protocol_plane: NONE
+    polarity: positive
+
+  # ==========================================
+  # 2. Economic & Capital Flows
+  # ==========================================
   - id: E_CAPITAL_TO_FRONTIER
     from: N_CAPITAL
     to: N_FRONTIER
@@ -442,6 +543,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: supplier_dominant
+    switching_cost: high
 
   - id: E_CAPITAL_TO_TRAIN
     from: N_CAPITAL
@@ -451,6 +554,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: balanced
+    switching_cost: high
 
   - id: E_ENT_TO_ISV_SUB
     from: N_ENTERPRISE
@@ -460,6 +565,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: balanced
+    switching_cost: moderate
 
   - id: E_ISV_TO_FRONTIER_TOKEN
     from: N_ISV_PRODUCT
@@ -469,6 +576,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: supplier_dominant
+    switching_cost: high
 
   - id: E_FRONTIER_TO_TRAIN_CAPEX
     from: N_FRONTIER
@@ -478,6 +587,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: positive
+    power_asymmetry: balanced
+    switching_cost: high
 
   - id: E_ENT_TO_INSURER_PREMIUM
     from: N_ENTERPRISE
@@ -487,6 +598,8 @@ edges:
     relation_kind: commercial_flow
     protocol_plane: NONE
     polarity: negative
+    power_asymmetry: balanced
+    switching_cost: moderate
 
   - id: E_ABSORBED_TENSION_ISV
     from: N_ABSORBED
@@ -496,6 +609,8 @@ edges:
     relation_kind: liability_exposure
     protocol_plane: NONE
     polarity: negative
+    power_asymmetry: captive
+    switching_cost: prohibitive
 
   - id: E_TRAIN_TO_OPEN_MODEL
     from: N_TRAIN
@@ -516,7 +631,7 @@ edges:
     polarity: negative
 
   # ==========================================
-  # 2. Governance, Regulatory & Liability Edges
+  # 3. Governance, Regulatory & Liability Edges
   # ==========================================
   - id: E_REG_TO_ENT_COMPLIANCE
     from: N_REGULATOR
@@ -636,7 +751,7 @@ edges:
     polarity: negative
 
   # ===================================================================
-  # 3. Cybernetic Control Channels (VSM S3* Audit & Algedonic Alarm)
+  # 4. Cybernetic Control Channels (VSM S3* Audit & Algedonic Alarm)
   # ===================================================================
   - id: E_OBSERVE_S3_STAR_PROBE
     from: N_OBSERVE
@@ -657,7 +772,7 @@ edges:
     polarity: negative
 
   # ==========================================
-  # 4. Technical & Protocol Edges
+  # 5. Technical & Protocol Edges
   # ==========================================
   - id: E_USER_TO_ISV_PROMPT
     from: N_HUMAN_USER
@@ -694,6 +809,8 @@ edges:
     relation_kind: protocol_call
     protocol_plane: MIP
     polarity: positive
+    power_asymmetry: supplier_dominant
+    switching_cost: high
 
   - id: E_HARNESS_TO_KNOWLEDGE_RAG
     from: N_HARNESS
@@ -757,3 +874,5 @@ edges:
     relation_kind: protocol_call
     protocol_plane: MIP
     polarity: positive
+    power_asymmetry: buyer_dominant
+    switching_cost: low

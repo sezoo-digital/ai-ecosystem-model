@@ -3,9 +3,10 @@
 Draw.io Multi-Page XML Exporter for AI Ecosystem Model.
 Outputs: static/exports/ai_ecosystem.drawio
 Maps:
-  - NodeKindEnum -> Native draw.io stencil shapes
-  - RelationKindEnum -> Semantic line styles & colors
-  - Domains -> Multi-page visual projections
+  - NodeKindEnum -> Native draw.io stencil shapes (including Standards & Foresight bodies)
+  - RelationKindEnum -> Semantic line styles, widths & colors (including algedonic_signal)
+  - Edge attributes -> Serializes power_asymmetry, switching_cost, polarity, and protocol_plane
+  - Multi-page projections -> Master Model + Economic, Governance, and Technical lenses
 """
 
 import sys
@@ -23,13 +24,15 @@ if sys.platform == "win32":
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 KIND_TO_SHAPE = {
-    "StatutoryAuthority": "shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;",
-    "NaturalPerson":      "ellipse;whiteSpace=wrap;html=1;",
-    "DeterministicGate":  "shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;",
-    "StateStore":         "shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;",
-    "SecurityAuthority":  "rounded=1;whiteSpace=wrap;html=1;arcSize=50;",
-    "SoftwareService":    "rounded=1;whiteSpace=wrap;html=1;arcSize=15;",
-    "EconomicEntity":     "rounded=0;whiteSpace=wrap;html=1;",
+    "StatutoryAuthority":   "shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;",
+    "StandardsConsortium":  "rounded=1;whiteSpace=wrap;html=1;arcSize=50;",
+    "ForesightInstitute":   "shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;",
+    "NaturalPerson":        "ellipse;whiteSpace=wrap;html=1;",
+    "DeterministicGate":    "shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;",
+    "StateStore":           "shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;",
+    "SecurityAuthority":    "rounded=1;whiteSpace=wrap;html=1;arcSize=50;",
+    "SoftwareService":      "rounded=1;whiteSpace=wrap;html=1;arcSize=15;",
+    "EconomicEntity":       "rounded=0;whiteSpace=wrap;html=1;",
 }
 
 def get_drawio_style(kind, domains):
@@ -46,7 +49,9 @@ def get_drawio_style(kind, domains):
     return f"{base_shape}fillColor={fill};strokeColor={stroke};strokeWidth=2;fontColor=#0F172A;"
 
 def get_edge_style(relation_kind):
-    if relation_kind == "commercial_flow":
+    if relation_kind == "algedonic_signal":
+        return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B91C1C;strokeWidth=4;html=1;"
+    elif relation_kind == "commercial_flow":
         return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#16A34A;strokeWidth=3;html=1;"
     elif relation_kind == "statutory_mandate":
         return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#722ED1;strokeWidth=3;html=1;"
@@ -56,8 +61,6 @@ def get_edge_style(relation_kind):
         return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E11D48;strokeWidth=2;dashed=1;html=1;"
     elif relation_kind == "protocol_call":
         return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563EB;strokeWidth=2;html=1;"
-    elif relation_kind == "algedonic_signal":
-        return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B91C1C;strokeWidth=4;html=1;"
     return "edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;strokeWidth=1.5;html=1;"
 
 def render_diagram_page(page_id, page_name, clusters, nodes, edges):
@@ -104,8 +107,13 @@ def render_diagram_page(page_id, page_name, clusters, nodes, edges):
                 "domains": ", ".join(domains_list),
                 "cluster": cid,
                 "vsm_system": n.get("vsm_system", ""),
-                "eu_ai_act_role": n.get("eu_ai_act_role", ""),
-                "nist_function": n.get("nist_function", ""),
+                "vsm_recursion_level": n.get("vsm_recursion_level", ""),
+                "jurisdiction": n.get("jurisdiction", "Global"),
+                "eu_ai_act_role": n.get("eu_ai_act_role") or "",
+                "nist_function": n.get("nist_function") or "",
+                "cardinality_min": str(n.get("cardinality_log10_min", "")),
+                "cardinality_max": str(n.get("cardinality_log10_max", "")),
+                "cardinality_unit": str(n.get("cardinality_unit", "")),
             }
             # Append dynamic properties
             for k, v in n.get("properties", {}).items():
@@ -127,7 +135,14 @@ def render_diagram_page(page_id, page_name, clusters, nodes, edges):
         rkind = e.get("relation_kind", "data_flow")
         style = get_edge_style(rkind)
         eid = html.escape(e.get("id", f"{page_id}_{e['from']}_{e['to']}"), quote=True)
-        xml.append(f'        <mxCell id="{eid}" value="{elbl}" style="{style}" edge="1" source="{e["from"]}" target="{e["to"]}" parent="1">')
+        asym = html.escape(str(e.get("power_asymmetry", "")), quote=True)
+        scost = html.escape(str(e.get("switching_cost", "")), quote=True)
+        polarity = html.escape(str(e.get("polarity", "neutral")), quote=True)
+        plane = html.escape(str(e.get("protocol_plane", "NONE")), quote=True)
+
+        edge_attrs = f'power_asymmetry="{asym}" switching_cost="{scost}" polarity="{polarity}" protocol_plane="{plane}" relation_kind="{html.escape(rkind, quote=True)}"'
+
+        xml.append(f'        <mxCell id="{eid}" value="{elbl}" style="{style}" edge="1" source="{e["from"]}" target="{e["to"]}" parent="1" {edge_attrs}>')
         xml.append('          <mxGeometry relative="1" as="geometry"/>')
         xml.append('        </mxCell>')
 

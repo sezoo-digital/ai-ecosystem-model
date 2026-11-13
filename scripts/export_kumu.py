@@ -3,8 +3,8 @@
 Kumu Dynamic Blueprint JSON Exporter for AI Ecosystem Model.
 Outputs: static/exports/ai_ecosystem_kumu.json
 Formats:
-  - Elements: Promotes Kind, VSM, NIST, and EU AI Act roles to Kumu fields
-  - Connections: Preserves relation_kind, protocol_plane, and polarity
+  - Elements: Promotes Kind, VSM System, Recursion Level, Ashby Variety, and Jurisdiction to Kumu fields
+  - Connections: Preserves relation_kind, protocol_plane, polarity, power_asymmetry, and switching_cost
 """
 
 import sys
@@ -56,6 +56,11 @@ def main():
         cid = n.get("cluster", "")
         cluster_name = clusters_map.get(cid, cid)
         
+        c_min = n.get("cardinality_log10_min")
+        c_max = n.get("cardinality_log10_max")
+        c_unit = n.get("cardinality_unit", "")
+        variety_str = f"10^{c_min:g}–10^{c_max:g} {c_unit}" if c_min is not None and c_max is not None else ""
+
         element = {
             "id": n["id"],
             "label": n.get("label", n["id"]),
@@ -64,13 +69,16 @@ def main():
             "tags": domains,
             "Kind": n.get("kind", "EconomicEntity"),
             "VSM System": n.get("vsm_system", ""),
-            "EU AI Act Role": n.get("eu_ai_act_role", ""),
-            "NIST Function": n.get("nist_function", ""),
+            "VSM Recursion Level": n.get("vsm_recursion_level", ""),
+            "Jurisdiction": n.get("jurisdiction", "Global"),
+            "Ashby Variety": variety_str,
+            "EU AI Act Role": n.get("eu_ai_act_role") or "Not Specified",
+            "NIST Function": n.get("nist_function") or "Not Specified",
             "Cluster": cluster_name,
             "Cluster ID": cid
         }
 
-        # Promote dynamic properties (e.g. cardinality, compute_profile, etc.)
+        # Promote dynamic properties (e.g. compute_profile, capex_cycle, etc.)
         for prop_key, prop_val in n.get("properties", {}).items():
             element[to_title_header(prop_key)] = prop_val
 
@@ -94,6 +102,12 @@ def main():
             "Polarity": polarity,
             "description": f"Kind: {rkind} | Protocol: {pplane} | Polarity: {polarity}"
         }
+
+        if "power_asymmetry" in e:
+            connection["Power Asymmetry"] = e["power_asymmetry"]
+        if "switching_cost" in e:
+            connection["Switching Cost"] = e["switching_cost"]
+
         blueprint["connections"].append(connection)
 
     with open(target_file, "w", encoding="utf-8") as f:
