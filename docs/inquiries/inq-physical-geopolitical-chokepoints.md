@@ -132,7 +132,7 @@ The entire $600B global AI capital cycle rests on a needlepoint of single-digit 
 
 ### 2. The Silicon Chokepoint — N_SILICON_CHOKEPOINT
 
-- **Single Point of Failure (Lithography):** All leading-edge training and inference silicon (<5nm) relies on Extreme Ultraviolet (EUV) photolithography machines produced by a single company in Veldhoven, Netherlands (**ASML**).
+- **Single Point of Failure (Lithography):** All leading-edge training and inference silicon (\<5nm) relies on Extreme Ultraviolet (EUV) photolithography machines produced by a single company in Veldhoven, Netherlands (**ASML**).
 
 - **Single Point of Failure (Foundry & Packaging):** Over 90% of advanced AI accelerators are fabricated and packaged using proprietary chip-on-wafer-on-substrate (CoWoS) technology by **TSMC in Hsinchu and Tainan, Taiwan**.
 
