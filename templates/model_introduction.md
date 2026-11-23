@@ -10,7 +10,7 @@ Our goal with this model is to balance **sufficient conceptual richness with suf
 
 > *"All models are wrong, but some are useful."* — George Box
 
-> *"A model is only useful **because** it simplifies reality"* - Borges' Map
+> *"A model is only useful because it **simplifies** reality"* - Borges' Map
 
 ---
 
