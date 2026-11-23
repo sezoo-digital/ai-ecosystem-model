@@ -120,6 +120,19 @@ def main():
             print(f"  {line}")
         print(f"  [OK] Completed in {time.time() - step_start:.2f}s")
 
+    # Verify optional claim-evidence ledgers; this does not assess semantic truth.
+    if inquiry_docs:
+        result = subprocess.run(
+            [sys.executable, str(SCRIPT_DIR / "validate_inquiry_claims.py"),
+             str(MODEL_FILE)] + inquiry_docs,
+            cwd=str(PROJECT_ROOT), env=env, capture_output=True,
+            text=True, encoding="utf-8", errors="replace"
+        )
+        print(result.stdout, end="")
+        if result.returncode != 0:
+            print(result.stderr, file=sys.stderr, end="")
+            sys.exit(1)
+
     # Run inquiry referential check
     validate_inquiries()
 

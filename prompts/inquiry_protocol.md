@@ -131,3 +131,12 @@ flowchart TB
    - Governance / Tensions: `-. "Label" .->`
    - Protocols & Data Flows: `-->|"Label"|`
 3. Always verify that Mermaid node and edge syntax parses without unescaped special characters or quotes.
+
+## Optional claim-level evidence ledger
+
+For claims whose provenance or limitations warrant explicit review, use the
+opt-in `claim_evidence` front matter and matching body anchors documented in
+[`docs/inquiry-claim-evidence.md`](../docs/inquiry-claim-evidence.md).
+The validator checks structure and canonical identifier existence, **not**
+semantic correctness or external source credibility. Absence of a ledger
+does not imply that every conclusion has been substantiated.

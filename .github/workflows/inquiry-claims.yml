@@ -1,0 +1,33 @@
+name: Inquiry claim evidence checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inquiry-claims:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install validator dependency
+        run: python -m pip install pyyaml linkml
+      - name: Run claim-ledger regression tests
+        run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Validate canonical claim references
+        run: python scripts/validate_inquiry_claims.py model/ai_ecosystem.yaml docs/inquiries/*.md
+      - name: Run canonical model and inquiry build
+        run: python scripts/build_all.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+      - name: Compile Docusaurus documentation
+        run: |
+          npm ci
+          npm run build

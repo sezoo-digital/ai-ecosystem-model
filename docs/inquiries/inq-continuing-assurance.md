@@ -34,6 +34,14 @@ active_edges:
   - {from: N_IDP, to: N_AGENT}
   - {from: N_IDP, to: N_TOOL_GATEWAY}
 highlight_mode: dim_others
+claim_evidence:
+  - id: C-ASSURANCE-01
+    classification: derived
+    model_refs: [E_OBSERVE_TO_AUDITOR, E_AUDIT_TO_AUDITOR]
+    assumptions:
+      - The existence of evidence routes does not establish evidence completeness or independence.
+    limitations:
+      - No independent evidence-custody assessment is encoded in these edges.
 ---
 
 # Continuing Assurance: Can We Still Trust Yesterday's Approval Today?
@@ -112,7 +120,7 @@ Edge `E_REG_TO_AUDITOR` represents recognition, supervision, potential suspensio
 
 ### 2. Evidence and External Reporting Pathways
 Can adverse evidence reach actors competent to reassess an existing determination, and is that evidence sufficiently independent?
-* **Enterprise-operated telemetry:** `E_OBSERVE_TO_AUDITOR` carries behavioral evaluation evidence to `N_AUDITOR`. It establishes an evidence route, not independent verification, since the evaluation is enterprise-operated. `E_AUDIT_TO_AUDITOR` likewise supplies audit-store evidence without establishing its completeness.
+* **Enterprise-operated telemetry:** `E_OBSERVE_TO_AUDITOR` carries behavioral evaluation evidence to `N_AUDITOR`. It establishes an evidence route, not independent verification, since the evaluation is enterprise-operated. <!-- claim: C-ASSURANCE-01 --> `E_AUDIT_TO_AUDITOR` likewise supplies audit-store evidence without establishing its completeness.
 * **Affected-party complaints:** `E_AFFECTED_TO_REG_COMPLAINT` brings complaints to `N_REGULATOR`; `E_REG_TO_AUDITOR` represents supervisory powers that may be used in response. The path does not guarantee investigation, a changed determination, or timely enforcement.
 * **Civil-society and policy attention:** `E_CIVIL_TO_LEG_ALARM` represents reports reaching `N_LEGISLATURE`, while `E_LEG_TO_REG_MANDATE` represents the legislature's authority over regulators. These are routes for public and institutional pressure, not automatic changes in statutory powers or assurance outcomes. Both relationships carry delays in the canonical model.
 
