@@ -30,15 +30,15 @@ Inquiries that highlight a real-world gap are our most valuable outputs—they p
 The model uses four frameworks to create a single, machine readable property graph:
 
 #### 1. Cybernetic Control: Stafford Beer’s Viable System Model (VSM)
-Traditional governance models rely on static organizational charts. In contrast, Beer’s VSM[^1] assesses whether a system possesses the operational variety and regulatory feedback required to remain **viable** under dynamic (changing) conditions. The model divides an organization into two main halves: System 1 (\"S<sub>1</sub>\", Operations), which does the primary work, and Systems 2–5 (\"S<sub>2-5</sub>\", the Meta-System), which coordinate, control, plan, and govern the whole enterprise. Two other key concepts are recursion: a viable system is considered a fractal; and algedonic signals, emergency alert channels.  
+Traditional governance models rely on static organizational charts. In contrast, Beer’s VSM[^1] assesses whether a system possesses the operational variety and regulatory feedback required to remain **viable** under dynamic (changing) conditions. The model divides an organization into two main halves: System 1 (\"S<sub>1</sub>\", Operations), which does the primary work, and Systems 2–5 (\"S<sub>2-5</sub>\", the Meta-System), which coordinate, control, plan, and govern the whole enterprise. Two other key concepts are *recursion*: a viable system is considered a fractal; and *algedonic signals*: emergency alert channels.  
 
-* **Viewpoint-Relative Recursion:** VSM roles are not intrinsic node tags. An entity's role depends on the chosen system-in-focus. We model two primary recursion levels:
+* **Viewpoint-Relative Recursion:** VSM roles are not defined by node tags. An entity's role depends on the chosen system-in-focus. We model two primary recursion levels:
   * **Level 0 (Enterprise AI Operations):** How an enterprise balances autonomous agent operations (*S<sub>1</sub>*) through coordination (*S<sub>2</sub>*), policy kernels and audit stores (*S<sub>3</sub>*), risk intelligence (*S<sub>4</sub>*), and executive direction (*S<sub>5</sub>*).
   * **Level +1 (Societal & Jurisdictional Governance):** How global markets (*S<sub>1</sub>*), standards bodies (*S<sub>2</sub>*), regulators and courts (*S<sub>3</sub>*), safety institutes (*S<sub>4</sub>*), and legislature (*S<sub>5</sub>*) maintain macro-societal viability.
 * **The Algedonic Channel:** A dedicated emergency tripwire that bypasses intermediate bureaucratic layers (*S<sub>3</sub>*) directly to ultimate policy closure (*S<sub>5</sub>*) when critical failures or systemic harms occur.
 
 #### 2. Value Chains & Capital Constraints: Simon Wardley’s Evolution Mapping
-Components in the AI stack do not share the same economic properties. We track the evolution of value-chain components using a Wardley Maps[^2] scale from from **Genesis** → **Custom-Built** → **Product** → **Commodity**:
+Components in the AI stack do not share the same economic properties. We are trying to map the evolution of value-chain components using a Wardley Maps[^2] scale from from **Genesis → Custom-Built → Product → Commodity**:
 * **Physical & Capital Chokepoints:** Photolithography equipment (ASML EUV) and leading-edge semiconductor packaging (TSMC CoWoS) remain rare, highly centralized capital assets with multi-year construction lead times and *prohibitive* switching costs.
 * **Artificial Lock-In on Utilities:** Cloud compute and raw storage are commodity utilities, yet hyperscalers construct artificial switching costs through egress fees, proprietary IAM meshes, and bundled foundation models.
 
