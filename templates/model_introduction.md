@@ -2,7 +2,7 @@
 
 ### Welcome to Sezoo's **AI Ecosystem Model**
 
-This model is an interactive conceptual map designed to help decision-makers, architects, and regulators explore and make sense of the global AI ecosystem. 
+This is an interactive model designed to help decision-makers, architects, and regulators explore and make sense of the global AI ecosystem. 
 
 Most analyses view AI through a single, isolated lens: engineers focus on model weights and APIs; economists analyze CapEx and subscription margins; lawyers debate liability regimes; and safety researchers evaluate model alignment. In reality, these domains are connected by explicit and implicit relationships. There is no hierarchy in these relationships - no view is "superior" to the other, but there are side-effects and consequences. Pulling one thread can affect many others, and sometimes with unexpected consequences. 
 
