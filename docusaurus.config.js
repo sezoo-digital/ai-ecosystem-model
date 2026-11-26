@@ -113,10 +113,14 @@ const config = {
                 label: 'GitHub Repository',
                 href: 'https://github.com/Sezoo/ai-ecosystem-model',
               },
+              {
+                label: 'Licence & Attribution',
+                to: '/licence', // Links directly to src/pages/licence.md
+              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Sezoo. Built with Docusaurus & Mermaid.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Sezoo. Content licensed under <a href="/licence" style="color: var(--sezoo-brand-blue); text-decoration: underline;">CC BY-SA 4.0</a>. Code under MIT.`,
       },
       prism: {
         theme: prismThemes.github,

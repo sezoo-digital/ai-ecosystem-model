@@ -4,6 +4,7 @@ metadata:
   version: "3.3"
   schema_version: "3.2.0"
   as_of: 2026-11-17
+  license: "CC-BY-SA-4.0"
   description: "Property graph of the AI ecosystem: value chain, control structure (viewpoint-relative VSM frames), liability, adversaries and named feedback loops, with Wardley evolution stage on value-chain components."
   provenance_note: "Cardinalities are order-of-magnitude estimates and are unsourced; weaker ones are flagged confidence: low. Sources are attached only to claims checked on 2026-11-15 (EU AI Act fine tiers, GPAI fining powers, safety-institute names). Other EU AI Act article references (e.g. Art. 12, 14, 43, 85) are unverified; check against the current consolidated text."
 
