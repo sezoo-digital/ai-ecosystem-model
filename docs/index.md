@@ -20,18 +20,19 @@ Our goal with this model is to balance **sufficient conceptual richness with suf
 
 > *"A model is only useful because it **simplifies** reality"* - Borges' Map
 
+One glaring omission is that we have not (yet) included a philosophical dimension to the model. There are no perspectives in the model on what intelligence actually is, where it might be in an AI ecosystem if it DOES exist, and whether that actually matters when things that lack intelligence can be still be useful and dangerous. Anyhow, we haven't included this, yet. Sorry.
+
 ---
 
 ### Modeling Reality, Warts and All (Descriptive, Not Prescriptive)
 
-A common flaw in governance modeling is to design an idealized world where every control works and every loop closes cleanly. This model takes the opposite approach: **it maps empirical reality, warts and all.**
+A common flaw in governance modeling is to design an idealized world where every control works and every loop closes cleanly. This model takes the opposite approach: **it maps empirical reality, warts and all.** This is made clear in the way that we consider the results of inqueries on the model. When exploring inquiries, the findings fall into three categories:
 
-When exploring inquiries on this site, findings fall into three categories:
-* **The System Works (Type 1):** The model traces how existing statutory, economic, or technical mechanisms function.
-* **The Model Has a Gap (Type 2):** Reality has a working practice that our map hasn't captured yet (which we actively patch via community issues).
+* **The System Works (Type 1):** The model traces how existing statutory, economic, or technical mechanisms function. We can explain some phenomena with the model.
+* **The Model Has a Gap (Type 2):** Reality has a working practice that our model hasn't captured yet (which we actively patch via community issues).
 * **Reality Has a Gap (Type 3):** The model reveals a severed recourse chain, an unverified credential, or an insurmountable chokepoint **because reality is currently broken**.
 
-Inquiries that highlight a real-world gap are our most valuable outputs—they point directly to where liability is unassigned, where safety checks are superficial, or where market captivity exists.
+Inquiries that highlight a real-world gap are our most valuable outputs—they point directly to where liability is unassigned, where safety checks are superficial, or where market captivity exists. We'd rather help improve AI understanding and AI, than improve our model. The model needs to be good enough to be useful.
 
 ### The Theoretical Foundations
 

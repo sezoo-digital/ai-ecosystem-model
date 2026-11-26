@@ -115,7 +115,7 @@ const config = {
               },
               {
                 label: 'Licence & Attribution',
-                to: '/licence', // Links directly to src/pages/licence.md
+                to: '/license', 
               },
             ],
           },
